@@ -1,0 +1,51 @@
+id;name;dob;program
+001;Ana Torres;1999-04-25;Computer Science
+002;John Smith;1973-12-07;Engineering
+003;Laura Rios;2008-09-15;Design
+004;Camilo Vega;1960-02-01;Mathematics
+005;David Perez;1985-07-30;Law
+006;Maria Lopez;2001/10/15;Medicine
+007;Julian Castro;29/02/2000;Architecture
+008;Sofia Ruiz;1988-11-22;Economics
+009;Pedro Alvarez;1950-05-09;Philosophy
+010;Valentina Diaz;2004-02-29;Music
+011;Luis Morales;"Feb 29, 2008";History
+012;Catalina Gomez;1997-03-03;Biology
+013;Nicolas Herrera;1978-06-06;Engineering
+014;Daniela Pardo;1983-08-19;Law
+015;Felipe Soto;2015-01-25;Computer Science
+016;Carolina Reyes;2009-10-31;Design
+017;Samuel Ortega;1965-12-01;Mathematics
+018;Andrea Medina;1947-04-12;Philosophy
+019;Diego Romero;1990-09-30;Engineering
+020;Lina Rojas;2003-02-28;Economics
+021;Juan Esteban;2003-2-28;Law
+022;Santiago Vargas;1971-07-21;History
+023;Lucia Fernandez;1982-03-14;Medicine
+024;Manuel Duarte;2010-05-10;Architecture
+025;Camila Cabrera;2013-11-11;Computer Science
+026;Ricardo Salas;29/02/2004;Biology
+027;Laura Martinez;1968-01-01;Law
+028;Mateo Gutierrez;1996-12-12;Engineering
+029;Paula Castro;2005-08-08;Economics
+030;Esteban Sanchez;2000-02-29;History
+031;Sara Jaramillo;1995-06-06;Philosophy
+032;Andres Lopez;2018-07-07;Medicine
+033;Carla Morales;"Feb 29, 2012";Design
+034;Miguel Torres;1981-01-01;Engineering
+035;Isabella Mendez;1977-09-09;Architecture
+036;Tomas Ruiz;1946-02-02;Philosophy
+037;Mariana Cardenas;2012-04-04;Law
+038;Jose Ramirez;2007-06-20;Computer Science
+039;Sebastian Silva;29/02/2016;Music
+040;Angela Suarez;2020-01-15;Design
+041;Oscar Gonzalez;1992-05-05;Engineering
+042;Valeria Arias;2019-12-12;Mathematics
+043;Martin Alvarez;"Feb 29, 2000";Economics
+044;Daniel Torres;2001-07-23;Biology
+045;Victoria Lopez;1963-08-18;History
+046;Juan Pablo Castro;1989-04-01;Architecture
+047;Natalia Garcia;2002-02-02;Law
+048;Sergio Martinez;29/02/1980;Philosophy
+049;Adriana Torres;2008-03-17;Medicine
+050;Diego Martinez;2011-11-11;Economics

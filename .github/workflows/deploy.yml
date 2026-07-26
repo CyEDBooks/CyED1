@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Angela Villota, and collaborators from the CyED block
+# Licensed under the PolyForm Noncommercial License 1.0.0.
+# Commercial use is prohibited without prior written authorization.
+
+# This file was created automatically with `jupyter-book init --gh-pages`
+# Ensure your GitHub Pages settings are set to deploy with GitHub Actions.
+
+name: Jupyter Book (via myst) GitHub Pages Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  # If your site is https://username.github.io/repository-name
+  BASE_URL: /${{ github.event.repository.name }}
+
+  # If your site is https://username.github.io
+  # use this instead:
+  # BASE_URL: ''
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          fi
+
+      - name: Build HTML assets
+        run: jupyter-book build --html --strict
+
+      # The static exporter uses the stable name `myst-theme.css`. Fingerprint
+      # that file so browsers cannot reuse an older copy after a deployment.
+      - name: Fingerprint and verify the custom theme
+        shell: bash
+        run: |
+          theme_source="_build/html/myst-theme.css"
+          grep -Fq 'html.dark table' "$theme_source"
+          grep -Fq 'html.dark table tr:first-child > th' "$theme_source"
+
+          theme_hash="$(sha256sum "$theme_source" | cut -c1-12)"
+          theme_name="myst-theme-${theme_hash}.css"
+          cp "$theme_source" "_build/html/${theme_name}"
+
+          find _build/html -type f -name '*.html' \
+            -exec perl -pi -e "s/myst-theme\\.css/${theme_name}/g" {} +
+
+          if grep -R -Fq 'myst-theme.css' _build/html --include='*.html'; then
+            echo 'The static HTML still references the non-fingerprinted theme.' >&2
+            exit 1
+          fi
+
+          grep -R -Fq "$theme_name" _build/html --include='*.html'
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: './_build/html'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
