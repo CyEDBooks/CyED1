@@ -122,7 +122,10 @@ $A \subseteq B$ y $B \subseteq A$
 
 **Ejemplo:**
 
-![Diagrama de Venn](images/venn-numbers.png)
+:::{image} images/venn-numbers.png
+:alt: Diagrama de Venn
+:width: 100%
+:::
 
 ---
 
@@ -1340,4 +1343,4 @@ En resumen, un *nodo negro puede tener hijos negros* porque es una estrategia cl
 
 Continúa con los [ejercicios de Conjuntos](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

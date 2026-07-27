@@ -433,4 +433,4 @@ No existe una opción universalmente mejor: la elección depende de los **recurs
 
 Continúa con los [ejercicios de Complejidad espacial](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

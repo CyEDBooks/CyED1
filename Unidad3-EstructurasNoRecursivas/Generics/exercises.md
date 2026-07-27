@@ -69,4 +69,4 @@ Cada clase debe tener un método buscar; al usar `equals`, la clase debe tener u
 
 ---
 
-*Contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original del profesor Marlon Gomez.*

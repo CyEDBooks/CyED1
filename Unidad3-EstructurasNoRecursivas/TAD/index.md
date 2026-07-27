@@ -386,4 +386,4 @@ Al representar el objeto abstracto como una tupla, la traducción de cada operac
 
 Continúa con los [ejercicios de TAD](exercises.md).
 
-*Material adaptado del material original del profesor Andrés Aristizábal, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Andrés Aristizábal y Marlon Gomez.*

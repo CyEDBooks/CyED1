@@ -328,7 +328,10 @@ Analicemos las propiedades de orden y forma de estos montículos:
 
 **Algoritmo MAX-HEAPIFY**
 
-![MAX-HEAPIFY](images/heap10.png)
+:::{image} images/heap10.png
+:alt: MAX-HEAPIFY
+:width: 100%
+:::
 
 **¿Cómo funciona el MAX-HEAPIFY?**
 
@@ -338,9 +341,20 @@ Analicemos las propiedades de orden y forma de estos montículos:
 
 **Ejemplo de MAX-HEAPIFY**
 
-![Heap 11](images/heap11.png)
-![Heap 12](images/heap12.png)
-![Heap 13](images/heap13.png)
+:::{image} images/heap11.png
+:alt: Heap 11
+:width: 100%
+:::
+
+:::{image} images/heap12.png
+:alt: Heap 12
+:width: 100%
+:::
+
+:::{image} images/heap13.png
+:alt: Heap 13
+:width: 100%
+:::
 
 **¿Qué hace la operación BUILD-MAX-HEAP?**
 
@@ -348,16 +362,42 @@ Analicemos las propiedades de orden y forma de estos montículos:
 
 **Algoritmo BUILD-MAX-HEAP**
 
-![BUILD-MAX-HEAP](images/buildmax.png)
+:::{image} images/buildmax.png
+:alt: BUILD-MAX-HEAP
+:width: 100%
+:::
 
 **Ejemplo de BUILD-MAX-HEAP**
 
-![Paso 1](images/b1.png)
-![Paso 2](images/b2.png)
-![Paso 3](images/b3.png)
-![Paso 4](images/b4.png)
-![Paso 5](images/b5.png)
-![Paso 6](images/b6.png)
+:::{image} images/b1.png
+:alt: Paso 1
+:width: 100%
+:::
+
+:::{image} images/b2.png
+:alt: Paso 2
+:width: 100%
+:::
+
+:::{image} images/b3.png
+:alt: Paso 3
+:width: 100%
+:::
+
+:::{image} images/b4.png
+:alt: Paso 4
+:width: 100%
+:::
+
+:::{image} images/b5.png
+:alt: Paso 5
+:width: 100%
+:::
+
+:::{image} images/b6.png
+:alt: Paso 6
+:width: 100%
+:::
 
 ---
 
@@ -446,4 +486,4 @@ public int extractMax() {
 
 Continúa con los [ejercicios de Cola de prioridad](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

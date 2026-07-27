@@ -210,4 +210,4 @@ public class MainListaEnlazada {
 }
 ```
 
-*Material adaptado del material original del profesor Andrés Aristizábal, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Andrés Aristizábal y Marlon Gomez.*

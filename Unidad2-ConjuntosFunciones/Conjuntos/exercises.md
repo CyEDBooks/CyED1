@@ -965,4 +965,4 @@ en orden ascendente — `TreeSet` hizo el trabajo de ordenar y deduplicar
 durante las inserciones, sin ningún paso extra.
 :::
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

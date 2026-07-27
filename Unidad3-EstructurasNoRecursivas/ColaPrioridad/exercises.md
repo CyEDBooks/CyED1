@@ -57,4 +57,4 @@ con $heapsize(A) = 10$
 
 ---
 
-*Contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original del profesor Marlon Gomez.*

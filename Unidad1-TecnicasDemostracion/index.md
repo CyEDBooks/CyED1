@@ -671,4 +671,4 @@ Que es la fórmula para $n = k+1$. Por lo tanto, la afirmación es verdadera par
 
 Continúa con los [ejercicios de la Unidad 1](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

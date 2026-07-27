@@ -227,4 +227,4 @@ El mejor caso de InsertionSort es O(n) porque, si el arreglo ya está ordenado, 
 
 ---
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

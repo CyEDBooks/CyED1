@@ -458,7 +458,10 @@ $$
 
 **Ejemplo visual:**
 
-![Función inyectiva](images/inyectiva.png)
+:::{image} images/inyectiva.png
+:alt: Función inyectiva
+:width: 100%
+:::
 
 ---
 
@@ -552,7 +555,10 @@ $$
 
 **Ejemplo visual:**
 
-![Función sobreyectiva](images/sobreyectiva.png)
+:::{image} images/sobreyectiva.png
+:alt: Función sobreyectiva
+:width: 100%
+:::
 
 ---
 
@@ -604,7 +610,10 @@ Una función es **biyectiva** si es **inyectiva y sobreyectiva** al mismo tiempo
 
 **Ejemplo visual:**
 
-![Función biyectiva](images/biyeccion.png)
+:::{image} images/biyeccion.png
+:alt: Función biyectiva
+:width: 100%
+:::
 
 ## Función inversa
 
@@ -813,4 +822,4 @@ $$
 
 Continúa con los [ejercicios de Relaciones y Funciones](exercises.md).
 
-*Material adaptado del material original de los profesores Oscar Bedoya y Andrés Aristizábal, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya, Andrés Aristizábal y Marlon Gomez.*

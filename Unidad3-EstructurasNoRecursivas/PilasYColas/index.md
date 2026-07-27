@@ -156,7 +156,10 @@ $T(n) = O(1)$, tiempo constante.
 - Se considera una estructura de acceso limitado, ya que solo se puede insertar y extraer desde la parte superior.
 - Es una estructura recursiva.
 
-![Pila](images/stack.png)
+:::{image} images/stack.png
+:alt: Pila
+:width: 100%
+:::
 
 **¿Cuál sería una definición estructural de una pila?**
 
@@ -660,4 +663,4 @@ public int dequeue() {
 
 Continúa con los [ejercicios de Pilas y Colas](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

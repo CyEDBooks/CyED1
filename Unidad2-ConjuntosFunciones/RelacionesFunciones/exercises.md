@@ -108,4 +108,4 @@ Demuestre que si $x$ es un número real, entonces $\lfloor -x \rfloor = -\lceil 
 
 ---
 
-*Contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original del profesor Marlon Gomez.*

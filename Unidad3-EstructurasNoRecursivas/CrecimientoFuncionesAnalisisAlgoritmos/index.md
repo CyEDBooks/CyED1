@@ -1533,4 +1533,4 @@ public class QuickSort {
 
 Continúa con los [ejercicios de Crecimiento de funciones y Análisis de algoritmos](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

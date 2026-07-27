@@ -77,4 +77,4 @@ Con el método de división $h(k) = k \bmod m$ y $m = 2^3 = 8$, calcule $h(k)$ p
 
 ---
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*

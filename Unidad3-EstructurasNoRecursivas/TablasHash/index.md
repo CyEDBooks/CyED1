@@ -601,4 +601,4 @@ private int hashFunction(int k)
 
 Continúa con los [ejercicios de Tablas Hash](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Marlon Gomez.*
