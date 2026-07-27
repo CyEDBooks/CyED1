@@ -71,7 +71,7 @@ Representa el conjunto que no tiene elementos, se puede expresar de las dos sigu
 - $\varnothing$
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Conjunto
 
@@ -221,7 +221,7 @@ Sean $P=\{1,2\}$, $Q=\{1,2,3\}$, $R=\{1,2,3\}$, se cumple:
 - $Q \subseteq R$ pero $Q \not\subset R$
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Relación de inclusión
 
@@ -374,7 +374,7 @@ Por ejemplo:
 :::
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Cardinalidad
 
@@ -1253,7 +1253,7 @@ Elegir la implementación correcta depende de:
 - ¿Se necesita ordenamiento automático?
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Interface Set
 
@@ -1340,4 +1340,4 @@ En resumen, un *nodo negro puede tener hijos negros* porque es una estrategia cl
 
 Continúa con los [ejercicios de Conjuntos](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya.*
+*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*

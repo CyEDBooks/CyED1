@@ -18,15 +18,15 @@ project:
     - grafos
     - java
   authors:
+    - name: Angela Villota
+      affiliation: Universidad Icesi
+      email: apvillota@icesi.edu.co
     - name: Juan Marcos Caicedo Mejía
       affiliation: Universidad Icesi
       email: jmcaicedo@icesi.edu.co
     - name: Marlon Gomez Victoria
       affiliation: Universidad Icesi
       email: marlon.gomez1@u.icesi.edu.co
-    - name: Angela Villota
-      affiliation: Universidad Icesi
-      email: apvillota@icesi.edu.co
     - name: Andrés Aristizabal
       affiliation: Universidad Icesi
       email: aaaristizabal@icesi.edu.co
@@ -49,6 +49,36 @@ project:
           title: "Relaciones y Funciones: Estudio"
         - file: Unidad2-ConjuntosFunciones/RelacionesFunciones/exercises.md
           title: "Relaciones y Funciones: Ejercicios"
+    - title: "Unidad 3: Estructuras discretas no recursivas y análisis de algoritmos"
+      children:
+        - file: Unidad3-EstructurasNoRecursivas/CrecimientoFuncionesAnalisisAlgoritmos/index.md
+          title: "Crecimiento de funciones y Análisis de algoritmos: Estudio"
+        - file: Unidad3-EstructurasNoRecursivas/CrecimientoFuncionesAnalisisAlgoritmos/exercises.md
+          title: "Crecimiento de funciones y Análisis de algoritmos: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/PilasYColas/index.md
+          title: "Pilas y Colas: Estudio"
+        - file: Unidad3-EstructurasNoRecursivas/PilasYColas/exercises.md
+          title: "Pilas y Colas: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/TablasHash/index.md
+          title: "Tablas Hash: Estudio"
+        - file: Unidad3-EstructurasNoRecursivas/TablasHash/exercises.md
+          title: "Tablas Hash: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/ColaPrioridad/index.md
+          title: "Cola de prioridad: Estudio"
+        - file: Unidad3-EstructurasNoRecursivas/ColaPrioridad/exercises.md
+          title: "Cola de prioridad: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/Generics/index.md
+          title: "Generics: Estudio"
+        - file: Unidad3-EstructurasNoRecursivas/Generics/exercises.md
+          title: "Generics: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/TAD/index.md
+          title: "TAD: Estudio"
+        - file: Unidad3-EstructurasNoRecursivas/TAD/exercises.md
+          title: "TAD: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/ComplejidadEspacial/index.md
+          title: "Complejidad espacial: Estudio"
+        - file: Unidad3-EstructurasNoRecursivas/ComplejidadEspacial/exercises.md
+          title: "Complejidad espacial: Ejercicios"
   github: https://github.com/CyEDBooks/CyED1
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
 site:

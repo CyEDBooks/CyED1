@@ -10,7 +10,7 @@ title: "Relaciones y Funciones: Ejercicios"
 Use esta página después de leer el [material de estudio de Relaciones y Funciones](index.md).
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Ejercicios Funciones
 
@@ -105,3 +105,7 @@ Demuestre que si $n$ es un número entero, entonces $\lfloor n/2 \rfloor = n/2$ 
 
 **Ejercicio 17**
 Demuestre que si $x$ es un número real, entonces $\lfloor -x \rfloor = -\lceil x \rceil$ y $\lceil -x \rceil = -\lfloor x \rfloor$
+
+---
+
+*Contenido adicional del profesor Marlon Gomez.*

@@ -8,7 +8,7 @@ title: "Unidad 1: Métodos de demostración"
 # Unidad 1: Métodos de demostración
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ## La lógica formal
 
@@ -395,7 +395,7 @@ $$
 $$
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Demostración por Reducción al Absurdo
 
@@ -542,7 +542,7 @@ $$
 - $\forall x \forall y \; ((x>0 \land y>0) \rightarrow x-y>0)$
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Demostración por contraejemplo (repaso)
 
@@ -671,4 +671,4 @@ Que es la fórmula para $n = k+1$. Por lo tanto, la afirmación es verdadera par
 
 Continúa con los [ejercicios de la Unidad 1](exercises.md).
 
-*Material adaptado del material original del profesor Oscar Bedoya.*
+*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*

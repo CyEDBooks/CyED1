@@ -34,7 +34,7 @@ $$
 > "$2^{n}+1$ es un número primo para todos los enteros no negativos $n$"
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ## Ejercicios métodos formales
 
@@ -71,4 +71,4 @@ Demuestre que si $x$ es un número racional distinto de cero, entonces $1/x$ es 
 **Ejercicio 10**
 Sea $n$ un entero positivo, demuestre que $n$ es par si y sólo si $7n + 4$ es par.
 
-*Material adaptado del material original del profesor Oscar Bedoya.*
+*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*

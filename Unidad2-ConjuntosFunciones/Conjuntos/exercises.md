@@ -227,7 +227,7 @@ $\overline{S} \cap \overline{T} = \lbrace 6,9,10 \rbrace$ ✔
 :::
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Ejercicios teoría de conjuntos
 
@@ -554,7 +554,7 @@ Frente a la solución con `ArrayList` → ~15 000 000 000 operaciones.
 :::
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Ejercicios Interface Set
 
@@ -965,4 +965,4 @@ en orden ascendente — `TreeSet` hizo el trabajo de ordenar y deduplicar
 durante las inserciones, sin ningún paso extra.
 :::
 
-*Material adaptado del material original del profesor Oscar Bedoya.*
+*Material adaptado del material original del profesor Oscar Bedoya, con contenido adicional del profesor Marlon Gomez.*

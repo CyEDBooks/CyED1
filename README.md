@@ -9,9 +9,9 @@ title: Computación y Estructuras Discretas I
 
 **Authors:**
 
-1. Juan Marcos Caicedo Mejía · [jmcaicedo@icesi.edu.co](mailto:jmcaicedo@icesi.edu.co)
-2. Marlon Gomez Victoria · [marlon.gomez1@u.icesi.edu.co](mailto:marlon.gomez1@u.icesi.edu.co)
-3. Angela Villota · [apvillota@icesi.edu.co](mailto:apvillota@icesi.edu.co)
+1. Angela Villota · [apvillota@icesi.edu.co](mailto:apvillota@icesi.edu.co)
+2. Juan Marcos Caicedo Mejía · [jmcaicedo@icesi.edu.co](mailto:jmcaicedo@icesi.edu.co)
+3. Marlon Gomez Victoria · [marlon.gomez1@u.icesi.edu.co](mailto:marlon.gomez1@u.icesi.edu.co)
 4. Andrés Aristizabal · [aaaristizabal@icesi.edu.co](mailto:aaaristizabal@icesi.edu.co)
 
 ## Presentación
@@ -21,23 +21,13 @@ Estructuras Discretas I**: lógica formal y métodos de demostración, teoría d
 conjuntos y funciones, estructuras discretas no recursivas y recursivas, y
 grafos, con aplicaciones de estos temas en Java.
 
-El contenido combina el material propio de la asignatura con contenido
-complementario tomado de los apuntes de Marlon Gomez Victoria
-(`Estructuras_discretas_I`). Cada aparición de contenido complementario está
-señalada de forma uniforme con el separador:
-
-```
----
-**· Contenido complementario ·**
-```
-
 ## Cómo usar este book
 
 Para cada unidad:
 
 1. Lea el material de estudio y reproduzca los ejemplos resueltos.
 2. Complete el conjunto de ejercicios.
-3. Preste atención a las secciones marcadas como contenido complementario:
+3. Preste atención a las secciones marcadas como contenido adicional:
    amplían el mismo tema con otro enfoque u otros ejemplos.
 
 ## Unidad 1: Métodos de demostración
@@ -52,5 +42,22 @@ Para cada unidad:
 * Relaciones y Funciones: [Material de estudio](./Unidad2-ConjuntosFunciones/RelacionesFunciones/index.md) ·
   [Ejercicios](./Unidad2-ConjuntosFunciones/RelacionesFunciones/exercises.md)
 
-Las siguientes unidades (Estructuras no recursivas, Estructuras recursivas, y
-Grafos) se están migrando progresivamente.
+## Unidad 3: Estructuras discretas no recursivas y análisis de algoritmos
+
+* Crecimiento de funciones y Análisis de algoritmos: [Material de estudio](./Unidad3-EstructurasNoRecursivas/CrecimientoFuncionesAnalisisAlgoritmos/index.md) ·
+  [Ejercicios](./Unidad3-EstructurasNoRecursivas/CrecimientoFuncionesAnalisisAlgoritmos/exercises.md)
+* Pilas y Colas: [Material de estudio](./Unidad3-EstructurasNoRecursivas/PilasYColas/index.md) ·
+  [Ejercicios](./Unidad3-EstructurasNoRecursivas/PilasYColas/exercises.md)
+* Tablas Hash: [Material de estudio](./Unidad3-EstructurasNoRecursivas/TablasHash/index.md) ·
+  [Ejercicios](./Unidad3-EstructurasNoRecursivas/TablasHash/exercises.md)
+* Cola de prioridad: [Material de estudio](./Unidad3-EstructurasNoRecursivas/ColaPrioridad/index.md) ·
+  [Ejercicios](./Unidad3-EstructurasNoRecursivas/ColaPrioridad/exercises.md)
+* Generics: [Material de estudio](./Unidad3-EstructurasNoRecursivas/Generics/index.md) ·
+  [Ejercicios](./Unidad3-EstructurasNoRecursivas/Generics/exercises.md)
+* TAD: [Material de estudio](./Unidad3-EstructurasNoRecursivas/TAD/index.md) ·
+  [Ejercicios](./Unidad3-EstructurasNoRecursivas/TAD/exercises.md)
+* Complejidad espacial: [Material de estudio](./Unidad3-EstructurasNoRecursivas/ComplejidadEspacial/index.md) ·
+  [Ejercicios](./Unidad3-EstructurasNoRecursivas/ComplejidadEspacial/exercises.md)
+
+Las siguientes unidades (Estructuras recursivas, y Grafos) se están migrando
+progresivamente.

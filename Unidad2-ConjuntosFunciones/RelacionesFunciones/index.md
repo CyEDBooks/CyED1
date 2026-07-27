@@ -206,7 +206,7 @@ Indique si cada $f$ es, o no, una función de $\mathbb{R}$ en $\mathbb{R}$:
 - $f(x)=x^2+1$: **sí es una función**.
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Funciones
 
@@ -258,7 +258,7 @@ Si $f$ es una función de $A$ a $B$, se dice que:
 - **Rango** $=\{a,c,e\}$
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Funciones
 
@@ -442,7 +442,7 @@ $$
 $$
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Funciones Inyectivas
 
@@ -538,7 +538,7 @@ La primera función, con $a\to 3$, $b\to 2$, $c\to 1$, $d\to 3$, **es sobreyecti
 **Ejemplo.** Determine si la función $f(x)=x^2$ del conjunto de los enteros al conjunto de los enteros es sobreyectiva. La función $f(x)=x^2$ no es sobreyectiva porque, por ejemplo, no hay ningún entero $x$ tal que $x^2=-1$.
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Funciones Sobreyectivas
 
@@ -593,7 +593,7 @@ Clasifique cada una de las siguientes funciones como inyectiva, sobreyectiva o b
 - $A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 1$, $a\to 4$, $b\to 2$, $c\to 3$: **No es función** (pues $a$ tiene dos imágenes).
 
 ---
-**· Contenido complementario ·**
+**· Contenido adicional ·**
 
 ### Funciones Biyectivas
 
@@ -813,4 +813,4 @@ $$
 
 Continúa con los [ejercicios de Relaciones y Funciones](exercises.md).
 
-*Material adaptado del material original de los profesores Oscar Bedoya y Andrés Aristizábal.*
+*Material adaptado del material original de los profesores Oscar Bedoya y Andrés Aristizábal, con contenido adicional del profesor Marlon Gomez.*
