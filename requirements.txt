@@ -2,21 +2,7 @@
 # Licensed under the PolyForm Noncommercial License 1.0.0.
 # Commercial use is prohibited without prior written authorization.
 
-ipykernel
+# Build tool only: this course has no Jupyter notebooks, so no scientific
+# Python stack is listed here (see requirements history in CyED3 for that
+# case). jupyter-book is still needed to build/deploy this MyST site.
 jupyter-book==2.1.6
-jupyterlab
-jupyterlab-myst
-jupyter-server
-matplotlib
-networkx
-numpy
-pandas
-pyformlang
-pydot
-scipy
-seaborn
-sympy
-xlrd
-# Copyright (c) 2026 Angela Villota, and collaborators from the CyED block
-# Licensed under the PolyForm Noncommercial License 1.0.0.
-# Commercial use is prohibited without prior written authorization.

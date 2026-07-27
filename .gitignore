@@ -4,3 +4,18 @@
 
 # MyST build outputs
 _build
+
+# Local editor and tooling state (machine-specific, not part of the book)
+.vscode/
+.idea/
+.claude/
+.cursor/
+.windsurf/
+*.iml
+
+# Local environment and notes
+.env
+.env.local
+.DS_Store
+CLAUDE.md
+AGENTS.md

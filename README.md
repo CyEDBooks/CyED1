@@ -2,111 +2,55 @@
 # Copyright (c) 2026 Angela Villota, and collaborators from the CyED block
 # Licensed under the PolyForm Noncommercial License 1.0.0.
 # Commercial use is prohibited without prior written authorization.
-title: Computación y Estructuras Discretas III
+title: Computación y Estructuras Discretas I
 ---
 
 **Universidad Icesi · Departamento de Computación y Sistemas Inteligentes**
 
-**Author and compiler:** Angela Villota ·
-[apvillota@icesi.edu.co](mailto:apvillota@icesi.edu.co)
+**Authors:**
 
-## Presentation
+1. Juan Marcos Caicedo Mejía · [jmcaicedo@icesi.edu.co](mailto:jmcaicedo@icesi.edu.co)
+2. Marlon Gomez Victoria · [marlon.gomez1@u.icesi.edu.co](mailto:marlon.gomez1@u.icesi.edu.co)
+3. Angela Villota · [apvillota@icesi.edu.co](mailto:apvillota@icesi.edu.co)
+4. Andrés Aristizabal · [aaaristizabal@icesi.edu.co](mailto:aaaristizabal@icesi.edu.co)
 
-This interactive book brings together the study material for **Computación y
-Estructuras Discretas III**. It combines conceptual explanations, worked
-examples, executable notebooks, and practice activities to support independent
-study and classroom work.
+## Presentación
 
-The material is organized progressively throughout the semester. Markdown pages
-develop the theory in a readable format, while Jupyter notebooks let students
-run code, change examples, test conjectures, and solve computational problems.
+Este book interactivo reúne el material de estudio de **Computación y
+Estructuras Discretas I**: lógica formal y métodos de demostración, teoría de
+conjuntos y funciones, estructuras discretas no recursivas y recursivas, y
+grafos, con aplicaciones de estos temas en Java.
 
-## How to use this book
+El contenido combina el material propio de la asignatura con contenido
+complementario tomado de los apuntes de Marlon Gomez Victoria
+(`Estructuras_discretas_I`). Cada aparición de contenido complementario está
+señalada de forma uniforme con el separador:
 
-For each session:
+```
+---
+**· Contenido complementario ·**
+```
 
-1. Read the study page and reproduce the worked examples.
-2. Complete the practice set before opening its hints.
-3. Run the associated notebook when the topic includes programming.
-4. Use the readiness checklist to identify concepts that need review.
-5. Return to the evaluation-preparation material before assessments.
+## Cómo usar este book
 
-## Preliminary work in Python
+Para cada unidad:
 
-Follow the preparation pathway in order:
+1. Lea el material de estudio y reproduzca los ejemplos resueltos.
+2. Complete el conjunto de ejercicios.
+3. Preste atención a las secciones marcadas como contenido complementario:
+   amplían el mismo tema con otro enfoque u otros ejemplos.
 
-* [Preparation overview and readiness check](./Preliminary/index.md)
-* [Executable Python foundations notebook](./Preliminary/python-foundations.ipynb)
-* [Executable NumPy foundations notebook](./Preliminary/numpy-foundations.ipynb)
+## Unidad 1: Métodos de demostración
 
-## Week 1
+* [Material de estudio](./Unidad1-TecnicasDemostracion/index.md)
+* [Ejercicios](./Unidad1-TecnicasDemostracion/exercises.md)
 
-### Session 1 — Alphabets, strings, and languages
+## Unidad 2: Conjuntos y funciones
 
-Begin with the rewritten study material, then use the practice set to prepare
-for the next session:
+* Conjuntos: [Material de estudio](./Unidad2-ConjuntosFunciones/Conjuntos/index.md) ·
+  [Ejercicios](./Unidad2-ConjuntosFunciones/Conjuntos/exercises.md)
+* Relaciones y Funciones: [Material de estudio](./Unidad2-ConjuntosFunciones/RelacionesFunciones/index.md) ·
+  [Ejercicios](./Unidad2-ConjuntosFunciones/RelacionesFunciones/exercises.md)
 
-* [Study material: Alphabets, strings, and languages](./Week1/S1/index.md)
-* [Practice set with progressive hints](./Week1/S1/exercises.md)
-
-### Session 2 — Regular languages and regular expressions
-
-Continue from language operations to formal regular expressions and executable
-Python practice:
-
-* [Study material: Regular languages and regular expressions](./Week1/S2/index.md)
-* [Practice set with progressive hints](./Week1/S2/exercises.md)
-* [Executable Python regex notebook](./Week1/S2/regex-python.ipynb)
-
-## Week 2
-
-Week 2 connects regular expressions with finite automata and provides guided
-preparation for upcoming evaluations.
-
-* [Week 2 overview](./Week2/index.md)
-* [Study material: Deterministic and nondeterministic finite automata](./Week2/S3/index.md)
-* [Automata practice set with progressive hints](./Week2/S3/exercises.md)
-* [Evaluation-preparation overview](./Week2/SeguimientosAnteriores/index.md)
-* [Guided regular-expression evaluation notebook](./Week2/SeguimientosAnteriores/regex-evaluation-prep.ipynb)
-
-## Week 3
-**Session 1**
-
-In this section we studied the concepts, definition and differences between:
-
-* FDA
-* FNA
-* EFNA
-
-
-
-**Session 2**
-* [Automata Implementation in Pyforlang](./Week3/AutomataImplementation.ipynb)
-* [Data for the assignment](./Week3/transacciones.xls)
-* [Problem](./Week3/problem.md)
-
-## Week 4
-**Session 1**
-
-In this session, we will work on **Transducers**. You will learn the formal definitions, explore some examples, and implement them using `pyformlang`.  Available resources for this class:
-
-- [Board](https://miro.com/app/board/uXjVNqvrmT8=/?share_link_id=168929229680)  
-- [Notebook with implementation examples](./Week4/Transducers.ipynb)
-- [Problem statement](./Week4/Problem.pdf) 
-- [Data for the problem](./Week4/students.csv) 
-
-
-**Session 2**
-
-**Follow-up 2:** Design and implementation of automata using `pyformlang`
-
-## Week 5
-**Session 1**
-
-In this session, we worked with Grammars, we studied the general concept and speciallized in context-free and regular grammars
-
-**Session 2**
-
-This is a more practical session, the plan is to solve the exercises and provide an implementation using `pyformlang`
-
-- [Material](./Week5/CFG.ipynb) 
+Las siguientes unidades (Estructuras no recursivas, Estructuras recursivas, y
+Grafos) se están migrando progresivamente.
