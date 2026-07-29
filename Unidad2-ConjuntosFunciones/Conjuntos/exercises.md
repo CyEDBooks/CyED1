@@ -97,7 +97,9 @@ $(G \cup H) \setminus I = \lbrace 2,4,6,8,10,12 \rbrace$
 Verificación:
 
 $|G| = 9$
+
 $|H| = 6$
+
 $|G \cap H| = 4$
 
 $9 + 6 - 4 = 11$ ✔
@@ -116,22 +118,22 @@ Sea:
    $L = \lbrace (x,y) \in J \times J \mid x < y \rbrace$
 
 :::{dropdown} Solución
-$J \times K =$
+$$
+\begin{aligned}
+J \times K = \{&(1,a),(1,b),(1,c),(1,d),\\
+               &(2,a),(2,b),(2,c),(2,d),\\
+               &(3,a),(3,b),(3,c),(3,d)\}
+\end{aligned}
+$$
 
-$\lbrace$
-$(1,a),(1,b),(1,c),(1,d),$
-$(2,a),(2,b),(2,c),(2,d),$
-$(3,a),(3,b),(3,c),(3,d)$
-$\rbrace$
-
-$K \times J =$
-
-$\lbrace$
-$(a,1),(a,2),(a,3),$
-$(b,1),(b,2),(b,3),$
-$(c,1),(c,2),(c,3),$
-$(d,1),(d,2),(d,3)$
-$\rbrace$
+$$
+\begin{aligned}
+K \times J = \{&(a,1),(a,2),(a,3),\\
+               &(b,1),(b,2),(b,3),\\
+               &(c,1),(c,2),(c,3),\\
+               &(d,1),(d,2),(d,3)\}
+\end{aligned}
+$$
 
 $L = \lbrace (1,2),(1,3),(2,3) \rbrace$
 :::

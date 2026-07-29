@@ -70,11 +70,13 @@ $$
 - **Silogismo disyuntivo** sobre
 
   $1.\ t \vee \neg p$
+
   $2.\ p$
 
 - **Modus tollens** sobre
 
   $1.\ \neg q \to \neg t$
+
   $2.\ t$
 
 ### Ejemplo guiado 1
