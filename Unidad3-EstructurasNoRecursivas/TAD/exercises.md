@@ -16,7 +16,6 @@ Diseñe un Tipo Abstracto de Dato para:
 - Curso
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicios
 

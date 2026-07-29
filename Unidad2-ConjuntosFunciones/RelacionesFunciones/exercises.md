@@ -10,7 +10,6 @@ title: "Relaciones y Funciones: Ejercicios"
 Use esta página después de leer el [material de estudio de Relaciones y Funciones](index.md).
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicios Funciones
 

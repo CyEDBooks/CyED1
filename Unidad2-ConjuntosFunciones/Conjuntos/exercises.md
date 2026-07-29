@@ -227,7 +227,6 @@ $\overline{S} \cap \overline{T} = \lbrace 6,9,10 \rbrace$ ✔
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicios teoría de conjuntos
 
@@ -554,7 +553,6 @@ Frente a la solución con `ArrayList` → ~15 000 000 000 operaciones.
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicios Interface Set
 

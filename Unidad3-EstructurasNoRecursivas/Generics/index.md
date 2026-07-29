@@ -123,7 +123,6 @@ public class Caja {
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Error en tiempo de compilación o en tiempo de ejecución?
 
@@ -143,7 +142,10 @@ public class Caja {
 - El mismo procedimiento puede utilizarse para declarar interfaces genéricas.
 :::
 
-¿Cuál sería la versión genérica del ejemplo previo? Sería precisamente el primer ejemplo visto:
+¿Cuál sería la versión genérica del ejemplo previo?
+
+:::{dropdown} Respuesta
+Sería precisamente el primer ejemplo visto:
 
 ```java
 public class Caja<T> {
@@ -156,6 +158,7 @@ public class Caja<T> {
     }
 }
 ```
+:::
 
 ¿Cómo se declara una variable de tipo genérica?
 
@@ -189,6 +192,7 @@ public class Caja<T> {
 
 **Ejercicio:** Declare la clase genérica `Terna` (con 7 métodos, constructor, 3 getters y 3 setters) que implemente la interfaz `ITerna`. Posteriormente declare variables de tipo `Terna` e instáncielas utilizando distintos argumentos de tipo.
 
+:::{dropdown} Solución
 ```java
 public interface ITerna<T1,T2,T3> {
     public T1 obtenerPrimero();
@@ -215,9 +219,9 @@ public class Terna<T1,T2,T3> implements ITerna<T1,T2,T3> {
     }
 }
 ```
+:::
 
 ---
-**· Contenido adicional ·**
 
 ### Terna con múltiples constructores
 
@@ -509,7 +513,6 @@ public class Main {
 ```
 
 ---
-**· Contenido adicional ·**
 
 ### Método genérico `printArray`
 
@@ -825,7 +828,6 @@ public Caja<?>[] getArreglo() {
 ```
 
 ---
-**· Contenido adicional ·**
 
 ### Listas enlazadas genéricas
 

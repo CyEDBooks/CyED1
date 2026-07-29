@@ -8,7 +8,6 @@ title: "Unidad 1: Métodos de demostración"
 # Unidad 1: Métodos de demostración
 
 ---
-**· Contenido adicional ·**
 
 ## La lógica formal
 
@@ -212,6 +211,7 @@ Por lo tanto, $3n+2$ debe ser un número impar.
 
 **Demuestre que si $n$ es impar, entonces $n^2$ es impar.**
 
+:::{dropdown} Demostración
 Si $n$ es impar, se puede expresar de la forma:
 
 $$
@@ -231,9 +231,11 @@ n^2 &= (2 \cdot k_1 + 1)^2\\
 $$
 
 Por lo tanto, $n^2$ debe ser un número impar.
+:::
 
 **Demuestre que si $n$ es impar, entonces $n^3+5$ es par.**
 
+:::{dropdown} Demostración
 Si $n$ es impar, se puede expresar de la forma:
 
 $$
@@ -253,9 +255,11 @@ n^3 &= (2 \cdot k_1 + 1)^3 + 5\\
 $$
 
 Por lo tanto, $n^3+5$ debe ser un número par.
+:::
 
 **Demuestre que si $n$ es par y $m$ es impar, entonces $m-2n$ es impar.**
 
+:::{dropdown} Demostración
 Si $n$ es par y $m$ es impar, se pueden expresar de la forma:
 
 $$
@@ -277,9 +281,11 @@ m - 2n &= (2 \cdot k_2 + 1) - 2(2 \cdot k_1)\\
 $$
 
 Por lo tanto, $m-2n$ debe ser un número impar.
+:::
 
 **Demuestre que si $m$ es impar y $n$ es par, entonces $m^2+2 \cdot m \cdot n+n^2$ es impar.**
 
+:::{dropdown} Demostración
 Si $m$ es impar y $n$ es par, se pueden expresar de la forma:
 
 $$
@@ -301,6 +307,7 @@ m^2+2 \cdot m \cdot n+n^2 &= (2 \cdot k_1+1)^2+2(2 \cdot k_1+1)(2 \cdot k_2)+(2 
 $$
 
 Por lo tanto, $m^2+2 \cdot m \cdot n+n^2$ debe ser un número impar.
+:::
 
 ## Demostración indirecta
 
@@ -352,6 +359,7 @@ $$
 
 **Demuestre que si $7n-4$ es par, entonces $n$ es par.**
 
+:::{dropdown} Demostración
 Se demuestra que "si $n$ es impar, entonces $7n-4$ es impar".
 
 Si $n$ es impar, se puede expresar de la forma:
@@ -372,9 +380,11 @@ $$
      &= 2 \cdot k_2 + 1 \text{, es decir, } 7n-4 \text{ es impar}
 \end{align*}
 $$
+:::
 
 **Demuestre que si $5n-6$ es impar, entonces $n$ es impar.**
 
+:::{dropdown} Demostración
 Se demuestra que "si $n$ es par, entonces $5n-6$ es par".
 
 Si $n$ es par, se puede expresar de la forma:
@@ -393,9 +403,9 @@ $$
      &= 2 \cdot k_2 \text{, es decir, } 5n-6 \text{ es par}
 \end{align*}
 $$
+:::
 
 ---
-**· Contenido adicional ·**
 
 ### Demostración por Reducción al Absurdo
 
@@ -542,7 +552,6 @@ $$
 - $\forall x \forall y \; ((x>0 \land y>0) \rightarrow x-y>0)$
 
 ---
-**· Contenido adicional ·**
 
 ### Demostración por contraejemplo (repaso)
 

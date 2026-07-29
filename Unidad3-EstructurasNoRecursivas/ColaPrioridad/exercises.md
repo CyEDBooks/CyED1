@@ -10,7 +10,6 @@ title: "Cola de prioridad: Ejercicios"
 Use esta página después de leer el [material de estudio de Cola de prioridad](index.md).
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicios de montículos (heaps)
 

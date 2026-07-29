@@ -10,7 +10,6 @@ title: "Crecimiento de funciones y Análisis de algoritmos: Ejercicios"
 Use esta página después de leer el [material de estudio de Crecimiento de funciones y Análisis de algoritmos](index.md).
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicios de análisis de complejidad
 

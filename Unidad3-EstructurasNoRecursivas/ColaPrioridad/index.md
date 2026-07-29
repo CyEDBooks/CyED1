@@ -196,7 +196,6 @@ $T(n) = O(1)$
 **Clave de la implementación:** Como el arreglo está ordenado ascendente, el máximo siempre está en la última posición (`size-1`). Extraerlo solo requiere decrementar `size` — sin desplazamientos.
 
 ---
-**· Contenido adicional ·**
 
 ### Montículos (heaps)
 

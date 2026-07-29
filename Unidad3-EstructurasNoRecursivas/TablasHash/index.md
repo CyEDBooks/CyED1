@@ -8,7 +8,6 @@ title: "Unidad 3: Tablas Hash"
 # Unidad 3: Tablas Hash
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Qué es un diccionario y por qué usar tablas hash?
 
@@ -121,7 +120,6 @@ DIRECT-ADDRESS-DELETE(T,k)
 ![Paso 11](images/t11.png)
 
 ---
-**· Contenido adicional ·**
 
 ### Direccionamiento directo
 
@@ -179,7 +177,6 @@ Las **tablas hash** ofrecen un mecanismo para asignar la posición de almacenami
 ![Paso 14](images/t14.png)
 
 ---
-**· Contenido adicional ·**
 
 ### El hashing y el problema de las colisiones
 
@@ -227,7 +224,6 @@ CHAINED-HASH-DELETE(T,k)
 ![Paso 18](images/t18.png)
 
 ---
-**· Contenido adicional ·**
 
 ### Encadenamiento
 
@@ -266,7 +262,6 @@ CHAINED-HASH-DELETE(T, x)
 **Teorema 2.** En una tabla hash en la cual las colisiones son resueltas con encadenamiento, una búsqueda **exitosa** toma en promedio $\Theta(1+\alpha)$, bajo la suposición de hashing uniforme.
 
 ---
-**· Contenido adicional ·**
 
 ### Factor de carga y rendimiento del encadenamiento
 
@@ -313,7 +308,6 @@ $$
 Es común tener en un programa nombres de identificadores que son similares, `var1`, `var2`, por ejemplo. Una buena función hash debería asignarlos a slots diferentes, así se muestra que existe independencia entre cada par de llaves.
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Qué hace buena a una función hash?
 
@@ -340,7 +334,6 @@ h(k) = \lfloor km \rfloor, \quad \text{donde } T[0, 1, \ldots, m-1]
 $$
 
 ---
-**· Contenido adicional ·**
 
 ### Llaves de tipo cadena de texto
 
@@ -363,7 +356,6 @@ h(k) = k \bmod m
 $$
 
 ---
-**· Contenido adicional ·**
 
 ### Método de división
 
@@ -408,7 +400,6 @@ $$
 El valor de $A$ no es crítico.
 
 ---
-**· Contenido adicional ·**
 
 ### Método de multiplicación
 
@@ -424,7 +415,6 @@ A \approx \frac{(\sqrt{5} - 1)}{2}=0.6180339887\ldots
 $$
 
 ---
-**· Contenido adicional ·**
 
 ### Hashing universal
 

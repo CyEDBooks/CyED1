@@ -144,6 +144,7 @@ initMatrix(n):
   return M
 ```
 
+:::{dropdown} Respuesta
 Análisis:
 
 - `M`: matriz de $n^2$ elementos $\Rightarrow O(n^2)$.
@@ -154,6 +155,7 @@ S_{\text{aux}}(n) = O(n^2)
 $$
 
 Impráctico para $n$ grande (ej. $n = 10\,000 \Rightarrow 10^8$ celdas).
+:::
 
 **Resumen de tipos de complejidad espacial**
 
@@ -230,7 +232,6 @@ $$
 Independientemente del tamaño del arreglo, solo se usa una variable extra.
 
 ---
-**· Contenido adicional ·**
 
 ### Complejidad espacial: memoria de instrucciones, pila y datos
 
@@ -373,6 +374,7 @@ factorial(n):
   return n * factorial(n - 1)
 ```
 
+:::{dropdown} Respuesta
 Traza para $n = 5$:
 
 $$
@@ -395,6 +397,7 @@ S_{\text{aux}}(n) = O(n)
 $$
 
 Contraste: una versión *iterativa* del factorial solo usa $O(1)$ de espacio auxiliar.
+:::
 
 ## Comparación Tiempo vs. Espacio
 

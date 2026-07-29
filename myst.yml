@@ -33,11 +33,11 @@ project:
   toc:
     - file: README.md
       title: Course home
-    - title: "Unidad preliminar: Lógica"
+    - title: "Repaso: Lógica"
       children:
-        - file: UnidadPreliminar-Logica/LogicaProposicional/index.md
+        - file: Preliminar/LogicaProposicional/index.md
           title: "Lógica proposicional: Estudio"
-        - file: UnidadPreliminar-Logica/LogicaProposicional/exercises.md
+        - file: Preliminar/LogicaProposicional/exercises.md
           title: "Lógica proposicional: Ejercicios"
     - title: "Unidad 1: Métodos de demostración"
       children:

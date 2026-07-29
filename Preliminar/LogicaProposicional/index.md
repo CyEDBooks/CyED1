@@ -2,10 +2,10 @@
 # Copyright (c) 2026 Angela Villota, and collaborators from the CyED block
 # Licensed under the PolyForm Noncommercial License 1.0.0.
 # Commercial use is prohibited without prior written authorization.
-title: "Unidad preliminar: Lógica proposicional"
+title: "Repaso: Lógica proposicional"
 ---
 
-# Unidad preliminar: Lógica proposicional
+# Repaso: Lógica proposicional
 
 La lógica proposicional tiene sus raíces en la filosofía griega clásica. Los
 silogismos de Aristóteles —como el célebre *"todos los hombres son
@@ -19,8 +19,8 @@ símbolos y tablas de verdad.
 | Sócrates (470 a.C.) | Platón (424 a.C.) | Aristóteles (384 a.C.) |
 
 La lógica formal moderna se divide en dos grandes bloques que se estudian en
-este curso: la **lógica proposicional** (esta unidad) y la **lógica de
-predicados** (unidad a incorporar más adelante).
+este curso: la **lógica proposicional** (este repaso) y la **lógica de
+predicados** (repaso a incorporar más adelante).
 
 ## Concepto de proposición
 
@@ -60,9 +60,6 @@ se puede decir si es falsa o verdadera.
 
 - "NO FUMAR" y "CEDA EL PASO": son órdenes/instrucciones, no oraciones
   declarativas.
-
-![Profesor con cartel](images/profesor-cartel.jpg)
-
 - "ESTUDIEN MUCHO DISCRETAS": también es una orden, no una oración
   declarativa.
 - "VAN A PERDER DISCRETAS": no se sabe si es verdadero o falso en el momento
@@ -427,15 +424,18 @@ cuatro de estas proposiciones.
 
 ### Tabla de verdad para $(\neg p\vee q)\to(p\oplus\neg q)$
 
+:::{dropdown} Respuesta
 | $p$ | $q$ | $\neg p$ | $\neg q$ | $\neg p\vee q$ | $p\oplus\neg q$ | $(\neg p\vee q)\to(p\oplus\neg q)$ |
 |---|---|---|---|---|---|---|
 | V | V | F | F | V | V | V |
 | V | F | F | V | F | F | V |
 | F | V | V | F | V | F | F |
 | F | F | V | V | V | V | V |
+:::
 
 ### Tabla de verdad para $(p\wedge\neg r)\vee(\neg q\to r)$
 
+:::{dropdown} Respuesta
 | $p$ | $q$ | $r$ | $\neg q$ | $\neg r$ | $p\wedge\neg r$ | $\neg q\to r$ | $(p\wedge\neg r)\vee(\neg q\to r)$ |
 |---|---|---|---|---|---|---|---|
 | V | V | V | F | F | F | V | V |
@@ -446,6 +446,7 @@ cuatro de estas proposiciones.
 | F | V | F | F | V | F | V | V |
 | F | F | V | V | F | F | V | V |
 | F | F | F | V | V | F | F | F |
+:::
 
 ## Tipos de proposiciones compuestas
 
@@ -490,6 +491,7 @@ $[(p\to q)\wedge(q\to r)]\to(p\to r)$ es una **tautología**.
 
 ### Tabla de verdad para $\neg(p\wedge\neg p)\to(\neg q\wedge q)$
 
+:::{dropdown} Respuesta
 | $p$ | $q$ | $\neg p$ | $\neg q$ | $p\wedge\neg p$ | $\neg(p\wedge\neg p)$ | $\neg q\wedge q$ | $\neg(p\wedge\neg p)\to(\neg q\wedge q)$ |
 |---|---|---|---|---|---|---|---|
 | V | V | F | F | F | V | F | F |
@@ -498,6 +500,7 @@ $[(p\to q)\wedge(q\to r)]\to(p\to r)$ es una **tautología**.
 | F | F | V | V | F | V | F | F |
 
 $\neg(p\wedge\neg p)\to(\neg q\wedge q)$ es una **contradicción**.
+:::
 
 ## Equivalencia lógica ($\equiv$)
 
@@ -553,6 +556,7 @@ Ambas columnas coinciden, entonces $p\to q \equiv \neg p\vee q$.
 
 ### Tabla de verdad para $p\vee(q\wedge r)$, $(p\vee q)\wedge(p\vee r)$
 
+:::{dropdown} Respuesta
 | $p$ | $q$ | $r$ | $q\wedge r$ | $p\vee(q\wedge r)$ | $p\vee q$ | $p\vee r$ | $(p\vee q)\wedge(p\vee r)$ |
 |---|---|---|---|---|---|---|---|
 | V | V | V | V | V | V | V | V |
@@ -566,10 +570,12 @@ Ambas columnas coinciden, entonces $p\to q \equiv \neg p\vee q$.
 
 Ambas columnas coinciden: es la **Ley distributiva**,
 $p\vee(q\wedge r) \equiv (p\vee q)\wedge(p\vee r)$.
+:::
 
 **Indique si el siguiente par de proposiciones es lógicamente
 equivalente:** $\neg p\to\neg q$, $\neg p\vee q$
 
+:::{dropdown} Respuesta
 | $p$ | $q$ | $\neg p$ | $\neg q$ | $\neg p\to\neg q$ | $\neg p\vee q$ |
 |---|---|---|---|---|---|
 | V | V | F | F | V | V |
@@ -579,6 +585,7 @@ equivalente:** $\neg p\to\neg q$, $\neg p\vee q$
 
 Como no coinciden para todos los valores de verdad, **no son lógicamente
 equivalentes**.
+:::
 
 ## Tabla de leyes de equivalencia lógica
 
@@ -688,6 +695,7 @@ $$
 
 **Pruebe la equivalencia, $(p\wedge q)\to(p\vee q) \equiv V$**
 
+:::{dropdown} Demostración
 $$
 \begin{align*}
 (p\wedge q)\to(p\vee q)
@@ -707,9 +715,11 @@ $$
 &&\text{Dominación}
 \end{align*}
 $$
+:::
 
 **Pruebe la equivalencia, $\neg p\to(p\to q) \equiv V$**
 
+:::{dropdown} Demostración
 $$
 \begin{align*}
 \neg p\to(p\to q)
@@ -727,9 +737,11 @@ $$
 &&\text{Dominación}
 \end{align*}
 $$
+:::
 
 **Pruebe la equivalencia, $(\neg p\to\neg q)\to q \equiv (\neg p\wedge q)\vee q$**
 
+:::{dropdown} Demostración
 $$
 \begin{align*}
 (\neg p\to\neg q)\to q
@@ -745,6 +757,7 @@ $$
 &&\text{Doble negación}
 \end{align*}
 $$
+:::
 
 ## Representación de frases del lenguaje natural
 
@@ -774,6 +787,7 @@ es rectangular, es una foto en color. En caso de que la foto sea en blanco
 y negro, entonces es un retrato. Si la foto es un retrato, es la foto de mi
 amigo. Se sabe que la foto no es a color."*
 
+:::{dropdown} Solución
 Sea:
 
 - $r$: "la foto es rectangular"
@@ -792,6 +806,7 @@ El enunciado se representa como el siguiente conjunto de proposiciones:
 5. $b\to t$
 6. $t\to a$
 7. $\neg l$
+:::
 
 ### Un segundo ejemplo elaborado
 
@@ -805,6 +820,7 @@ torneo. Si el Cali perdió, entonces un equipo de Antioquia no ganó el
 torneo. Si Nacional fue derrotado entonces Millonarios y Medellín
 también."*
 
+:::{dropdown} Solución
 Sea:
 
 - $a$: "América ganó el torneo"
@@ -828,9 +844,10 @@ El enunciado se representa como:
 7. $\neg a\to\neg v$
 8. $\neg c\to\neg p$
 9. $\neg n\to(\neg m\wedge\neg e)$
+:::
 
 ---
 
-Continúa con los [ejercicios de la Unidad preliminar](exercises.md).
+Continúa con los [ejercicios del repaso](exercises.md).
 
 *Material adaptado del material original del profesor Oscar Bedoya.*

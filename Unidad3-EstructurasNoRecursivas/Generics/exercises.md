@@ -10,7 +10,6 @@ title: "Generics: Ejercicios"
 Use esta página después de leer el [material de estudio de Generics](index.md).
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicio: sistema de entidades con lista enlazada genérica
 

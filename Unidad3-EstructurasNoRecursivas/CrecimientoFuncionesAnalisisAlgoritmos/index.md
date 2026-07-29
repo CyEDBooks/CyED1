@@ -8,7 +8,6 @@ title: "Unidad 3: Crecimiento de funciones y Análisis de algoritmos"
 # Unidad 3: Crecimiento de funciones y Análisis de algoritmos
 
 ---
-**· Contenido adicional ·**
 
 ### Estructuras no recursivas
 
@@ -35,7 +34,6 @@ Estas estructuras son la base para resolver problemas comunes en informática de
 ## Crecimiento de funciones
 
 ---
-**· Contenido adicional ·**
 
 ### Análisis de Complejidad Temporal
 
@@ -200,6 +198,7 @@ El margen $(3-2)x = x$ absorbe la constante $+3$ cuando $x \geq 3$.
 
 **Muestre que $7x^2 = O(x^3)$**
 
+:::{dropdown} Respuesta
 **Estrategia:** elegir $C = 1$ y despejar la condición sobre $x$.
 
 *Demostración algebraica:* Queremos encontrar $k$ tal que para $x \geq k$:
@@ -232,6 +231,7 @@ $$
 | 8 | 512 | 448 | ✓ |
 
 La tabla confirma el resultado algebraico: el cruce ocurre en $x = 7$.
+:::
 
 **¿Es $x^3$, $O(7x^2)$?**
 
@@ -276,7 +276,6 @@ Suponga que para un algoritmo se encontró que $T_1(n) = O(n^2)$ y para otro que
 Es un abuso decir que el tiempo de ejecución del insertion sort es $O(n^2)$, esto se puede asegurar, para el peor caso.
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Qué es la notación $O$?
 
@@ -302,6 +301,7 @@ $$
 7n^2 = O(n^3)
 $$
 
+:::{dropdown} Respuesta
 **Solución**
 
 Utilizamos la definición de cota superior asintótica. Debemos encontrar constantes positivas $c$ y $n_0$ tal que:
@@ -321,6 +321,7 @@ Esta desigualdad se cumple para $n \geq 1$, por lo que tomamos:
 $$
 c = 7, \quad n_0 = 1
 $$
+:::
 
 ---
 
@@ -341,7 +342,6 @@ Suponga que para un algoritmo se encontró que $T_1(n) = \Omega(n^2)$ y para otr
 ¿Qué se puede esperar en cuanto al tiempo de ejecución de los algoritmos?
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Qué es la notación $\Omega$?
 
@@ -394,7 +394,6 @@ f(n) = \Theta(g(n)) \ \text{sii} \ f(n) = O(g(n)) \ \text{y} \ f(n) = \Omega(g(n
 $$
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Qué es la notación $\Theta$?
 
@@ -518,7 +517,6 @@ donde $f(n) \in \Theta(n)$. En este caso, $f(n) = 3n + 1$, que es $\Theta(n)$.
 | $O(n!)$ | Complejidad factorial |
 
 ---
-**· Contenido adicional ·**
 
 ### Clasificación de la complejidad
 
@@ -553,7 +551,6 @@ El problema de la satisfactibilidad es un problema NP-completo.
 Dada una asignación de valores de verdad, se puede verificar en tiempo polinómico si tal asignación satisface, o no, una fórmula proposicional. Sin embargo, no existe un algoritmo que en tiempo polinómico pueda encontrar la asignación de valores de verdad para que una fórmula cualquiera se satisfaga.
 
 ---
-**· Contenido adicional ·**
 
 ### Complejidad Algorítmica
 
@@ -693,7 +690,6 @@ Dada una asignación de valores de verdad, se puede verificar en tiempo polinóm
 - El tipo y número de datos con los cuales trabaja (escalabilidad)
 
 ---
-**· Contenido adicional ·**
 
 ### Análisis de Complejidad
 
@@ -1230,7 +1226,6 @@ $$
 $$
 
 ---
-**· Contenido adicional ·**
 
 ### Ejemplo adicional: complejidad de Fibonacci
 
@@ -1450,6 +1445,7 @@ public class OrdenamientoBurbuja {
 }
 ```
 
+:::{dropdown} Respuesta
 **Análisis de Complejidad Temporal**
 
 *Mejor Caso - O(n)*
@@ -1468,6 +1464,7 @@ public class OrdenamientoBurbuja {
 
 - Ordenamiento Burbuja no es eficiente para grandes conjuntos de datos debido a su complejidad O(n²) en la mayoría de los casos.
 - Para mejorar su rendimiento, se recomienda usar algoritmos más eficientes como QuickSort o MergeSort.
+:::
 
 #### Complejidad Temporal del Algoritmo Quicksort
 
@@ -1504,6 +1501,7 @@ public class QuickSort {
 }
 ```
 
+:::{dropdown} Respuesta
 **Análisis de Complejidad Temporal**
 
 *Mejor Caso (Best Case) - O(n log n)*
@@ -1528,6 +1526,7 @@ public class QuickSort {
 - Quicksort es uno de los algoritmos más eficientes para ordenar grandes conjuntos de datos debido a su $O(n\log n)$ en la mayoría de los casos.
 - Su rendimiento depende de la elección del pivote.
 - Para evitar el caso peor, se pueden usar técnicas como pivote aleatorio o mediana de tres.
+:::
 
 ---
 

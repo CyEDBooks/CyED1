@@ -30,10 +30,10 @@ Para cada unidad:
 3. Preste atención a las secciones marcadas como contenido adicional:
    amplían el mismo tema con otro enfoque u otros ejemplos.
 
-## Unidad preliminar: Lógica
+## Repaso: Lógica
 
-* Lógica proposicional: [Material de estudio](./UnidadPreliminar-Logica/LogicaProposicional/index.md) ·
-  [Ejercicios](./UnidadPreliminar-Logica/LogicaProposicional/exercises.md)
+* Lógica proposicional: [Material de estudio](./Preliminar/LogicaProposicional/index.md) ·
+  [Ejercicios](./Preliminar/LogicaProposicional/exercises.md)
 * Lógica de predicados: en construcción.
 
 ## Unidad 1: Métodos de demostración

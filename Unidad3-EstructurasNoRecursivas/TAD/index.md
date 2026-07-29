@@ -23,7 +23,6 @@ Es la conjunción de variables, operaciones y aserciones que modela un dominio d
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### Desacoplado
 
@@ -106,7 +105,6 @@ El desacoplamiento en Java mejora la modularidad, reutilización, escalabilidad 
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Cuáles son los componentes comunes de un TAD?
 
@@ -141,7 +139,6 @@ El desacoplamiento en Java mejora la modularidad, reutilización, escalabilidad 
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Cuáles son los elementos de esta especificación formal?
 
@@ -170,7 +167,6 @@ El desacoplamiento en Java mejora la modularidad, reutilización, escalabilidad 
 ![Descripción formal de las operaciones](images/tad2.png)
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Cómo se describen formalmente las operaciones?
 
@@ -186,7 +182,6 @@ El desacoplamiento en Java mejora la modularidad, reutilización, escalabilidad 
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### ¿Por qué las precondiciones y poscondiciones deben definirse formalmente?
 
@@ -204,7 +199,6 @@ El desacoplamiento en Java mejora la modularidad, reutilización, escalabilidad 
 - La invariante del TAD es una propiedad que hace respetar la ley que dice que ninguna persona puede ganarse un salario menor al salario mínimo mensual vigente reglamentado por el gobierno.
 
 ---
-**· Contenido adicional ·**
 
 ### Ejemplo: TAD Empleado
 
@@ -223,7 +217,6 @@ El desacoplamiento en Java mejora la modularidad, reutilización, escalabilidad 
 ![Primera aproximación al TAD Empleado](images/tad3.png)
 
 ---
-**· Contenido adicional ·**
 
 ### Primera aproximación al TAD Empleado
 
@@ -270,7 +263,6 @@ El desacoplamiento en Java mejora la modularidad, reutilización, escalabilidad 
 ![TieneFoto](images/tad12.png)
 
 ---
-**· Contenido adicional ·**
 
 ### Operaciones formales de la primera aproximación
 
@@ -286,7 +278,6 @@ Las operaciones formales de esta primera aproximación son: **CrearEmpleado**, *
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### Problema con la primera aproximación al TAD Empleado
 
@@ -302,7 +293,6 @@ Las operaciones formales de esta primera aproximación son: **CrearEmpleado**, *
 ![Segunda aproximación al TAD Empleado](images/tad13.png)
 
 ---
-**· Contenido adicional ·**
 
 ### Segunda aproximación al TAD Empleado
 
@@ -349,7 +339,6 @@ Las operaciones formales de esta primera aproximación son: **CrearEmpleado**, *
 ![TieneFoto](images/tad22.png)
 
 ---
-**· Contenido adicional ·**
 
 ### Operaciones formales de la segunda aproximación
 
@@ -370,7 +359,6 @@ Al representar el objeto abstracto como una tupla, la traducción de cada operac
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### ¿En qué se dividen las operaciones primitivas de un TAD?
 

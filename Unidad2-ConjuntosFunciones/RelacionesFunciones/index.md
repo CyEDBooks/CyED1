@@ -206,7 +206,6 @@ Indique si cada $f$ es, o no, una función de $\mathbb{R}$ en $\mathbb{R}$:
 - $f(x)=x^2+1$: **sí es una función**.
 
 ---
-**· Contenido adicional ·**
 
 ### Funciones
 
@@ -258,7 +257,6 @@ Si $f$ es una función de $A$ a $B$, se dice que:
 - **Rango** $=\{a,c,e\}$
 
 ---
-**· Contenido adicional ·**
 
 ### Funciones
 
@@ -442,7 +440,6 @@ $$
 $$
 
 ---
-**· Contenido adicional ·**
 
 ### Funciones Inyectivas
 
@@ -541,7 +538,6 @@ La primera función, con $a\to 3$, $b\to 2$, $c\to 1$, $d\to 3$, **es sobreyecti
 **Ejemplo.** Determine si la función $f(x)=x^2$ del conjunto de los enteros al conjunto de los enteros es sobreyectiva. La función $f(x)=x^2$ no es sobreyectiva porque, por ejemplo, no hay ningún entero $x$ tal que $x^2=-1$.
 
 ---
-**· Contenido adicional ·**
 
 ### Funciones Sobreyectivas
 
@@ -599,7 +595,6 @@ Clasifique cada una de las siguientes funciones como inyectiva, sobreyectiva o b
 - $A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 1$, $a\to 4$, $b\to 2$, $c\to 3$: **No es función** (pues $a$ tiene dos imágenes).
 
 ---
-**· Contenido adicional ·**
 
 ### Funciones Biyectivas
 
@@ -669,11 +664,15 @@ Una función $f:A \to B$ es **invertible** si es biyectiva.
 
 **Ejemplo.** Sea $f$ la función de $\{a,b,c\}$ en $\{1,2,3\}$ definida por $f(a)=2$, $f(b)=3$ y $f(c)=1$. ¿Es $f$ invertible? Si lo es, ¿cuál es su inversa?
 
+:::{dropdown} Respuesta
 **Solución:** La función $f$ es invertible puesto que es una biyección. La función inversa $f^{-1}$ invierte la correspondencia dada por $f$, de tal forma que $f^{-1}(1)=c$, $f^{-1}(2)=a$ y $f^{-1}(3)=b$.
+:::
 
 **Ejemplo.** Sea $f$ la función de $\mathbb{Z}$ en $\mathbb{Z}$ dada por $f(x)=x^2$. ¿Es $f$ invertible?
 
+:::{dropdown} Respuesta
 **Solución:** Como $f(-1)=f(1)=1$, $f$ no es inyectiva. Si se definiese una función inversa, a $1$ se le asignarían dos elementos. Por tanto $f$ no es invertible.
+:::
 
 Dadas las siguientes funciones de los enteros a los enteros, complete la tabla indicando si cumple, o no, cada propiedad:
 
@@ -771,6 +770,7 @@ $$
 
 **e)** $f(x)=x^2-3$, $g(x)=|x|$
 
+:::{dropdown} Respuesta
 **Solución:**
 
 **(a)** $(f\circ g)(x)=2x^2-6x-5$, Dom: $\mathbb{R}$; $(g\circ f)(x)=4x^2-26x+40$, Dom: $\mathbb{R}$
@@ -782,6 +782,7 @@ $$
 **(d)** $(f\circ g)(x)=\sqrt{\dfrac{3x^2-x+3}{x}}$, Dom: $(0,\infty)$; $(g\circ f)(x)=\dfrac{3x}{\sqrt{3x-1}}$, Dom: $(\tfrac13,\infty)$
 
 **(e)** $(f\circ g)(x)=x^2-3$, Dom: $\mathbb{R}$; $(g\circ f)(x)=|x^2-3|$, Dom: $\mathbb{R}$
+:::
 
 ## Otros conceptos relacionados a funciones
 

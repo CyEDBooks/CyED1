@@ -34,7 +34,6 @@ $$
 > "$2^{n}+1$ es un número primo para todos los enteros no negativos $n$"
 
 ---
-**· Contenido adicional ·**
 
 ## Ejercicios métodos formales
 

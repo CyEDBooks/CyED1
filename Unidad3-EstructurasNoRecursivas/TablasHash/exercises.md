@@ -51,7 +51,6 @@ h(k) = \lfloor 10000 \cdot (0.61803 \cdot k \bmod 1) \rfloor
 $$
 
 ---
-**· Contenido adicional ·**
 
 ### Ejercicio de método de división a nivel de bits
 
@@ -65,8 +64,7 @@ Con el método de división $h(k) = k \bmod m$ y $m = 2^3 = 8$, calcule $h(k)$ p
 6. $k = 20$
 7. $k = 28$
 
-**Solución:**
-
+:::{dropdown} Solución
 - $k = 8 \quad \longrightarrow \quad 8 \bmod 8 = 0 \quad \longrightarrow \quad 1\underline{000}$
 - $k = 16 \quad \longrightarrow \quad 16 \bmod 8 = 0 \quad \longrightarrow \quad 10\underline{000}$
 - $k = 24 \quad \longrightarrow \quad 24 \bmod 8 = 0 \quad \longrightarrow \quad 11\underline{000}$
@@ -74,6 +72,7 @@ Con el método de división $h(k) = k \bmod m$ y $m = 2^3 = 8$, calcule $h(k)$ p
 - $k = 12 \quad \longrightarrow \quad 12 \bmod 8 = 4 \quad \longrightarrow \quad 1\underline{100}$
 - $k = 20 \quad \longrightarrow \quad 20 \bmod 8 = 4 \quad \longrightarrow \quad 10\underline{100}$
 - $k = 28 \quad \longrightarrow \quad 28 \bmod 8 = 4 \quad \longrightarrow \quad 11\underline{100}$
+:::
 
 ---
 

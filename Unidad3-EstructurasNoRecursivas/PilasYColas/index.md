@@ -8,7 +8,6 @@ title: "Unidad 3: Pilas y Colas"
 # Unidad 3: Pilas y Colas
 
 ---
-**· Contenido adicional ·**
 
 ### Estructuras de datos secuenciales
 
@@ -110,6 +109,7 @@ Al ejecutar la última instrucción `POP(S)` (con la pila ya vacía) se produce 
 - `PUSH(S,x)`, adiciona x al tope, no devuelve ningún valor
 - `POP(S)`, borra el elemento que esté en el tope y devuelve ese valor
 
+:::{dropdown} Respuesta
 **`STACK-EMPTY(S)`**
 
 ```
@@ -141,9 +141,9 @@ $T(n) = O(1)$, tiempo constante.
 ```
 
 $T(n) = O(1)$, tiempo constante.
+:::
 
 ---
-**· Contenido adicional ·**
 
 ### Pilas (teoría adicional)
 
@@ -390,6 +390,7 @@ Inicialmente `tail[Q] = head[Q] = 1` y `size = 0`.
 - `ENQUEUE(Q,x)`
 - `DEQUEUE(Q)`
 
+:::{dropdown} Respuesta
 **`ENQUEUE(Q,x)`**
 
 ```
@@ -418,6 +419,7 @@ $T(n) = O(1)$, tiempo constante.
 ```
 
 $T(n) = O(1)$, tiempo constante.
+:::
 
 **Cola: arreglo físico vs orden lógico**
 
@@ -440,7 +442,6 @@ El 6 está en la posición 1, *antes* del 2.
 **Fórmula de recorrido lógico:** `índice = (head - 1 + i) % size_max`, con $i = 0, 1, \ldots, \texttt{size}-1$
 
 ---
-**· Contenido adicional ·**
 
 ### Colas (teoría adicional)
 

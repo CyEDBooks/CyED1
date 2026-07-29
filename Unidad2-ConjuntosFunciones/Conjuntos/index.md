@@ -71,7 +71,6 @@ Representa el conjunto que no tiene elementos, se puede expresar de las dos sigu
 - $\varnothing$
 
 ---
-**· Contenido adicional ·**
 
 ### Conjunto
 
@@ -224,7 +223,6 @@ Sean $P=\{1,2\}$, $Q=\{1,2,3\}$, $R=\{1,2,3\}$, se cumple:
 - $Q \subseteq R$ pero $Q \not\subset R$
 
 ---
-**· Contenido adicional ·**
 
 ### Relación de inclusión
 
@@ -377,7 +375,6 @@ Por ejemplo:
 :::
 
 ---
-**· Contenido adicional ·**
 
 ### Cardinalidad
 
@@ -673,6 +670,7 @@ encuentre:
 - $(B\cap A)\cup \overline{(A\cup B)}$
 - $\overline{(A\cap B)}\cap (B-A)$
 
+:::{dropdown} Respuesta
 Los resultados son:
 
 $$
@@ -711,6 +709,7 @@ $$
 \overline{(A\cap B)}\cap (B-A)
 =\{2,4,6\}
 $$
+:::
 
 Dados
 
@@ -725,6 +724,7 @@ encuentre y compare:
 - $\overline{A\cup B}$, $\overline{A}\cap \overline{B}$
 - $\overline{A\cap B}$, $\overline{A}\cup \overline{B}$
 
+:::{dropdown} Respuesta
 Para la primera comparación:
 
 $$
@@ -762,6 +762,7 @@ $$
 $$
 \textbf{Ambos son } \{a,c,d,e,f\}
 $$
+:::
 
 ## Identidades entre conjuntos
 
@@ -850,6 +851,7 @@ $$
 
 **Probar** $A \cap (B-A) = \varnothing$
 
+:::{dropdown} Respuesta
 | $A$ | $B$ | $B-A$ | $A\cap(B-A)$ |
 |---|---|---|---|
 | 1 | 1 | 0 | 0 |
@@ -858,9 +860,11 @@ $$
 | 0 | 0 | 0 | 0 |
 
 **La columna final es todo 0 $\Rightarrow$ el resultado es $\varnothing$.**
+:::
 
 **Probar** $A \cup (B-A) = A \cup B$
 
+:::{dropdown} Respuesta
 | $A$ | $B$ | $B-A$ | $A\cup(B-A)$ | $A\cup B$ |
 |---|---|---|---|---|
 | 1 | 1 | 0 | 1 | 1 |
@@ -869,6 +873,7 @@ $$
 | 0 | 0 | 0 | 0 | 0 |
 
 **Las columnas coinciden $\Rightarrow$ la identidad es verdadera.**
+:::
 
 **Ejercicio**
 
@@ -937,6 +942,7 @@ $$
 A \cap (B - A) = \varnothing
 $$
 
+:::{dropdown} Demostración
 $$
 \begin{align*}
 A \cap (B - A)
@@ -950,6 +956,7 @@ A \cap (B - A)
 &= \varnothing
 \end{align*}
 $$
+:::
 
 **Probar**
 
@@ -957,6 +964,7 @@ $$
 \overline{A} \cap \overline{(B-A)} = \overline{A} \cap \overline{B}
 $$
 
+:::{dropdown} Demostración
 $$
 \begin{align*}
 \overline{A} \cap \overline{(B-A)}
@@ -975,9 +983,11 @@ $$
 = \overline{A} \cap \overline{B}
 \end{align*}
 $$
+:::
 
 **Probar** $A \cup (B - A) = A \cup B$
 
+:::{dropdown} Demostración
 $$
 \begin{align*}
 A \cup (B - A)
@@ -992,6 +1002,7 @@ A \cup (B - A)
 &= A \cup B
 \end{align*}
 $$
+:::
 
 ## Conjuntos en Java (Interfaz `Set`)
 
@@ -1256,7 +1267,6 @@ Elegir la implementación correcta depende de:
 - ¿Se necesita ordenamiento automático?
 
 ---
-**· Contenido adicional ·**
 
 ### Interface Set
 
