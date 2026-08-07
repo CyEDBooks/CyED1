@@ -40,6 +40,29 @@ $$
 **Ejercicio 1**
 Demuestre que el cuadrado de un número par es un número par utilizando una demostración directa.
 
+:::{dropdown} Demostración
+**Supongamos que** $n$ es un número par.
+
+**Por definición de número par,** existe un entero $k$ tal que:
+$$n = 2k$$
+
+**Elevamos al cuadrado ambos lados:**
+$$n^2 = (2k)^2$$
+
+**Desarrollamos el cuadrado:**
+$$n^2 = 4k^2$$
+
+**Factorizamos para expresar el resultado en forma de "2 por algo":**
+$$n^2 = 2 \cdot (2k^2)$$
+
+**Sea** $m = 2k^2$. Dado que $k$ es un entero:
+- $k^2$ es un entero
+- $2k^2$ es un entero
+- Por lo tanto, $m$ es un entero
+
+**Conclusión:** Como $n^2 = 2m$ donde $m$ es un entero, por definición de número par, $n^2$ es un número par.
+:::
+
 **Ejercicio 2**
 Demuestre que el cuadrado de un número par es un número par utilizando una demostración por reducción al absurdo.
 
