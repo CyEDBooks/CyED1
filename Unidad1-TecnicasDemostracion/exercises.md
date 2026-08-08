@@ -67,7 +67,7 @@ $$
 
 **es impar.**
 
-:::{dropdown} Deostración 
+:::{dropdown} Demostración 
 **Supongamos que $n$ y $m$ son números enteros impares.**
 
 **Por definición, existen enteros $k$ y $j$ tales que:**

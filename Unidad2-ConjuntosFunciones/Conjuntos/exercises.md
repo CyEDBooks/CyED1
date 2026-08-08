@@ -228,60 +228,210 @@ $\overline{S \cup T} = \lbrace 6,9,10 \rbrace$
 $\overline{S} \cap \overline{T} = \lbrace 6,9,10 \rbrace$ ✔
 :::
 
+### H) Demostraciones formales
+
+1. Supongamos que $A \times B = \emptyset$, donde $A$ y $B$ son conjuntos. ¿Qué se puede concluir? Demuéstrelo.
+
+:::{dropdown} Demostración
+
+## Demostración (Bidireccional)
+
+### Dirección 1: Si $A = \emptyset$ o $B = \emptyset$, entonces $A \times B = \emptyset$ (⟹)
+
+**Caso 1:** Supongamos $A = \emptyset$.
+
+Por definición del producto cartesiano:
+$$A \times B = \{(a, b) : a \in A \text{ y } b \in B\}$$
+
+Como no hay elementos en $A$, no existe ningún par ordenado $(a, b)$ que pueda formarse. Por lo tanto:
+$$A \times B = \emptyset$$
+
+**Caso 2:** Supongamos $B = \emptyset$.
+
+Por el mismo razonamiento, como no hay elementos en $B$, no puede existir ningún par ordenado $(a, b)$. Por lo tanto:
+$$A \times B = \emptyset$$
+
+### Dirección 2: Si $A \times B = \emptyset$, entonces $A = \emptyset$ o $B = \emptyset$ (⟸)
+
+**Demostración por contraposición:** Si $A \neq \emptyset$ y $B \neq \emptyset$, entonces $A \times B \neq \emptyset$.
+
+**Supongamos que $A \neq \emptyset$ y $B \neq \emptyset$.**
+
+Como $A$ no es vacío, existe al menos un elemento $a \in A$.
+
+Como $B$ no es vacío, existe al menos un elemento $b \in B$.
+
+Entonces, el par ordenado $(a, b)$ existe y pertenece a $A \times B$:
+$$(a, b) \in A \times B$$
+
+Por lo tanto:
+$$A \times B \neq \emptyset$$
+
+Esto contradice nuestra suposición de que $A \times B = \emptyset$.
+
+**Conclusión:** Si $A \times B = \emptyset$, entonces $A = \emptyset$ o $B = \emptyset$ (o ambos).
+:::
+
+2. ¿Cuántos elementos distintos tiene $A \times B$ si $A$ tiene $m$ elementos y $B$ tiene $n$?
+
+:::{dropdown} Demostración
+
+**Sea $A = \{a_1, a_2, \ldots, a_m\}$ con $m$ elementos.**
+**Sea $B = \{b_1, b_2, \ldots, b_n\}$ con $n$ elementos.**
+
+**Por definición del producto cartesiano:**
+$$A \times B = \{(a_i, b_j) : a_i \in A \text{ y } b_j \in B\}$$
+
+**Contamos los pares ordenados:**
+
+- Para cada elemento $a_i \in A$, podemos emparejarlo con cualquiera de los $n$ elementos de $B$:
+  $$(a_i, b_1), (a_i, b_2), \ldots, (a_i, b_n)$$
+  
+  Esto da **$n$ pares** para cada $a_i$.
+
+- Como hay $m$ elementos en $A$, y cada uno genera $n$ pares, el número total de pares es:
+$$m \times n$$
+
+**Verificación de distinción:**
+
+Dos pares ordenados $(a_i, b_j)$ y $(a_k, b_\ell)$ son iguales si y solo si $a_i = a_k$ y $b_j = b_\ell$.
+
+Como los elementos de $A$ son distintos entre sí, y los elementos de $B$ son distintos entre sí, todos los pares ordenados resultantes son distintos.
+:::
+
+3. Demuestre que $A \times B \ne B \times A$ para conjuntos $A$ y $B$ no vacíos a no ser que $A = B$.
+
+:::{dropdown} Demostración
+
+## Demostración (Bidireccional)
+
+### Dirección 1: Si $A = B$, entonces $A \times B = B \times A$ (⟹)
+
+**Supongamos que $A = B$.**
+
+Entonces por sustitución directa:
+$$A \times B = A \times A = A \times B$$
+
+Por simetría de la igualdad:
+$$A \times B = B \times A$$
+
+### Dirección 2: Si $A \times B = B \times A$, entonces $A = B$ (⟸)
+
+**Supongamos que $A \times B = B \times A$ y que $A$ y $B$ son no vacíos.**
+
+**Demostración por contraposición:** Si $A \neq B$, entonces $A \times B \neq B \times A$.
+
+**Supongamos que $A \neq B$.** Entonces existe un elemento que pertenece a uno pero no al otro.
+
+**Caso 1:** Existe $a \in A$ tal que $a \notin B$.
+
+Como $B$ es no vacío, existe $b \in B$.
+
+Consideremos el par ordenado $(a, b)$:
+- $(a, b) \in A \times B$ (porque $a \in A$ y $b \in B$)
+- $(a, b) \notin B \times A$ (porque $a \notin B$, y en $B \times A$ el primer componente debe estar en $B$)
+
+Por lo tanto:
+$$A \times B \neq B \times A$$
+
+**Caso 2:** Existe $b \in B$ tal que $b \notin A$.
+
+Por razonamiento análogo, existe un par en $B \times A$ que no está en $A \times B$, y nuevamente:
+$$A \times B \neq B \times A$$
+
+**Conclusión:** Si $A \neq B$, entonces $A \times B \neq B \times A$.
+
+Por contraposición: Si $A \times B = B \times A$ (siendo ambos no vacíos), entonces $A = B$.
+:::
+
+4. Sea $A$ un conjunto. Demuestre que:
+
+    - $A \cap \emptyset = \emptyset$
+    - $A \cup A = A$
+    - $A \cap A = A$
+
+:::{dropdown} Demostraciones
+
+## Demostración 1: $A \cap \emptyset = \emptyset$
+
+**Demostración por contradicción.**
+
+Supongamos que $A \cap \emptyset \neq \emptyset$.
+
+Entonces existe un elemento $x \in A \cap \emptyset$.
+
+Por definición de intersección:
+$$x \in A \text{ y } x \in \emptyset$$
+
+Pero por definición, el conjunto vacío no tiene elementos, entonces:
+$$x \notin \emptyset$$
+
+Esto es una contradicción: $x \in \emptyset$ y $x \notin \emptyset$ no pueden ser ambas verdaderas.
+
+Por lo tanto, nuestra suposición es falsa.
+
+$$A \cap \emptyset = \emptyset$$
+
 ---
 
-### Ejercicios teoría de conjuntos
+## Demostración 2: $A \cup A = A$
 
-**Ejercicio 1**
-Supongamos que $A \times B = \emptyset$, donde $A$ y $B$ son conjuntos. ¿Qué se puede concluir? Demuéstrelo.
+**Por doble contenencia.**
 
-**Ejercicio 2**
-¿Cuántos elementos distintos tiene $A \times B$ si $A$ tiene $m$ elementos y $B$ tiene $n$?
+### Parte a: $A \cup A \subseteq A$
 
-**Ejercicio 3**
-Sean $A = \{a, b, c\}$, $B = \{x, y\}$ y $C = \{0, 1\}$. Obtenga:
+Sea $x \in A \cup A$.
 
-1. $A \times B \times C$
-2. $C \times B \times A$
-3. $C \times A \times B$
-4. $B \times B \times B$
+Por definición de unión:
+$$x \in A \text{ o } x \in A$$
 
-**Ejercicio 4**
-Demuestre que $A \times B \ne B \times A$ para conjuntos $A$ y $B$ no vacíos a no ser que $A = B$.
+En cualquier caso (ambas opciones son idénticas):
+$$x \in A$$
 
-**Ejercicio 5**
-Sea $A$ un conjunto. Demuestre que:
+### Parte b: $A \subseteq A \cup A$
 
-1. $A \cup \emptyset = A$
-2. $A \cap \emptyset = \emptyset$
-3. $A \cup A = A$
-4. $A \cap A = A$
-5. $A - \emptyset = A$
-6. $A \cup U = U$
-7. $A \cap U = A$
-8. $\emptyset - A = \emptyset$
+Sea $x \in A$.
 
-**Ejercicio 6**
-Sean $A$ y $B$ conjuntos. Demuestre que $A \cup (A \cap B) = A$.
+Por definición de unión:
+$$x \in A \text{ o } x \in A$$
 
-**Ejercicio 7**
-Sean $A$, $B$ y $C$ conjuntos. Demuestre que:
+Como la primera parte es verdadera:
+$$x \in A \cup A$$
 
-1. $(A \cup B) \subseteq (A \cup B \cup C)$
-2. $(A \cap B \cap C) \subseteq (A \cap B)$
-3. $(A - B) - C \subseteq A - C$
-4. $(A - C) \cap (C - B) = \emptyset$
-5. $(B - A) \cup (C - A) = (B \cup C) - A$
+### Conclusión
 
-**Ejercicio 8**
-Demuestre que si $A$ y $B$ son conjuntos, entonces $A - B = A \cap B$.
+$$A \cup A = A$$
 
-**Ejercicio 9**
-Demuestre que si $A$ y $B$ son conjuntos, entonces $(A \cap B) \cup (A \cap B) = A$.
+---
 
-**Ejercicio 10**
-Sea $A_i = \{..., -2, -1, 0, 1, ..., i\}$. Halle
-$\bigcup\limits_{i=1}^n A_i$ y $\bigcap\limits_{i=1}^n A_i$
+## Demostración 3: $A \cap A = A$
+
+**Por doble contenencia.**
+
+### Parte a: $A \cap A \subseteq A$
+
+Sea $x \in A \cap A$.
+
+Por definición de intersección:
+$$x \in A \text{ y } x \in A$$
+
+En particular:
+$$x \in A$$
+
+### Parte b: $A \subseteq A \cap A$
+
+Sea $x \in A$.
+
+Por definición de intersección:
+$$x \in A \text{ y } x \in A$$
+
+Ambas condiciones son verdaderas (la misma proposición), por lo tanto:
+$$x \in A \cap A$$
+
+### Conclusión
+
+$$A \cap A = A}$$
+:::
 
 ---
 
@@ -553,37 +703,6 @@ Con N = 100 000 y M = 50 000 → ~150 000 operaciones.
 Frente a la solución con `ArrayList` → ~15 000 000 000 operaciones.
 **El uso de `HashSet` representa una mejora de ~100 000x en este caso.**
 :::
-
----
-
-### Ejercicios Interface Set
-
-**Operaciones con conjuntos**
-
-* El método realizarOperacionesTexto solo demuestra la operación de unión. Agrega
-código a este método para calcular e imprimir la intersección y la diferencia de
-mySet1 y mySet6.
-
-* Modifica el método ejecutarOperaciones() para comparar mySet2 y mySet4. Determina
-qué elementos están en mySet2 pero no en mySet4, y luego imprime el
-resultado.
-
-* El código no muestra explícitamente el método removeAll() en realizarOperacionesTexto.
-Dados los datos iniciales, si se realizara una operación removeAll() sobre la
-union de mySet1 y mySet6 con un nuevo conjunto que contenga "Igor" y "Tanya1",
-¿qué contendría el conjunto union final?. Muestra el resultado en consola.
-
-**Palabras únicas**
-
-* Modifica la clase PalabrasUnicas para que incluya un nuevo método público llamado
-eliminarPalabra(String palabra). Este método debe recibir una palabra como argumento
-y eliminarla del conjunto palabrasUnicas si existe. Utiliza la clase modificada.
-Agrega la oración:
-
-"Un buen programador es un programador que piensa el codigo antes de escribirlo"
-
-* Después de agregar la oración, elimina la palabra "un" y "que". Muestra la cantidad
-de palabras únicas restantes y el conjunto final.
 
 ---
 
