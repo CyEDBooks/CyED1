@@ -430,7 +430,7 @@ $$x \in A \cap A$$
 
 ### Conclusión
 
-$$A \cap A = A}$$
+$$A \cap A = A$$
 :::
 
 ---
