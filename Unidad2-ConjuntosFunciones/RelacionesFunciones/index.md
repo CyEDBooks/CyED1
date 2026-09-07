@@ -88,7 +88,7 @@ A \times A =
 \right\}
 $$
 
-Sea $A=\{1,2,3,4\}$ muestre las siguientes relaciones:
+Sea $A=\{1,2,3,4\}$, muestre las siguientes relaciones:
 
 - $R_1=\{(a,b)\mid a<b\}$
 - $R_2=\{(a,b)\mid a=b\}$
@@ -108,37 +108,25 @@ A\times A =
 \end{aligned}
 $$
 
-Sea $A=\{1,2,3,4\}$ muestre las siguientes relaciones:
-
+:::{dropdown} Respuesta
 - $R_1=\{(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)\}$
 - $R_2=\{(1,1),(2,2),(3,3),(4,4)\}$
 - $R_3=\{(2,1),(3,2),(4,3)\}$
 - $R_4=\{(1,1),(1,2),(1,3),(1,4),(2,2),(2,4),(3,3),(4,4)\}$
 - $R_5=\{(1,1),(1,2),(2,1)\}$
+:::
 
-$$
-A\times A =
-\{
-\begin{aligned}
-&(1,1),(1,2),(1,3),(1,4),\\
-&(2,1),(2,2),(2,3),(2,4),\\
-&(3,1),(3,2),(3,3),(3,4),\\
-&(4,1),(4,2),(4,3),(4,4)
-\}
-\end{aligned}
-$$
-
-Sea $A=\{-2,-1,1,2,3,4\}$ muestre las siguientes relaciones:
+Sea $A=\{-2,-1,1,2,3,4\}$, muestre las siguientes relaciones:
 
 - $R_1=\{(a,b)\mid a>0 \;\wedge\; b<0\}$
 - $R_2=\{(a,b)\mid a=-b\}$
 - $R_3=\{(a,b)\mid a+b<2\}$
 
-Sea $A=\{-2,-1,1,2,3,4\}$ muestre las siguientes relaciones:
-
+:::{dropdown} Respuesta
 - $R_1=\{(1,-2),(1,-1),(2,-2),(2,-1),(3,-2),(3,-1),(4,-2),(4,-1)\}$
 - $R_2=\{(-2,2),(2,-2),(-1,1),(1,-1)\}$
 - $R_3=\{(-2,-2),(-2,-1),(-2,1),(-2,3),(-1,-2),(-1,-1),(-1,1),(-1,2),(1,-2),(1,-1),(2,-2),(2,-1),(3,-2)\}$
+:::
 
 **Función.** Una función es una relación $R$ de $A$ en $B$ tal que cada elemento de $A$ le corresponde un único elemento de $B$. Es decir, a cada $a \in A$ le asignamos un único $b \in B$ tal que $f(a)=b$ y $(a,b)\in R$.
 
@@ -156,23 +144,137 @@ $$
 \text{Arias}\to 4.5,\quad \text{Benavides}\to 1.2,\quad \text{Calero}\to 2.9,\quad \text{Cardona}\to 5.0,\quad \text{Navarrete}\to 4.9.
 $$
 
+:::{image} images/1_nocion_funcion_sin_flechas.png
+:alt: Conjuntos A (Arias, Benavides, Calero, Cardona, Navarrete) y B (1.2, 4.5, 5.0, 2.9, 4.9) sin flechas
+:width: 75%
+:align: center
+:::
+
+:::{image} images/2_nocion_funcion_con_flechas.png
+:alt: Los mismos conjuntos A y B con flechas que asignan a cada persona su nota
+:width: 85%
+:align: center
+:::
+
+::::{dropdown} Resultado
+:::{image} images/3_nocion_funcion_con_flechas_y_anotac.png
+:alt: Diagrama con flechas y la anotación f(Arias)=4.5 y f(Benavides)=1.2
+:width: 85%
+:align: center
+:::
+
 Así, $f(\text{Arias}) = 4.5$ y $f(\text{Benavides}) = 1.2$.
+::::
 
 **Función.** Dados dos conjuntos $A$ y $B$, una función $f$ de $A$ a $B$, denotada como $f: A \rightarrow B$, asigna a cada elemento de $A$ exactamente un elemento de $B$.
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4\}$, con $x\to 1$ y $y\to 4$. No es función porque $z$ no tiene imagen.
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4\}$, con $x\to 1$ y $y\to 4$.
 
-**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,4,5\}$, con $x\to 1$ y $y\to 4$. Como cada elemento de $A$ tiene una única imagen, $f(x)=1,\; f(y)=4$.
+:::{image} images/4_no_funcion_no_imagen_z.png
+:alt: Conjunto A con x, y, z y conjunto B con 1, 4; flechas de x a 1 y de y a 4, z sin flecha
+:width: 70%
+:align: center
+:::
 
-**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,4,5\}$, con $x\to 1$, $y\to 4$ y $y\to 5$. No es función porque un elemento ($y$) tiene dos imágenes.
+:::{dropdown} ¿Es función?
+No es función porque $z$ no tiene imagen.
+:::
 
-**Ejemplo.** Sea $A=\{\text{Arias},\text{Benavides}\}$ y $B=\{1.2,\,2.9,\,4.0\}$, con Arias$\to 1.2$, Benavides$\to 2.9$ y Benavides$\to 4.0$. No es función, ya que Benavides tiene dos imágenes.
+**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,4,5\}$, con $x\to 1$ y $y\to 4$.
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4\}$, con $x\to 1$, $y\to 1$ y $z\to 4$. Es función y $f(x)=1,\; f(y)=1,\; f(z)=4$.
+:::{image} images/5_funcion_valida_5_sin_preimagen.png
+:alt: Conjunto A con x, y y conjunto B con 1, 4, 5; flechas de x a 1 y de y a 4
+:width: 70%
+:align: center
+:::
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $y\to 1$ y $z\to 1$. Es función y $f(x)=1,\; f(y)=1,\; f(z)=1$.
+::::{dropdown} ¿Es función?
+:::{image} images/6_funcion_valida_5_sin_preimagen_con_anotac.png
+:alt: El mismo diagrama con la anotación f(x)=1, f(y)=4
+:width: 70%
+:align: center
+:::
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $x\to 4$ y $x\to 8$. No es función, ya que $x$ tiene tres imágenes.
+Como cada elemento de $A$ tiene una única imagen, sí es función: $f(x)=1,\; f(y)=4$. Que $5$ no tenga preimagen no lo impide.
+::::
+
+**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,4,5\}$, con $x\to 1$, $y\to 4$ y $y\to 5$.
+
+:::{image} images/7_no_es_funcion_y_doble_imagen.png
+:alt: Conjunto A con x, y y conjunto B con 1, 4, 5; flechas de x a 1, de y a 4 y de y a 5
+:width: 70%
+:align: center
+:::
+
+:::{dropdown} ¿Es función?
+No es función porque un elemento ($y$) tiene dos imágenes.
+:::
+
+**Ejemplo.** Sea $A=\{\text{Arias},\text{Benavides}\}$ y $B=\{1.2,\,2.9,\,4.0\}$, con Arias$\to 1.2$, Benavides$\to 2.9$ y Benavides$\to 4.0$.
+
+:::{image} images/8_tampoco_funcion_doble_nota.png
+:alt: Conjunto A con Arias, Benavides y conjunto B con 1.2, 2.9, 4.0; Benavides con dos flechas
+:width: 70%
+:align: center
+:::
+
+:::{dropdown} ¿Es función?
+No es función, ya que Benavides tiene dos imágenes.
+:::
+
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4\}$, con $x\to 1$, $y\to 1$ y $z\to 4$.
+
+:::{image} images/9_funcion_valida_1_doble_pre_imagen.png
+:alt: Conjunto A con x, y, z y conjunto B con 1, 4; flechas de x a 1, de y a 1 y de z a 4
+:width: 70%
+:align: center
+:::
+
+::::{dropdown} ¿Es función?
+:::{image} images/10_funcion_valida_1_doble_pre_imagen_con_anotac.png
+:alt: El mismo diagrama con la anotación f(x)=1, f(y)=1, f(z)=4
+:width: 70%
+:align: center
+:::
+
+Es función: $f(x)=1,\; f(y)=1,\; f(z)=4$. Que $1$ tenga dos preimágenes está permitido.
+::::
+
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $y\to 1$ y $z\to 1$.
+
+:::{image} images/11_funcion_valida_todos_misma_imagen.png
+:alt: Conjunto A con x, y, z y conjunto B con 1, 4, 8; las tres flechas apuntan a 1
+:width: 70%
+:align: center
+:::
+
+::::{dropdown} ¿Es función?
+:::{image} images/12_funcion_valida_todos_misma_imagen_anotac.png
+:alt: El mismo diagrama con la anotación f(x)=1, f(y)=1, f(z)=1
+:width: 70%
+:align: center
+:::
+
+Es función: $f(x)=1,\; f(y)=1,\; f(z)=1$.
+::::
+
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $x\to 4$ y $x\to 8$.
+
+:::{image} images/13_no_es_funcion_x_3_imagenes.png
+:alt: Conjunto A con x, y, z y conjunto B con 1, 4, 8; x con tres flechas hacia 1, 4 y 8
+:width: 70%
+:align: center
+:::
+
+::::{dropdown} ¿Es función?
+:::{image} images/14_no_es_funcion_x_3_imagenes_anotac.png
+:alt: El mismo diagrama con la anotación de que no es función
+:width: 70%
+:align: center
+:::
+
+No es función, ya que $x$ tiene tres imágenes.
+::::
 
 **Ejemplo.** Indique si la siguiente relación entre los conjuntos $A=\{w,x,y,z\}$ y $B=\{1,2,3,4\}$ es una función:
 
@@ -180,7 +282,15 @@ $$
 f(w)=3,\; f(x)=4,\; f(y)=4,\; f(z)=3
 $$
 
+::::{dropdown} ¿Es función?
+:::{image} images/15_primer_ejercicio_funcion_wxyz_1234.png
+:alt: Diagrama de A={w,x,y,z} a B={1,2,3,4} con f(w)=3, f(x)=4, f(y)=4, f(z)=3
+:width: 65%
+:align: center
+:::
+
 Es función, ya que cada elemento de $A$ tiene una única imagen (aunque dos elementos compartan la misma imagen).
+::::
 
 **Ejemplo.** Indique si la siguiente relación entre los conjuntos $A=\{a,b,c,d\}$ y $B=\{a,b,c,d\}$ es una función:
 
@@ -188,7 +298,15 @@ $$
 f(c)=d,\; f(a)=c,\; f(b)=a,\; f(c)=b,\; f(d)=c
 $$
 
+::::{dropdown} ¿Es función?
+:::{image} images/16_segundo_ejercicio_abcd_abcd_no_funcion.png
+:alt: Diagrama de A={a,b,c,d} a B={a,b,c,d} donde c tiene dos flechas, hacia d y hacia b
+:width: 65%
+:align: center
+:::
+
 No es función, ya que $c$ tiene dos imágenes ($d$ y $b$).
+::::
 
 Las funciones se pueden especificar por medio de fórmulas, por ejemplo,
 
@@ -198,12 +316,33 @@ $$
 
 que asigna, entre otros, $-1\to 0$, $0\to 1$, $1\to 2$, $2\to 3$.
 
+:::{image} images/17_primera_pare_x+1_z_a_z.png
+:alt: Dominio y codominio con los enteros ..., -1, 0, 1, 2, 3, ... sin flechas
+:width: 55%
+:align: center
+:::
+
+::::{dropdown} Asignación
+:::{image} images/18_segunda_parte_x+1_z_a_z.png
+:alt: Los mismos enteros con flechas que llevan cada n a n+1
+:width: 55%
+:align: center
+:::
+::::
+
 Indique si cada $f$ es, o no, una función de $\mathbb{R}$ en $\mathbb{R}$:
 
+- $f(x)=\frac{1}{x}$
+- $f(x)=\sqrt{x}$
+- $f(x)=\pm x$
+- $f(x)=x^2+1$
+
+:::{dropdown} Respuesta
 - $f(x)=\frac{1}{x}$: **no es una función** porque $f(0)$ no está definida.
 - $f(x)=\sqrt{x}$: **no es una función** porque $f(-1)$ no está definida.
 - $f(x)=\pm x$: **no es una función** porque asigna dos valores a $x$.
 - $f(x)=x^2+1$: **sí es una función**.
+:::
 
 ---
 
@@ -246,15 +385,31 @@ Si $f$ es una función de $A$ a $B$, se dice que:
 
 **Ejemplo.** Indique el dominio, codominio y rango de la función con dominio $\{x,y\}$, codominio $\{1,4,8\}$ y $x\to 1$, $y\to 4$.
 
+:::{image} images/19_primer_ejercicio_dominio_cod.png
+:alt: Diagrama de {x,y} a {1,4,8} con x a 1 e y a 4
+:width: 55%
+:align: center
+:::
+
+:::{dropdown} Respuesta
 - **Dominio** $=\{x,y\}$
 - **Codominio** $=\{1,4,8\}$
 - **Rango** $=\{1,4\}$
+:::
 
 **Ejemplo.** Indique el dominio, codominio y rango de la función con dominio $\{x,y,z\}$, codominio $\{a,b,c,d,e\}$ y $x\to c$, $y\to e$, $z\to a$.
 
+:::{image} images/20_segundo_ejercicio_dominio_cod.png
+:alt: Diagrama de {x,y,z} a {a,b,c,d,e} con x a c, y a e y z a a
+:width: 55%
+:align: center
+:::
+
+:::{dropdown} Respuesta
 - **Dominio** $=\{x,y,z\}$
 - **Codominio** $=\{a,b,c,d,e\}$
 - **Rango** $=\{a,c,e\}$
+:::
 
 ---
 
@@ -301,6 +456,7 @@ Sea $G$ la función que asigna una letra a una persona.
 
 ![función2](images/funcion2.png)
 
+:::{dropdown} Respuesta
 - El dominio de $G$ es:
   $ \{ \text{Adams, Chou, Goodfriend, Rodríguez, Stevens} \} $
 
@@ -309,6 +465,7 @@ Sea $G$ la función que asigna una letra a una persona.
 
 - La imagen de $G$ es:
   $ \{ A, B, C, F \} $
+:::
 
 ---
 
@@ -333,8 +490,7 @@ $$
 
 Sean $f_1(x) = x^2$ y $f_2(x) = x - x^2$. ¿Cuáles son $f_1 + f_2$ y $f_1 f_2$?
 
-**Solución:**
-
+:::{dropdown} Solución
 $$
 (f_1 + f_2)(x) = x^2 + (x - x^2) = x
 $$
@@ -342,6 +498,7 @@ $$
 $$
 (f_1 f_2)(x) = x^2 (x - x^2) = x^3 - x^4
 $$
+:::
 
 ---
 
@@ -372,31 +529,45 @@ $$
 
 Sea $S = \{ b, c, d \} $. ¿Cuál es $f(S)$?
 
-**Solución:**
-
+:::{dropdown} Solución
 $$
 f(S) = \{ 1, 4 \}
 $$
+:::
 
 ---
 
 **Ejemplo.** Indique el rango de la función $f(x)=x^2$, de los reales a los reales.
 
+:::{dropdown} Respuesta
 - **Dominio** $=\mathbb{R}$
 - **Codominio** $=\mathbb{R}$
 - **Rango** $=\mathbb{R}^+ \cup \{0\}$
+:::
 
 **Ejemplo.** Indique el rango de la función $f(x)=x^2+4$, de los reales a los reales.
 
+:::{dropdown} Respuesta
 - **Dominio** $=\mathbb{R}$
 - **Codominio** $=\mathbb{R}$
 - **Rango** $=[4,\infty)$
+:::
 
-**Ejemplo.** Sea $f$ la función que toma cualquier cadena de 3 bits y devuelve la cantidad de 1's. El dominio es el conjunto de las 8 cadenas de 3 bits ($000,001,010,011,100,101,110,111$) y el rango es $\{0,1,2,3\}$, ya que:
+**Ejemplo.** Sea $f$ la función que toma cualquier cadena de 3 bits y devuelve la cantidad de 1's. Indique el dominio y el rango.
+
+::::{dropdown} Respuesta
+:::{image} images/21_tercer_ejercicio_cadena_3_bits.png
+:alt: Diagrama de las 8 cadenas de 3 bits al conjunto {0,1,2,3} según la cantidad de unos
+:width: 55%
+:align: center
+:::
+
+El dominio es el conjunto de las 8 cadenas de 3 bits ($000,001,010,011,100,101,110,111$) y el rango es $\{0,1,2,3\}$, ya que:
 
 $$
 000\to 0,\quad 001,010,100\to 1,\quad 011,101,110\to 2,\quad 111\to 3.
 $$
+::::
 
 ## Funciones inyectivas, sobreyectivas y biyectivas
 
@@ -406,11 +577,41 @@ Tipos de funciones: inyectiva, sobreyectiva, biyectiva.
 
 **Función inyectiva.** Una función $f$ se llama **uno a uno** o **inyectiva**, si y solo si, cada imagen asociada es única.
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $y\to 1$ y $z\to 4$. **No es inyectiva** (dos elementos distintos, $x$ y $y$, comparten la misma imagen).
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $y\to 1$ y $z\to 4$.
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $y\to 8$ y $z\to 4$. **Es inyectiva**.
+:::{image} images/22_primer_ejemplo_no_funcion_inyectiva.png
+:alt: Diagrama de {x,y,z} a {1,4,8} con x a 1, y a 1 y z a 4
+:width: 60%
+:align: center
+:::
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8,10\}$, con $x\to 1$, $y\to 4$ y $z\to 8$. **Es inyectiva**.
+:::{dropdown} ¿Es inyectiva?
+**No es inyectiva** (dos elementos distintos, $x$ y $y$, comparten la misma imagen).
+:::
+
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8\}$, con $x\to 1$, $y\to 8$ y $z\to 4$.
+
+:::{image} images/23_segundo_ejemplo_funcion_inyectiva.png
+:alt: Diagrama de {x,y,z} a {1,4,8} con x a 1, y a 8 y z a 4
+:width: 60%
+:align: center
+:::
+
+:::{dropdown} ¿Es inyectiva?
+**Es inyectiva**.
+:::
+
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,4,8,10\}$, con $x\to 1$, $y\to 4$ y $z\to 8$.
+
+:::{image} images/24_tercer_ejemplo_inyectiva.png
+:alt: Diagrama de {x,y,z} a {1,4,8,10} con x a 1, y a 4 y z a 8
+:width: 60%
+:align: center
+:::
+
+:::{dropdown} ¿Es inyectiva?
+**Es inyectiva**.
+:::
 
 Indique cuáles de las siguientes funciones son inyectivas:
 
@@ -418,14 +619,29 @@ Indique cuáles de las siguientes funciones son inyectivas:
 - $f(x)=x^2$ de los enteros a los enteros
 - $f(x)=x+1$ de los enteros a los enteros
 
-La primera función, con $a\to 4$, $b\to 5$, $c\to 1$, $d\to 3$, **es inyectiva** (todas las imágenes son distintas).
+::::{dropdown} Respuesta
+:::{image} images/25_primer_ejercicio_inyectiva_abcd_12345.png
+:alt: Diagrama de {a,b,c,d} a {1,2,3,4,5} con a a 4, b a 5, c a 1 y d a 3
+:width: 60%
+:align: center
+:::
 
+- La primera función, con $a\to 4$, $b\to 5$, $c\to 1$, $d\to 3$, **es inyectiva** (todas las imágenes son distintas).
 - $f(x)=x^2$ de los enteros a los enteros, **no es inyectiva** porque $f(1)=f(-1)=1$.
 - $f(x)=x+1$ de los enteros a los enteros, **sí es inyectiva** porque cada $x$ tiene un solo $y$ asignado, $x+1$.
+::::
 
-**Ejemplo.** Determine si la función $f(x)=x+1$ del conjunto de los enteros al conjunto de los enteros es inyectiva. Suponemos que $f(x)=f(y)$, luego $x+1=y+1$, por tanto $x=y$ y probamos que es inyectiva.
+**Ejemplo.** Determine si la función $f(x)=x+1$ del conjunto de los enteros al conjunto de los enteros es inyectiva.
 
-**Ejemplo.** Determine si la función $f(x)=x^2$ del conjunto de los enteros al conjunto de los enteros es inyectiva. La función $f(x)=x^2$ no es inyectiva pues, por ejemplo, $f(1)=f(-1)$ pero $1\neq -1$.
+:::{dropdown} Solución
+Suponemos que $f(x)=f(y)$, luego $x+1=y+1$, por tanto $x=y$ y probamos que es inyectiva.
+:::
+
+**Ejemplo.** Determine si la función $f(x)=x^2$ del conjunto de los enteros al conjunto de los enteros es inyectiva.
+
+:::{dropdown} Solución
+La función $f(x)=x^2$ no es inyectiva pues, por ejemplo, $f(1)=f(-1)$ pero $1\neq -1$.
+:::
 
 **Definición.** Una función $f$ cuyo dominio y codominio son subconjuntos del conjunto de los números reales se denomina **estrictamente creciente** si $f(x) < f(y)$ siempre que $x < y$ y tanto $x$ como $y$ estén en el dominio de $f$. Es decir,
 
@@ -465,16 +681,22 @@ $$
 **Ejemplo 1:**
 
 Sea $f(x) = x + 1$, una función del conjunto de los enteros en los enteros.
+
+:::{dropdown} Solución
 Supongamos $f(x) = f(y)$, entonces $x+1 = y+1$, por lo tanto $x = y$.
 
 **Conclusión:** La función es inyectiva.
+:::
 
 **Ejemplo 2:**
 
 Sea $f(x) = x^2$, del conjunto de los enteros en los enteros.
+
+:::{dropdown} Solución
 $f(1) = 1 = f(-1)$ pero $1 \neq -1$.
 
 **Conclusión:** La función **no** es inyectiva.
+:::
 
 ---
 
@@ -514,13 +736,53 @@ $$
 
 **Función sobreyectiva.** Una función $f$ es sobreyectiva, si y solo si, para cada elemento $b \in B$ (codominio), existe un elemento $a \in A$ tal que $f(a)=b$. Una función es sobreyectiva si el codominio es igual al rango.
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8\}$, con $x\to 1$, $y\to 1$ y $z\to 8$. **Es sobreyectiva**.
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8\}$, con $x\to 1$, $y\to 1$ y $z\to 8$.
 
-**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,8,10\}$, con $x\to 1$ y $y\to 8$. **No es sobreyectiva** porque existe un elemento del codominio ($10$) para el cual no existe ningún elemento del dominio que lo tenga como imagen.
+:::{image} images/26_primer_ejemplo_sobreyectiva.png
+:alt: Diagrama de {x,y,z} a {1,8} con x a 1, y a 1 y z a 8
+:width: 55%
+:align: center
+:::
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8,10\}$, con $x\to 1$, $y\to 10$ y $z\to 8$. **Es sobreyectiva**.
+:::{dropdown} ¿Es sobreyectiva?
+**Es sobreyectiva**.
+:::
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{8\}$, con $x\to 8$, $y\to 8$ y $z\to 8$. **Es sobreyectiva**.
+**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,8,10\}$, con $x\to 1$ y $y\to 8$.
+
+:::{image} images/27_segundo_ejemplo_no_sobreyectiva.png
+:alt: Diagrama de {x,y} a {1,8,10} con x a 1 e y a 8
+:width: 55%
+:align: center
+:::
+
+:::{dropdown} ¿Es sobreyectiva?
+**No es sobreyectiva** porque existe un elemento del codominio ($10$) para el cual no existe ningún elemento del dominio que lo tenga como imagen.
+:::
+
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8,10\}$, con $x\to 1$, $y\to 10$ y $z\to 8$.
+
+:::{image} images/28_tercer_ejemplo_sobreyectiva.png
+:alt: Diagrama de {x,y,z} a {1,8,10} con x a 1, y a 10 y z a 8
+:width: 55%
+:align: center
+:::
+
+:::{dropdown} ¿Es sobreyectiva?
+**Es sobreyectiva**.
+:::
+
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{8\}$, con $x\to 8$, $y\to 8$ y $z\to 8$.
+
+:::{image} images/29_cuarto_ejemplo_sobreyectiva.png
+:alt: Diagrama de {x,y,z} a {8} con las tres flechas hacia 8
+:width: 55%
+:align: center
+:::
+
+:::{dropdown} ¿Es sobreyectiva?
+**Es sobreyectiva**.
+:::
 
 Indique cuáles de las siguientes funciones son sobreyectivas:
 
@@ -528,14 +790,29 @@ Indique cuáles de las siguientes funciones son sobreyectivas:
 - $f(x)=x^2$ de los enteros a los enteros
 - $f(x)=x+1$ de los enteros a los enteros
 
-La primera función, con $a\to 3$, $b\to 2$, $c\to 1$, $d\to 3$, **es sobreyectiva** (todo el codominio $\{1,2,3\}$ es alcanzado).
+::::{dropdown} Respuesta
+:::{image} images/30_primer_ejercicio_abcd_123_sobreyectiva.png
+:alt: Diagrama de {a,b,c,d} a {1,2,3} con a a 3, b a 2, c a 1 y d a 3
+:width: 55%
+:align: center
+:::
 
+- La primera función, con $a\to 3$, $b\to 2$, $c\to 1$, $d\to 3$, **es sobreyectiva** (todo el codominio $\{1,2,3\}$ es alcanzado).
 - $f(x)=x^2$ de los enteros a los enteros, **no es sobreyectiva** porque $-1$, que está en el codominio, no pertenece al rango.
 - $f(x)=x+1$ de los enteros a los enteros, **sí es sobreyectiva** porque cada elemento del codominio es imagen de algún entero.
+::::
 
-**Ejemplo.** Determine si la función $f(x)=x+1$ del conjunto de los enteros al conjunto de los enteros es sobreyectiva. Debemos mostrar que para todo $y$ existe un $x$ tal que $f(x)=y$. Como $f(x)=y$ entonces $x+1=y$ y $x=y-1$, que cumple $f(x)=y$ ya que $f(y-1)=y-1+1=y$.
+**Ejemplo.** Determine si la función $f(x)=x+1$ del conjunto de los enteros al conjunto de los enteros es sobreyectiva.
 
-**Ejemplo.** Determine si la función $f(x)=x^2$ del conjunto de los enteros al conjunto de los enteros es sobreyectiva. La función $f(x)=x^2$ no es sobreyectiva porque, por ejemplo, no hay ningún entero $x$ tal que $x^2=-1$.
+:::{dropdown} Solución
+Debemos mostrar que para todo $y$ existe un $x$ tal que $f(x)=y$. Como $f(x)=y$ entonces $x+1=y$ y $x=y-1$, que cumple $f(x)=y$ ya que $f(y-1)=y-1+1=y$.
+:::
+
+**Ejemplo.** Determine si la función $f(x)=x^2$ del conjunto de los enteros al conjunto de los enteros es sobreyectiva.
+
+:::{dropdown} Solución
+La función $f(x)=x^2$ no es sobreyectiva porque, por ejemplo, no hay ningún entero $x$ tal que $x^2=-1$.
+:::
 
 ---
 
@@ -561,16 +838,22 @@ $$
 **Ejemplo 1:**
 
 Sea $f(x) = x + 1$, de los enteros en los enteros.
+
+:::{dropdown} Solución
 Dado cualquier $y \in \mathbb{Z}$, existe $x = y - 1$ tal que $f(x) = y$.
 
 **Conclusión:** La función es sobreyectiva.
+:::
 
 **Ejemplo 2:**
 
 Sea $f(x) = x^2$, de los enteros en los enteros.
+
+:::{dropdown} Solución
 No existe $x \in \mathbb{Z}$ tal que $f(x) = -1$.
 
 **Conclusión:** La función **no** es sobreyectiva.
+:::
 
 ---
 
@@ -578,21 +861,103 @@ No existe $x \in \mathbb{Z}$ tal que $f(x) = -1$.
 
 **Función biyectiva.** Una función $f$ es biyectiva si es inyectiva y sobreyectiva.
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8,10\}$, con $x\to 1$, $y\to 10$ y $z\to 8$. **Es biyectiva**.
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8,10\}$, con $x\to 1$, $y\to 10$ y $z\to 8$.
 
-**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8\}$, con $x\to 1$, $y\to 8$ y $z\to 8$. **No es biyectiva porque no es inyectiva**.
+:::{image} images/31_primer_ejemplo_biyectiva.png
+:alt: Diagrama de {x,y,z} a {1,8,10} con x a 1, y a 10 y z a 8
+:width: 55%
+:align: center
+:::
 
-**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,8,10\}$, con $x\to 1$ y $y\to 8$. **No es biyectiva porque no es sobreyectiva**.
+:::{dropdown} ¿Es biyectiva?
+**Es biyectiva**.
+:::
 
-**Ejemplo.** Indique si la función $f:\{a,b,c,d\} \to \{1,2,3,4\}$ donde $f(a)=4,\; f(b)=2,\; f(c)=1,\; f(d)=3$ es biyectiva. **Es biyectiva**.
+**Ejemplo.** Sea $A=\{x,y,z\}$ y $B=\{1,8\}$, con $x\to 1$, $y\to 8$ y $z\to 8$.
+
+:::{image} images/32_segundo_ejemplo_no_biyectiva_porque_no_inyectiva.png
+:alt: Diagrama de {x,y,z} a {1,8} con x a 1, y a 8 y z a 8
+:width: 55%
+:align: center
+:::
+
+:::{dropdown} ¿Es biyectiva?
+**No es biyectiva porque no es inyectiva**.
+:::
+
+**Ejemplo.** Sea $A=\{x,y\}$ y $B=\{1,8,10\}$, con $x\to 1$ y $y\to 8$.
+
+:::{image} images/33_tercer_ejemplo_no_biyectiva_porque_no_sobreyectiva.png
+:alt: Diagrama de {x,y} a {1,8,10} con x a 1 e y a 8
+:width: 55%
+:align: center
+:::
+
+:::{dropdown} ¿Es biyectiva?
+**No es biyectiva porque no es sobreyectiva**.
+:::
+
+**Ejemplo.** Indique si la función $f:\{a,b,c,d\} \to \{1,2,3,4\}$ donde $f(a)=4,\; f(b)=2,\; f(c)=1,\; f(d)=3$ es biyectiva.
+
+::::{dropdown} Respuesta
+:::{image} images/34_primer_ejercicio_biyectiva_abcd_1234.png
+:alt: Diagrama de {a,b,c,d} a {1,2,3,4} con a a 4, b a 2, c a 1 y d a 3
+:width: 55%
+:align: center
+:::
+
+**Es biyectiva**.
+::::
 
 Clasifique cada una de las siguientes funciones como inyectiva, sobreyectiva o biyectiva.
 
-- $A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 3$, $b\to 4$, $c\to 1$: **Inyectiva pero no sobreyectiva**.
-- $A=\{a,b,c,d\}$, $B=\{1,2,3\}$, con $a\to 2$, $b\to 1$, $c\to 3$, $d\to 2$: **Sobreyectiva pero no inyectiva**.
-- $A=\{a,b,c,d\}$, $B=\{1,2,3,4\}$, con $a\to 4$, $b\to 1$, $c\to 3$, $d\to 2$: **Biyectiva**.
-- $A=\{a,b,c,d\}$, $B=\{1,2,3,4\}$, con $a\to 2$, $b\to 1$, $c\to 2$, $d\to 3$: **Ni inyectiva ni sobreyectiva**.
-- $A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 1$, $a\to 4$, $b\to 2$, $c\to 3$: **No es función** (pues $a$ tiene dos imágenes).
+- $A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 3$, $b\to 4$, $c\to 1$
+- $A=\{a,b,c,d\}$, $B=\{1,2,3\}$, con $a\to 2$, $b\to 1$, $c\to 3$, $d\to 2$
+- $A=\{a,b,c,d\}$, $B=\{1,2,3,4\}$, con $a\to 4$, $b\to 1$, $c\to 3$, $d\to 2$
+- $A=\{a,b,c,d\}$, $B=\{1,2,3,4\}$, con $a\to 2$, $b\to 1$, $c\to 2$, $d\to 3$
+- $A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 1$, $a\to 4$, $b\to 2$, $c\to 3$
+
+::::{dropdown} Respuesta
+:::{image} images/35_segundo_ejercicio_inyectiva_pero_no_sobreyectiva.png
+:alt: Diagrama de {a,b,c} a {1,2,3,4} con a a 3, b a 4 y c a 1
+:width: 50%
+:align: center
+:::
+
+$A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 3$, $b\to 4$, $c\to 1$: **Inyectiva pero no sobreyectiva**.
+
+:::{image} images/36_tercer_ejercicio_sobreyectiva_pero_no_inyectiva.png
+:alt: Diagrama de {a,b,c,d} a {1,2,3} con a a 2, b a 1, c a 3 y d a 2
+:width: 50%
+:align: center
+:::
+
+$A=\{a,b,c,d\}$, $B=\{1,2,3\}$, con $a\to 2$, $b\to 1$, $c\to 3$, $d\to 2$: **Sobreyectiva pero no inyectiva**.
+
+:::{image} images/37_cuarto_ejercicio_biyectiva.png
+:alt: Diagrama de {a,b,c,d} a {1,2,3,4} con a a 4, b a 1, c a 3 y d a 2
+:width: 50%
+:align: center
+:::
+
+$A=\{a,b,c,d\}$, $B=\{1,2,3,4\}$, con $a\to 4$, $b\to 1$, $c\to 3$, $d\to 2$: **Biyectiva**.
+
+:::{image} images/38_quinto_ejercicio_ni_inyectiva_ni_sobreyectiva.png
+:alt: Diagrama de {a,b,c,d} a {1,2,3,4} con a a 2, b a 1, c a 2 y d a 3
+:width: 50%
+:align: center
+:::
+
+$A=\{a,b,c,d\}$, $B=\{1,2,3,4\}$, con $a\to 2$, $b\to 1$, $c\to 2$, $d\to 3$: **Ni inyectiva ni sobreyectiva**.
+
+:::{image} images/39_sexto_ejercicio_no_es_funcion.png
+:alt: Diagrama de {a,b,c} a {1,2,3,4} donde a tiene dos flechas, hacia 1 y hacia 4
+:width: 50%
+:align: center
+:::
+
+$A=\{a,b,c\}$, $B=\{1,2,3,4\}$, con $a\to 1$, $a\to 4$, $b\to 2$, $c\to 3$: **No es función** (pues $a$ tiene dos imágenes).
+::::
 
 ---
 
@@ -620,25 +985,73 @@ Una función es **biyectiva** si es **inyectiva y sobreyectiva** al mismo tiempo
 
 Dada una función $f:A \to B$, la función inversa de $f$, denotada por $f^{-1}$, asigna a un elemento $b \in B$ un único elemento $a \in A$ tal que $f(a)=b$.
 
-**Ejemplo.** Sea $A=\{a,b,c\}$ y $B=\{1,2,3\}$, con $a\to 1$, $b\to 3$ y $c\to 2$. Entonces:
+**Ejemplo.** Sea $A=\{a,b,c\}$ y $B=\{1,2,3\}$, con $a\to 1$, $b\to 3$ y $c\to 2$.
+
+:::{image} images/40_funcion_sin_invertir.png
+:alt: Diagrama de A={a,b,c} a B={1,2,3} con a a 1, b a 3 y c a 2
+:width: 55%
+:align: center
+:::
+
+::::{dropdown} Función inversa
+:::{image} images/41_funcion_al_lado_la_inversa.png
+:alt: El mismo diagrama con f^{-1}(1)=a, f^{-1}(2)=c, f^{-1}(3)=b anotado al lado
+:width: 70%
+:align: center
+:::
+
+:::{image} images/42_funcion_ya_invertida.png
+:alt: El diagrama con las flechas invertidas, de B hacia A
+:width: 70%
+:align: center
+:::
 
 $$
 f^{-1}(1)=a,\qquad f^{-1}(2)=c,\qquad f^{-1}(3)=b.
 $$
+::::
 
 **Ejemplo.** Muestre la inversa para $f:A \to B$, donde $A=\{a,b,c,d\}$, $B=\{1,2,3,4\}$ y $f(a)=2,\ f(b)=3,\ f(c)=1,\ f(d)=4$.
+
+::::{dropdown} Respuesta
+:::{image} images/43_primer_ejercicio_abcd_1234_funcion_inversa.png
+:alt: Diagrama de A={a,b,c,d} a B={1,2,3,4} con la inversa f^{-1}(1)=c, f^{-1}(2)=a, f^{-1}(3)=b, f^{-1}(4)=d
+:width: 70%
+:align: center
+:::
 
 $$
 f^{-1}(1)=c,\qquad f^{-1}(2)=a,\qquad f^{-1}(3)=b,\qquad f^{-1}(4)=d.
 $$
+::::
 
-**Ejemplo.** Muestre la inversa para $f:A \to B$, donde $A=\{x,y,z\}$, $B=\{a,b\}$ y $f(x)=a,\ f(y)=a,\ f(z)=b$. La relación $B \to A$ no es una función, pues $a$ tendría dos preimágenes ($f^{-1}(a)=x$ y $f^{-1}(a)=y$).
+**Ejemplo.** Muestre la inversa para $f:A \to B$, donde $A=\{x,y,z\}$, $B=\{a,b\}$ y $f(x)=a,\ f(y)=a,\ f(z)=b$.
+
+::::{dropdown} Respuesta
+:::{image} images/44_segundo_ejercicio_xyz_ab_inversa_no_existe.png
+:alt: Diagrama de A={x,y,z} a B={a,b} con x a a, y a a, z a b; la relación inversa asigna dos valores a a
+:width: 70%
+:align: center
+:::
+
+La relación $B \to A$ no es una función, pues $a$ tendría dos preimágenes ($f^{-1}(a)=x$ y $f^{-1}(a)=y$).
 
 **Conclusión:** $f^{-1}$ no está definida cuando $f$ no es inyectiva.
+::::
 
-**Ejemplo.** Muestre la inversa para $f:A \to B$, donde $A=\{x,y\}$, $B=\{a,b,c\}$ y $f(x)=a,\ f(y)=b$. La relación $B \to A$ no es una función porque no se tiene $f^{-1}(c)$.
+**Ejemplo.** Muestre la inversa para $f:A \to B$, donde $A=\{x,y\}$, $B=\{a,b,c\}$ y $f(x)=a,\ f(y)=b$.
+
+::::{dropdown} Respuesta
+:::{image} images/45_tercer_ejercicio_xy_abc_no_inversa.png
+:alt: Diagrama de A={x,y} a B={a,b,c} con x a a, y a b; c queda sin preimagen
+:width: 70%
+:align: center
+:::
+
+La relación $B \to A$ no es una función porque no se tiene $f^{-1}(c)$.
 
 **Conclusión:** $f^{-1}$ no está definida cuando $f$ no es sobreyectiva.
+::::
 
 ¿Qué es una función invertible? Es una función biyectiva. Se le denomina invertible ya que se puede definir su inversa.
 
@@ -650,17 +1063,31 @@ Una función $f:A \to B$ es **invertible** si es biyectiva.
 
 **Ejemplo.** Indique cuáles de las siguientes funciones, $f:\mathbb{R} \to \mathbb{R}$, son invertibles:
 
+- $f(x)=2x+1$
+- $f(x)=x^2+1$
+- $f(x)=x^3$
+- $f(x)=\dfrac{x^2+1}{x^2+2}$
+
+:::{dropdown} Respuesta
 - $f(x)=2x+1$, **es invertible**
 - $f(x)=x^2+1$, **no es invertible** porque no es inyectiva ($f(-1)=f(1)=2$)
 - $f(x)=x^3$, **es invertible**
 - $f(x)=\dfrac{x^2+1}{x^2+2}$, **no es invertible**: no es inyectiva y no es sobreyectiva (por ejemplo, $1$ no pertenece a la imagen)
+:::
 
 **Ejemplo.** Determine si las siguientes funciones, de $\mathbb{R}$ a $\mathbb{R}$, son invertibles:
 
+- $f(x)=\lfloor x/2 \rfloor$
+- $f(x)=3x^2+7$
+- $f(x)=\dfrac{x+1}{x+2}$
+- $f(x)=x^5+1$
+
+:::{dropdown} Respuesta
 - $f(x)=\lfloor x/2 \rfloor$, no es invertible (no es inyectiva; por ejemplo $f(1)=f(2)=1$)
 - $f(x)=3x^2+7$, no es invertible (no es inyectiva; $f(1)=f(-1)=10$)
 - $f(x)=\dfrac{x+1}{x+2}$, no es invertible (no es sobreyectiva; $1$ no pertenece a la imagen)
 - $f(x)=x^5+1$, sí es invertible
+:::
 
 **Ejemplo.** Sea $f$ la función de $\{a,b,c\}$ en $\{1,2,3\}$ definida por $f(a)=2$, $f(b)=3$ y $f(c)=1$. ¿Es $f$ invertible? Si lo es, ¿cuál es su inversa?
 
@@ -710,7 +1137,8 @@ $$
 
 **Ejemplo.** Sea $g$ la función del conjunto $\{a,b,c\}$ en sí mismo, definida por $g(a)=b$, $g(b)=c$ y $g(c)=a$. Sea $f$ la función del conjunto $\{a,b,c\}$ en $\{1,2,3\}$ tal que $f(a)=3$, $f(b)=2$ y $f(c)=1$. ¿Cuál es la composición de $f$ y $g$? ¿Y la composición de $g$ y $f$?
 
-**Solución:** La composición $f \circ g$ se define como
+:::{dropdown} Solución
+La composición $f \circ g$ se define como
 
 $$
 (f \circ g)(a)=f(g(a))=f(b)=2,
@@ -723,6 +1151,7 @@ $$
 $$
 
 En cuanto a $g \circ f$, no se puede definir ya que la imagen de $f$ no es subconjunto del dominio de $g$.
+:::
 
 **Ejercicio.** Sean las funciones
 
@@ -735,7 +1164,8 @@ $$
 - Componga ambas funciones $(s \circ t)(x)$.
 - Verifique por qué es posible realizar la composición, teniendo en cuenta los dominios y codominios.
 
-**Solución:** Observemos que
+:::{dropdown} Solución
+Observemos que
 
 $$
 t(x)=x^2+2x+1=(x+1)^2.
@@ -757,6 +1187,7 @@ $$
 **Dominio:** $\mathbb{R}$.
 
 **Rango:** $[0,\infty)$.
+:::
 
 **Ejercicio.** Para cada uno de los siguientes pares de funciones $f$ y $g$: calcule las funciones compuestas $f \circ g$ y $g \circ f$, y determine el dominio de cada composición.
 
@@ -792,18 +1223,21 @@ $$
 
 **Ejemplo.** Dibuje la gráfica de la función $f(n)=2n+1$ del conjunto de los enteros al conjunto de los enteros.
 
-**Solución:** La gráfica de $f$ es el conjunto de pares ordenados $(n,2n+1)$, donde $n$ es un entero.
+:::{dropdown} Solución
+La gráfica de $f$ es el conjunto de pares ordenados $(n,2n+1)$, donde $n$ es un entero.
 
 ![Gráfica de f(n)=2n+1](images/2nplus1.png)
 
 *Fuente: Rosen, Discrete Mathematics and Its Applications, Cap. 2*
+:::
 
 ¿Qué es la función parte entera? La función parte entera o función piso, asigna a un número real $x$ el mayor entero que es menor o igual que $x$. El valor de la función parte entera se denota por $\lfloor x \rfloor$.
 
 ¿Qué es la función parte entera por exceso? La función parte entera por exceso o función techo, asigna a un número real $x$ el menor entero que es mayor o igual que $x$. El valor de la función parte entera por exceso se denota por $\lceil x \rceil$.
 
-**Ejemplo.** Estos son algunos valores de las funciones parte entera y parte entera por exceso:
+**Ejemplo.** Calcule algunos valores de las funciones parte entera y parte entera por exceso.
 
+:::{dropdown} Respuesta
 $$
 \lfloor \tfrac{1}{2} \rfloor = 0, \quad
 \lceil \tfrac{1}{2} \rceil = 1, \quad
@@ -816,6 +1250,7 @@ $$
 \lfloor 7 \rfloor = 7, \quad
 \lceil 7 \rceil = 7.
 $$
+:::
 
 ¿Cómo se define un número real? Sea $x$ un número real, $x = n + \epsilon$ tal que $n \in \mathbb{Z}$, $\epsilon \in \mathbb{R}$ y $0 < \epsilon < 1$.
 
