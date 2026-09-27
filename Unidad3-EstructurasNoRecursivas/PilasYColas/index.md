@@ -660,6 +660,44 @@ public int dequeue() {
 - Estructura simétrica a `enqueue`: avanza `head` circularmente.
 - `toString` recorre con `(head - 1 + i) % size_max` para mostrar el orden lógico correcto.
 
+### Versión genérica: `Pila<T>` y `Cola<T>`
+
+Todo lo anterior funciona con `int`. Generalizar a cualquier tipo `T` exige dos ajustes que no aparecen al trabajar con primitivos:
+
+- **Crear el arreglo genérico.** Java no permite `new T[n]` directamente. La solución estándar es crear un `Object[]` y hacer un *cast* (con `@SuppressWarnings("unchecked")`, porque el compilador no puede verificar la seguridad de ese cast en tiempo de compilación):
+
+  ```java
+  @SuppressWarnings("unchecked")
+  public Pila(int n) {
+      this.size    = n;
+      this.arreglo = (T[]) new Object[n];
+      this.top     = 0;
+  }
+  ```
+
+- **Liberar la referencia al extraer.** Con `int` no hace falta: un `int` en un arreglo vacío no retiene memoria. Con `T`, dejar la referencia en el arreglo después de un `pop`/`dequeue` mantiene vivo un objeto que ya nadie debería poder alcanzar, e impide que el recolector de basura lo libere:
+
+  ```java
+  public T pop() {
+      if (this.top == 0)
+          throw new java.util.EmptyStackException();
+      this.top--;
+      T val = this.arreglo[this.top];
+      this.arreglo[this.top] = null; //libera la referencia, ayuda al GC
+      return val;
+  }
+  ```
+
+`Cola<T>` recibe el mismo tratamiento: `(T[]) new Object[n]` en el constructor, y `this.arreglo[this.head - 1] = null` justo después de leer el valor en `dequeue`. El resto —aritmética circular de `head`/`tail`, condiciones de overflow/underflow— es idéntico a la versión con `int`.
+
+::::{grid} 1
+:::{card} 📥 Descargar Pila y Cola genéricas
+`EstructurasArray.zip` incluye `Pila<T>`, `Cola<T>`, `ColaPrioridad<T>` y `TablaHash<V>` en un solo proyecto Maven, con un `Main.java` que recorre las cuatro estructuras (creación, overflow, underflow, reutilización) y pruebas JUnit 5 para cada una.
+
+{download}`Descargar EstructurasArray.zip <files/EstructurasArray.zip>`
+:::
+::::
+
 ---
 
 Continúa con los [ejercicios de Pilas y Colas](exercises.md).

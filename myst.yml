@@ -61,6 +61,8 @@ project:
           title: "Crecimiento de funciones y Análisis de algoritmos: Estudio"
         - file: Unidad3-EstructurasNoRecursivas/CrecimientoFuncionesAnalisisAlgoritmos/exercises.md
           title: "Crecimiento de funciones y Análisis de algoritmos: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/CrecimientoFuncionesAnalisisAlgoritmos/estudio2.md
+          title: "Complejidad temporal y espacial: Estudio 2"
         - file: Unidad3-EstructurasNoRecursivas/PilasYColas/index.md
           title: "Pilas y Colas: Estudio"
         - file: Unidad3-EstructurasNoRecursivas/PilasYColas/exercises.md
@@ -89,6 +91,8 @@ project:
           title: "Complejidad temporal: Ejercicio propuesto"
         - file: Unidad3-EstructurasNoRecursivas/ComplejidadTemporalEjercicioPropuesto/solucion.md
           title: "Complejidad temporal: Ejercicio propuesto resuelto"
+        - file: Unidad3-EstructurasNoRecursivas/Desacoplamiento/index.md
+          title: "Desacoplamiento: Inyección de dependencias"
   github: https://github.com/CyEDBooks/CyED1
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
 site:

@@ -587,6 +587,67 @@ private int hashFunction(int k)
 
 *Si se extendiera a llaves genéricas, bastaría reemplazar `k` por `Math.abs(k.hashCode())`.*
 
+### Versión genérica: `TablaHash<V>`
+
+La llave sigue siendo `int` (así la función hash no cambia), pero el **valor** almacenado pasa de `Integer` a cualquier `V`. `search` ya no puede comparar con `==`; debe usar `equals()`, porque `==` sobre objetos compara referencias, no contenido:
+
+```java
+public class TablaHash<V> {
+    private ListaEnlazadaGenerica<V>[] tabla;
+    private int size;
+
+    @SuppressWarnings("unchecked")
+    public TablaHash(int m) {
+        this.tabla = new ListaEnlazadaGenerica[m];
+        this.size  = m;
+    }
+
+    public void insert(int k, V value) {
+        int pos = hashFunction(k);
+        if (tabla[pos] == null)
+            tabla[pos] = new ListaEnlazadaGenerica<>();
+        tabla[pos].agregar(value);
+    }
+
+    public boolean search(int k, V value) {
+        int pos = hashFunction(k);
+        ListaEnlazadaGenerica<V> lista = tabla[pos];
+        if (lista == null) return false;
+        for (int i = 0; i < lista.size(); i++) {
+            //equals() para comparacion correcta de objetos genericos
+            if (value.equals(lista.obtener(i))) return true;
+        }
+        return false;
+    }
+
+    public void delete(int k, V value) {
+        int pos = hashFunction(k);
+        ListaEnlazadaGenerica<V> lista = tabla[pos];
+        if (lista == null || lista.estaVacia()) return;
+        for (int i = 0; i < lista.size(); i++) {
+            if (value.equals(lista.obtener(i))) {
+                lista.eliminar(i);
+                return;
+            }
+        }
+    }
+
+    private int hashFunction(int k) {
+        return Math.abs(k % this.size);
+    }
+}
+```
+
+El `Math.abs` de `hashFunction` es exactamente el ajuste que se anticipó arriba: sin él, una llave negativa produciría un índice negativo y `tabla[pos]` lanzaría `ArrayIndexOutOfBoundsException`.
+
+::::{grid} 1
+:::{card} 📥 Descargar TablaHash genérica
+`EstructurasArray.zip` incluye `TablaHash<V>` (con `ListaEnlazadaGenerica<T>` y `Nodo<T>` de soporte) junto con `Pila<T>`, `Cola<T>` y `ColaPrioridad<T>` en un solo proyecto Maven, con pruebas JUnit 5 para las cinco clases.
+
+{download}`Descargar EstructurasArray.zip <files/EstructurasArray.zip>`
+:::
+::::
+
 ---
 
 Continúa con los [ejercicios de Tablas Hash](exercises.md).

@@ -835,80 +835,1029 @@ Una *lista enlazada* (*Linked List*) es una estructura de datos lineal y dinámi
 
 Cada nodo contiene:
 - Un *dato* (*valor almacenado*).
-- Una *referencia al siguiente nodo* en la lista.
+- Una *referencia al siguiente nodo* en la lista (y, en la versión doble, también al anterior).
 
-**Tipos de listas enlazadas**
+**Antes de los genéricos: una lista de `Object`**
 
-- *Lista Enlazada Simple (SLL)*: cada nodo apunta al siguiente. Se recorre en una sola dirección.
-- *Lista Doblemente Enlazada (DLL)*: cada nodo apunta al siguiente y al anterior. Se puede recorrer en ambas direcciones.
-- *Lista Circular*:
-  - En la versión *simple*, el último nodo apunta al primero.
-  - En la versión *doble*, el primer y el último nodo están conectados en ambos sentidos.
+```java
+public class Node {
+    public Object data;
+    public Node next;
 
-Ejemplo de organización de un proyecto de listas enlazadas en Java:
-
-```
-src/
-  listas/
-    simple/
-      Nodo.java
-      ListaSimple.java
-    doble/
-      NodoDoble.java
-      ListaDoble.java
-    circular/
-      NodoCircular.java
-      ListaCircular.java
-  main/
-    Main.java
+    public Node(Object data) {
+        this.data = data;
+        this.next = null;
+    }
+}
 ```
 
-- [Listas Enlazadas](https://github.com/marlongv098/Estructuras/tree/master/3_Estructuras_NO_Recursivas/3_Generics/1_ListasEnlazadas)
+Con `Object`, la lista acepta cualquier cosa, incluso mezclada, y cada lectura exige un *cast* que el compilador no puede verificar: `(String) lista.getHead().data` compila igual si adentro hay un `Integer`, y el error solo aparece en tiempo de ejecución.
 
-### Lista enlazada genérica de personas
+**Con genéricos: el compilador atrapa el error antes de ejecutar**
 
-Un proyecto de práctica habitual es implementar una lista enlazada personalizada para almacenar objetos de tipo `Persona`, organizada en capas:
+:::{dropdown} 📂 ListaEnlazadaSimple — `NodeG<T>` y `ListG<T>`
 
-- En el paquete `persona` se definen las clases `Persona` y `PersonaGenerica`, que representan los datos que se almacenan en la lista.
-- En el paquete `estructuras` se encuentra la lógica de la estructura de datos, incluyendo la clase `Nodo` que representa cada elemento de la lista y `ListaEnlazada`, que implementa los métodos para agregar, eliminar, etc.
-- En `ui`, la clase `Main` actúa como punto de entrada del programa, donde se crean instancias y se demuestra el funcionamiento de la lista enlazada.
-- En la carpeta `test` se encuentra `ListaEnlazadaTest.java`, con pruebas unitarias para verificar el correcto comportamiento de la estructura.
+```java
+package listasimple.Generica;
 
-```
-LinkedListPersonas/
-  src/
-    persona/
-      Persona.java
-      Entidad.java
-    estructuras/
-      Nodo.java
-      ListaEnlazada.java
-    ui/
-      Main.java
-  test/
-    ListaEnlazadaTest.java
+public class NodeG<T> {
+    public T data;
+    public NodeG<T> next;
+
+    public NodeG(T data) {
+        this.data = data;
+        this.next = null;
+    }
+}
 ```
 
-- [LinkedListPersonas](https://github.com/marlongv098/Estructuras/tree/master/3_Estructuras_NO_Recursivas/3_Generics/2_LinkedListPersonas)
+```java
+package listasimple.Generica;
 
-**¿Vale la pena hacer `Persona` genérica?**
+public class ListG<T> {
+    private NodeG<T> head;
 
-Ventajas de hacer `Persona` genérica:
+    public ListG() {
+        this.head = null;
+    }
 
-- Mayor flexibilidad: se podrían crear diferentes tipos de "personas" que tengan atributos de diferentes tipos. Por ejemplo, `Persona<String, Integer>` para nombre y edad, o `Persona<String, Double>` si se quisiera almacenar la altura como un número decimal.
-- Reutilización: si se necesitan crear objetos similares a `Persona` pero con diferentes tipos de datos, una clase genérica podría evitar la duplicación de código.
+    public void add(T data) {
+        NodeG<T> newNode = new NodeG<>(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            NodeG<T> current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
 
-Desventajas de hacer `Persona` genérica:
+    public void remove(T data) {
+        if (head == null) {
+            return;
+        }
+        if (head.data.equals(data)) {
+            head = head.next;
+            return;
+        }
+        NodeG<T> current = head;
+        while (current.next != null && !current.next.data.equals(data)) {
+            current = current.next;
+        }
+        if (current.next != null) {
+            current.next = current.next.next;
+        }
+    }
 
-- Complejidad innecesaria: en muchos casos, los atributos de una persona (nombre, edad, etc.) tienen tipos de datos bien definidos. Hacer la clase genérica podría añadir complejidad sin aportar beneficios significativos.
-- Pérdida de claridad: si los tipos de datos de los atributos no son relevantes para la lógica de la aplicación, hacer la clase genérica podría dificultar la lectura y comprensión del código.
-- Posibles problemas de tipado: si no se usan correctamente, los genéricos pueden llevar a errores de tipado más difíciles de depurar.
+    public boolean isEmpty() {
+        return head == null;
+    }
 
-¿Cuándo podría ser útil hacer `Persona` genérica?
+    public int size() {
+        int count = 0;
+        NodeG<T> current = head;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
 
-- Si se necesita almacenar atributos de `Persona` que pueden variar en tipo de datos.
-- Si se está creando una biblioteca o framework que necesita ser muy flexible.
-- Si la aplicación tiene una lógica muy compleja que se beneficia de la flexibilidad de los genéricos.
+    public NodeG<T> getHead() {
+        return head;
+    }
+}
+```
+
+`ListG<Integer>` y `ListG<String>` comparten el mismo código, pero `intList.add("texto")` no compila: el tipo se fija una sola vez, en la declaración.
+:::
+
+:::{dropdown} 📂 ListaEnlazadaDoble — `NodeG<T>` con `prev` y `next`
+
+`ListaG<T>` mantiene `head` y `tail`, así que insertar en cualquiera de los dos extremos y leer el último elemento son operaciones $O(1)$ en vez de recorrer toda la lista.
+
+```java
+package ListaDoble.Generica;
+
+public class NodeG<T> {
+    T data;
+    NodeG<T> next;
+    NodeG<T> prev;
+
+    NodeG(T data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+```
+
+```java
+package ListaDoble.Generica;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+
+public class ListaG<T> {
+    private NodeG<T> head;
+    private NodeG<T> tail;
+    private int size;
+
+    public void insertAtStart(T data) {
+        NodeG<T> nuevo = new NodeG<>(data);
+        if (head == null) {
+            head = tail = nuevo;
+        } else {
+            nuevo.next = head;
+            head.prev = nuevo;
+            head = nuevo;
+        }
+        size++;
+    }
+
+    public void insertAtEnd(T data) {
+        NodeG<T> nuevo = new NodeG<>(data);
+        if (tail == null) {
+            head = tail = nuevo;
+        } else {
+            nuevo.prev = tail;
+            tail.next = nuevo;
+            tail = nuevo;
+        }
+        size++;
+    }
+
+    //Elimina la primera ocurrencia de data; si no existe, no hace nada
+    public void remove(T data) {
+        NodeG<T> actual = head;
+        while (actual != null) {
+            if (Objects.equals(actual.data, data)) {
+                if (actual.prev != null) {
+                    actual.prev.next = actual.next;
+                } else {
+                    head = actual.next;
+                }
+                if (actual.next != null) {
+                    actual.next.prev = actual.prev;
+                } else {
+                    tail = actual.prev;
+                }
+                size--;
+                return;
+            }
+            actual = actual.next;
+        }
+    }
+
+    public T getHeadData() {
+        if (head == null) throw new NoSuchElementException("La lista está vacía");
+        return head.data;
+    }
+
+    public T getTailData() {
+        if (tail == null) throw new NoSuchElementException("La lista está vacía");
+        return tail.data;
+    }
+
+    public boolean contains(T data) {
+        NodeG<T> actual = head;
+        while (actual != null) {
+            if (Objects.equals(actual.data, data)) return true;
+            actual = actual.next;
+        }
+        return false;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public List<T> recorrerAdelante() {
+        List<T> resultado = new ArrayList<>(size);
+        for (NodeG<T> actual = head; actual != null; actual = actual.next) {
+            resultado.add(actual.data);
+        }
+        return resultado;
+    }
+
+    public List<T> recorrerAtras() {
+        List<T> resultado = new ArrayList<>(size);
+        for (NodeG<T> actual = tail; actual != null; actual = actual.prev) {
+            resultado.add(actual.data);
+        }
+        return resultado;
+    }
+}
+```
+:::
+
+::::{grid} 1
+:::{card} 📥 Descargar las listas enlazadas genéricas
+Dos proyectos Maven independientes, cada uno con su `pom.xml` y sus pruebas JUnit 5.
+
+{download}`ListaEnlazadaSimple.zip <files/ListaEnlazadaSimple.zip>` — incluye además la versión sin genéricos (con `Object`) para comparar.
+
+{download}`ListaEnlazadaDoble.zip <files/ListaEnlazadaDoble.zip>`
+:::
+::::
+
+### Un `Gestor<T>` genérico para distintos modelos de datos
+
+Un mismo `Gestor<T>` (envoltorio sobre una `ListaEnlazada<T>` genérica) administra ciudadanos, estudiantes y productos sin duplicar una sola línea: agregar, buscar, obtener y eliminar se escriben **una vez**, y el compilador se encarga de que un `Gestor<Ciudadano>` nunca acepte un `Producto`.
+
+:::{dropdown} 📂 estructuras — `Nodo<T>` y `ListaEnlazada<T>`
+
+```java
+package estructuras;
+
+public class Nodo<T> {
+    private T dato;
+    private Nodo<T> siguiente;
+
+    public Nodo(T dato) {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+
+    public T getDato() {
+        return dato;
+    }
+
+    public void setDato(T dato) {
+        this.dato = dato;
+    }
+
+    public Nodo<T> getSiguiente() {
+        return siguiente;
+    }
+
+    public void setSiguiente(Nodo<T> siguiente) {
+        this.siguiente = siguiente;
+    }
+}
+```
+
+```java
+package estructuras;
+
+public class ListaEnlazada<T> {
+    private Nodo<T> cabeza;
+    private int size;
+
+    public ListaEnlazada() {
+        this.cabeza = null;
+        this.size = 0;
+    }
+
+    public void agregar(T dato) {
+        Nodo<T> nuevoNodo = new Nodo<>(dato);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+        } else {
+            Nodo<T> actual = cabeza;
+            while (actual.getSiguiente() != null) {
+                actual = actual.getSiguiente();
+            }
+            actual.setSiguiente(nuevoNodo);
+        }
+        size++;
+    }
+
+    public T obtener(int indice) {
+        validarIndice(indice);
+        Nodo<T> actual = cabeza;
+        for (int i = 0; i < indice; i++) {
+            actual = actual.getSiguiente();
+        }
+        return actual.getDato();
+    }
+
+    public T eliminar(int indice) {
+        validarIndice(indice);
+        T datoEliminado;
+        if (indice == 0) {
+            datoEliminado = cabeza.getDato();
+            cabeza = cabeza.getSiguiente();
+        } else {
+            Nodo<T> actual = cabeza;
+            for (int i = 0; i < indice - 1; i++) {
+                actual = actual.getSiguiente();
+            }
+            datoEliminado = actual.getSiguiente().getDato();
+            actual.setSiguiente(actual.getSiguiente().getSiguiente());
+        }
+        size--;
+        return datoEliminado;
+    }
+
+    public int buscar(T dato) {
+        Nodo<T> actual = cabeza;
+        int indice = 0;
+        while (actual != null) {
+            if (actual.getDato().equals(dato)) return indice;
+            actual = actual.getSiguiente();
+            indice++;
+        }
+        return -1;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public boolean estaVacia() {
+        return size == 0;
+    }
+
+    //Centraliza la validación: evita duplicar el if en cada método
+    private void validarIndice(int indice) {
+        if (indice < 0 || indice >= size) {
+            throw new IndexOutOfBoundsException(
+                    "Índice " + indice + " fuera de rango. Tamaño actual: " + size
+            );
+        }
+    }
+
+    @Override
+    public String toString() {
+        if (estaVacia()) return "[ lista vacía ]";
+        StringBuilder sb = new StringBuilder("[");
+        Nodo<T> actual = cabeza;
+        while (actual != null) {
+            sb.append(actual.getDato());
+            if (actual.getSiguiente() != null) sb.append(" -> ");
+            actual = actual.getSiguiente();
+        }
+        return sb.append("]").toString();
+    }
+}
+```
+:::
+
+:::{dropdown} 📂 gestor — `Gestor<T>` envuelve la lista, no la reimplementa
+
+```java
+package gestor;
+
+import estructuras.ListaEnlazada;
+
+public class Gestor<T> {
+    private final ListaEnlazada<T> lista;
+
+    public Gestor() {
+        this.lista = new ListaEnlazada<>();
+    }
+
+    public void agregar(T elemento) {
+        lista.agregar(elemento);
+    }
+
+    public T obtener(int indice) {
+        return lista.obtener(indice);
+    }
+
+    public int buscar(T elemento) {
+        return lista.buscar(elemento);
+    }
+
+    public T eliminar(int indice) {
+        return lista.eliminar(indice);
+    }
+
+    public int size() {
+        return lista.size();
+    }
+
+    @Override
+    public String toString() {
+        return lista.toString();
+    }
+}
+```
+:::
+
+:::{dropdown} 📂 modelos y main — tres tipos de datos, un solo `Gestor`
+
+`buscar` delega en `equals()` de `T`, así que cada modelo define su propia igualdad: `Ciudadano` y `Producto` comparan por código, `Estudiante` por código de matrícula.
+
+```java
+package main;
+
+import gestor.Gestor;
+import modelos.Ciudadano;
+import modelos.Estudiante;
+import modelos.Producto;
+
+public class Main {
+    public static void main(String[] args) {
+        Gestor<Ciudadano> ciudadanos = new Gestor<>();
+        ciudadanos.agregar(new Ciudadano("1001", "Ana", "Pérez"));
+        ciudadanos.agregar(new Ciudadano("1002", "Luis", "Gómez"));
+        System.out.println("Ciudadanos: " + ciudadanos);
+        System.out.println("Índice de cédula 1002: " + ciudadanos.buscar(new Ciudadano("1002", "", "")));
+
+        Gestor<Estudiante> estudiantes = new Gestor<>();
+        estudiantes.agregar(new Estudiante(2024001, "Marlon", "Gómez", "Ingeniería de Sistemas"));
+        estudiantes.agregar(new Estudiante(2024002, "Sara", "Ruiz", "Matemáticas"));
+        System.out.println("\nEstudiantes: " + estudiantes);
+        System.out.println("Eliminado: " + estudiantes.eliminar(0));
+        System.out.println("Estudiantes tras eliminar: " + estudiantes);
+
+        Gestor<Producto> productos = new Gestor<>();
+        productos.agregar(new Producto("P01", "Teclado", 120000));
+        productos.agregar(new Producto("P02", "Mouse", 45000));
+        System.out.println("\nProductos: " + productos);
+        System.out.println("Tamaño: " + productos.size());
+    }
+}
+```
+
+`Ciudadano.equals` compara por `cedula`; `Estudiante.equals` por `codigo`; `Producto.equals` por `codigoProducto`. Cada modelo también sobreescribe `hashCode` a partir del mismo campo: sin eso, dos objetos "iguales" por `equals()` podrían no encontrarse en un `HashSet` o `HashMap`, que primero comparan por `hashCode`.
+:::
+
+::::{grid} 1
+:::{card} 📥 GestorGenerics.zip
+Proyecto Maven completo: `Gestor<T>`, `ListaEnlazada<T>`, los tres modelos (`Ciudadano`, `Estudiante`, `Producto`) y sus pruebas JUnit 5.
+
+{download}`Descargar GestorGenerics.zip <files/GestorGenerics.zip>`
+:::
+::::
+
+---
+
+## Más estructuras genéricas aplicadas
+
+Cuatro estructuras de datos genéricas, cada una resolviendo un problema aplicado distinto.
+
+### Diccionario: una tabla hash genérica `TablaHash<K,V>`
+
+`Diccionario` guarda palabras y definiciones, pero no implementa el almacenamiento: delega en `TablaHashInterfaz<String,String>`. La tabla hash en sí es completamente genérica sobre `<K,V>` y usa **encadenamiento separado**: cada cubeta del arreglo es una `LinkedList<Entrada<K,V>>`, así que las claves cuyo hash cae en el mismo índice se acumulan en la misma lista en vez de sobrescribirse. Cuando el factor de carga supera 0.75, la tabla duplica su capacidad y redistribuye todas las entradas (`rehash`), lo que mantiene el promedio de $O(1)$ por operación a medida que crece.
+
+:::{dropdown} 📂 estructuras — `TablaHash<K,V>` con encadenamiento separado
+
+```java
+package estructuras;
+
+public interface TablaHashInterfaz<K, V> {
+    void insertar(K clave, V valor);
+    V obtener(K clave);
+    void eliminar(K clave);
+    void actualizar(K clave, V nuevoValor);
+    boolean contiene(K clave);
+    int size();
+    boolean estaVacia();
+}
+```
+
+```java
+package estructuras;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class TablaHash<K, V> implements TablaHashInterfaz<K, V> {
+
+    private static final int CAPACIDAD_INICIAL = 16;
+    private static final double FACTOR_CARGA_MAX = 0.75;
+
+    private List<LinkedList<Entrada<K, V>>> cubetas;
+    private int size;
+
+    public TablaHash() {
+        cubetas = crearCubetas(CAPACIDAD_INICIAL);
+        size = 0;
+    }
+
+    @Override
+    public void insertar(K clave, V valor) {
+        verificarClave(clave);
+        if ((double) (size + 1) / cubetas.size() > FACTOR_CARGA_MAX) {
+            rehash();
+        }
+        int indice = obtenerIndice(clave);
+        LinkedList<Entrada<K, V>> cubeta = cubetas.get(indice);
+        if (cubeta == null) {
+            cubeta = new LinkedList<>();
+            cubetas.set(indice, cubeta);
+        }
+        for (Entrada<K, V> entrada : cubeta) {
+            if (entrada.getClave().equals(clave)) {
+                entrada.setValor(valor);
+                return;
+            }
+        }
+        cubeta.add(new Entrada<>(clave, valor));
+        size++;
+    }
+
+    @Override
+    public V obtener(K clave) {
+        verificarClave(clave);
+        int indice = obtenerIndice(clave);
+        LinkedList<Entrada<K, V>> cubeta = cubetas.get(indice);
+        if (cubeta != null) {
+            for (Entrada<K, V> entrada : cubeta) {
+                if (entrada.getClave().equals(clave)) {
+                    return entrada.getValor();
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void eliminar(K clave) {
+        verificarClave(clave);
+        int indice = obtenerIndice(clave);
+        LinkedList<Entrada<K, V>> cubeta = cubetas.get(indice);
+        if (cubeta != null) {
+            boolean eliminado = cubeta.removeIf(entrada -> entrada.getClave().equals(clave));
+            if (eliminado) {
+                size--;
+            }
+        }
+    }
+
+    @Override
+    public void actualizar(K clave, V nuevoValor) {
+        verificarClave(clave);
+        int indice = obtenerIndice(clave);
+        LinkedList<Entrada<K, V>> cubeta = cubetas.get(indice);
+        if (cubeta != null) {
+            for (Entrada<K, V> entrada : cubeta) {
+                if (entrada.getClave().equals(clave)) {
+                    entrada.setValor(nuevoValor);
+                    return;
+                }
+            }
+        }
+        throw new IllegalArgumentException("La clave '" + clave + "' no existe en la tabla.");
+    }
+
+    @Override
+    public boolean contiene(K clave) {
+        verificarClave(clave);
+        return obtener(clave) != null;
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public boolean estaVacia() {
+        return size == 0;
+    }
+
+    //Indice de cubeta para una clave; el AND con 0x7FFFFFFF limpia el bit de
+    //signo para evitar indices negativos si hashCode() es negativo
+    private int obtenerIndice(K clave) {
+        return (clave.hashCode() & 0x7FFFFFFF) % cubetas.size();
+    }
+
+    //Duplica la capacidad y redistribuye todas las entradas
+    private void rehash() {
+        int nuevaCapacidad = cubetas.size() * 2;
+        List<LinkedList<Entrada<K, V>>> nuevasCubetas = crearCubetas(nuevaCapacidad);
+        for (LinkedList<Entrada<K, V>> cubeta : cubetas) {
+            if (cubeta != null) {
+                for (Entrada<K, V> entrada : cubeta) {
+                    int nuevoIndice = (entrada.getClave().hashCode() & 0x7FFFFFFF) % nuevaCapacidad;
+                    if (nuevasCubetas.get(nuevoIndice) == null) {
+                        nuevasCubetas.set(nuevoIndice, new LinkedList<>());
+                    }
+                    nuevasCubetas.get(nuevoIndice).add(entrada);
+                }
+            }
+        }
+        cubetas = nuevasCubetas;
+    }
+
+    private List<LinkedList<Entrada<K, V>>> crearCubetas(int capacidad) {
+        List<LinkedList<Entrada<K, V>>> lista = new ArrayList<>(capacidad);
+        for (int i = 0; i < capacidad; i++) {
+            lista.add(null);
+        }
+        return lista;
+    }
+
+    private void verificarClave(K clave) {
+        if (clave == null) {
+            throw new IllegalArgumentException("La clave no puede ser null.");
+        }
+    }
+
+    //Par clave-valor almacenado en una cubeta; la clave es inmutable
+    private static class Entrada<K, V> {
+        private final K clave;
+        private V valor;
+
+        Entrada(K clave, V valor) {
+            this.clave = clave;
+            this.valor = valor;
+        }
+
+        K getClave() { return clave; }
+        V getValor() { return valor; }
+        void setValor(V nuevoValor) { this.valor = nuevoValor; }
+    }
+}
+```
+:::
+
+::::{grid} 1
+:::{card} 📥 Diccionario.zip
+Proyecto Maven completo: `TablaHash<K,V>` genérica, `Diccionario`, `ui.Main` con una demostración funcional y pruebas JUnit 5.
+
+{download}`Descargar Diccionario.zip <files/Diccionario.zip>`
+:::
+::::
+
+### Editor de texto: deshacer/rehacer con dos pilas intercambiables
+
+`EditorTexto` guarda cada estado anterior del texto en `pilaDeshacer` y los estados deshechos en `pilaRehacer`. Ambas pilas se declaran como `Interfaz<String>`, nunca como una clase concreta, así que las dos implementaciones del paquete (`pila`, respaldada por `ArrayList`, y `pilalistaenlazada`, respaldada por una lista enlazada propia) son intercambiables sin tocar `EditorTexto`: basta con cambiar el `import`.
+
+:::{dropdown} 📂 pilalistaenlazada — `Pila<T>` respaldada por lista enlazada
+
+```java
+package pilalistaenlazada;
+
+public interface Interfaz<T> {
+    void apilar(T elemento);
+    T desapilar();
+    T tope();
+    boolean estaVacia();
+    int size();
+    void clear();
+}
+```
+
+```java
+package pilalistaenlazada;
+
+public class Pila<T> implements Interfaz<T> {
+
+    private Nodo<T> cabeza;
+    private int size;
+
+    public Pila() {
+        this.cabeza = null;
+        this.size = 0;
+    }
+
+    @Override
+    public void apilar(T elemento) {
+        Nodo<T> nuevoNodo = new Nodo<>(elemento);
+        nuevoNodo.siguiente = cabeza;
+        cabeza = nuevoNodo;
+        size++;
+    }
+
+    @Override
+    public T desapilar() {
+        if (estaVacia()) {
+            return null;
+        }
+        T dato = cabeza.dato;
+        cabeza = cabeza.siguiente;
+        size--;
+        return dato;
+    }
+
+    @Override
+    public T tope() {
+        if (estaVacia()) {
+            return null;
+        }
+        return cabeza.dato;
+    }
+
+    @Override
+    public boolean estaVacia() {
+        return cabeza == null;
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public void clear() {
+        cabeza = null;
+        size = 0;
+    }
+}
+```
+:::
+
+:::{dropdown} 📂 editor — `EditorTexto` depende solo de `Interfaz<String>`
+
+```java
+package editor;
+
+//import pila.Pila;
+//import pila.Interfaz;
+
+import pilalistaenlazada.Pila;
+import pilalistaenlazada.Interfaz;
+
+public class EditorTexto implements EditorTextoInterfaz {
+
+    private StringBuilder texto;
+    private final Interfaz<String> pilaDeshacer;
+    private final Interfaz<String> pilaRehacer;
+
+    public EditorTexto() {
+        this.texto = new StringBuilder();
+        this.pilaDeshacer = new Pila<>();
+        this.pilaRehacer = new Pila<>();
+    }
+
+    @Override
+    public void escribir(String textoNuevo) {
+        this.pilaDeshacer.apilar(this.texto.toString());
+        this.texto.append(textoNuevo);
+        this.pilaRehacer.clear(); //se limpia la pila de rehacer al escribir nuevo texto
+    }
+
+    @Override
+    public void deshacer() {
+        if (!this.pilaDeshacer.estaVacia()) {
+            this.pilaRehacer.apilar(this.texto.toString());
+            this.texto = new StringBuilder(this.pilaDeshacer.desapilar());
+        }
+    }
+
+    @Override
+    public void rehacer() {
+        if (!this.pilaRehacer.estaVacia()) {
+            this.pilaDeshacer.apilar(this.texto.toString());
+            this.texto = new StringBuilder(this.pilaRehacer.desapilar());
+        }
+    }
+
+    @Override
+    public String obtenerTextoActual() {
+        return this.texto.toString();
+    }
+}
+```
+
+Los imports comentados de `pila.*` marcan a propósito el punto exacto donde se cambiaría de implementación: comentar las dos líneas activas y descomentar estas dos basta para pasar de la pila con lista enlazada a la pila con `ArrayList`, sin tocar el resto de la clase.
+:::
+
+::::{grid} 1
+:::{card} 📥 EditorTexto.zip
+Proyecto Maven completo: las dos implementaciones de `Pila<T>` (`ArrayList` y lista enlazada), `EditorTexto`, `ui.Main` y pruebas JUnit 5 para ambas pilas.
+
+{download}`Descargar EditorTexto.zip <files/EditorTexto.zip>`
+:::
+::::
+
+### Sistema de impresión: `Cola<T>` FIFO y `ColaPrioridad<T>` juntas
+
+Una `Impresora` combina dos estructuras genéricas: una `Cola<T>` FIFO para trabajos regulares y una `ColaPrioridad<T>` (lista enlazada ordenada por prioridad de inserción) para trabajos urgentes. Cuando llega un trabajo con prioridad, `Impresora` interrumpe el trabajo en curso, lo reencola al final de la cola regular, y procesa primero toda la cola de prioridad.
+
+:::{dropdown} 📂 cola y colaPrioridad — dos estructuras genéricas, un mismo patrón de nodo enlazado
+
+```java
+package cola;
+
+public interface ColaInterfaz<T> {
+    void encolar(T elemento);
+    T desencolar();
+    T frente();
+    boolean estaVacia();
+    int size();
+}
+```
+
+```java
+package cola;
+
+public class Cola<T> implements ColaInterfaz<T> {
+
+    private NodoCola<T> cabeza;
+    private NodoCola<T> cola;
+    private int tamano;
+
+    @Override
+    public void encolar(T elemento) {
+        NodoCola<T> nuevoNodo = new NodoCola<>(elemento);
+        if (estaVacia()) {
+            cabeza = nuevoNodo;
+        } else {
+            cola.siguiente = nuevoNodo;
+        }
+        cola = nuevoNodo;
+        tamano++;
+    }
+
+    @Override
+    public T desencolar() {
+        if (estaVacia()) {
+            return null;
+        }
+        T dato = cabeza.dato;
+        cabeza = cabeza.siguiente;
+        tamano--;
+        if (cabeza == null) {
+            cola = null;
+        }
+        return dato;
+    }
+
+    @Override
+    public T frente() {
+        return estaVacia() ? null : cabeza.dato;
+    }
+
+    @Override
+    public boolean estaVacia() {
+        return cabeza == null;
+    }
+
+    @Override
+    public int size() {
+        return tamano;
+    }
+}
+```
+
+`ColaPrioridad<T>` inserta cada elemento ya ordenado por prioridad (menor prioridad primero), así que `eliminar` siempre saca el frente en $O(1)$, a costa de que `insertar` recorra la lista para encontrar su posición: $O(n)$.
+
+```java
+package colaPrioridad;
+
+public class ColaPrioridad<T> implements ColaPrioridadInterfaz<T> {
+
+    private NodoPrioridad<T> cabeza;
+    private int tamano;
+
+    @Override
+    public void insertar(T elemento, int prioridad) {
+        NodoPrioridad<T> nuevoNodo = new NodoPrioridad<>(elemento, prioridad);
+        if (estaVacia() || prioridad < cabeza.prioridad) {
+            nuevoNodo.siguiente = cabeza;
+            cabeza = nuevoNodo;
+        } else {
+            NodoPrioridad<T> actual = cabeza;
+            while (actual.siguiente != null && actual.siguiente.prioridad <= prioridad) {
+                actual = actual.siguiente;
+            }
+            nuevoNodo.siguiente = actual.siguiente;
+            actual.siguiente = nuevoNodo;
+        }
+        tamano++;
+    }
+
+    @Override
+    public T eliminar() {
+        if (estaVacia()) {
+            return null;
+        }
+        T dato = cabeza.dato;
+        cabeza = cabeza.siguiente;
+        tamano--;
+        return dato;
+    }
+
+    @Override
+    public T frente() {
+        return estaVacia() ? null : cabeza.dato;
+    }
+
+    @Override
+    public boolean estaVacia() {
+        return cabeza == null;
+    }
+
+    @Override
+    public int size() {
+        return tamano;
+    }
+}
+```
+:::
+
+::::{grid} 1
+:::{card} 📥 SistemaImpresion.zip
+Proyecto Maven completo: `Cola<T>`, `ColaPrioridad<T>`, `Impresora` y un menú interactivo (`ui.Main`), con pruebas JUnit 5 para ambas colas.
+
+{download}`Descargar SistemaImpresion.zip <files/SistemaImpresion.zip>`
+:::
+::::
+
+### Gestor de tareas: un heap mínimo con tipo acotado (`<T extends TareaInterfaz<E>>`)
+
+`HeapMinimo<T extends TareaInterfaz<E>, E>` es el ejemplo más avanzado de esta página: no es genérico sobre *cualquier* `T`, sino sobre cualquier `T` que sepa reportar su propia prioridad. El límite `extends TareaInterfaz<E>` es lo que le permite a `HeapMinimo` llamar `heap.get(indice).obtenerPrioridad()` sin conocer `Tarea` en absoluto.
+
+El heap se guarda en un `ArrayList` sin punteros explícitos: el nodo en el índice `i` tiene a su padre en `(i-1)/2` y a sus hijos en `2i+1` y `2i+2`. `agregar` inserta al final y "sube" el elemento intercambiándolo con su padre mientras sea menor; `extraerMinimo` mueve el último elemento a la raíz y lo "baja" hasta restaurar la propiedad de heap. Ambas operaciones son $O(\log n)$, porque en el peor caso recorren la altura del árbol.
+
+:::{dropdown} 📂 colaprioridad y tareas — heap mínimo con límite genérico
+
+```java
+package tareas;
+
+public interface TareaInterfaz<T> {
+    int obtenerPrioridad();
+    T obtenerDatos();
+}
+```
+
+```java
+package colaprioridad;
+
+import tareas.TareaInterfaz;
+import java.util.ArrayList;
+import java.util.List;
+
+public class HeapMinimo<T extends TareaInterfaz<E>, E> {
+    private final List<T> heap;
+
+    public HeapMinimo() {
+        heap = new ArrayList<>();
+    }
+
+    public void agregar(T tarea) {
+        heap.add(tarea);
+        subir(heap.size() - 1);
+    }
+
+    public T extraerMinimo() {
+        if (heap.isEmpty()) {
+            return null;
+        }
+        T minimo = heap.getFirst();
+        int ultimoIndice = heap.size() - 1;
+        heap.set(0, heap.get(ultimoIndice));
+        heap.remove(ultimoIndice);
+        bajar(0);
+        return minimo;
+    }
+
+    public boolean estaVacio() {
+        return heap.isEmpty();
+    }
+
+    private void subir(int indice) {
+        int padre = (indice - 1) / 2;
+        while (indice > 0 && heap.get(indice).obtenerPrioridad() < heap.get(padre).obtenerPrioridad()) {
+            intercambiar(indice, padre);
+            indice = padre;
+            padre = (indice - 1) / 2;
+        }
+    }
+
+    private void bajar(int indice) {
+        int hijoIzquierdo, hijoDerecho, minimo;
+        while (true) {
+            hijoIzquierdo = 2 * indice + 1;
+            hijoDerecho = 2 * indice + 2;
+            minimo = indice;
+            if (hijoIzquierdo < heap.size() && heap.get(hijoIzquierdo).obtenerPrioridad() < heap.get(minimo).obtenerPrioridad()) {
+                minimo = hijoIzquierdo;
+            }
+            if (hijoDerecho < heap.size() && heap.get(hijoDerecho).obtenerPrioridad() < heap.get(minimo).obtenerPrioridad()) {
+                minimo = hijoDerecho;
+            }
+            if (minimo == indice) {
+                break;
+            }
+            intercambiar(indice, minimo);
+            indice = minimo;
+        }
+    }
+
+    private void intercambiar(int i, int j) {
+        T temp = heap.get(i);
+        heap.set(i, heap.get(j));
+        heap.set(j, temp);
+    }
+}
+```
+:::
+
+**Por qué un heap y no la lista enlazada ordenada de `SistemaImpresion`:** la lista ordenada de la sección anterior extrae el mínimo en $O(1)$ pero inserta en $O(n)$. El heap logra $O(\log n)$ en **ambas** operaciones, una mejora real cuando se insertan y extraen elementos con frecuencia similar, como en un gestor de tareas donde continuamente llegan tareas nuevas mientras se procesan las existentes. La lista ordenada solo ganaría si las inserciones fueran mucho menos frecuentes que las extracciones.
+
+::::{grid} 1
+:::{card} 📥 GestorTareas.zip
+Proyecto Maven completo: `HeapMinimo<T extends TareaInterfaz<E>, E>`, `Tarea`, un menú interactivo (`gestor.GestorTareas`) y pruebas JUnit 5.
+
+{download}`Descargar GestorTareas.zip <files/GestorTareas.zip>`
+:::
+::::
 
 ---
 

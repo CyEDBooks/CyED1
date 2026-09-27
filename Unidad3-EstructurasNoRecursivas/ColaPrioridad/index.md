@@ -481,6 +481,60 @@ public int extractMax() {
 | `extractMax` | $O(1)$ |
 | `insert` | $O(n)$ |
 
+### Versión genérica: `ColaPrioridad<T>`
+
+Generalizar a `T` separa el valor almacenado de su prioridad: la prioridad sigue siendo un `int` (se necesita comparar prioridades con `<` y `>`, algo que no está garantizado para un `T` cualquiera), pero el valor pasa de `int` a `T`.
+
+```java
+public class ColaPrioridad<T> {
+    private T[]   valores;
+    private int[] prioridades;
+    private int   size;
+    private int   size_max;
+
+    @SuppressWarnings("unchecked")
+    public ColaPrioridad(int n) {
+        this.size_max    = n;
+        this.size        = 0;
+        this.valores     = (T[]) new Object[n];
+        this.prioridades = new int[n];
+    }
+
+    public void insert(int p, T valor) {
+        if (size == size_max)
+            throw new RuntimeException("Overflow: cola de prioridad llena.");
+        int i = size - 1;
+        while (i >= 0 && prioridades[i] > p) {
+            valores[i + 1]     = valores[i];
+            prioridades[i + 1] = prioridades[i];
+            i--;
+        }
+        valores[i + 1]     = valor;
+        prioridades[i + 1] = p;
+        size++;
+    }
+
+    public T extractMax() {
+        if (size == 0)
+            throw new java.util.NoSuchElementException("Underflow: cola de prioridad vacía.");
+        T val = valores[size - 1];
+        valores[size - 1] = null; //libera la referencia, ayuda al GC
+        size--;
+        return val;
+    }
+}
+```
+
+Igual que con `Pila<T>` y `Cola<T>`: `(T[]) new Object[n]` para crear el arreglo genérico, y `valores[size - 1] = null` después de leer el valor en `extractMax`, para no retener una referencia que ya nadie puede alcanzar. El arreglo `prioridades` no necesita este tratamiento porque `int` es un tipo primitivo.
+
+::::{grid} 1
+:::{card} 📥 Descargar ColaPrioridad genérica
+`EstructurasArray.zip` incluye `ColaPrioridad<T>` junto con `Pila<T>`, `Cola<T>` y `TablaHash<V>` en un solo proyecto Maven, con un `Main.java` que compara una `Cola` FIFO contra una `ColaPrioridad` con los mismos datos, y pruebas JUnit 5.
+
+{download}`Descargar EstructurasArray.zip <files/EstructurasArray.zip>`
+:::
+::::
+
 ---
 
 Continúa con los [ejercicios de Cola de prioridad](exercises.md).
