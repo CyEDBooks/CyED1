@@ -85,6 +85,10 @@ project:
           title: "Complejidad espacial: Estudio"
         - file: Unidad3-EstructurasNoRecursivas/ComplejidadEspacial/exercises.md
           title: "Complejidad espacial: Ejercicios"
+        - file: Unidad3-EstructurasNoRecursivas/ComplejidadTemporalEjercicioPropuesto/index.md
+          title: "Complejidad temporal: Ejercicio propuesto"
+        - file: Unidad3-EstructurasNoRecursivas/ComplejidadTemporalEjercicioPropuesto/solucion.md
+          title: "Complejidad temporal: Ejercicio propuesto resuelto"
   github: https://github.com/CyEDBooks/CyED1
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
 site:
