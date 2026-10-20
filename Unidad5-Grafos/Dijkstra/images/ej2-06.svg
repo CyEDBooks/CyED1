@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="617" height="305" viewBox="-72.0 -52.0 617.4 304.6" font-family="Plus Jakarta Sans, Arial, sans-serif">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#219ebc"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a94700"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fb8500"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker></defs>
+<rect x="-72.0" y="-52.0" width="617.4" height="304.6" fill="#ffffff"/>
+<line x1="14.3" y1="89.0" x2="115.7" y2="11.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="58.1" y="43.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="65.0" y="55.0" font-size="14" fill="#219ebc" text-anchor="middle">4</text>
+<line x1="14.3" y1="111.0" x2="115.7" y2="189.0" stroke="#219ebc" stroke-width="3.2"/>
+<rect x="58.1" y="143.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="65.0" y="155.0" font-size="14" fill="#219ebc" text-anchor="middle">2</text>
+<line x1="130.0" y1="18.0" x2="130.0" y2="182.0" stroke="#219ebc" stroke-width="3.2"/>
+<rect x="123.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="130.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">1</text>
+<line x1="148.0" y1="0.0" x2="302.0" y2="0.0" stroke="#219ebc" stroke-width="3.2"/>
+<rect x="218.1" y="-6.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="5.0" font-size="14" fill="#219ebc" text-anchor="middle">5</text>
+<line x1="142.4" y1="13.0" x2="307.6" y2="187.0" stroke="#219ebc" stroke-width="3.2"/>
+<rect x="218.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">7</text>
+<line x1="142.4" y1="187.0" x2="307.6" y2="13.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="218.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">8</text>
+<line x1="148.0" y1="200.0" x2="302.0" y2="200.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="214.2" y="193.5" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="205.0" font-size="14" fill="#219ebc" text-anchor="middle">10</text>
+<line x1="320.0" y1="18.0" x2="320.0" y2="182.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="313.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="320.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">2</text>
+<line x1="334.3" y1="11.0" x2="435.7" y2="89.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="378.1" y="43.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="385.0" y="55.0" font-size="14" fill="#219ebc" text-anchor="middle">6</text>
+<line x1="334.3" y1="189.0" x2="435.7" y2="111.0" stroke="#219ebc" stroke-width="3.2"/>
+<rect x="378.1" y="143.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="385.0" y="155.0" font-size="14" fill="#219ebc" text-anchor="middle">3</text>
+<circle cx="0.0" cy="100.0" r="18" fill="#023047" stroke="#023047" stroke-width="1.6"/>
+<text x="0.0" y="104.5" font-size="13" fill="#ffffff" text-anchor="middle">Bog</text>
+<text x="-25.0" y="104.0" font-size="13" fill="#023047" text-anchor="end">[0,-]</text>
+<circle cx="130.0" cy="0.0" r="18" fill="#023047" stroke="#023047" stroke-width="1.6"/>
+<text x="130.0" y="4.5" font-size="13" fill="#ffffff" text-anchor="middle">Lim</text>
+<text x="130.0" y="-25.0" font-size="13" fill="#023047" text-anchor="middle">[3,Qui]</text>
+<circle cx="130.0" cy="200.0" r="18" fill="#023047" stroke="#023047" stroke-width="1.6"/>
+<text x="130.0" y="204.6" font-size="13" fill="#ffffff" text-anchor="middle">Qui</text>
+<text x="130.0" y="234.8" font-size="13" fill="#023047" text-anchor="middle">[2,Bog]</text>
+<circle cx="320.0" cy="0.0" r="18" fill="#023047" stroke="#023047" stroke-width="1.6"/>
+<text x="320.0" y="4.5" font-size="13" fill="#ffffff" text-anchor="middle">Paz</text>
+<text x="320.0" y="-25.0" font-size="13" fill="#023047" text-anchor="middle">[8,Lim]</text>
+<circle cx="320.0" cy="200.0" r="18" fill="#023047" stroke="#023047" stroke-width="1.6"/>
+<text x="320.0" y="204.6" font-size="13" fill="#ffffff" text-anchor="middle">Asu</text>
+<text x="320.0" y="234.8" font-size="13" fill="#023047" text-anchor="middle">[10,Lim]</text>
+<circle cx="450.0" cy="100.0" r="18" fill="#023047" stroke="#a94700" stroke-width="3.0"/>
+<text x="450.0" y="105.2" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">BA</text>
+<text x="475.0" y="104.0" font-size="13" fill="#023047" text-anchor="start">[13,Asu]</text>
+</svg>

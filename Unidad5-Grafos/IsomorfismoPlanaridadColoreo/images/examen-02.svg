@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="227" height="250" viewBox="-113.6 -125.0 227.2 250.0" font-family="Plus Jakarta Sans, Arial, sans-serif">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#219ebc"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a94700"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fb8500"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker></defs>
+<rect x="-113.6" y="-125.0" width="227.2" height="250.0" fill="#ffffff"/>
+<line x1="20.8" y1="-73.0" x2="52.8" y2="-54.5" stroke="#49636f" stroke-width="1.5"/>
+<line x1="12.0" y1="-64.2" x2="61.6" y2="21.7" stroke="#49636f" stroke-width="1.5"/>
+<line x1="0.0" y1="-61.0" x2="0.0" y2="61.0" stroke="#49636f" stroke-width="1.5"/>
+<line x1="52.8" y1="-30.5" x2="-52.8" y2="30.5" stroke="#49636f" stroke-width="1.5"/>
+<line x1="52.8" y1="54.5" x2="20.8" y2="73.0" stroke="#49636f" stroke-width="1.5"/>
+<line x1="52.8" y1="30.5" x2="-52.8" y2="-30.5" stroke="#49636f" stroke-width="1.5"/>
+<line x1="-20.8" y1="73.0" x2="-52.8" y2="54.5" stroke="#49636f" stroke-width="1.5"/>
+<line x1="-73.6" y1="18.5" x2="-73.6" y2="-18.5" stroke="#49636f" stroke-width="1.5"/>
+<circle cx="0.0" cy="-85.0" r="24" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="0.0" y="-80.5" font-size="13" fill="#023047" text-anchor="middle">Cál</text>
+<circle cx="73.6" cy="-42.5" r="24" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="73.6" y="-37.9" font-size="13" fill="#023047" text-anchor="middle">Fís</text>
+<circle cx="73.6" cy="42.5" r="24" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="73.6" y="46.3" font-size="11" fill="#023047" text-anchor="middle">Prog</text>
+<circle cx="0.0" cy="85.0" r="24" fill="#ffe8c2" stroke="#a94700" stroke-width="3.0"/>
+<text x="0.0" y="88.8" font-size="11" fill="#023047" text-anchor="middle" font-weight="bold">Disc</text>
+<circle cx="-73.6" cy="42.5" r="24" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="-73.6" y="46.3" font-size="11" fill="#023047" text-anchor="middle">Quím</text>
+<circle cx="-73.6" cy="-42.5" r="24" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="-73.6" y="-38.7" font-size="11" fill="#023047" text-anchor="middle">Ingl</text>
+<circle cx="0.0" cy="-85.0" r="24" fill="#8ecae6" stroke="#023047" stroke-width="1.6"/>
+<text x="0.0" y="-80.0" font-size="14" fill="#023047" text-anchor="middle">Cál</text>
+<circle cx="73.6" cy="42.5" r="24" fill="#ffb703" stroke="#023047" stroke-width="1.6"/>
+<text x="73.6" y="47.5" font-size="14" fill="#023047" text-anchor="middle">Prog</text>
+<circle cx="0.0" cy="85.0" r="24" fill="#90d18f" stroke="#a94700" stroke-width="3.0"/>
+<text x="0.0" y="90.0" font-size="14" fill="#023047" text-anchor="middle" font-weight="bold">Disc</text>
+</svg>

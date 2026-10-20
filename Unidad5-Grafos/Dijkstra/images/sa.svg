@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="524" height="274" viewBox="-37.0 -37.0 524.0 274.0" font-family="Plus Jakarta Sans, Arial, sans-serif">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#219ebc"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a94700"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fb8500"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker></defs>
+<rect x="-37.0" y="-37.0" width="524.0" height="274.0" fill="#ffffff"/>
+<line x1="16.6" y1="87.2" x2="113.4" y2="12.8" stroke="#49636f" stroke-width="1.5"/>
+<rect x="58.1" y="43.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="65.0" y="55.0" font-size="14" fill="#219ebc" text-anchor="middle">4</text>
+<line x1="16.6" y1="112.8" x2="113.4" y2="187.2" stroke="#49636f" stroke-width="1.5"/>
+<rect x="58.1" y="143.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="65.0" y="155.0" font-size="14" fill="#219ebc" text-anchor="middle">2</text>
+<line x1="130.0" y1="21.0" x2="130.0" y2="179.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="123.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="130.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">1</text>
+<line x1="151.0" y1="0.0" x2="299.0" y2="0.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="218.1" y="-6.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="5.0" font-size="14" fill="#219ebc" text-anchor="middle">5</text>
+<line x1="144.5" y1="15.2" x2="305.5" y2="184.8" stroke="#49636f" stroke-width="1.5"/>
+<rect x="218.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">7</text>
+<line x1="144.5" y1="184.8" x2="305.5" y2="15.2" stroke="#49636f" stroke-width="1.5"/>
+<rect x="218.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">8</text>
+<line x1="151.0" y1="200.0" x2="299.0" y2="200.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="214.2" y="193.5" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="225.0" y="205.0" font-size="14" fill="#219ebc" text-anchor="middle">10</text>
+<line x1="320.0" y1="21.0" x2="320.0" y2="179.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="313.1" y="93.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="320.0" y="105.0" font-size="14" fill="#219ebc" text-anchor="middle">2</text>
+<line x1="336.6" y1="12.8" x2="433.4" y2="87.2" stroke="#49636f" stroke-width="1.5"/>
+<rect x="378.1" y="43.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="385.0" y="55.0" font-size="14" fill="#219ebc" text-anchor="middle">6</text>
+<line x1="336.6" y1="187.2" x2="433.4" y2="112.8" stroke="#49636f" stroke-width="1.5"/>
+<rect x="378.1" y="143.5" width="13.8" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="385.0" y="155.0" font-size="14" fill="#219ebc" text-anchor="middle">3</text>
+<circle cx="0.0" cy="100.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="0.0" y="104.5" font-size="13" fill="#023047" text-anchor="middle">Bog</text>
+<circle cx="130.0" cy="0.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="130.0" y="4.5" font-size="13" fill="#023047" text-anchor="middle">Lim</text>
+<circle cx="130.0" cy="200.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="130.0" y="204.6" font-size="13" fill="#023047" text-anchor="middle">Qui</text>
+<circle cx="320.0" cy="0.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="320.0" y="4.5" font-size="13" fill="#023047" text-anchor="middle">Paz</text>
+<circle cx="320.0" cy="200.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="320.0" y="204.6" font-size="13" fill="#023047" text-anchor="middle">Asu</text>
+<circle cx="450.0" cy="100.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="450.0" y="105.2" font-size="15" fill="#023047" text-anchor="middle">BA</text>
+</svg>

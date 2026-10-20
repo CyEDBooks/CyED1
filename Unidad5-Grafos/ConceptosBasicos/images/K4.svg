@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="152" height="178" viewBox="-76.0 -76.0 152.0 178.2" font-family="Plus Jakarta Sans, Arial, sans-serif">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#219ebc"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a94700"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fb8500"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker></defs>
+<rect x="-76.0" y="-76.0" width="152.0" height="178.2" fill="#ffffff"/>
+<line x1="5.7" y1="-46.3" x2="46.3" y2="-5.7" stroke="#49636f" stroke-width="1.5"/>
+<line x1="0.0" y1="-44.0" x2="0.0" y2="44.0" stroke="#49636f" stroke-width="1.5"/>
+<line x1="-5.7" y1="-46.3" x2="-46.3" y2="-5.7" stroke="#49636f" stroke-width="1.5"/>
+<line x1="46.3" y1="5.7" x2="5.7" y2="46.3" stroke="#49636f" stroke-width="1.5"/>
+<line x1="44.0" y1="0.0" x2="-44.0" y2="0.0" stroke="#49636f" stroke-width="1.5"/>
+<line x1="-5.7" y1="46.3" x2="-46.3" y2="5.7" stroke="#49636f" stroke-width="1.5"/>
+<circle cx="0.0" cy="-52.0" r="8" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="0.0" y="-46.8" font-size="15" fill="#023047" text-anchor="middle"></text>
+<circle cx="52.0" cy="0.0" r="8" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="52.0" y="5.2" font-size="15" fill="#023047" text-anchor="middle"></text>
+<circle cx="0.0" cy="52.0" r="8" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="0.0" y="57.2" font-size="15" fill="#023047" text-anchor="middle"></text>
+<circle cx="-52.0" cy="0.0" r="8" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="-52.0" y="5.3" font-size="15" fill="#023047" text-anchor="middle"></text>
+<text x="0.0" y="84.0" font-size="14" fill="#023047" text-anchor="middle" font-weight="bold">K4</text>
+</svg>

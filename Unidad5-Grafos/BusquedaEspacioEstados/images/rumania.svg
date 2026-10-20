@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="502" height="549" viewBox="-37.0 -37.0 501.5 549.0" font-family="Plus Jakarta Sans, Arial, sans-serif">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#219ebc"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a94700"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fb8500"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker></defs>
+<rect x="-37.0" y="-37.0" width="501.5" height="549.0" fill="#ffffff"/>
+<line x1="8.5" y1="142.3" x2="29.5" y2="95.2" stroke="#49636f" stroke-width="1.5"/>
+<rect x="8.2" y="112.3" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="19.0" y="123.8" font-size="14" fill="#219ebc" text-anchor="middle">75</text>
+<line x1="20.9" y1="159.3" x2="159.6" y2="144.7" stroke="#49636f" stroke-width="1.5"/>
+<rect x="75.5" y="145.5" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="90.2" y="157.0" font-size="14" fill="#219ebc" text-anchor="middle">140</text>
+<line x1="1.7" y1="182.4" x2="7.8" y2="254.6" stroke="#49636f" stroke-width="1.5"/>
+<rect x="-10.0" y="212.0" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="4.8" y="223.5" font-size="14" fill="#219ebc" text-anchor="middle">118</text>
+<line x1="49.1" y1="58.2" x2="74.4" y2="17.8" stroke="#49636f" stroke-width="1.5"/>
+<rect x="50.9" y="31.5" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="61.8" y="43.0" font-size="14" fill="#219ebc" text-anchor="middle">71</text>
+<line x1="97.1" y1="17.5" x2="168.9" y2="125.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="118.2" y="64.8" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="133.0" y="76.2" font-size="14" fill="#219ebc" text-anchor="middle">151</text>
+<line x1="27.9" y1="285.7" x2="76.6" y2="312.8" stroke="#49636f" stroke-width="1.5"/>
+<rect x="37.5" y="292.8" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="52.2" y="304.2" font-size="14" fill="#219ebc" text-anchor="middle">111</text>
+<line x1="95.0" y1="344.0" x2="95.0" y2="378.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="84.2" y="354.5" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="95.0" y="366.0" font-size="14" fill="#219ebc" text-anchor="middle">70</text>
+<line x1="92.4" y1="419.8" x2="88.1" y2="454.2" stroke="#49636f" stroke-width="1.5"/>
+<rect x="79.4" y="430.5" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="90.2" y="442.0" font-size="14" fill="#219ebc" text-anchor="middle">75</text>
+<line x1="106.4" y1="472.5" x2="226.1" y2="458.5" stroke="#49636f" stroke-width="1.5"/>
+<rect x="151.5" y="459.0" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="166.2" y="470.5" font-size="14" fill="#219ebc" text-anchor="middle">120</text>
+<line x1="244.3" y1="435.2" x2="221.2" y2="258.3" stroke="#49636f" stroke-width="1.5"/>
+<rect x="218.0" y="340.3" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="232.8" y="351.8" font-size="14" fill="#219ebc" text-anchor="middle">146</text>
+<line x1="255.0" y1="436.6" x2="305.5" y2="313.9" stroke="#49636f" stroke-width="1.5"/>
+<rect x="265.5" y="368.8" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="280.2" y="380.2" font-size="14" fill="#219ebc" text-anchor="middle">138</text>
+<line x1="201.5" y1="142.5" x2="292.5" y2="142.5" stroke="#49636f" stroke-width="1.5"/>
+<rect x="236.2" y="136.0" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="247.0" y="147.5" font-size="14" fill="#219ebc" text-anchor="middle">99</text>
+<line x1="188.3" y1="162.0" x2="210.7" y2="218.0" stroke="#49636f" stroke-width="1.5"/>
+<rect x="188.7" y="183.5" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="199.5" y="195.0" font-size="14" fill="#219ebc" text-anchor="middle">80</text>
+<line x1="236.5" y1="248.3" x2="295.5" y2="283.7" stroke="#49636f" stroke-width="1.5"/>
+<rect x="255.2" y="259.5" width="21.7" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="266.0" y="271.0" font-size="14" fill="#219ebc" text-anchor="middle">97</text>
+<line x1="323.9" y1="160.7" x2="417.1" y2="323.8" stroke="#49636f" stroke-width="1.5"/>
+<rect x="355.7" y="235.8" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="370.5" y="247.2" font-size="14" fill="#219ebc" text-anchor="middle">211</text>
+<line x1="332.9" y1="302.6" x2="408.1" y2="333.9" stroke="#49636f" stroke-width="1.5"/>
+<rect x="355.7" y="311.8" width="29.5" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="370.5" y="323.2" font-size="14" fill="#219ebc" text-anchor="middle">101</text>
+<circle cx="85.5" cy="0.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="85.5" y="4.5" font-size="13" fill="#023047" text-anchor="middle">Ora</text>
+<circle cx="38.0" cy="76.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="38.0" y="80.5" font-size="13" fill="#023047" text-anchor="middle">Zer</text>
+<circle cx="0.0" cy="161.5" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="0.0" y="166.1" font-size="13" fill="#023047" text-anchor="middle">Ara</text>
+<circle cx="180.5" cy="142.5" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="180.5" y="147.1" font-size="13" fill="#023047" text-anchor="middle">Sib</text>
+<circle cx="313.5" cy="142.5" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="313.5" y="147.1" font-size="13" fill="#023047" text-anchor="middle">Fag</text>
+<circle cx="9.5" cy="275.5" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="9.5" y="280.1" font-size="13" fill="#023047" text-anchor="middle">Tim</text>
+<circle cx="218.5" cy="237.5" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="218.5" y="242.1" font-size="13" fill="#023047" text-anchor="middle">Rim</text>
+<circle cx="95.0" cy="323.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="95.0" y="327.6" font-size="13" fill="#023047" text-anchor="middle">Lug</text>
+<circle cx="313.5" cy="294.5" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="313.5" y="299.1" font-size="13" fill="#023047" text-anchor="middle">Pit</text>
+<circle cx="95.0" cy="399.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="95.0" y="403.6" font-size="13" fill="#023047" text-anchor="middle">Meh</text>
+<circle cx="427.5" cy="342.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="427.5" y="346.6" font-size="13" fill="#023047" text-anchor="middle">Buc</text>
+<circle cx="85.5" cy="475.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="85.5" y="479.6" font-size="13" fill="#023047" text-anchor="middle">Dro</text>
+<circle cx="247.0" cy="456.0" r="21" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<text x="247.0" y="460.6" font-size="13" fill="#023047" text-anchor="middle">Cra</text>
+</svg>

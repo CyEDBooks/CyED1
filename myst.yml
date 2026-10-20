@@ -93,6 +93,74 @@ project:
           title: "Complejidad temporal: Ejercicio propuesto resuelto"
         - file: Unidad3-EstructurasNoRecursivas/Desacoplamiento/index.md
           title: "Desacoplamiento: Inyección de dependencias"
+    - title: "Unidad 4: Estructuras discretas recursivas"
+      children:
+        - file: Unidad4-EstructurasRecursivas/Arboles/index.md
+          title: "Árboles: Estudio"
+        - file: Unidad4-EstructurasRecursivas/Arboles/exercises.md
+          title: "Árboles: Ejercicios"
+        - file: Unidad4-EstructurasRecursivas/ArbolesBinarios/index.md
+          title: "Árboles binarios: Estudio"
+        - file: Unidad4-EstructurasRecursivas/ArbolesBinarios/exercises.md
+          title: "Árboles binarios: Ejercicios"
+        - file: Unidad4-EstructurasRecursivas/RecorridosArboles/index.md
+          title: "Recorridos en preorden, inorden y postorden: Estudio"
+        - file: Unidad4-EstructurasRecursivas/RecorridosArboles/exercises.md
+          title: "Recorridos en preorden, inorden y postorden: Ejercicios"
+        - file: Unidad4-EstructurasRecursivas/ArbolesBinariosBusqueda/index.md
+          title: "Árboles binarios ordenados y de búsqueda: Estudio"
+        - file: Unidad4-EstructurasRecursivas/ArbolesBinariosBusqueda/exercises.md
+          title: "Árboles binarios ordenados y de búsqueda: Ejercicios"
+        - file: Unidad4-EstructurasRecursivas/ArbolesAVL/index.md
+          title: "Árboles AVL: Estudio"
+        - file: Unidad4-EstructurasRecursivas/ArbolesAVL/exercises.md
+          title: "Árboles AVL: Ejercicios"
+    - title: "Unidad 5: Grafos"
+      children:
+        - file: Unidad5-Grafos/ConceptosBasicos/index.md
+          title: "Conceptos básicos: Estudio"
+        - file: Unidad5-Grafos/ConceptosBasicos/exercises.md
+          title: "Conceptos básicos: Ejercicios"
+        - file: Unidad5-Grafos/RepresentacionConectividad/index.md
+          title: "Representación y matriz de conectividad: Estudio"
+        - file: Unidad5-Grafos/RepresentacionConectividad/exercises.md
+          title: "Representación y matriz de conectividad: Ejercicios"
+        - file: Unidad5-Grafos/ConectividadEulerHamilton/index.md
+          title: "Conectividad, Euler y Hamilton: Estudio"
+        - file: Unidad5-Grafos/ConectividadEulerHamilton/exercises.md
+          title: "Conectividad, Euler y Hamilton: Ejercicios"
+        - file: Unidad5-Grafos/IsomorfismoPlanaridadColoreo/index.md
+          title: "Isomorfismo, grafos planos y coloración: Estudio"
+        - file: Unidad5-Grafos/IsomorfismoPlanaridadColoreo/exercises.md
+          title: "Isomorfismo, grafos planos y coloración: Ejercicios"
+        - file: Unidad5-Grafos/BFS/index.md
+          title: "Recorrido BFS: Estudio"
+        - file: Unidad5-Grafos/BFS/exercises.md
+          title: "Recorrido BFS: Ejercicios"
+        - file: Unidad5-Grafos/DFS/index.md
+          title: "Recorrido DFS: Estudio"
+        - file: Unidad5-Grafos/DFS/exercises.md
+          title: "Recorrido DFS: Ejercicios"
+        - file: Unidad5-Grafos/BusquedaEspacioEstados/index.md
+          title: "Recorridos en espacios de estados y juegos: Estudio"
+        - file: Unidad5-Grafos/BusquedaEspacioEstados/exercises.md
+          title: "Recorridos en espacios de estados y juegos: Ejercicios"
+        - file: Unidad5-Grafos/Dijkstra/index.md
+          title: "Dijkstra: Estudio"
+        - file: Unidad5-Grafos/Dijkstra/exercises.md
+          title: "Dijkstra: Ejercicios"
+        - file: Unidad5-Grafos/Prim/index.md
+          title: "Prim: Estudio"
+        - file: Unidad5-Grafos/Prim/exercises.md
+          title: "Prim: Ejercicios"
+        - file: Unidad5-Grafos/Kruskal/index.md
+          title: "Kruskal: Estudio"
+        - file: Unidad5-Grafos/Kruskal/exercises.md
+          title: "Kruskal: Ejercicios"
+        - file: Unidad5-Grafos/FloydWarshall/index.md
+          title: "Floyd-Warshall: Estudio"
+        - file: Unidad5-Grafos/FloydWarshall/exercises.md
+          title: "Floyd-Warshall: Ejercicios"
   github: https://github.com/CyEDBooks/CyED1
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
 site:

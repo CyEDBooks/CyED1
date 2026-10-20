@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="244" height="131" viewBox="-57.0 -57.0 244.0 130.9" font-family="Plus Jakarta Sans, Arial, sans-serif">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#219ebc"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a94700"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fb8500"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker></defs>
+<rect x="-57.0" y="-57.0" width="244.0" height="130.9" fill="#ffffff"/>
+<rect x="-42.0" y="-42.0" width="84.0" height="84.0" rx="5" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
+<rect x="-38.0" y="-38.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="-26.0" y="-21.5" font-size="12" fill="#023047" text-anchor="middle">1</text>
+<rect x="-12.0" y="-38.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="0.0" y="-21.5" font-size="12" fill="#023047" text-anchor="middle">2</text>
+<rect x="14.0" y="-38.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="26.0" y="-21.5" font-size="12" fill="#023047" text-anchor="middle">3</text>
+<rect x="-38.0" y="-12.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="-26.0" y="4.5" font-size="12" fill="#023047" text-anchor="middle">4</text>
+<rect x="-12.0" y="-12.0" width="24.0" height="24.0" rx="2" fill="#d9e2e6" stroke="#d9e2e6" stroke-width="0.5"/>
+<rect x="14.0" y="-12.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="26.0" y="4.5" font-size="12" fill="#023047" text-anchor="middle">6</text>
+<rect x="-38.0" y="14.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="-26.0" y="30.5" font-size="12" fill="#023047" text-anchor="middle">7</text>
+<rect x="-12.0" y="14.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="0.0" y="30.5" font-size="12" fill="#023047" text-anchor="middle">5</text>
+<rect x="14.0" y="14.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="26.0" y="30.5" font-size="12" fill="#023047" text-anchor="middle">8</text>
+<text x="0.0" y="56.0" font-size="13" fill="#49636f" text-anchor="middle">Inicial</text>
+<rect x="88.0" y="-42.0" width="84.0" height="84.0" rx="5" fill="#dff3e4" stroke="#2a9d4b" stroke-width="2.6"/>
+<rect x="92.0" y="-38.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="104.0" y="-21.5" font-size="12" fill="#023047" text-anchor="middle">1</text>
+<rect x="118.0" y="-38.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="130.0" y="-21.5" font-size="12" fill="#023047" text-anchor="middle">2</text>
+<rect x="144.0" y="-38.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="156.0" y="-21.5" font-size="12" fill="#023047" text-anchor="middle">3</text>
+<rect x="92.0" y="-12.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="104.0" y="4.5" font-size="12" fill="#023047" text-anchor="middle">4</text>
+<rect x="118.0" y="-12.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="130.0" y="4.5" font-size="12" fill="#023047" text-anchor="middle">5</text>
+<rect x="144.0" y="-12.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="156.0" y="4.5" font-size="12" fill="#023047" text-anchor="middle">6</text>
+<rect x="92.0" y="14.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="104.0" y="30.5" font-size="12" fill="#023047" text-anchor="middle">7</text>
+<rect x="118.0" y="14.0" width="24.0" height="24.0" rx="2" fill="#ffffff" stroke="#b9d8e5" stroke-width="0.8"/>
+<text x="130.0" y="30.5" font-size="12" fill="#023047" text-anchor="middle">8</text>
+<rect x="144.0" y="14.0" width="24.0" height="24.0" rx="2" fill="#d9e2e6" stroke="#d9e2e6" stroke-width="0.5"/>
+<text x="130.0" y="56.0" font-size="13" fill="#49636f" text-anchor="middle">Meta</text>
+</svg>

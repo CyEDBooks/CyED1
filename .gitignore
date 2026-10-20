@@ -17,3 +17,6 @@ _build
 
 # Temporary slides staging area (not part of the published book)
 slidestmp/
+
+# Python caches from tools/
+__pycache__/
