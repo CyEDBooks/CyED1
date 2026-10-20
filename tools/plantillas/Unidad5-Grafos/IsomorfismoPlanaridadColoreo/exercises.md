@@ -28,6 +28,41 @@ Con $3$ vértices hay $4$: con $0$, $1$, $2$ y $3$ aristas (uno por cada número
 
 ### Ejercicio 2
 
+Determine si los grafos dirigidos de cada par son isomorfos. Si lo son, encuentre una función de correspondencia entre sus vértices.
+
+{{GEN:fig-ex-dir}}
+
+:::{admonition} Pistas
+:class: dropdown
+- En un grafo dirigido, un isomorfismo conserva el grado de entrada y el de salida de cada vértice, y los bucles.
+- Empiece por los vértices que son únicos en algo: el que tiene bucle, el que no tiene aristas de salida.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+- Par de arriba: **sí**. $f(u_1) = v_3$, $f(u_2) = v_4$, $f(u_3) = v_2$, $f(u_4) = v_1$. El bucle obliga $f(u_2) = v_4$, y $u_4$, sin aristas de salida, va a $v_1$.
+- Par de abajo: **no**. {{GEN:ex-dir-no}}
+:::
+
+### Ejercicio 3
+
+¿Cuál es el número cromático de este grafo?
+
+{{GEN:fig-valle}}
+
+:::{admonition} Pistas
+:class: dropdown
+- Busque un triángulo: da una cota inferior.
+- Intente colorear con esa cantidad, empezando por Cali, que tiene el mayor grado.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+$\chi = 3$. Cali, Yumbo y Palmira forman un triángulo, así que hacen falta al menos $3$ colores, y con $3$ alcanza: {{GEN:valle-sol}}.
+:::
+
+### Ejercicio 4
+
 Muestre que un grafo plano, simple y conexo tiene algún vértice de grado **menor o igual que 5**.
 
 :::{admonition} Pistas
@@ -41,7 +76,7 @@ Muestre que un grafo plano, simple y conexo tiene algún vértice de grado **men
 Si todos los grados fueran $\ge 6$, por *handshaking* $2e \ge 6v$, es decir, $e \ge 3v$. Pero el corolario de la fórmula de Euler dice $e \le 3v - 6 < 3v$. Contradicción.
 :::
 
-### Ejercicio 3
+### Ejercicio 5
 
 Calcule el número cromático del siguiente grafo. Aplique la coloración voraz (orden: de mayor a menor grado; empates en orden alfabético) y compare.
 
@@ -60,7 +95,7 @@ $\chi = {{GEN:ex-chi}}$. Una coloración: {{GEN:ex-chi-sol}}.
 Coloración voraz ({{GEN:ex-greedy-n}} colores): {{GEN:ex-greedy}}.
 :::
 
-### Ejercicio 4
+### Ejercicio 6
 
 Encuentre un grafo y un orden de sus vértices para el cual la coloración voraz use **más** colores que $\chi(G)$.
 
@@ -75,10 +110,10 @@ Encuentre un grafo y un orden de sus vértices para el cual la coloración voraz
 El camino $a - b - c - d$ con el orden $a, d, b, c$: $a$ y $d$ reciben el color 1; $b$ (vecino de $a$) recibe el 2; $c$ es vecino de $b$ (color 2) y de $d$ (color 1) y recibe el **3**. Pero $\chi = 2$.
 :::
 
-### Ejercicio 5
+### Ejercicio 7
 
 Determine si el grafo de Petersen es plano y calcule su número cromático. Justifique sus respuestas.
 
 ---
 
-*Material adaptado del material original de los profesores Oscar Bedoya y Juan Marcos Caicedo Mejía.*
+*Material adaptado del material original del profesor Oscar Bedoya.*

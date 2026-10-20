@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="152" viewBox="-32.2 -44.6 255.9 151.6" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-32.2" y="-44.6" width="255.9" height="151.6" fill="#ffffff"/>
+<line x1="5.7" y1="0.0" x2="87.8" y2="0.0" stroke="#111111" stroke-width="1.2"/>
+<path d="M4.5,3.5 Q46.8,36.0 89.0,3.5" fill="none" stroke="#111111" stroke-width="1.2"/>
+<path d="M89.1,-3.7 C77.0,-26.6 110.0,-26.6 97.9,-3.7" fill="none" stroke="#111111" stroke-width="1.2"/>
+<line x1="99.2" y1="0.0" x2="181.3" y2="0.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="93.5" y1="5.7" x2="93.5" y2="62.3" stroke="#111111" stroke-width="1.2"/>
+<line x1="182.4" y1="3.4" x2="98.1" y2="64.6" stroke="#111111" stroke-width="1.2"/>
+<path d="M181.3,0.7 Q121.4,8.1 95.9,62.8" fill="none" stroke="#111111" stroke-width="1.2"/>
+<path d="M184.6,5.2 Q159.1,59.9 99.2,67.3" fill="none" stroke="#111111" stroke-width="1.2"/>
+<circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="-9.2" y="5.3" font-size="15" fill="#111111" text-anchor="end">u</text>
+<circle cx="93.5" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="87.0" y="17.8" font-size="15" fill="#111111" text-anchor="end">v</text>
+<circle cx="187.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="196.2" y="5.2" font-size="15" fill="#111111" text-anchor="start">w</text>
+<circle cx="93.5" cy="68.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="93.5" y="88.5" font-size="15" fill="#111111" text-anchor="middle">x</text>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1062" height="258" viewBox="-14.0 -31.0 1062.0 258.2" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-14.0" y="-31.0" width="1062.0" height="258.2" fill="#ffffff"/>
+<g transform="translate(17.0,0)"><line x1="26.2" y1="68.8" x2="7.8" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(17.0,0)"><line x1="41.8" y1="68.8" x2="60.2" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(17.0,0)"><line x1="143.8" y1="68.8" x2="162.2" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(17.0,0)"><line x1="90.4" y1="9.5" x2="45.6" y2="46.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(17.0,0)"><line x1="109.8" y1="12.8" x2="128.2" y2="43.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(17.0,0)"><circle cx="0.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(17.0,0)"><text x="0.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">2</text></g>
+<g transform="translate(17.0,0)"><circle cx="34.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(17.0,0)"><text x="34.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">4</text></g>
+<g transform="translate(17.0,0)"><circle cx="68.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(17.0,0)"><text x="68.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">6</text></g>
+<g transform="translate(17.0,0)"><circle cx="102.0" cy="0.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(17.0,0)"><text x="102.0" y="4.5" font-size="13" fill="#111111" text-anchor="middle">8</text></g>
+<g transform="translate(17.0,0)"><circle cx="136.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(17.0,0)"><text x="136.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">10</text></g>
+<g transform="translate(17.0,0)"><circle cx="170.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(17.0,0)"><text x="170.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">12</text></g>
+<text x="102.0" y="153.0" font-size="14" fill="#111111" text-anchor="middle">a)</text>
+<g transform="translate(271.0,0)"><line x1="26.2" y1="124.8" x2="7.8" y2="155.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(271.0,0)"><line x1="60.2" y1="68.8" x2="41.8" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(271.0,0)"><line x1="75.8" y1="68.8" x2="94.2" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(271.0,0)"><line x1="124.4" y1="9.5" x2="79.6" y2="46.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(271.0,0)"><line x1="143.8" y1="12.8" x2="162.2" y2="43.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(271.0,0)"><circle cx="0.0" cy="168.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(271.0,0)"><text x="0.0" y="172.6" font-size="13" fill="#111111" text-anchor="middle">1</text></g>
+<g transform="translate(271.0,0)"><circle cx="34.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(271.0,0)"><text x="34.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">2</text></g>
+<g transform="translate(271.0,0)"><circle cx="68.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(271.0,0)"><text x="68.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">4</text></g>
+<g transform="translate(271.0,0)"><circle cx="102.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(271.0,0)"><text x="102.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">6</text></g>
+<g transform="translate(271.0,0)"><circle cx="136.0" cy="0.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(271.0,0)"><text x="136.0" y="4.5" font-size="13" fill="#111111" text-anchor="middle">8</text></g>
+<g transform="translate(271.0,0)"><circle cx="170.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(271.0,0)"><text x="170.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">10</text></g>
+<text x="356.0" y="209.0" font-size="14" fill="#111111" text-anchor="middle">b)</text>
+<g transform="translate(525.0,0)"><line x1="26.2" y1="124.8" x2="7.8" y2="155.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(525.0,0)"><line x1="41.8" y1="124.8" x2="60.2" y2="155.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(525.0,0)"><line x1="90.4" y1="65.5" x2="45.6" y2="102.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(525.0,0)"><line x1="109.8" y1="68.8" x2="128.2" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(525.0,0)"><line x1="230.2" y1="68.8" x2="211.8" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(525.0,0)"><line x1="158.4" y1="9.5" x2="113.6" y2="46.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(525.0,0)"><line x1="181.6" y1="9.5" x2="226.4" y2="46.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(525.0,0)"><circle cx="0.0" cy="168.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="0.0" y="172.6" font-size="13" fill="#111111" text-anchor="middle">1</text></g>
+<g transform="translate(525.0,0)"><circle cx="34.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="34.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">2</text></g>
+<g transform="translate(525.0,0)"><circle cx="68.0" cy="168.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="68.0" y="172.6" font-size="13" fill="#111111" text-anchor="middle">3</text></g>
+<g transform="translate(525.0,0)"><circle cx="102.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="102.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">4</text></g>
+<g transform="translate(525.0,0)"><circle cx="136.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="136.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">6</text></g>
+<g transform="translate(525.0,0)"><circle cx="170.0" cy="0.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="170.0" y="4.5" font-size="13" fill="#111111" text-anchor="middle">8</text></g>
+<g transform="translate(525.0,0)"><circle cx="204.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="204.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">9</text></g>
+<g transform="translate(525.0,0)"><circle cx="238.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(525.0,0)"><text x="238.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">10</text></g>
+<text x="644.0" y="209.0" font-size="14" fill="#111111" text-anchor="middle">c)</text>
+<g transform="translate(847.0,0)"><line x1="143.8" y1="124.8" x2="162.2" y2="155.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(847.0,0)"><line x1="94.2" y1="68.8" x2="75.8" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(847.0,0)"><line x1="109.8" y1="68.8" x2="128.2" y2="99.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(847.0,0)"><line x1="26.2" y1="12.8" x2="7.8" y2="43.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(847.0,0)"><line x1="45.6" y1="9.5" x2="90.4" y2="46.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(847.0,0)"><circle cx="0.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(847.0,0)"><text x="0.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">4</text></g>
+<g transform="translate(847.0,0)"><circle cx="34.0" cy="0.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(847.0,0)"><text x="34.0" y="4.5" font-size="13" fill="#111111" text-anchor="middle">8</text></g>
+<g transform="translate(847.0,0)"><circle cx="68.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(847.0,0)"><text x="68.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">10</text></g>
+<g transform="translate(847.0,0)"><circle cx="102.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(847.0,0)"><text x="102.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">12</text></g>
+<g transform="translate(847.0,0)"><circle cx="136.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(847.0,0)"><text x="136.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">14</text></g>
+<g transform="translate(847.0,0)"><circle cx="170.0" cy="168.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/></g>
+<g transform="translate(847.0,0)"><text x="170.0" y="172.6" font-size="13" fill="#111111" text-anchor="middle">16</text></g>
+<text x="932.0" y="209.0" font-size="14" fill="#111111" text-anchor="middle">d)</text>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1082" height="266" viewBox="-11.0 -38.0 1082.1 265.9" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-11.0" y="-38.0" width="1082.1" height="265.9" fill="#ffffff"/>
+<line x1="109.4" y1="113.0" x2="88.4" y2="150.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="124.2" y1="113.0" x2="145.2" y2="150.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="151.2" y1="61.2" x2="126.8" y2="88.8" stroke="#111111" stroke-width="1.2"/>
+<line x1="171.2" y1="61.2" x2="205.6" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="82.6" y1="9.0" x2="28.0" y2="50.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="106.6" y1="9.0" x2="149.2" y2="41.0" stroke="#111111" stroke-width="1.2"/>
+<polygon points="28.0,50.0 4.0,110.0 52.0,110.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="28.0" y="101.0" font-size="14" fill="#111111" text-anchor="middle">A</text>
+<text x="55.0" y="110.0" font-size="13" fill="#1f3c88" text-anchor="start">h</text>
+<polygon points="88.4,150.0 69.2,194.4 107.6,194.4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="88.4" y="185.4" font-size="14" fill="#111111" text-anchor="middle">D</text>
+<polygon points="145.2,150.0 126.0,194.4 164.4,194.4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="145.2" y="185.4" font-size="14" fill="#111111" text-anchor="middle">E</text>
+<circle cx="116.8" cy="100.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="116.8" y="104.5" font-size="12" fill="#111111" text-anchor="middle"></text>
+<text x="135.8" y="91.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">r</text>
+<polygon points="205.6,100.0 181.6,160.0 229.6,160.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="205.6" y="151.0" font-size="14" fill="#111111" text-anchor="middle">C</text>
+<text x="232.6" y="160.0" font-size="13" fill="#1f3c88" text-anchor="start">h</text>
+<circle cx="161.2" cy="50.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="161.2" y="54.5" font-size="12" fill="#111111" text-anchor="middle">−1</text>
+<text x="180.2" y="41.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">q</text>
+<circle cx="94.6" cy="0.0" r="15" fill="#ffd9d9" stroke="#d62020" stroke-width="2.0"/>
+<text x="94.6" y="4.5" font-size="12" fill="#d62020" text-anchor="middle" font-weight="bold">+2</text>
+<text x="113.6" y="-9.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">p</text>
+<line x1="247.6" y1="40.0" x2="390.9" y2="40.0" stroke="#d62020" stroke-width="1.6" marker-end="url(#arr-new)"/>
+<text x="321.2" y="32.0" font-size="13" fill="#d62020" text-anchor="middle">RIGHT-ROTATE(q)</text>
+<line x1="580.5" y1="112.8" x2="558.1" y2="150.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="596.1" y1="112.8" x2="618.5" y2="150.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="535.0" y1="61.3" x2="501.3" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="554.6" y1="61.3" x2="578.5" y2="88.7" stroke="#111111" stroke-width="1.2"/>
+<line x1="482.0" y1="10.4" x2="440.9" y2="50.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="503.7" y1="10.4" x2="534.0" y2="39.6" stroke="#111111" stroke-width="1.2"/>
+<polygon points="440.9,50.0 416.9,110.0 464.9,110.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="440.9" y="101.0" font-size="14" fill="#111111" text-anchor="middle">A</text>
+<text x="467.9" y="110.0" font-size="13" fill="#1f3c88" text-anchor="start">h</text>
+<polygon points="501.3,100.0 482.1,144.4 520.5,144.4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="501.3" y="135.4" font-size="14" fill="#111111" text-anchor="middle">D</text>
+<polygon points="558.1,150.0 538.9,194.4 577.3,194.4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="558.1" y="185.4" font-size="14" fill="#111111" text-anchor="middle">E</text>
+<polygon points="618.5,150.0 594.5,210.0 642.5,210.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="618.5" y="201.0" font-size="14" fill="#111111" text-anchor="middle">C</text>
+<text x="645.5" y="210.0" font-size="13" fill="#1f3c88" text-anchor="start">h</text>
+<circle cx="588.3" cy="100.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="588.3" y="104.5" font-size="12" fill="#111111" text-anchor="middle"></text>
+<text x="607.3" y="91.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">q</text>
+<circle cx="544.8" cy="50.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="544.8" y="54.5" font-size="12" fill="#111111" text-anchor="middle"></text>
+<text x="563.8" y="41.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">r</text>
+<circle cx="492.8" cy="0.0" r="15" fill="#ffd9d9" stroke="#d62020" stroke-width="2.0"/>
+<text x="492.8" y="4.5" font-size="12" fill="#d62020" text-anchor="middle" font-weight="bold">+2</text>
+<text x="511.8" y="-9.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">p</text>
+<line x1="660.5" y1="40.0" x2="794.7" y2="40.0" stroke="#d62020" stroke-width="1.6" marker-end="url(#arr-new)"/>
+<text x="729.6" y="32.0" font-size="13" fill="#d62020" text-anchor="middle">LEFT-ROTATE(p)</text>
+<line x1="867.1" y1="62.8" x2="844.7" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="882.7" y1="62.8" x2="905.1" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="984.3" y1="62.8" x2="961.9" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="999.9" y1="62.8" x2="1022.3" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="922.1" y1="9.7" x2="886.3" y2="40.3" stroke="#111111" stroke-width="1.2"/>
+<line x1="944.9" y1="9.7" x2="980.7" y2="40.3" stroke="#111111" stroke-width="1.2"/>
+<polygon points="844.7,100.0 820.7,160.0 868.7,160.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="844.7" y="151.0" font-size="14" fill="#111111" text-anchor="middle">A</text>
+<text x="871.7" y="160.0" font-size="13" fill="#1f3c88" text-anchor="start">h</text>
+<polygon points="905.1,100.0 885.9,144.4 924.3,144.4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="905.1" y="135.4" font-size="14" fill="#111111" text-anchor="middle">D</text>
+<circle cx="874.9" cy="50.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="874.9" y="54.5" font-size="10" fill="#111111" text-anchor="middle">−1/0</text>
+<text x="893.9" y="41.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">p</text>
+<polygon points="961.9,100.0 942.7,144.4 981.1,144.4" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="961.9" y="135.4" font-size="14" fill="#111111" text-anchor="middle">E</text>
+<polygon points="1022.3,100.0 998.3,160.0 1046.3,160.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="1022.3" y="151.0" font-size="14" fill="#111111" text-anchor="middle">C</text>
+<text x="1049.3" y="160.0" font-size="13" fill="#1f3c88" text-anchor="start">h</text>
+<circle cx="992.1" cy="50.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="992.1" y="54.5" font-size="10" fill="#111111" text-anchor="middle">0/+1</text>
+<text x="1011.1" y="41.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">q</text>
+<circle cx="933.5" cy="0.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="933.5" y="4.5" font-size="12" fill="#111111" text-anchor="middle">0</text>
+<text x="952.5" y="-9.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">r</text>
+</svg>

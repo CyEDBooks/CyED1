@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="386" height="310" viewBox="-45.0 -29.0 386.0 310.0" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-45.0" y="-29.0" width="386.0" height="310.0" fill="#ffffff"/>
+<line x1="120.2" y1="15.0" x2="37.0" y2="69.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="81.6" y="32.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="84.6" y="42.0" font-size="12" fill="#555555" text-anchor="start">A</text>
+<line x1="120.2" y1="15.0" x2="203.5" y2="69.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="164.9" y="32.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="167.9" y="42.0" font-size="12" fill="#555555" text-anchor="start">D</text>
+<line x1="37.0" y1="99.0" x2="37.0" y2="153.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="40.0" y="116.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="43.0" y="126.0" font-size="12" fill="#555555" text-anchor="start">D</text>
+<line x1="203.5" y1="99.0" x2="148.0" y2="153.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="178.8" y="116.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="181.8" y="126.0" font-size="12" fill="#555555" text-anchor="start">A</text>
+<line x1="203.5" y1="99.0" x2="259.0" y2="153.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="234.2" y="116.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="237.2" y="126.0" font-size="12" fill="#555555" text-anchor="start">I</text>
+<line x1="37.0" y1="183.0" x2="0.0" y2="237.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="21.5" y="200.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="24.5" y="210.0" font-size="12" fill="#555555" text-anchor="start">A</text>
+<line x1="37.0" y1="183.0" x2="74.0" y2="237.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="58.5" y="200.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="61.5" y="210.0" font-size="12" fill="#555555" text-anchor="start">I</text>
+<line x1="148.0" y1="183.0" x2="148.0" y2="237.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="151.0" y="200.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="154.0" y="210.0" font-size="12" fill="#555555" text-anchor="start">I</text>
+<line x1="259.0" y1="183.0" x2="222.0" y2="237.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="243.5" y="200.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="246.5" y="210.0" font-size="12" fill="#555555" text-anchor="start">A</text>
+<line x1="259.0" y1="183.0" x2="296.0" y2="237.0" stroke="#111111" stroke-width="1.0"/>
+<rect x="280.5" y="200.2" width="14.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="283.5" y="210.0" font-size="12" fill="#555555" text-anchor="start">D</text>
+<rect x="90.2" y="-14.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="105.2" y="1.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<text x="105.2" y="11.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="120.2" y="-14.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="135.2" y="11.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="7.0" y="70.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="22.0" y="85.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<rect x="37.0" y="70.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="52.0" y="95.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="173.5" y="70.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="188.5" y="95.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="203.5" y="70.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="218.5" y="85.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<text x="218.5" y="95.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="7.0" y="154.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<rect x="37.0" y="154.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="52.0" y="169.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<text x="52.0" y="179.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="118.0" y="154.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="133.0" y="179.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="148.0" y="154.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="163.0" y="169.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<rect x="229.0" y="154.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="244.0" y="169.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<text x="244.0" y="179.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="259.0" y="154.0" width="30.0" height="28.0" rx="0" fill="#e8f5d9" stroke="#111111" stroke-width="1.0"/>
+<text x="274.0" y="179.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="-30.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#fff2b3" stroke="#111111" stroke-width="1.0"/>
+<rect x="0.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#fff2b3" stroke="#111111" stroke-width="1.0"/>
+<text x="15.0" y="253.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<rect x="44.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<text x="59.0" y="253.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<rect x="74.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<text x="89.0" y="263.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="118.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<text x="133.0" y="253.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<text x="133.0" y="263.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="148.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<rect x="192.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<text x="207.0" y="253.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<rect x="222.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<text x="237.0" y="263.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="266.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<text x="281.0" y="263.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+<rect x="296.0" y="238.0" width="30.0" height="28.0" rx="0" fill="#ffffff" stroke="#111111" stroke-width="1.0"/>
+<text x="311.0" y="253.0" font-size="9" fill="#1f3c88" text-anchor="middle" font-weight="bold">asp</text>
+<text x="311.0" y="263.0" font-size="10" fill="#7a5230" text-anchor="middle">•••</text>
+</svg>

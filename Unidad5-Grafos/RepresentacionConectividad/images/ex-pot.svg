@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="939" height="220" viewBox="-32.2 -50.0 939.3 220.2" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-32.2" y="-50.0" width="939.3" height="220.2" fill="#ffffff"/>
+<line x1="4.5" y1="52.4" x2="64.0" y2="4.8" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M65.6,-3.7 C53.5,-26.6 86.5,-26.6 74.4,-3.7" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="70.0" y1="5.7" x2="70.0" y2="104.3" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="65.5" y1="108.4" x2="6.0" y2="60.8" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="74.5" y1="108.4" x2="134.0" y2="60.8" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="135.5" y1="52.4" x2="76.0" y2="4.8" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<circle cx="70.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="60.8" y="5.3" font-size="15" fill="#111111" text-anchor="end">b</text>
+<circle cx="0.0" cy="56.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="-9.2" y="61.2" font-size="15" fill="#111111" text-anchor="end">a</text>
+<circle cx="140.0" cy="56.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="149.2" y="61.2" font-size="15" fill="#111111" text-anchor="start">d</text>
+<circle cx="70.0" cy="112.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="70.0" y="132.4" font-size="15" fill="#111111" text-anchor="middle">c</text>
+<text x="70.0" y="152.0" font-size="14" fill="#111111" text-anchor="middle">a)</text>
+<path d="M232.5,3.7 Q269.4,36.0 304.9,5.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="233.5" y1="2.2" x2="386.1" y2="64.6" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M306.4,-3.7 Q269.4,-36.0 234.0,-5.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M315.0,3.7 Q351.9,36.0 387.4,5.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M388.9,-3.7 Q351.9,-36.0 316.5,-5.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="393.2" y1="5.7" x2="393.2" y2="59.8" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<circle cx="228.2" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="219.0" y="5.3" font-size="15" fill="#111111" text-anchor="end">a</text>
+<circle cx="310.7" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="310.7" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text>
+<circle cx="393.2" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="402.4" y="5.2" font-size="15" fill="#111111" text-anchor="start">c</text>
+<circle cx="393.2" cy="67.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="399.7" y="85.3" font-size="15" fill="#111111" text-anchor="start">d</text>
+<text x="310.7" y="107.5" font-size="14" fill="#111111" text-anchor="middle">b)</text>
+<path d="M485.7,3.7 Q522.6,36.0 558.1,5.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="485.4" y1="4.0" x2="558.5" y2="77.1" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M559.6,-3.7 Q522.6,-36.0 487.2,-5.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M559.5,-3.7 C547.4,-26.6 580.4,-26.6 568.3,-3.7" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="569.5" y1="-0.9" x2="653.8" y2="-13.8" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="481.4" y1="76.8" x2="481.4" y2="7.7" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="487.1" y1="82.5" x2="556.2" y2="82.5" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="563.9" y1="76.8" x2="563.9" y2="7.7" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="567.9" y1="78.5" x2="656.0" y2="-9.6" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<circle cx="481.4" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="474.9" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text>
+<circle cx="563.9" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="570.4" y="17.8" font-size="15" fill="#111111" text-anchor="start">b</text>
+<circle cx="661.4" cy="-15.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="670.6" y="-9.8" font-size="15" fill="#111111" text-anchor="start">c</text>
+<circle cx="481.4" cy="82.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="474.9" y="100.3" font-size="15" fill="#111111" text-anchor="end">d</text>
+<circle cx="563.9" cy="82.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="563.9" y="103.0" font-size="15" fill="#111111" text-anchor="middle">e</text>
+<text x="571.4" y="122.5" font-size="14" fill="#111111" text-anchor="middle">c)</text>
+<line x1="753.9" y1="44.3" x2="799.8" y2="5.0" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="754.2" y1="51.3" x2="799.3" y2="83.5" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="805.6" y1="5.7" x2="805.6" y2="80.3" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="811.3" y1="0.0" x2="869.9" y2="0.0" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="811.3" y1="88.0" x2="869.9" y2="88.0" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="874.0" y1="83.6" x2="810.5" y2="6.0" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="877.6" y1="82.3" x2="877.6" y2="7.7" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<circle cx="749.6" cy="48.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="740.4" y="53.2" font-size="15" fill="#111111" text-anchor="end">a</text>
+<circle cx="805.6" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="805.6" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text>
+<circle cx="877.6" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="884.1" y="-7.5" font-size="15" fill="#111111" text-anchor="start">d</text>
+<circle cx="805.6" cy="88.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="805.6" y="108.5" font-size="15" fill="#111111" text-anchor="middle">c</text>
+<circle cx="877.6" cy="88.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="884.1" y="105.8" font-size="15" fill="#111111" text-anchor="start">e</text>
+<text x="813.6" y="128.0" font-size="14" fill="#111111" text-anchor="middle">d)</text>
+</svg>

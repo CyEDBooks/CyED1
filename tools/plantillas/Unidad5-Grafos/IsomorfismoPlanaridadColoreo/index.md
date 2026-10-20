@@ -7,8 +7,6 @@ title: "Unidad 5: Isomorfismo, grafos planos y coloración"
 
 # Unidad 5: Isomorfismo, grafos planos y coloración
 
-Algunos ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**.
-
 ## 1. Isomorfismo
 
 ### El problema
@@ -35,6 +33,30 @@ Es decir: $f$ es inyectiva y sobreyectiva, y **preserva la adyacencia** en los d
 Para $G$ y $H$, sea $f(v_1) = w_1$, $f(v_2) = w_4$, $f(v_3) = w_3$, $f(v_4) = w_2$:
 
 {{GEN:iso-steps}}
+
+### Con matrices de adyacencia
+
+Determinar si $G$ y $H$ son isomorfos:
+
+{{GEN:fig-GH6}}
+
+Los dos tienen $6$ vértices, $7$ aristas y cuatro vértices de grado $2$ y dos de grado $3$. Se propone $f(u_1) = v_6$, $f(u_2) = v_3$, $f(u_3) = v_4$, $f(u_4) = v_5$, $f(u_5) = v_1$, $f(u_6) = v_2$. Para verificarla, se escribe la matriz de adyacencia de $G$ en el orden $u_1, \dots, u_6$ y la de $H$ en el orden de las imágenes $v_6, v_3, v_4, v_5, v_1, v_2$:
+
+{{GEN:mat-GH6}}
+
+Las dos matrices son **iguales**: cada arista de $G$ va a una arista de $H$ y cada no-arista a una no-arista. $f$ es un isomorfismo.
+
+> **¿Son isomorfos los grafos de cada par?**
+
+{{GEN:fig-pares}}
+
+:::{admonition} Respuesta
+:class: dropdown
+Sí, los dos pares.
+
+- Arriba: los dos son una estrella, un vértice unido a otros cuatro. $f(e) = x$ y $a, b, c, d$ van a $y, z, w, r$ en cualquier orden.
+- Abajo: los dos son $K_{2,3}$. En el de la izquierda, $a$ y $c$ son vecinos de $b$, $d$ y $e$, y no entre sí. $f(a) = o$, $f(c) = p$, $f(b) = q$, $f(d) = r$, $f(e) = s$.
+:::
 
 ### ¿Cómo mostrar que dos grafos **no** son isomorfos?
 
@@ -68,6 +90,17 @@ No. Los dos tienen $5$ vértices y $6$ aristas, pero $H$ tiene un vértice de gr
 No. $G$ es conexo y $H$ no lo es. Que coincidan los invariantes **no** garantiza que los grafos sean isomorfos; que uno solo difiera sí garantiza que no lo son.
 :::
 
+A veces hay que mirar **a quién** es adyacente cada vértice:
+
+{{GEN:fig-cubos}}
+
+> **¿$G$ y $H$ son isomorfos?** Los dos tienen $8$ vértices, $10$ aristas, cuatro vértices de grado $2$ y cuatro de grado $3$.
+
+:::{admonition} Respuesta
+:class: dropdown
+No. En $G$, $\delta(a) = 2$, así que $a$ tendría que corresponder con $t$, $u$, $x$ o $y$, los vértices de grado $2$ de $H$. Pero cada uno de esos cuatro vértices de $H$ es adyacente a **otro** de grado $2$, y $a$ no lo es: sus dos vecinos, $b$ y $d$, tienen grado $3$. Pasa lo mismo con $c$, $e$ y $g$ en $G$.
+:::
+
 Los mejores algoritmos conocidos para decidir si dos grafos arbitrarios son isomorfos tienen complejidad exponencial en el peor caso. En la práctica, programas como NAUTY resuelven grafos de cientos de vértices.
 
 ## 2. Grafos planos
@@ -83,6 +116,10 @@ Se quieren conectar $3$ casas con $3$ servicios (agua, luz, gas), cada casa con 
 | {{GEN:fig-k4-cruce}} | {{GEN:fig-k4-plano}} |
 
 $K_4$ **es** plano: el primer dibujo tiene un cruce, pero el segundo no. Ser plano es una propiedad del grafo, no de un dibujo particular. $K_1$, $K_2$, $K_3$ y $K_4$ son planos.
+
+> **¿Es plano este grafo?**
+
+{{GEN:plano-steps}}
 
 ### Fórmula de Euler
 
@@ -106,7 +143,9 @@ Compruébelo con $K_4$: $6 - 4 + 2 = 4$.
 
 :::{admonition} Respuesta
 :class: dropdown
-$e = 7$, $v = 6$: $r = 7 - 6 + 2 = 3$. Son los dos cuadrados interiores y la región exterior.
+$e = 7$, $v = 6$: $r = 7 - 6 + 2 = 3$. Son los dos triángulos y la región exterior; la arista que cuelga no encierra ninguna región.
+
+{{GEN:fig-reg-sol}}
 :::
 
 **Corolario.** Si $G$ es un grafo plano simple y conexo con $v \ge 3$ vértices y $e$ aristas, entonces
@@ -204,10 +243,9 @@ Practique con los [ejercicios de isomorfismo, planaridad y coloración](exercise
 
 ## Fuentes
 
-- Caicedo Mejía, J. M. *Unidad 5: Grafos* (Grafos 2: grafos planos; Grafos 3: isomorfismos y coloreo de grafos). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
-- Bedoya, O. *Grafos: grafo plano*. Diapositivas del curso, Universidad del Valle.
+- Bedoya, O. *Grafos: grafo plano, fórmula de Euler; isomorfismos, coloreo de grafos y grafo dual*. Diapositivas del curso, Universidad del Valle.
 - Rosen, K. H. *Discrete Mathematics and Its Applications*, 7.ª ed. McGraw-Hill, 2011. Secciones 10.3, 10.7 y 10.8.
 
 ---
 
-*Material adaptado del material original de los profesores Oscar Bedoya y Juan Marcos Caicedo Mejía.*
+*Material adaptado del material original del profesor Oscar Bedoya.*

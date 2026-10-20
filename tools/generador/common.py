@@ -91,3 +91,23 @@ def gfig_caption(page, name, pos, edges, cap, directed=False, **kw):
     xs = [x for x, _ in pos.values()]
     svg.text((min(xs) + max(xs)) / 2, ys, cap, 14, PAL["ink"], bold=True)
     return f"![{cap}]({page.img(name, svg)})"
+
+
+
+def graph_row(page, name, items, gap=80, alt=None, directed=False):
+    """Varios grafos lado a lado. items: lista de (pos, aristas, rótulo, opciones de draw_graph)."""
+    svg = SVG()
+    x0 = 0
+    for it in items:
+        pos, E, cap = it[0], it[1], it[2]
+        kw = it[3] if len(it) > 3 else {}
+        d = kw.pop("directed", directed)
+        minx = min(x for x, _ in pos.values())
+        pos = {v: (x - minx + x0, y) for v, (x, y) in pos.items()}
+        draw_graph(svg, pos, E, d, **kw)
+        if cap:
+            xs = [x for x, _ in pos.values()]
+            svg.text((min(xs) + max(xs)) / 2, max(y for _, y in pos.values()) + 40, cap, 14,
+                     PAL["ink"])
+        x0 = svg.maxx + gap
+    return f"![{alt or name}]({page.img(name, svg)})"

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="619" height="205" viewBox="-74.2 -40.6 619.4 204.9" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-74.2" y="-40.6" width="619.4" height="204.9" fill="#ffffff"/>
+<line x1="215.8" y1="67.5" x2="115.9" y2="125.2" stroke="#111111" stroke-width="1.2"/>
+<line x1="218.4" y1="70.1" x2="187.9" y2="123.1" stroke="#111111" stroke-width="1.2"/>
+<line x1="225.6" y1="70.1" x2="256.1" y2="123.1" stroke="#111111" stroke-width="1.2"/>
+<line x1="228.2" y1="67.5" x2="328.1" y2="125.2" stroke="#111111" stroke-width="1.2"/>
+<line x1="215.2" y1="2.0" x2="5.5" y2="62.4" stroke="#111111" stroke-width="1.2"/>
+<line x1="222.0" y1="7.1" x2="222.0" y2="56.9" stroke="#111111" stroke-width="1.2"/>
+<line x1="228.8" y1="2.0" x2="438.5" y2="62.4" stroke="#111111" stroke-width="1.2"/>
+<circle cx="0.0" cy="64.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="-9.2" y="69.2" font-size="15" fill="#111111" text-anchor="end">Zerind</text>
+<circle cx="111.0" cy="128.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="101.8" y="133.2" font-size="15" fill="#111111" text-anchor="end">Arad</text>
+<circle cx="185.0" cy="128.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="178.5" y="145.8" font-size="15" fill="#111111" text-anchor="end">Oradea</text>
+<circle cx="259.0" cy="128.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="265.5" y="145.8" font-size="15" fill="#111111" text-anchor="start">Rimnicu</text>
+<circle cx="333.0" cy="128.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="342.2" y="133.2" font-size="15" fill="#111111" text-anchor="start">Fagaras</text>
+<circle cx="222.0" cy="64.0" r="5.6" fill="#92d050" stroke="#4d7a1f" stroke-width="1.2"/>
+<text x="214.5" y="55.5" font-size="15" fill="#111111" text-anchor="end">Sibiu</text>
+<circle cx="444.0" cy="64.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="453.2" y="69.2" font-size="15" fill="#111111" text-anchor="start">Timisoara</text>
+<circle cx="222.0" cy="0.0" r="5.6" fill="#92d050" stroke="#4d7a1f" stroke-width="1.2"/>
+<text x="222.0" y="-11.6" font-size="15" fill="#111111" text-anchor="middle">Arad</text>
+</svg>

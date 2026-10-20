@@ -1,35 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="467" height="408" viewBox="-21.0 -12.5 467.0 407.5" font-family="Plus Jakarta Sans, Arial, sans-serif">
-<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#219ebc"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a94700"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fb8500"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#49636f"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c9d3d8"/></marker></defs>
-<rect x="-21.0" y="-12.5" width="467.0" height="407.5" fill="#ffffff"/>
-<line x1="119.6" y1="91.2" x2="67.4" y2="138.3" stroke="#49636f" stroke-width="1.5"/>
-<line x1="153.2" y1="90.2" x2="203.8" y2="130.8" stroke="#49636f" stroke-width="1.5"/>
-<line x1="157.6" y1="72.4" x2="386.4" y2="29.6" stroke="#49636f" stroke-width="1.5"/>
-<line x1="44.0" y1="173.9" x2="24.0" y2="234.1" stroke="#49636f" stroke-width="1.5"/>
-<line x1="242.1" y1="138.2" x2="284.9" y2="125.3" stroke="#49636f" stroke-width="1.5"/>
-<line x1="238.6" y1="157.7" x2="305.4" y2="207.8" stroke="#49636f" stroke-width="1.5"/>
-<line x1="408.0" y1="47.5" x2="408.0" y2="335.0" stroke="#49636f" stroke-width="1.5"/>
-<line x1="37.2" y1="263.7" x2="234.8" y2="348.3" stroke="#49636f" stroke-width="1.5"/>
-<line x1="302.4" y1="228.7" x2="207.6" y2="264.3" stroke="#49636f" stroke-width="1.5"/>
-<line x1="334.7" y1="239.7" x2="396.3" y2="338.3" stroke="#49636f" stroke-width="1.5"/>
-<line x1="277.0" y1="357.0" x2="386.0" y2="357.0" stroke="#49636f" stroke-width="1.5"/>
-<circle cx="136.0" cy="76.5" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="136.0" y="81.0" font-size="13" fill="#023047" text-anchor="middle">Fra</text>
-<circle cx="408.0" cy="25.5" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="408.0" y="30.1" font-size="13" fill="#023047" text-anchor="middle">Kas</text>
-<circle cx="306.0" cy="119.0" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="306.0" y="123.5" font-size="13" fill="#023047" text-anchor="middle">Erf</text>
-<circle cx="221.0" cy="144.5" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="221.0" y="149.1" font-size="13" fill="#023047" text-anchor="middle">Wür</text>
-<circle cx="51.0" cy="153.0" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="51.0" y="157.6" font-size="13" fill="#023047" text-anchor="middle">Man</text>
-<circle cx="323.0" cy="221.0" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="323.0" y="225.6" font-size="13" fill="#023047" text-anchor="middle">Nür</text>
-<circle cx="17.0" cy="255.0" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="17.0" y="259.6" font-size="13" fill="#023047" text-anchor="middle">Kar</text>
-<circle cx="187.0" cy="272.0" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="187.0" y="276.6" font-size="13" fill="#023047" text-anchor="middle">Stu</text>
-<circle cx="255.0" cy="357.0" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="255.0" y="361.6" font-size="13" fill="#023047" text-anchor="middle">Aug</text>
-<circle cx="408.0" cy="357.0" r="22" fill="#ffffff" stroke="#023047" stroke-width="1.6"/>
-<text x="408.0" y="361.6" font-size="13" fill="#023047" text-anchor="middle">Mün</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="407" viewBox="-34.7 -11.0 494.7 407.0" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-34.7" y="-11.0" width="494.7" height="407.0" fill="#ffffff"/>
+<line x1="131.8" y1="80.3" x2="55.2" y2="149.2" stroke="#111111" stroke-width="1.2"/>
+<line x1="140.5" y1="80.1" x2="216.5" y2="140.9" stroke="#111111" stroke-width="1.2"/>
+<line x1="141.6" y1="75.4" x2="402.4" y2="26.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="49.2" y1="158.4" x2="18.8" y2="249.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="226.5" y1="142.9" x2="300.5" y2="120.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="225.6" y1="147.9" x2="318.4" y2="217.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="408.0" y1="31.2" x2="408.0" y2="351.3" stroke="#111111" stroke-width="1.2"/>
+<line x1="22.2" y1="257.2" x2="249.8" y2="354.8" stroke="#111111" stroke-width="1.2"/>
+<line x1="317.7" y1="223.0" x2="192.3" y2="270.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="326.0" y1="225.8" x2="405.0" y2="352.2" stroke="#111111" stroke-width="1.2"/>
+<line x1="260.7" y1="357.0" x2="402.3" y2="357.0" stroke="#111111" stroke-width="1.2"/>
+<circle cx="136.0" cy="76.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="129.5" y="69.0" font-size="15" fill="#111111" text-anchor="end">Fra</text>
+<circle cx="408.0" cy="25.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="414.5" y="18.0" font-size="15" fill="#111111" text-anchor="start">Kas</text>
+<circle cx="306.0" cy="119.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="312.5" y="111.5" font-size="15" fill="#111111" text-anchor="start">Erf</text>
+<circle cx="221.0" cy="144.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="214.5" y="162.3" font-size="15" fill="#111111" text-anchor="end">Wür</text>
+<circle cx="51.0" cy="153.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="44.5" y="145.5" font-size="15" fill="#111111" text-anchor="end">Man</text>
+<circle cx="323.0" cy="221.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="329.5" y="213.5" font-size="15" fill="#111111" text-anchor="start">Nür</text>
+<circle cx="17.0" cy="255.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="7.8" y="260.2" font-size="15" fill="#111111" text-anchor="end">Kar</text>
+<circle cx="187.0" cy="272.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="180.5" y="289.8" font-size="15" fill="#111111" text-anchor="end">Stu</text>
+<circle cx="255.0" cy="357.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="255.0" y="377.4" font-size="15" fill="#111111" text-anchor="middle">Aug</text>
+<circle cx="408.0" cy="357.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="414.5" y="374.8" font-size="15" fill="#111111" text-anchor="start">Mün</text>
 </svg>

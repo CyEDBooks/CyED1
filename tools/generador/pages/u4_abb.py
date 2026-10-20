@@ -2,9 +2,22 @@ from common import *
 from tviz import (from_tuple, draw, bst_insert, bst_build, search_path, parent_map, find,
                   copy_tree, nodes, height, N)
 
-CLRS = (15, (6, (3, (2, None, None), (4, None, None)), (7, None, (13, (9, None, None), None))),
-        (18, (17, None, None), (20, None, None)))
-SEQ = [12, 5, 18, 2, 9, 15, 19, 13, 17]
+# Árbol de Bedoya: las 27 llaves de la bolsa, organizadas
+BED_KEYS = [24, 12, 43, 7, 19, 32, 48, 4, 9, 16, 21, 28, 38, 45, 51, 1, 5, 8, 10, 13, 18, 26, 29,
+            33, 42, 50, 53]
+BOLSA = [28, 38, 8, 7, 12, 19, 32, 4, 9, 16, 21, 1, 5, 45, 10, 33, 42, 50, 53, 13, 18, 26, 29,
+         24, 43, 48, 51]
+# Árboles de las diapositivas de Aristizábal (las llaves repetidas llevan espacios para
+# distinguir los nodos; el espacio no se ve en el dibujo)
+DEF_AND = ("20", ("1", None, None), ("30", ("24", ("21", None, None), ("26", None, None)),
+                                     ("34", None, None)))
+MINMAX = ("5", ("4", ("4 ", ("1", None, None), (" 4", None, None)), None),
+          ("7", ("6", ("5 ", None, None), ("7 ", None, None)), ("8", None, None)))
+SUCC_AND = ("8", ("7", ("4", ("1", None, None), ("6", None, None)), None),
+            ("10", ("9", ("8 ", None, None), ("10 ", None, None)), ("12", None, None)))
+INS_AND = [8, 4, 10, 3, 7, 12, 1]
+CASO1 = [12, 10, 16, 3, 11, 13, 20, 1, 5]
+CASO23 = [12, 10, 16, 3, 13, 18, 1, 5]
 
 
 def path_style(path, last_style="hl"):
@@ -15,10 +28,95 @@ def path_style(path, last_style="hl"):
     return ns, es
 
 
+def succ(root, k):
+    x = find(root, k)
+    par = parent_map(root)
+    if x.right is not None:
+        y = x.right
+        while y.left is not None:
+            y = y.left
+        return y.key
+    y = par[x.key]
+    while y is not None and x is y.right:
+        x, y = y, par[y.key]
+    return None if y is None else y.key
+
+
+def pred(root, k):
+    x = find(root, k)
+    par = parent_map(root)
+    if x.left is not None:
+        y = x.left
+        while y.right is not None:
+            y = y.right
+        return y.key
+    y = par[x.key]
+    while y is not None and x is y.left:
+        x, y = y, par[y.key]
+    return None if y is None else y.key
+
+
+def delete(root, k):
+    """TREE-DELETE: devuelve la raíz nueva y el caso."""
+    z = find(root, k)
+    par = parent_map(root)
+    nch = (z.left is not None) + (z.right is not None)
+    if nch == 2:
+        s = succ(root, k)
+        root, _ = delete(root, s)
+        find(root, k).key = s
+        return root, 3
+    child = z.left or z.right
+    p = par[k]
+    if p is None:
+        return child, nch + 1
+    if p.left is z:
+        p.left = child
+    else:
+        p.right = child
+    return root, nch + 1
+
+
 def build():
     p = Page("Unidad4-EstructurasRecursivas/ArbolesBinariosBusqueda")
+    bed = bst_build(BED_KEYS)
 
-    # Búsqueda binaria en un arreglo
+    # La bolsa
+    svg = SVG()
+    svg.polygon([(-14, -20), (186, -20), (196, 320), (-24, 320)], "#e9d3ac", "#9c7a43", 1.4)
+    cells = [(0, j) for j in range(3)] + [(r, j) for r in range(1, 7) for j in range(4)]
+    for k, (r, j) in zip(BOLSA, cells):
+        x, y = 22 + j * 44 + (22 if r == 0 else 0), 14 + r * 43
+        svg.circle(x, y, 17, "#f5ead6", PAL["ink"], 1.2)
+        svg.text(x, y + 5, k, 14)
+    p.put("fig-bolsa", f"![Bolsa con 27 llaves]({p.img('bolsa', svg)})")
+    p.put("fig-bed", f"![ABB con las 27 llaves]({p.img('bed', draw(bed, dx=30, r=13, font=12))})")
+
+    def search_tabs(prefix, root, k, dx=30, r=13, font=12):
+        path, found = search_path(root, k)
+        tabs = []
+        for i in range(len(path)):
+            ns, es = path_style(path[:i + 1])
+            x = path[i]
+            if x == k:
+                ns[x] = "goal"
+                txt = f"> ${k} = {x}$: **encontrado**, con {i + 1} comparaciones."
+            elif k < x:
+                txt = f"> ${k} < {x}$: se sigue por el subárbol **izquierdo**."
+            else:
+                txt = f"> ${k} > {x}$: se sigue por el subárbol **derecho**."
+            ghost = None
+            if not found and i == len(path) - 1:
+                ghost = (x, "L" if k < x else "R", "nil")
+                txt += f" Pero ese subárbol es vacío: **${k}$ no está** en el árbol."
+            svg = draw(root, node_style=ns, edge_style=es, ghost=ghost, dx=dx, r=r, font=font)
+            tabs.append(f"![Buscar {k}, paso {i + 1}]({p.img(f'{prefix}-{i:02d}', svg)})\n\n{txt}")
+        return steps(f"TREE-SEARCH(raíz, {k})", tabs)
+
+    p.put("buscar-45", search_tabs("buscar45", bed, 45))
+    p.put("buscar-11", search_tabs("buscar11", bed, 11))
+
+    # Búsqueda binaria en una lista (Vargas)
     arr = [1, 2, 5, 6, 10, 22, 26, 32, 40, 50]
     lo, hi, k = 0, len(arr) - 1, 6
     tabs = []
@@ -43,161 +141,193 @@ def build():
             lo = mid + 1
     p.put("binaria", steps("Búsqueda binaria de 6", tabs))
 
-    # Árbol de ejemplo (CLRS)
-    root = from_tuple(CLRS)
-    p.put("fig-clrs", f"![Árbol binario de búsqueda]({p.img('clrs', draw(root))})")
+    # Definiciones
+    defb = bst_build([10, 7, 14, 4, 8, 12])
+    defa = from_tuple(DEF_AND)
+    svg_b = draw(defb)
+    svg_a = draw(defa)
+    p.put("fig-def-bed", f"![ABB con llaves 10, 7, 14, 4, 8, 12]({p.img('def-bed', svg_b)})")
+    p.put("fig-def-and", f"![ABB con raíz 20]({p.img('def-and', svg_a)})")
 
-    def search_tabs(prefix, k):
-        path, found = search_path(root, k)
-        tabs = []
-        for i in range(len(path)):
-            ns, es = path_style(path[:i + 1])
-            x = path[i]
-            if x == k:
-                ns[x] = "goal"
-                txt = f"> ${k} = {x}$: **encontrado**."
-            elif k < x:
-                txt = f"> ${k} < {x}$: se sigue por el subárbol **izquierdo**."
-            else:
-                txt = f"> ${k} > {x}$: se sigue por el subárbol **derecho**."
-            ghost = None
-            if not found and i == len(path) - 1:
-                side = "L" if k < x else "R"
-                ghost = (x, side, "nil")
-                txt += f" Pero ese subárbol es vacío: **{k} no está** en el árbol."
-            svg = draw(root, node_style=ns, edge_style=es, ghost=ghost)
-            tabs.append(f"![Buscar {k}, paso {i + 1}]({p.img(f'{prefix}-{i:02d}', svg)})\n\n{txt}")
-        return steps(f"TREE-SEARCH(raíz, {k})", tabs)
-
-    p.put("buscar-13", search_tabs("buscar13", 13))
-    p.put("buscar-14", search_tabs("buscar14", 14))
-
-    # Mínimo y máximo
+    # Mínimo y máximo (árbol con llaves repetidas)
+    mm = from_tuple(MINMAX)
+    p.put("fig-minmax", f"![ABB con llaves repetidas]({p.img('minmax', draw(mm))})")
     for name, side in (("min", "left"), ("max", "right")):
         path = []
-        x = root
+        x = mm
         while x is not None:
             path.append(x.key)
             x = getattr(x, side)
         ns, es = path_style(path, "goal")
-        p.put(f"fig-{name}", f"![{name}]({p.img(name, draw(root, node_style=ns, edge_style=es))})")
+        p.put(f"fig-{name}", f"![{name}]({p.img(name, draw(mm, node_style=ns, edge_style=es))})")
 
-    # Sucesor de 13 (sube) y de 6 (mínimo del derecho)
-    par = parent_map(root)
+    # Sucesor de 19 (mínimo del derecho) y de 21 (sube)
+    par = parent_map(bed)
 
     def succ_tabs(prefix, k):
-        x = find(root, k)
+        x = find(bed, k)
         tabs = []
         ns = {k: "hl"}
         if x.right is not None:
-            tabs.append((dict(ns), {}, f"> ${k}$ tiene subárbol derecho: el sucesor es el **mínimo** de ese "
-                                       f"subárbol."))
+            tabs.append((dict(ns), {}, f"> ${k}$ tiene subárbol derecho: el sucesor es el "
+                                       f"**mínimo** de ese subárbol (`TREE-MINIMUM(right[x])`)."))
             y = x.right
             path = [k]
             while y is not None:
                 path.append(y.key)
                 y = y.left
             ns2, es2 = path_style(path, "goal")
-            tabs.append((ns2, es2, f"> Se baja a la derecha una vez y luego a la izquierda hasta el "
-                                   f"final: el sucesor de ${k}$ es ${path[-1]}$."))
+            tabs.append((ns2, es2, f"> Se baja a la derecha una vez y luego a la izquierda hasta "
+                                   f"el final: el sucesor de ${k}$ es ${path[-1]}$."))
         else:
-            tabs.append((dict(ns), {}, f"> ${k}$ **no** tiene subárbol derecho. Hay que subir hasta "
-                                       f"encontrar un ancestro del que $x$ esté en el subárbol "
-                                       f"**izquierdo**."))
+            tabs.append((dict(ns), {}, f"> ${k}$ **no** tiene subárbol derecho. Hay que subir "
+                                       f"mientras se llegue desde un hijo **derecho**."))
             path = [k]
             y = par[k]
             cur = x
             while y is not None and cur is y.right:
                 path.append(y.key)
-                ns2, es2 = path_style(path)
+                ns2, _ = path_style(path)
                 es2 = {(b, a): "path" for a, b in zip(path, path[1:])}
                 tabs.append((ns2, es2, f"> ${cur.key}$ es hijo **derecho** de ${y.key}$: se sigue "
                                        f"subiendo."))
                 cur, y = y, par[y.key]
-            if y is not None:
-                path.append(y.key)
-                ns2, es2 = path_style(path, "goal")
-                es2 = {(b, a): "path" for a, b in zip(path, path[1:])}
-                tabs.append((ns2, es2, f"> ${cur.key}$ es hijo **izquierdo** de ${y.key}$: el "
-                                       f"sucesor de ${k}$ es ${y.key}$."))
+            path.append(y.key)
+            ns2, _ = path_style(path, "goal")
+            es2 = {(b, a): "path" for a, b in zip(path, path[1:])}
+            tabs.append((ns2, es2, f"> ${cur.key}$ es hijo **izquierdo** de ${y.key}$: el "
+                                   f"sucesor de ${k}$ es ${y.key}$."))
         out = []
         for i, (ns_, es_, txt) in enumerate(tabs):
-            svg = draw(root, node_style=ns_, edge_style=es_)
+            svg = draw(bed, node_style=ns_, edge_style=es_, dx=30, r=13, font=12)
             out.append(f"![Sucesor de {k}, paso {i + 1}]({p.img(f'{prefix}-{i:02d}', svg)})\n\n{txt}")
         return steps(f"TREE-SUCCESSOR({k})", out)
 
-    p.put("succ-6", succ_tabs("succ6", 6))
-    p.put("succ-13", succ_tabs("succ13", 13))
+    p.put("succ-19", succ_tabs("succ19", 19))
+    p.put("succ-21", succ_tabs("succ21", 21))
 
-    # Inserción paso a paso
-    t = None
+    # TREE-INSERT(z) con key[z] = 5, con la traza de y y x
+    t = bst_build(INS_AND)
+    path = search_path(t, 5)[0]
+    rows = [["inicio", "NIL", "8", ""]]
     tabs = []
-    for i, k in enumerate(SEQ):
-        before = copy_tree(t)
-        t, path = bst_insert(t, k)
-        if before is None:
-            svg = draw(t, node_style={k: "new"})
-            txt = f"> El árbol está vacío: ${k}$ es la raíz."
-        else:
-            ns, es = path_style(path)
-            last = path[-1]
-            side = "L" if k < last else "R"
-            ns[k] = "new"
-            es[(last, k)] = "new"
-            svg = draw(t, node_style=ns, edge_style=es)
-            comps = ", ".join(f"${k} {'<' if k < x else '>'} {x}$" for x in path)
-            txt = (f"> Insertar ${k}$: {comps}. Se cuelga como hijo "
-                   f"**{'izquierdo' if side == 'L' else 'derecho'}** de ${last}$.")
-        tabs.append(f"![Insertar {k}]({p.img(f'ins-{i:02d}', svg)})\n\n{txt}")
-    tabs[6] += "\n\n> **¿Dónde quedará $13$?**"
-    p.put("insertar", steps("Insertar " + ", ".join(map(str, SEQ)), tabs))
-    p.put("ins-inorden", ", ".join(str(n.key) for n in nodes(t)))
+    svg = draw(t, node_style={8: "hl"})
+    tabs.append(f"![TREE-INSERT, inicio]({p.img('ins-00', svg)})\n\n> Líneas 1 y 2: $y = $ NIL, "
+                f"$x = $ la raíz $8$.\n\n" + md_table(["Iteración", "y", "x", "Comparación"], rows))
+    for i, xk in enumerate(path):
+        child = find(t, xk).left if 5 < xk else find(t, xk).right
+        nx = child.key if child else "NIL"
+        rows.append([str(i + 1), str(xk), str(nx), f"${5} {'<' if 5 < xk else '>'} {xk}$"])
+        ns, es = path_style(path[:i + 1])
+        ghost = None if child else (xk, "L" if 5 < xk else "R", "nil")
+        svg = draw(t, node_style=ns, edge_style=es, ghost=ghost)
+        rr = [r[:] for r in rows]
+        rr[-1] = [hl(c) if c and not c.startswith("$") else c for c in rr[-1]]
+        txt = (f"> $y = {xk}$. Como $5 {'<' if 5 < xk else '>'} {xk}$, $x$ baja al hijo "
+               f"**{'izquierdo' if 5 < xk else 'derecho'}**: $x = $ {nx}.")
+        tabs.append(f"![TREE-INSERT, iteración {i + 1}]({p.img(f'ins-{i + 1:02d}', svg)})\n\n{txt}\n\n"
+                    + md_table(["Iteración", "y", "x", "Comparación"], rr))
+    t, _ = bst_insert(t, 5)
+    ns, es = path_style(path)
+    ns[5] = "new"
+    es[(path[-1], 5)] = "new"
+    svg = draw(t, node_style=ns, edge_style=es)
+    tabs.append(f"![TREE-INSERT, final]({p.img(f'ins-{len(path) + 1:02d}', svg)})\n\n> $x$ es NIL: "
+                f"termina el ciclo. Línea 8: $p[z] = y = {path[-1]}$. Como $5 < {path[-1]}$, "
+                f"$z$ queda como hijo **izquierdo** de ${path[-1]}$ (línea 12).")
+    p.put("insertar", steps("TREE-INSERT(T, z) con key[z] = 5", tabs))
 
-    # Caso degenerado
     deg = bst_build([1, 2, 3, 4, 5])
     p.put("fig-degenerado", f"![Árbol degenerado]({p.img('degenerado', draw(deg))})")
 
-    # Eliminación: tres casos sobre el árbol construido
-    t = bst_build(SEQ)
-    tabs = []
-    # caso 1: 9
-    tabs.append((copy_tree(t), {9: "bad"}, {}, "> **Caso 1.** $9$ no tiene hijos: basta con que su "
-                 "padre ($5$) apunte a `nil` en su lugar."))
-    find(t, 5).right = None
-    tabs.append((copy_tree(t), {5: "hl"}, {}, "> Se quitó $9$."))
-    # caso 2: 5 (un hijo: 2)
-    tabs.append((copy_tree(t), {5: "bad", 2: "hl"}, {}, "> **Caso 2.** $5$ tiene un solo hijo ($2$): "
-                 "se separa $5$ y su padre ($12$) pasa a apuntar directamente a $2$."))
-    find(t, 12).left = find(t, 2)
-    tabs.append((copy_tree(t), {2: "new"}, {(12, 2): "new"}, "> $2$ ocupa el lugar de $5$. El "
-                 "árbol sigue siendo de búsqueda: $2 < 12$."))
-    # caso 3: 12 (dos hijos)
-    tabs.append((copy_tree(t), {12: "bad"}, {}, "> **Caso 3.** $12$ tiene dos hijos. **¿Cuál de "
-                 "los nodos restantes debería ocupar su lugar?**"))
-    tabs.append((copy_tree(t), {12: "bad", 18: "hl", 15: "hl", 13: "goal"},
-                 {(12, 18): "path", (18, 15): "path", (15, 13): "path"},
-                 "> Su **sucesor**: el mínimo del subárbol derecho, $13$. Es mayor que todo lo de "
-                 "la izquierda y menor que todo lo demás de la derecha. Además, el sucesor no tiene "
-                 "hijo izquierdo, así que quitarlo es el caso 1 o el 2."))
-    find(t, 15).left = None
-    find(t, 12).key = 13
-    tabs.append((copy_tree(t), {13: "new"}, {}, "> Se separa el sucesor $13$ y su llave reemplaza "
-                 "la de $12$."))
-    out = []
-    for i, (tt, ns, es, txt) in enumerate(tabs):
-        out.append(f"![Eliminar, paso {i + 1}]({p.img(f'del-{i:02d}', draw(tt, node_style=ns, edge_style=es))})\n\n{txt}")
-    p.put("eliminar", steps("TREE-DELETE: los tres casos", out))
-    p.put("del-inorden", ", ".join(str(n.key) for n in nodes(t)))
+    # Eliminación: los tres casos con los árboles de Aristizábal
+    t1 = bst_build(CASO1)
+    after1, _ = delete(copy_tree(t1), 5)
+    tabs = [f"![Caso 1]({p.img('caso1-0', draw(t1, node_style={5: 'bad', 3: 'hl'}))})\n\n> $z = 5$ "
+            f"es hoja.",
+            f"![Caso 1, resultado]({p.img('caso1-1', draw(after1, node_style={3: 'hl'}))})\n\n> El "
+            f"padre de $z$ debe ahora apuntar a `nil`: $3$ se queda sin hijo derecho."]
+    p.put("caso1", steps("Caso 1: borrar 5", tabs))
+    t2 = bst_build(CASO23)
+    after2, _ = delete(copy_tree(t2), 10)
+    tabs = [f"![Caso 2]({p.img('caso2-0', draw(t2, node_style={10: 'bad', 3: 'hl'}))})\n\n> $z = 10$ "
+            f"tiene un solo hijo, $3$.",
+            f"![Caso 2, resultado]({p.img('caso2-1', draw(after2, node_style={3: 'new'}, edge_style={(12, 3): 'new'}))})"
+            f"\n\n> Se separa $z$ del árbol: su padre, $12$, pasa a apuntar a su único hijo, $3$, "
+            f"que sube con todo su subárbol. Sigue siendo un ABB: todo lo que estaba debajo de "
+            f"$10$ era menor que $12$."]
+    p.put("caso2", steps("Caso 2: borrar 10", tabs))
+    after3, _ = delete(copy_tree(t2), 12)
+    tabs = [f"![Caso 3]({p.img('caso3-0', draw(t2, node_style={12: 'bad'}))})\n\n> $z = 12$ tiene "
+            f"dos hijos. **¿Cuál de los nodos restantes debería ocupar el lugar del nodo a borrar?**",
+            f"![Caso 3, sucesor]({p.img('caso3-1', draw(t2, node_style={12: 'bad', 16: 'hl', 13: 'goal'}, edge_style={(12, 16): 'path', (16, 13): 'path'}))})"
+            f"\n\n> Su **sucesor** $y = 13$, el mínimo del subárbol derecho: es mayor que todo lo de "
+            f"la izquierda de $12$ y menor que todo lo demás de la derecha. El sucesor no tiene "
+            f"hijo izquierdo, así que separarlo es el caso 1 o el caso 2.",
+            f"![Caso 3, resultado]({p.img('caso3-2', draw(after3, node_style={13: 'new'}))})\n\n> Se "
+            f"separa (elimina) su sucesor $y$ del árbol y se reemplaza el contenido de $z$ con el "
+            f"de $y$: la raíz ahora tiene la llave $13$."]
+    p.put("caso3", steps("Caso 3: borrar 12", tabs))
     p.assemble("index.md")
 
-    # ejercicios
-    words = ["mango", "fresa", "uva", "banano", "kiwi", "pera", "cereza", "lima"]
+    # Ejercicios 1 y 2: estructura dada
+    est1 = bst_build([12, 7, 23, 3, 9, 17, 25])
+    est2 = bst_build([25, 10, 38, 7, 17, 29, 42, 3, 8, 14, 21, 27, 34])
+
+    def blank(root, keep=()):
+        k = [0]
+
+        def rec(n):
+            if n is None:
+                return None
+            k[0] += 1
+            lab = n.key if n.key in keep else " " * k[0]
+            return N(lab, rec(n.left), rec(n.right))
+        return rec(root)
+    p.put("fig-est1", f"![Estructura]({p.img('est1', draw(blank(est1)))})")
+    p.put("fig-est1-sol", f"![Solución]({p.img('est1-sol', draw(est1))})")
+    p.put("fig-est2", f"![Estructura]({p.img('est2', draw(blank(est2, keep=(25, 17)), dx=34))})")
+    p.put("fig-est2-sol", f"![Solución]({p.img('est2-sol', draw(est2, dx=34))})")
+    words = ["ipod touch", "ipad", "playstation", "apple tv", "iphone", "nintendo wii", "smart tv"]
     tw = bst_build(words)
-    p.put("ex1-fig", f"![ABB de frutas]({p.img('ex1-frutas', draw(tw, dx=62, r=27, font=13))})")
-    p.put("ex1-inorden", ", ".join(n.key for n in nodes(tw)))
-    p.put("ex1-alt", str(height(tw)))
-    ex2 = from_tuple(CLRS)
-    p.put("fig-ex2", f"![ABB de ejemplo]({p.img('ex2', draw(ex2))})")
+    assert [n.key for n in nodes(tw)] == sorted(words)
+    tw, _ = bst_insert(tw, "kindle")
+
+    def as_nary(n):
+        return (n.key, [as_nary(c) for c in (n.left, n.right) if c is not None])
+    pos, E = tree_pos(as_nary(tw), 70, 58)
+    p.put("fig-ex3-sol", gfig(p, "ex3-sol", pos, E, node_style={"kindle": "new"},
+                              edge_style={("nintendo wii", "kindle"): "new"}))
+    st = from_tuple(SUCC_AND)
+    p.put("fig-ex4", f"![ABB con llaves repetidas]({p.img('ex4', draw(st))})")
+    for k in (10, 29, 42):
+        p.put(f"ex5-s{k}", f"${succ(bed, k)}$")
+    for k in (24, 32):
+        p.put(f"ex5-p{k}", f"${pred(bed, k)}$")
+    # Ejercicio 6: trazas de TREE-INSERT
+    t = bst_build(INS_AND + [5])
+    parts = []
+    for k in (6, 11):
+        path = search_path(t, k)[0]
+        rows = [["inicio", "NIL", str(path[0])]]
+        for i, xk in enumerate(path):
+            child = find(t, xk).left if k < xk else find(t, xk).right
+            rows.append([str(i + 1), str(xk), str(child.key) if child else "NIL"])
+        last = path[-1]
+        side = "izquierdo" if k < last else "derecho"
+        parts.append(f"Insertar ${k}$:\n\n" + md_table(["Iteración", "y", "x"], rows)
+                     + f"\n\n${k}$ queda como hijo **{side}** de ${last}$.")
+        t, _ = bst_insert(t, k)
+    parts.append(f"![Árbol final]({p.img('ex6-sol', draw(t, node_style={6: 'new', 11: 'new'}))})")
+    p.put("ex6-sol", "\n\n".join(parts))
+    # Ejercicio 7
+    t = bst_build(BED_KEYS)
+    cases = []
+    for k in (1, 4, 24):
+        t, c = delete(t, k)
+        cases.append(c)
+    assert cases == [1, 2, 3]
+    p.put("ex7-sol", f"![Árbol final]({p.img('ex7-sol', draw(t, node_style={26: 'new', 5: 'new'}, dx=30, r=13, font=12))})")
     p.assemble("exercises.md")
 
 

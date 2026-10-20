@@ -32,14 +32,11 @@ El script borra la carpeta `images/` de cada página antes de dibujarla, para no
 | `generador/figlib.py`, `gviz.py`, `sviz.py` | El dibujo de grafos, árboles y tableros, y el paso de cada traza a pestañas. |
 | `generador/graphs.py` | Los grafos de ejemplo, tomados de las diapositivas del curso y de CLRS. |
 | `generador/mdlib.py`, `common.py` | El bloque de pestañas «Paso 1, Paso 2, ...», las tablas y el armado de cada página. |
-| `java/` | Los programas Java que aparecen en las páginas, listos para correr con `java BFS.java`. |
 
 ## Cambiar una página
 
 1. Edite el texto en `plantillas/<Unidad>/<Tema>/index.md` o `exercises.md`.
 2. Si cambia un ejemplo (otro grafo, otra secuencia de llaves), edite `generador/pages/<tema>.py` o `generador/graphs.py`.
 3. Regenere esa página y compile el libro con `npx mystmd build --html` para revisar.
-
-El código Java va copiado dentro de las plantillas. Si cambia un archivo de `java/`, córralo, y pegue el código y la salida nuevos en la plantilla.
 
 Las marcas `{{GEN:...}}` que una plantilla pide y el script no llena hacen fallar la generación con el nombre de la marca que falta.

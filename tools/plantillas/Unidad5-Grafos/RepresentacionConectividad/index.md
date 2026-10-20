@@ -7,8 +7,6 @@ title: "Unidad 5: Representación de grafos y matriz de conectividad"
 
 # Unidad 5: Representación de grafos y matriz de conectividad
 
-Algunos ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**.
-
 ## 1. El problema
 
 {{GEN:fig-r1}}
@@ -21,7 +19,7 @@ Para cada vértice se guarda la lista de sus vecinos:
 
 {{GEN:r1-lista}}
 
-Es la representación que usan BFS y DFS. Ocupa espacio $\Theta(V + E)$ y permite recorrer los vecinos de un vértice en tiempo proporcional a su grado. En Java: `List<List<Integer>>`.
+Es la representación que usan BFS y DFS. Ocupa espacio $\Theta(V + E)$ y permite recorrer los vecinos de un vértice en tiempo proporcional a su grado.
 
 ## 3. Matriz de adyacencia
 
@@ -39,7 +37,15 @@ $$
 
 ### Pseudografos y grafos dirigidos
 
-Con aristas paralelas, $a_{ij}$ es el **número** de aristas entre $v_i$ y $v_j$ (la matriz deja de ser booleana). Un bucle en $v_i$ se representa con un $1$ en la posición $(i, i)$.
+Un bucle en $v_i$ se representa con un $1$ en la posición $(i, i)$:
+
+{{GEN:bed-bucles}}
+
+La matriz de adyacencia de un grafo con aristas paralelas indica la **cantidad** de aristas que hay entre cada par de nodos $v_i$ y $v_j$: deja de ser booleana.
+
+{{GEN:bed-paralelas}}
+
+Todos los grafos no dirigidos, incluidos multigrafos y pseudografos, tienen matrices **simétricas**.
 
 {{GEN:fig-pseudo}}
 
@@ -52,7 +58,9 @@ Con aristas paralelas, $a_{ij}$ es el **número** de aristas entre $v_i$ y $v_j$
 Sigue siendo simétrica: el grafo no es dirigido.
 :::
 
-En un grafo **dirigido**, $a_{ij} = 1$ si hay una arista **de** $v_i$ **a** $v_j$. Ya no tiene que ser simétrica.
+La matriz de adyacencia de un grafo **dirigido** tiene un $1$ en la posición $(i, j)$ si existe una arista que va **de** $v_i$ **a** $v_j$. Ya no tiene que ser simétrica.
+
+{{GEN:bed-dirigido}}
 
 {{GEN:fig-dir}}
 
@@ -185,8 +193,7 @@ Practique con los [ejercicios de representación y conectividad](exercises.md).
 
 ## Fuentes
 
-- Bedoya, O. *Grafos* (matriz de adyacencia, producto booleano, algoritmo de Warshall). Diapositivas del curso, Universidad del Valle.
-- Caicedo Mejía, J. M. *Unidad 5: Grafos* (Grafos 2: representación de grafos, conectividad). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Bedoya, O. *Grafos* (matriz de adyacencia, producto booleano, caminos de longitud $k$, matriz de conectividad, algoritmo de Warshall; matriz de incidencia y conteo de caminos). Diapositivas del curso, Universidad del Valle.
 - Rosen, K. H. *Discrete Mathematics and Its Applications*, 7.ª ed. McGraw-Hill, 2011. Secciones 9.4 y 10.3.
 
 ---

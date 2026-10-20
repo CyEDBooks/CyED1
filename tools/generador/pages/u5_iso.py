@@ -7,7 +7,8 @@ CNAMES = ["azul", "amarillo", "verde", "rosado", "lila"]
 
 def colored(p, name, pos, E, col, new=None, r=18):
     svg = SVG()
-    draw_graph(svg, pos, E, False, r=r, node_style={v: ("hl" if v == new else "plain") for v in pos})
+    draw_graph(svg, pos, E, False, r=r, node_style={v: ("hl" if v == new else "plain") for v in pos},
+               dots=False)
     # pintar encima el relleno de color
     for v, k in col.items():
         x, y = pos[v]
@@ -32,6 +33,22 @@ def greedy(V, E, order):
         col[v] = k
         snaps.append((v, dict(col), sorted(used)))
     return snaps, adj
+
+
+def isomorphisms(VG, EG, VH, EH, directed=False):
+    """Todas las biyecciones que preservan la adyacencia (fuerza bruta; grafos pequeños)."""
+    import itertools
+    def key(a, b):
+        return (a, b) if directed else tuple(sorted((a, b)))
+    from collections import Counter
+    cG = Counter(key(e[0], e[1]) for e in EG)
+    cH = Counter(key(e[0], e[1]) for e in EH)
+    out = []
+    for perm in itertools.permutations(VH):
+        f = dict(zip(VG, perm))
+        if Counter(key(f[a], f[b]) for a, b in cG.elements()) == cH:
+            out.append(f)
+    return out
 
 
 def build():
@@ -69,6 +86,61 @@ def build():
                 "**$f$ es un isomorfismo.**")
     p.put("iso-steps", steps("Verificar que f preserva la adyacencia", tabs))
 
+    # Con matrices de adyacencia (Grafos 3)
+    VG6 = ["u1", "u2", "u3", "u4", "u5", "u6"]
+    pG6 = scale({"u1": (0, 0), "u2": (1.6, 0), "u3": (1.6, 1), "u4": (0, 1), "u5": (0.5, 0.5),
+                 "u6": (1.2, 0.5)}, 80)
+    EG6 = [("u1", "u2"), ("u1", "u4"), ("u2", "u3"), ("u2", "u6"), ("u3", "u4"), ("u4", "u5"),
+           ("u5", "u6")]
+    VH6 = ["v1", "v2", "v3", "v4", "v5", "v6"]
+    pH6 = scale({"v1": (0, 0), "v3": (1.6, 0), "v4": (1.6, 1), "v5": (0, 1), "v2": (0.6, 0.5),
+                 "v6": (1.2, 0.6)}, 80)
+    EH6 = [("v1", "v2"), ("v1", "v5"), ("v2", "v3"), ("v3", "v4"), ("v3", "v6"), ("v4", "v5"),
+           ("v5", "v6")]
+    fG6 = {"u1": "v6", "u2": "v3", "u3": "v4", "u4": "v5", "u5": "v1", "u6": "v2"}
+    assert fG6 in isomorphisms(VG6, EG6, VH6, EH6)
+    sub = lambda v: v[0] + "_" + v[1:]
+    nt = {v: sub(v).replace("_", "") for v in VG6 + VH6}
+    sl = lambda pos: {v: v[0] + "".join("₀₁₂₃₄₅₆₇₈₉"[int(ch)] for ch in v[1:]) for v in pos}
+    p.put("fig-GH6", graph_row(p, "GH6", [(pG6, EG6, "G", {"node_text": sl(pG6)}),
+                                          (pH6, EH6, "H", {"node_text": sl(pH6)})], gap=110))
+
+    def amat(V, E, order):
+        idx = {v: i for i, v in enumerate(order)}
+        M = [[0] * len(order) for _ in order]
+        for a, b in E:
+            M[idx[a]][idx[b]] = M[idx[b]][idx[a]] = 1
+        return M
+    hord = [fG6[u] for u in VG6]
+    MG = amat(VG6, EG6, VG6)
+    MH = amat(VH6, EH6, hord)
+    assert MG == MH
+    p.put("mat-GH6", "$$\n" + latex_matrix("A_G", [sub(v) for v in VG6], [sub(v) for v in VG6], MG, (), str)
+          + " \\qquad " + latex_matrix("A_H", [sub(v) for v in hord], [sub(v) for v in hord], MH, (), str)
+          + "\n$$")
+    # Pares isomorfos (Grafos 3)
+    pX = scale({"a": (0, 0), "b": (1.4, 0), "e": (0.7, 0.55), "c": (0, 1.1), "d": (1.4, 1.1)}, 70)
+    EX_ = [("a", "e"), ("b", "e"), ("c", "e"), ("d", "e")]
+    pS = scale({"x": (0, 0.55), "y": (1.1, 0), "z": (1.2, 0.4), "w": (1.2, 0.75), "r": (1.1, 1.1)}, 70)
+    ES = [("x", "y"), ("x", "z"), ("x", "w"), ("x", "r")]
+    pK = scale({"a": (0, 0.5), "b": (0.5, 0), "c": (1.4, 0), "d": (1.9, 0.6), "e": (0.6, 1.1)}, 70)
+    EK = [("a", "b"), ("b", "c"), ("a", "d"), ("c", "e"), ("a", "e"), ("c", "d")]
+    pK2 = scale({"o": (0, 0.3), "p": (0, 1.1), "q": (1.2, 0), "r": (1.2, 0.7), "s": (1.2, 1.4)}, 70)
+    EK2 = [("o", "q"), ("o", "r"), ("o", "s"), ("p", "q"), ("p", "r"), ("p", "s")]
+    assert {"a": "o", "c": "p", "b": "q", "d": "r", "e": "s"} in isomorphisms("abcde", EK, "opqrs", EK2)
+    p.put("fig-pares", graph_row(p, "pares1", [(pX, EX_, ""), (pS, ES, "")], gap=90) + "\n\n"
+          + graph_row(p, "pares2", [(pK, EK, ""), (pK2, EK2, "")], gap=90))
+    # Cubos (Grafos 3): misma secuencia de grados, no isomorfos
+    pc = scale({"a": (0, 0), "b": (2, 0), "c": (2, 1.4), "d": (0, 1.4), "e": (0.6, 0.45),
+                "f": (1.4, 0.45), "g": (1.4, 0.95), "h": (0.6, 0.95)}, 70)
+    ECG = [("a", "b"), ("b", "c"), ("c", "d"), ("d", "a"), ("e", "f"), ("f", "g"), ("g", "h"),
+           ("h", "e"), ("b", "f"), ("d", "h")]
+    pc2 = {k2: pc[k1] for k1, k2 in zip("abcdefgh", "stuvwxyz")}
+    ECH = [("s", "t"), ("t", "u"), ("u", "v"), ("v", "s"), ("w", "x"), ("x", "y"), ("y", "z"),
+           ("z", "w"), ("s", "w"), ("v", "z")]
+    assert not isomorphisms("abcdefgh", ECG, "stuvwxyz", ECH)
+    p.put("fig-cubos", graph_row(p, "cubos", [(pc, ECG, "G"), (pc2, ECH, "H")], gap=100))
+
     # no isomorfos por grado
     p5 = circle_pos(list("abcde"), 55)
     G2 = [("a", "b"), ("b", "c"), ("c", "d"), ("d", "e"), ("e", "a"), ("a", "c")]
@@ -104,10 +176,40 @@ def build():
     pk33 = {a: (i * 70, 0) for i, a in enumerate(A)} | {b: (i * 70, 100) for i, b in enumerate(B)}
     p.put("fig-k33", gfig_caption(p, "k33", pk33, [(a, b) for a in A for b in B], "K3,3",
                                   node_text={v: v.replace("a", "v").replace("b", "w") for v in A + B}))
-    # ejercicio de regiones
-    pr = scale({"a": (0, 0), "b": (1, 0), "c": (2, 0), "d": (0, 1), "e": (1, 1), "f": (2, 1)}, 85)
-    ER = [("a", "b"), ("b", "c"), ("a", "d"), ("b", "e"), ("c", "f"), ("d", "e"), ("e", "f")]
-    p.put("fig-reg", gfig(p, "regiones", pr, ER))
+    # Bedoya: un grafo dibujado con cruces que sí es plano, y sus regiones
+    VR = list("pabcde")
+    cruce = scale({"p": (1, 1), "a": (1.6, 0), "b": (2, 1.3), "c": (0, 1), "d": (0, 2), "e": (1.6, 2)}, 75)
+    ER = [("p", "a"), ("p", "b"), ("a", "b"), ("p", "c"), ("p", "d"), ("c", "d"), ("p", "e")]
+    plano = scale({"p": (1, 1), "a": (0.2, 0.2), "b": (0, 1.3), "c": (1, 2), "d": (2, 1),
+                   "e": (2, 0)}, 75)
+    ER2 = [("p", "a"), ("p", "b"), ("a", "b"), ("p", "c"), ("p", "d"), ("c", "d"), ("p", "e")]
+    t1 = SVG()
+    draw_graph(t1, scale({"p": (1, 1), "a": (0.2, 0), "b": (2.1, 0.8), "c": (0, 1.6), "d": (1.1, 2.1),
+                          "e": (2.2, 0)}, 75), [("p", "a"), ("p", "b"), ("a", "b"), ("p", "c"), ("p", "d"),
+                                                ("c", "e"), ("p", "e")] if False else ER2)
+    tabs = []
+    svg = SVG()
+    cross = scale({"p": (1, 1), "a": (0, 0.2), "b": (2.2, 1.2), "c": (0, 1.8), "d": (1.4, 2.2),
+                   "e": (2.1, 0)}, 75)
+    Ecross = [("p", "a"), ("p", "b"), ("p", "c"), ("p", "d"), ("p", "e"), ("a", "d"), ("c", "b")]
+    draw_graph(svg, cross, Ecross, node_text={v: "" for v in cross})
+    tabs.append(f"![Dibujo con cruces]({p.img('plano-0', svg)})\n\n> En este dibujo hay aristas "
+                f"que se cruzan.")
+    svg = SVG()
+    re_ = {"a": (0.2, 0.2), "d": (0, 1.3), "c": (1, 2), "b": (2, 1), "e": (2, 0), "p": (1, 1)}
+    draw_graph(svg, scale(re_, 75), Ecross, node_text={v: "" for v in cross},
+               edge_style={("a", "d"): "new", ("c", "b"): "new"})
+    tabs.append(f"![Dibujo sin cruces]({p.img('plano-1', svg)})\n\n> Moviendo los vértices, el "
+                f"mismo grafo se dibuja **sin cruces**: dos triángulos que comparten un vértice y "
+                f"una arista que cuelga. **El grafo es plano.**")
+    p.put("plano-steps", steps("¿Es plano?", tabs))
+    pr = scale(re_, 80)
+    p.put("fig-reg", gfig(p, "regiones", pr, Ecross, node_text={v: "" for v in pr}))
+    svg = SVG()
+    draw_graph(svg, pr, Ecross, node_text={v: "" for v in pr})
+    for txt, (x, y) in (("R1", (34, 72)), ("R2", (108, 112)), ("R3", (175, 150))):
+        svg.text(x, y, txt, 14, PAL["new"], bold=True)
+    p.put("fig-reg-sol", f"![Tres regiones]({p.img('regiones-sol', svg)})")
 
     # coloración: mapa y grafo dual
     svg = SVG()
@@ -120,7 +222,7 @@ def build():
     pm = scale({"A": (1, 0), "B": (0, 1), "C": (1, 1), "D": (2, 1), "E": (1, 2)}, 85)
     EM = [("A", "B"), ("A", "C"), ("A", "D"), ("B", "C"), ("C", "D"), ("E", "B"), ("E", "C"),
           ("E", "D")]
-    p.put("fig-dual", gfig(p, "dual", pm, EM, r=20))
+    p.put("fig-dual", gfig(p, "dual", pm, EM, r=20, dots=False))
     snaps, adj = greedy(list("ABCDE"), EM, ["C", "A", "E", "B", "D"])
     tabs = []
     for k, (v, col, used) in enumerate(snaps):
@@ -151,7 +253,7 @@ def build():
         groups.setdefault(k, []).append(v)
     tabs[-1] += (f"\n\n> {ncol} colores = {ncol} franjas de examen: " +
                  "; ".join(f"franja {k + 1} ({CNAMES[k]}): {', '.join(groups[k])}" for k in sorted(groups)) + ".")
-    p.put("fig-examenes", gfig(p, "examenes", px, EX, r=24))
+    p.put("fig-examenes", gfig(p, "examenes", px, EX, r=24, dots=False))
     p.put("examen-orden", ", ".join(f"{v} ({deg[v]})" for v in order))
     p.put("examen-steps", steps("Coloración voraz de los exámenes", tabs))
     p.assemble("index.md")
@@ -179,6 +281,55 @@ def build():
     sn, _ = greedy(Vs, EE, order)
     p.put("ex-greedy", ", ".join(f"${v}$: {CNAMES[sn[-1][1][v]]}" for v in order))
     p.put("ex-greedy-n", str(max(sn[-1][1].values()) + 1))
+
+    # Pares dirigidos (Grafos 3)
+    sq = scale({"1": (0, 0), "2": (1.2, 0), "3": (0, 1.2), "4": (1.2, 1.2)}, 70)
+    pu = {"u" + k: v for k, v in sq.items()}
+    pv = {"v" + k: v for k, v in sq.items()}
+    EU = [("u2", "u1"), ("u2", "u2"), ("u2", "u4"), ("u3", "u4"), ("u1", "u3", None, 16),
+          ("u3", "u1", None, 16), ("u3", "u2")]
+    fdir = {"u1": "v3", "u2": "v4", "u3": "v2", "u4": "v1"}
+    EV = [(fdir[a], fdir[b], *rest) for a, b, *rest in EU]
+    assert fdir in isomorphisms(list(pu), EU, list(pv), EV, directed=True)
+    tri = scale({"1": (0.7, 0), "2": (0, 1.2), "3": (1.4, 1.2), "4": (0.7, 0.75)}, 70)
+    pt1 = {"u" + k: v for k, v in tri.items()}
+    pt2 = {"v" + k: v for k, v in tri.items()}
+    ET1 = [("u1", "u2"), ("u1", "u3"), ("u2", "u3"), ("u1", "u4"), ("u4", "u2"), ("u3", "u4")]
+    ET2 = [("v2", "v1"), ("v1", "v3"), ("v3", "v2"), ("v4", "v1"), ("v2", "v4"), ("v4", "v3")]
+    assert not isomorphisms(list(pt1), ET1, list(pt2), ET2, directed=True)
+    lab = lambda pos: {v: v[0] + "".join("₀₁₂₃₄₅₆₇₈₉"[int(ch)] for ch in v[1:]) for v in pos}
+    p.put("fig-ex-dir", graph_row(p, "ex-dir1", [(pu, EU, "", {"directed": True, "node_text": lab(pu)}),
+                                                 (pv, EV, "", {"directed": True, "node_text": lab(pv)})],
+                                  gap=100) + "\n\n" +
+          graph_row(p, "ex-dir2", [(pt1, ET1, "", {"directed": True, "node_text": lab(pt1)}),
+                                   (pt2, ET2, "", {"directed": True, "node_text": lab(pt2)})], gap=100))
+    outs1 = sorted(sum(1 for e in ET1 if e[0] == v) for v in pt1)
+    outs2 = sorted(sum(1 for e in ET2 if e[0] == v) for v in pt2)
+    p.put("ex-dir-no", f"Los grados de salida son ${', '.join(map(str, outs1[::-1]))}$ en el primero "
+                       f"y ${', '.join(map(str, outs2[::-1]))}$ en el segundo: en el primero $u_1$ tiene "
+                       f"grado de salida $3$ y en el segundo ningún vértice lo tiene. Además, el "
+                       f"triángulo de afuera es un circuito dirigido en el segundo y no en el primero.")
+    # Número cromático (Grafos 3)
+    VV = ["Cali", "Jamundí", "Yumbo", "Palmira", "Buga", "Tuluá"]
+    pVV = scale({"Jamundí": (0, 0), "Cali": (1.6, 0), "Yumbo": (0, 0.9), "Palmira": (1.6, 1.2),
+                 "Buga": (2.6, 0.6), "Tuluá": (3.8, 0.6)}, 80)
+    EVV = [("Jamundí", "Cali"), ("Cali", "Yumbo"), ("Cali", "Palmira"), ("Cali", "Buga"),
+           ("Cali", "Tuluá"), ("Yumbo", "Palmira"), ("Palmira", "Buga"), ("Buga", "Tuluá")]
+    p.put("fig-valle", gfig(p, "valle", pVV, EVV,
+                            name_pos={"Jamundí": "above", "Cali": "above", "Yumbo": "below",
+                                      "Palmira": "below", "Buga": "above", "Tuluá": "below"}))
+    import itertools
+    sol = None
+    for k_ in range(1, 5):
+        for combo in itertools.product(range(k_), repeat=len(VV)):
+            cm = dict(zip(VV, combo))
+            if all(cm[a] != cm[b] for a, b in EVV):
+                sol = cm
+                break
+        if sol:
+            break
+    assert k_ == 3
+    p.put("valle-sol", ", ".join(f"{v}: {CNAMES[sol[v]]}" for v in VV))
     p.assemble("exercises.md")
 
 

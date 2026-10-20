@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="510" height="214" viewBox="-50.0 -62.0 509.6 213.7" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-50.0" y="-62.0" width="509.6" height="213.7" fill="#ffffff"/>
+<path d="M-3.7,4.4 C-26.6,16.5 -26.6,-16.5 -3.7,-4.4" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="5.7" y1="0.0" x2="80.3" y2="0.0" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M5.1,-2.5 Q92.0,-44.0 177.1,-3.3" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M-3.6,4.4 Q-36.0,44.0 -4.9,82.0" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M3.6,83.6 Q36.0,44.0 4.9,6.0" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M187.7,-4.4 C210.6,-16.5 210.6,16.5 187.7,4.4" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="178.3" y1="0.0" x2="95.7" y2="0.0" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="88.0" y1="5.7" x2="88.0" y2="80.3" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="92.2" y1="84.1" x2="178.3" y2="5.2" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M-3.7,92.4 C-26.6,104.5 -26.6,71.5 -3.7,83.6" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M4.4,91.6 Q44.0,124.0 82.0,92.9" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M83.6,84.4 Q44.0,52.0 6.0,83.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="0.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">a</text>
+<circle cx="88.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="88.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text>
+<circle cx="184.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="184.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">c</text>
+<circle cx="0.0" cy="88.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="0.0" y="108.5" font-size="15" fill="#111111" text-anchor="middle">e</text>
+<circle cx="88.0" cy="88.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="88.0" y="108.5" font-size="15" fill="#111111" text-anchor="middle">d</text>
+<circle cx="192.0" cy="88.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="198.5" y="105.8" font-size="15" fill="#111111" text-anchor="start">f</text>
+<text x="96.0" y="128.0" font-size="14" fill="#111111" text-anchor="middle">a)</text>
+<path d="M290.9,97.9 C268.0,110.0 268.0,77.0 290.9,89.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M417.3,-4.4 C440.2,-16.5 440.2,16.5 417.3,4.4" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M409.2,-3.6 Q354.1,-48.0 300.6,-4.8" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M409.2,3.6 Q354.1,48.0 300.6,4.8" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="300.3" y1="0.0" x2="405.9" y2="0.0" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M410.4,4.7 Q381.6,46.8 409.3,87.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<path d="M416.8,4.7 Q445.6,46.8 417.9,87.1" fill="none" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<line x1="409.1" y1="90.0" x2="300.7" y2="4.8" stroke="#111111" stroke-width="1.2" marker-end="url(#arr-plain)"/>
+<circle cx="294.6" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="288.1" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text>
+<circle cx="413.6" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="413.6" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text>
+<circle cx="294.6" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="301.1" y="111.3" font-size="15" fill="#111111" text-anchor="start">c</text>
+<circle cx="413.6" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="420.1" y="111.3" font-size="15" fill="#111111" text-anchor="start">d</text>
+<text x="354.1" y="133.5" font-size="14" fill="#111111" text-anchor="middle">b)</text>
+</svg>

@@ -7,8 +7,6 @@ title: "Unidad 5: Algoritmo de Kruskal"
 
 # Unidad 5: Algoritmo de Kruskal
 
-Los ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**.
-
 ## 1. El problema
 
 Es el mismo problema de la [página de Prim](../Prim/index.md): encontrar un **árbol recubridor mínimo** de un grafo conexo con pesos.
@@ -42,7 +40,7 @@ A diferencia de Prim, en Kruskal la arista escogida **no tiene que ser incidente
 
 ### Ejemplo 1
 
-El grafo de las sedes. Debajo del grafo están las aristas ordenadas: la del paso actual en color, las ya procesadas en gris.
+Encontrar un árbol recubridor mínimo usando el algoritmo de Kruskal (es el grafo del Ejemplo 2 de Prim). Debajo del grafo están las aristas ordenadas: la del paso actual en color, las ya procesadas en gris.
 
 :::::{admonition} Kruskal
 :class: dropdown
@@ -196,106 +194,7 @@ $$
 
 (Se cumple $\log E = O(\log V)$ porque $E \le V^2$.)
 
-## 4. Implementación en Java
-
-**Análisis.**
-
-| | |
-|---|---|
-| **Entradas** | Número de vértices y lista de aristas con peso. |
-| **Salidas** | La lista de aristas del árbol, en el orden en que se agregan, y su peso total. |
-| **Proceso** | Ordenar las aristas; conjuntos disjuntos con un arreglo `padre[]`. |
-
-**Diseño.** El pseudocódigo de la sección 3. `encontrar` sube por `padre[]` hasta la raíz; para unir, la raíz de una componente pasa a apuntar a la raíz de la otra.
-
-**Codificación.**
-
-```java
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
-public class Kruskal {
-
-    record Arista(int u, int v, int peso) { }
-
-    private final int n;
-    private final List<Arista> aristas = new ArrayList<>();
-    private int[] padre;
-
-    public Kruskal(int n) {
-        this.n = n;
-    }
-
-    public void agregarArista(int u, int v, int w) {
-        aristas.add(new Arista(u, v, w));
-    }
-
-    // Representante de la componente de v: se sube por 'padre' hasta la raíz.
-    private int encontrar(int v) {
-        while (padre[v] != v) {
-            v = padre[v];
-        }
-        return v;
-    }
-
-    public List<Arista> kruskal() {
-        padre = new int[n];
-        for (int v = 0; v < n; v++) {
-            padre[v] = v;   // cada vértice empieza en su propia componente
-        }
-        List<Arista> ordenadas = new ArrayList<>(aristas);
-        ordenadas.sort(Comparator.comparingInt(Arista::peso));
-        List<Arista> arbol = new ArrayList<>();
-        for (Arista a : ordenadas) {
-            int ru = encontrar(a.u());
-            int rv = encontrar(a.v());
-            if (ru != rv) {
-                padre[rv] = ru;   // unir las dos componentes
-                arbol.add(a);
-                if (arbol.size() == n - 1) {
-                    break;
-                }
-            }
-        }
-        return arbol;
-    }
-
-    public static void main(String[] args) {
-        String nombres = "abcdefg";
-        Kruskal g = new Kruskal(7);
-        String[] aristas = {"ab1", "bc2", "ad4", "bd6", "be4", "ce5", "cf6", "de3", "ef8", "dg4",
-                            "eg7", "fg3"};
-        for (String a : aristas) {
-            g.agregarArista(nombres.indexOf(a.charAt(0)), nombres.indexOf(a.charAt(1)),
-                    a.charAt(2) - '0');
-        }
-        int total = 0;
-        for (Arista a : g.kruskal()) {
-            System.out.println("{" + nombres.charAt(a.u()) + "," + nombres.charAt(a.v()) + "} "
-                    + a.peso());
-            total += a.peso();
-        }
-        System.out.println("peso total = " + total);
-    }
-}
-```
-
-**Prueba.** Con el grafo del Ejemplo 1 (`sort` es estable, así que los empates conservan el orden en que se agregaron las aristas):
-
-```text
-{a,b} 1
-{b,c} 2
-{d,e} 3
-{f,g} 3
-{a,d} 4
-{d,g} 4
-peso total = 17
-```
-
-Es la misma secuencia del Ejemplo 1.
-
-## 5. Prim y Kruskal
+## 4. Prim y Kruskal
 
 | | Prim | Kruskal |
 |---|---|---|

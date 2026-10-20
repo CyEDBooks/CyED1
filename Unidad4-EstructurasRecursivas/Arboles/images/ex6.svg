@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="427" height="205" viewBox="-47.2 -40.6 426.7 204.8" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-47.2" y="-40.6" width="426.7" height="204.8" fill="#ffffff"/>
+<line x1="78.1" y1="61.4" x2="61.9" y2="106.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="81.9" y1="61.4" x2="98.1" y2="106.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="35.9" y1="5.8" x2="3.3" y2="51.4" stroke="#111111" stroke-width="1.2"/>
+<line x1="44.1" y1="5.8" x2="76.7" y2="51.4" stroke="#111111" stroke-width="1.2"/>
+<circle cx="0.0" cy="56.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="-9.2" y="61.2" font-size="15" fill="#111111" text-anchor="end">j</text>
+<circle cx="60.0" cy="112.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="60.0" y="132.4" font-size="15" fill="#111111" text-anchor="middle">n</text>
+<circle cx="100.0" cy="112.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="106.5" y="129.8" font-size="15" fill="#111111" text-anchor="start">o</text>
+<circle cx="80.0" cy="56.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="86.5" y="48.5" font-size="15" fill="#111111" text-anchor="start">k</text>
+<circle cx="40.0" cy="0.0" r="5.6" fill="#d62020" stroke="#d62020" stroke-width="1.2"/>
+<text x="40.0" y="-11.6" font-size="15" fill="#d62020" text-anchor="middle" font-weight="bold">e</text>
+<text x="50.0" y="146.0" font-size="14" fill="#111111" text-anchor="middle">Subárbol con raíz en e</text>
+<line x1="228.1" y1="61.4" x2="211.9" y2="106.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="231.9" y1="61.4" x2="248.1" y2="106.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="328.1" y1="61.4" x2="311.9" y2="106.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="331.9" y1="61.4" x2="348.1" y2="106.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="275.3" y1="5.3" x2="233.8" y2="51.7" stroke="#111111" stroke-width="1.2"/>
+<line x1="284.7" y1="5.3" x2="326.2" y2="51.7" stroke="#111111" stroke-width="1.2"/>
+<circle cx="210.0" cy="112.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="203.5" y="129.8" font-size="15" fill="#111111" text-anchor="end">p</text>
+<circle cx="250.0" cy="112.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="243.5" y="129.8" font-size="15" fill="#111111" text-anchor="end">q</text>
+<circle cx="230.0" cy="56.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="223.5" y="48.5" font-size="15" fill="#111111" text-anchor="end">l</text>
+<circle cx="310.0" cy="112.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="316.5" y="129.8" font-size="15" fill="#111111" text-anchor="start">r</text>
+<circle cx="350.0" cy="112.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="356.5" y="129.8" font-size="15" fill="#111111" text-anchor="start">s</text>
+<circle cx="330.0" cy="56.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="336.5" y="48.5" font-size="15" fill="#111111" text-anchor="start">m</text>
+<circle cx="280.0" cy="0.0" r="5.6" fill="#d62020" stroke="#d62020" stroke-width="1.2"/>
+<text x="280.0" y="-11.6" font-size="15" fill="#d62020" text-anchor="middle" font-weight="bold">g</text>
+<text x="280.0" y="146.0" font-size="14" fill="#111111" text-anchor="middle">Subárbol con raíz en g</text>
+</svg>

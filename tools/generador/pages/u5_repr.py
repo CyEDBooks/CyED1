@@ -47,6 +47,26 @@ def build():
                   f"esas columnas va un $1$.")
     p.put("r1-steps", steps("Construir la matriz de adyacencia", st))
 
+    # Bedoya: bucles, paralelas y dirigido, cada uno con su matriz
+    VU = list("uvwx")
+    PU = scale({"u": (0, 0), "v": (1.1, 0), "w": (2.2, 0), "x": (1.1, 0.8)}, 85)
+    EB = [("u", "u"), ("v", "v"), ("w", "w"), ("u", "v"), ("v", "w"), ("v", "x"), ("w", "x")]
+    MB = adj_matrix(VU, EB)
+    assert MB == [[1, 1, 0, 0], [1, 1, 1, 1], [0, 1, 1, 1], [0, 1, 1, 0]]
+    p.put("bed-bucles", gfig(p, "bed-bucles", PU, EB) + f"\n\n$$\n{mat('A', VU, MB)}\n$$")
+    EPa = [("u", "v", None, 0), ("u", "v", None, 18), ("v", "v"), ("v", "w"), ("v", "x"),
+           ("w", "x", None, 0), ("w", "x", None, 16), ("w", "x", None, -16)]
+    MPa = adj_matrix(VU, EPa)
+    assert MPa == [[0, 2, 0, 0], [2, 1, 1, 1], [0, 1, 0, 3], [0, 1, 3, 0]]
+    p.put("bed-paralelas", gfig(p, "bed-paralelas", PU, EPa) + f"\n\n$$\n{mat('A', VU, MPa)}\n$$")
+    VD = list("abcd")
+    PD = scale({"a": (0, 0.6), "b": (1, 0), "c": (1, 1.2), "d": (2, 0.6)}, 80)
+    ED = [("a", "a"), ("b", "a"), ("b", "b"), ("b", "d"), ("c", "a"), ("c", "b"), ("c", "d"),
+          ("d", "b")]
+    MD = adj_matrix(VD, ED, True)
+    assert MD == [[1, 0, 0, 0], [1, 1, 0, 1], [1, 1, 0, 1], [0, 1, 0, 0]]
+    p.put("bed-dirigido", gfig(p, "bed-dirigido", PD, ED, True) + f"\n\n$$\n{mat('M_R', VD, MD)}\n$$")
+
     # Pseudografo (grafos 2)
     posP = scale({"a": (0, 0), "b": (1.3, 0), "c": (0, 1.2), "d": (1.3, 1.2)}, 95)
     EP = [("a", "b", None, 14), ("a", "b", None, -14), ("a", "c"), ("a", "d"), ("b", "b"), ("b", "d")]
@@ -173,19 +193,70 @@ def build():
                          [("a", "a"), ("a", "d"), ("b", "d"), ("c", "a"), ("c", "d"), ("d", "b")], True))
     p.assemble("index.md")
 
-    # ejercicios
-    VE = list("abcde")
-    ME = [[0, 1, 0, 0, 1], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [1, 0, 0, 0, 1], [0, 1, 1, 0, 0]]
-    p.put("ex-w-mat", f"$$\n{latex_matrix('M_R', VE, VE, ME, (), str)}\n$$")
-    tr = warshall_trace(VE, ME)
-    p.put("ex-w-sol", f"$$\n{latex_matrix('W', VE, VE, tr[-1]['W'], (), str, sub='_5')}\n$$")
-    p.put("ex-w-cambios", ", ".join(f"$W_{{{i}}}$: {len(x['changed'])}" for i, x in enumerate(tr[1:], 1)))
-    EE = []
-    for i, a in enumerate(VE):
-        for j, b in enumerate(VE):
-            if ME[i][j]:
-                EE.append((a, b))
-    p.put("fig-ex-w", gfig(p, "ex-w", circle_pos(VE, 75), EE, True))
+    # Ejercicios
+    def mat_rows(rows):
+        return [[int(ch) for ch in r] for r in rows.split()]
+
+    def edges_of(V, Mx):
+        return [(a, b) for i, a in enumerate(V) for j, b in enumerate(V) if Mx[i][j]]
+
+    # 1. Matrices de adyacencia de grafos dirigidos (Bedoya)
+    VA = list("abcdef")
+    PA = scale({"a": (0, 0), "b": (1.1, 0), "c": (2.3, 0), "e": (0, 1.1), "d": (1.1, 1.1),
+                "f": (2.4, 1.1)}, 80)
+    EA = [("a", "a"), ("a", "b"), ("a", "c", None, -22), ("a", "e"), ("e", "a"), ("c", "c"),
+          ("c", "b"), ("b", "d"), ("d", "c"), ("e", "e"), ("e", "d"), ("d", "e")]
+    VB = list("abcd")
+    PB = scale({"a": (0, 0), "b": (1.4, 0), "c": (0, 1.1), "d": (1.4, 1.1)}, 85)
+    EBx = [("c", "c"), ("b", "b"), ("b", "a", None, 24), ("b", "a", None, -24), ("a", "b", None, 0),
+           ("b", "d", None, 16), ("b", "d", None, -16), ("d", "a")]
+    p.put("fig-ex-adj", graph_row(p, "ex-adj", [(PA, EA, "a)", {"directed": True}),
+                                                (PB, EBx, "b)", {"directed": True})]))
+    MA = adj_matrix(VA, EA, True)
+    assert MA == mat_rows("111010 000100 011000 001010 100110 000000")
+    MBx = adj_matrix(VB, EBx, True)
+    p.put("ex-adj-sol", f"a) $$\n{mat('M_R', VA, MA)}\n$$\n\nb) $$\n{mat('M_R', VB, MBx)}\n$$\n\n"
+                        f"En b) hay dos aristas de $b$ a $a$ y dos de $b$ a $d$: la matriz cuenta "
+                        f"aristas, así que esas casillas valen $2$.")
+
+    # 2. Potencias (Bedoya), verificadas contra las diapositivas
+    pots = [
+        ("a)", list("abcd"), scale({"b": (1, 0), "a": (0, 0.8), "d": (2, 0.8), "c": (1, 1.6)}, 70),
+         mat_rows("0100 0110 1001 0100")),
+        ("b)", list("abcd"), scale({"a": (0, 0), "b": (1.1, 0), "c": (2.2, 0), "d": (2.2, 0.9)}, 75),
+         mat_rows("0101 1010 0101 0000")),
+        ("c)", list("abcde"), scale({"a": (0, 0), "b": (1.1, 0), "c": (2.4, -0.2), "d": (0, 1.1),
+                                     "e": (1.1, 1.1)}, 75), mat_rows("01001 11100 00000 10001 01100")),
+        ("d)", list("abcde"), scale({"a": (0, 0.6), "b": (0.7, 0), "d": (1.6, 0), "c": (0.7, 1.1),
+                                     "e": (1.6, 1.1)}, 80), mat_rows("01100 00110 00001 00000 01010")),
+    ]
+    items, sols = [], []
+    for cap, V_, P_, Mx in pots:
+        items.append((P_, edges_of(V_, Mx), cap, {"directed": True}))
+        M2 = bool_product(Mx, Mx)
+        M3 = bool_product(M2, Mx)
+        sols.append(f"{cap}\n\n$$\n{mat('M_R', V_, Mx)} \\quad {mat('M_R^{[2]}', V_, M2)} "
+                    f"\\quad {mat('M_R^{[3]}', V_, M3)}\n$$")
+    p.put("fig-ex-pot", graph_row(p, "ex-pot", items, gap=70))
+    p.put("ex-pot-sol", "\n\n".join(sols))
+
+    # 3. Warshall (Bedoya): siete matrices
+    ws = ["0100 1010 0001 0000", "0100 0111 0000 0010", "1110 0001 0111 0000",
+          "01000 00110 00010 00001 10000", "01001 11100 00000 10001 01100",
+          "11000 00111 00110 01001 00000", "10110 10100 00010 00011 00010"]
+    enun, sols = [], []
+    for i, rows in enumerate(ws):
+        Mx = mat_rows(rows)
+        V_ = list("abcde"[:len(Mx)])
+        cap = "abcdefg"[i] + ")"
+        tr = warshall_trace(V_, Mx)
+        enun.append(f"{cap}\n\n$$\n{mat('M_R', V_, Mx)}\n$$")
+        news = ", ".join(f"$W_{{{k}}}$: {len(x['changed'])}" for k, x in enumerate(tr[1:], 1))
+        allc = {(i_, j_) for x in tr[1:] for i_, j_ in x["changed"]}
+        sols.append(f"{cap} Unos nuevos con cada pivote: {news}.\n\n$$\n"
+                    f"{latex_matrix('W', V_, V_, tr[-1]['W'], allc, str, sub='_' + str(len(V_)))}\n$$")
+    p.put("ex-w-enunciado", "\n\n".join(enun))
+    p.put("ex-w-soluciones", "\n\n".join(sols) + "\n\nEn color, los unos que no estaban en $M_R$.")
     p.assemble("exercises.md")
 
 

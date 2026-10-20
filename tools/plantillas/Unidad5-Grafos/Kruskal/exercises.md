@@ -13,24 +13,19 @@ Use esta página después de leer el [material de estudio de Kruskal](index.md).
 
 ### Ejercicio 1
 
-Encuentre un árbol recubridor mínimo usando el algoritmo de Kruskal. Liste las aristas en el orden en que las adiciona al árbol e indique cuáles descarta y por qué. (Es el grafo del Ejercicio 1 de Prim.)
+Encontrar un árbol recubridor mínimo usando el algoritmo de Kruskal en cada grafo (son los grafos de los ejercicios de Prim). Liste las aristas en el orden en que las adiciona y compare el árbol con el que se obtiene con Prim.
 
-{{GEN:fig-ex1}}
+{{GEN:fig-bmk}}
 
 :::{admonition} Pistas
 :class: dropdown
-- Ordene primero las $12$ aristas por peso. Hay empates en $2$, $3$, $4$ y $5$.
-- Lleve las componentes después de cada paso, por ejemplo $\{d,e\}, \{b,c\}, \{a\}, \dots$
-- Se termina al tener $7$ aristas; no hace falta revisar las que sobran.
+- Ordene primero las aristas por peso.
+- Lleve las componentes después de cada paso; una arista con los dos extremos en la misma componente se descarta.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-Aristas agregadas, en orden: {{GEN:ex1-sol}}.
-
-Aristas descartadas (cerraban un circuito): {{GEN:ex1-desc}}.
-
-Peso total: **{{GEN:ex1-peso}}**, el mismo que con Prim.
+{{GEN:bmk-sol}}
 :::
 
 ### Ejercicio 2
@@ -65,7 +60,24 @@ Ordene las aristas de modo que $e$ quede después de las demás aristas del circ
 
 ### Ejercicio 4
 
-Implemente en Java la versión de conjuntos disjuntos con **unión por rango** y **compresión de caminos**, y compare el número de pasos de `encontrar` con la versión de la sección 4 sobre un grafo «camino» de $10\,000$ vértices con aristas $\{i, i+1\}$ de peso $1$.
+Escriba en pseudocódigo `ENCONTRAR(x)` (la componente de $x$) y `UNIR(x, y)` con **unión por rango** y **compresión de caminos**. Compare el número de pasos de `ENCONTRAR` con y sin esas mejoras al correr Kruskal sobre un grafo «camino» de $10\,000$ vértices con aristas $\{i, i+1\}$ de peso $1$.
+
+:::{admonition} Pistas
+:class: dropdown
+- Unión por rango: el árbol más bajo se cuelga del más alto.
+- Compresión de caminos: al terminar `ENCONTRAR(x)`, todos los nodos del camino apuntan directo a la raíz.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+Sin las dos mejoras, uniendo en el orden de las aristas se forma una cadena y `ENCONTRAR` puede tardar $\Theta(n)$. Con las dos, cada operación cuesta en la práctica una cantidad casi constante ($O(\alpha(n))$ amortizado), y el número total de pasos queda cerca de $n$.
+:::
+
+### Ejercicio 5
+
+Encontrar un árbol recubridor mínimo usando los algoritmos de Prim y Kruskal. Liste las aristas en el orden en que las adiciona a cada árbol recubridor mínimo.
+
+{{GEN:fig-open}}
 
 ---
 

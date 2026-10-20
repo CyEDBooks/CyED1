@@ -4,6 +4,19 @@ from tviz import from_tuple, draw, height, nodes, layout
 VIC = (10, (15, (25, (7, None, None), (6, None, None)), None), (-6, None, (18, None, None)))
 
 
+# Árbol de Vargas (recorridos A..J) y el árbol de búsqueda de Bedoya
+VV = ("A", ("C", ("D", ("F", None, None), None), ("G", ("E", None, None), ("J", None, None))),
+      ("B", ("H", ("I", None, None), None), None))
+BED = (24, (12, (7, (4, (1, None, None), (5, None, None)), (9, (8, None, None), (10, None, None))),
+            (19, (16, (13, None, None), (18, None, None)), (21, None, None))),
+       (43, (32, (28, (26, None, None), (29, None, None)), (38, (33, None, None), (42, None, None))),
+            (48, (45, None, None), (51, (50, None, None), (53, None, None)))))
+
+
+def preorder(n):
+    return [] if n is None else [n] + preorder(n.left) + preorder(n.right)
+
+
 def postorder(n):
     return [] if n is None else postorder(n.left) + postorder(n.right) + [n]
 
@@ -72,6 +85,30 @@ def build():
     p.put("ex1-peso", str(len(nodes(ex))))
     p.put("ex1-alt", str(height(ex)))
     p.put("ex1-hojas", ", ".join(n.key for n in nodes(ex) if n.left is None and n.right is None))
+    for key, t in (("vv", VV), ("bed", BED)):
+        r = from_tuple(t)
+        p.put(f"fig-{key}", f"![Árbol binario]({p.img(key, draw(r, dx=36 if key == 'bed' else 40))})")
+        par, lev = {}, {}
+
+        def rec(n, pa, d):
+            if n is None:
+                return
+            par[n.key], lev[n.key] = pa, d
+            rec(n.left, n.key, d + 1)
+            rec(n.right, n.key, d + 1)
+        rec(r, None, 0)
+        allnodes = nodes(r)
+        for n in allnodes:
+            kids = [c.key for c in (n.left, n.right) if c is not None]
+            p.put(f"{key}-padre-{n.key}", f"${par[n.key]}$" if par[n.key] is not None else "—")
+            p.put(f"{key}-hijos-{n.key}", ", ".join(f"${k}$" for k in kids) or "ninguno")
+            p.put(f"{key}-nivel-{n.key}", f"${lev[n.key]}$")
+        pre = preorder(r)
+        p.put(f"{key}-hojas", ", ".join(f"${n.key}$" for n in pre if n.left is None and n.right is None))
+        p.put(f"{key}-internos", ", ".join(f"${n.key}$" for n in pre if n.left or n.right))
+        p.put(f"{key}-un-hijo", ", ".join(f"${n.key}$" for n in pre if (n.left is None) != (n.right is None)))
+        p.put(f"{key}-alt", f"${height(r)}$")
+        p.put(f"{key}-peso", f"${len(allnodes)}$")
     p.assemble("exercises.md")
 
 

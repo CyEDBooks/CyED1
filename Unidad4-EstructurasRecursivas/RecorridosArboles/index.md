@@ -7,8 +7,6 @@ title: "Unidad 4: Recorridos en preorden, inorden y postorden"
 
 # Unidad 4: Recorridos en preorden, inorden y postorden
 
-Los ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**. Junto a cada nodo visitado aparece el número de orden en que se visitó.
-
 ## 1. El problema
 
 Hay que imprimir **todos** los elementos de un árbol, cada uno **exactamente una vez**. En una lista basta con ir de izquierda a derecha, pero un árbol no tiene un «siguiente» natural. **¿En qué orden se visitan los nodos?**
@@ -28,11 +26,15 @@ Lo único que cambia es **cuándo** se visita la raíz respecto a sus subárbole
 
 Como el árbol es una estructura recursiva, cada subárbol se recorre **con la misma regla**.
 
-## 2. Definiciones para árboles binarios
+## 2. Definiciones
 
-- **Preorden:** primero se visita la raíz, luego se recorre en preorden el subárbol izquierdo y finalmente en preorden el subárbol derecho.
-- **Inorden:** primero se recorre en inorden el subárbol izquierdo, luego se visita la raíz y finalmente se recorre en inorden el subárbol derecho.
-- **Postorden:** primero se recorre en postorden el subárbol izquierdo, luego en postorden el derecho y finalmente se visita la raíz.
+Sea $T$ un árbol con raíz $r$ y subárboles $T_1, T_2, \dots, T_n$, de izquierda a derecha.
+
+- **Preorden:** se visita $r$, luego se recorre $T_1$ en preorden, luego $T_2$ en preorden, así hasta $T_n$ en preorden.
+- **Inorden:** se recorre $T_1$ en inorden, luego se visita $r$, luego se recorre $T_2$ en inorden, así hasta $T_n$ en inorden.
+- **Postorden:** se recorre $T_1$ en postorden, $T_2$ en postorden, hasta $T_n$ en postorden, y luego se visita $r$.
+
+En un árbol **binario** los subárboles son el izquierdo y el derecho:
 
 ```text
 PREORDEN(x)              INORDEN(x)               POSTORDEN(x)
@@ -44,153 +46,163 @@ PREORDEN(x)              INORDEN(x)               POSTORDEN(x)
 
 Los tres recorridos se diferencian en una sola cosa: la línea donde está `visitar(x)`.
 
-### Ejemplo
+### Recorrido en preorden
 
-![Árbol binario A..J](images/letras.svg)
-
-:::::{admonition} Recorrido en preorden (raíz → izquierdo → derecho)
+:::::{admonition} Recorrido en preorden
 :class: dropdown
 ::::{tab-set}
 :::{tab-item} Paso 1
+![Recorrido en preorden: la regla](images/pre-regla.svg)
+
+> La raíz es $e$, con subárboles $T_1$ (raíz $f$) y $T_2$ (raíz $b$). En preorden se recorre la raíz, luego $T_1$ completo en preorden y luego $T_2$ en preorden. Dentro de cada subárbol se aplica la **misma** regla.
+
+:::
+:::{tab-item} Paso 2
 ![preorden, paso 1](images/pre-00.svg)
 
 :::
-:::{tab-item} Paso 2
+:::{tab-item} Paso 3
 ![preorden, paso 2](images/pre-01.svg)
 
-> Después de $A$ se recorre **todo** el subárbol izquierdo (el de $C$) en preorden, antes de tocar el derecho.
+> Después de $e$ se recorre **todo** $T_1$ en preorden: su raíz $f$ primero.
 
 :::
-:::{tab-item} Paso 3
+:::{tab-item} Paso 4
 ![preorden, paso 3](images/pre-02.svg)
 
 :::
-:::{tab-item} Paso 4
+:::{tab-item} Paso 5
 ![preorden, paso 4](images/pre-03.svg)
 
 :::
-:::{tab-item} Paso 5
-![preorden, paso 5](images/pre-04.svg)
-
-> Terminó el subárbol de $D$; se sigue con el subárbol derecho de $C$, que empieza en $G$.
-
-:::
 :::{tab-item} Paso 6
-![preorden, paso 6](images/pre-05.svg)
+![preorden, paso 5](images/pre-04.svg)
 
 :::
 :::{tab-item} Paso 7
+![preorden, paso 6](images/pre-05.svg)
+
+> Terminó $T_1$. Ahora se recorre $T_2$, que empieza en su raíz $b$.
+
+:::
+:::{tab-item} Paso 8
 ![preorden, paso 7](images/pre-06.svg)
 
 :::
-:::{tab-item} Paso 8
+:::{tab-item} Paso 9
 ![preorden, paso 8](images/pre-07.svg)
 
 :::
-:::{tab-item} Paso 9
+:::{tab-item} Paso 10
 ![preorden, paso 9](images/pre-08.svg)
 
 :::
-:::{tab-item} Paso 10
-![preorden, paso 10](images/pre-09.svg)
-
-:::
 ::::
 :::::
 
-:::::{admonition} Recorrido en inorden (izquierdo → raíz → derecho)
+### Recorrido en inorden
+
+:::::{admonition} Recorrido en inorden
 :class: dropdown
 ::::{tab-set}
 :::{tab-item} Paso 1
-![inorden, paso 1](images/in-00.svg)
+![Recorrido en inorden: la regla](images/in-regla.svg)
 
-> $F$ es el primero: hay que bajar por la izquierda hasta donde se pueda antes de visitar cualquier raíz.
+> La raíz es $e$, con subárboles $T_1$ (raíz $f$) y $T_2$ (raíz $b$). En inorden se recorre $T_1$ completo en inorden, luego la raíz y luego $T_2$ en inorden. Dentro de cada subárbol se aplica la **misma** regla.
 
 :::
 :::{tab-item} Paso 2
+![inorden, paso 1](images/in-00.svg)
+
+> $a$ es el primero: se baja por el primer subárbol hasta donde se pueda antes de visitar cualquier raíz.
+
+:::
+:::{tab-item} Paso 3
 ![inorden, paso 2](images/in-01.svg)
 
 :::
-:::{tab-item} Paso 3
+:::{tab-item} Paso 4
 ![inorden, paso 3](images/in-02.svg)
 
 :::
-:::{tab-item} Paso 4
+:::{tab-item} Paso 5
 ![inorden, paso 4](images/in-03.svg)
 
 :::
-:::{tab-item} Paso 5
+:::{tab-item} Paso 6
 ![inorden, paso 5](images/in-04.svg)
 
 :::
-:::{tab-item} Paso 6
+:::{tab-item} Paso 7
 ![inorden, paso 6](images/in-05.svg)
 
-:::
-:::{tab-item} Paso 7
-![inorden, paso 7](images/in-06.svg)
-
-> Se visita $A$ solo cuando ya se recorrió todo su subárbol izquierdo.
+> Se visita $e$ solo cuando ya se recorrió todo $T_1$.
 
 :::
 :::{tab-item} Paso 8
-![inorden, paso 8](images/in-07.svg)
+![inorden, paso 7](images/in-06.svg)
 
 :::
 :::{tab-item} Paso 9
-![inorden, paso 9](images/in-08.svg)
+![inorden, paso 8](images/in-07.svg)
 
 :::
 :::{tab-item} Paso 10
-![inorden, paso 10](images/in-09.svg)
+![inorden, paso 9](images/in-08.svg)
 
 :::
 ::::
 :::::
 
-:::::{admonition} Recorrido en postorden (izquierdo → derecho → raíz)
+### Recorrido en postorden
+
+:::::{admonition} Recorrido en postorden
 :class: dropdown
 ::::{tab-set}
 :::{tab-item} Paso 1
-![postorden, paso 1](images/post-00.svg)
+![Recorrido en postorden: la regla](images/post-regla.svg)
+
+> La raíz es $e$, con subárboles $T_1$ (raíz $f$) y $T_2$ (raíz $b$). En postorden se recorre $T_1$ completo en postorden, luego $T_2$ en postorden y al final la raíz. Dentro de cada subárbol se aplica la **misma** regla.
 
 :::
 :::{tab-item} Paso 2
-![postorden, paso 2](images/post-01.svg)
+![postorden, paso 1](images/post-00.svg)
 
 :::
 :::{tab-item} Paso 3
-![postorden, paso 3](images/post-02.svg)
+![postorden, paso 2](images/post-01.svg)
 
 :::
 :::{tab-item} Paso 4
-![postorden, paso 4](images/post-03.svg)
+![postorden, paso 3](images/post-02.svg)
 
 :::
 :::{tab-item} Paso 5
-![postorden, paso 5](images/post-04.svg)
+![postorden, paso 4](images/post-03.svg)
 
 :::
 :::{tab-item} Paso 6
-![postorden, paso 6](images/post-05.svg)
+![postorden, paso 5](images/post-04.svg)
+
+> $f$ va después de todo su subárbol: $a$, y luego $c, g, d$.
 
 :::
 :::{tab-item} Paso 7
-![postorden, paso 7](images/post-06.svg)
+![postorden, paso 6](images/post-05.svg)
 
 :::
 :::{tab-item} Paso 8
-![postorden, paso 8](images/post-07.svg)
+![postorden, paso 7](images/post-06.svg)
 
 :::
 :::{tab-item} Paso 9
-![postorden, paso 9](images/post-08.svg)
+![postorden, paso 8](images/post-07.svg)
 
 :::
 :::{tab-item} Paso 10
-![postorden, paso 10](images/post-09.svg)
+![postorden, paso 9](images/post-08.svg)
 
-> La raíz $A$ es siempre la **última** en postorden.
+> La raíz $e$ es siempre la **última** en postorden.
 
 :::
 ::::
@@ -198,23 +210,33 @@ Los tres recorridos se diferencian en una sola cosa: la línea donde está `visi
 
 | Recorrido | Resultado |
 |---|---|
-| Preorden | A – C – D – F – G – E – J – B – H – I |
-| Inorden | F – D – C – E – G – J – A – I – H – B |
-| Postorden | F – D – E – J – G – C – I – H – B – A |
+| Preorden | e – f – a – d – c – g – b – h – i |
+| Inorden | a – f – c – d – g – e – h – b – i |
+| Postorden | a – c – g – d – f – h – i – b – e |
 
-> **Observe** que en preorden la raíz $A$ es la **primera**, en postorden es la **última**, y en inorden separa los elementos del subárbol izquierdo ($F, D, C, E, G, J$) de los del derecho ($I, H, B$).
+> **¿Qué tienen en común los tres resultados?**
 
-### Recorrido por niveles
+:::{admonition} Respuesta
+:class: dropdown
+La raíz $e$ es la **primera** en preorden y la **última** en postorden. En inorden separa los nodos del subárbol $T_1$ ($a, f, c, d, g$) de los del subárbol $T_2$ ($h, b, i$). Y en los tres, cada subárbol aparece **seguido**, sin mezclarse con otros nodos.
+:::
 
-También se puede recorrer **nivel por nivel**, de izquierda a derecha: primero la raíz, luego los elementos del nivel $1$, y así sucesivamente. Para el ejemplo: $A, C, B, D, G, H, F, E, J, I$. Es el recorrido BFS de la Unidad 5, con una **cola**; los otros tres son recorridos en profundidad (DFS), con la **pila** de la recursión.
+### Un hijo solo: ¿izquierdo o derecho?
 
-## 3. Árboles $n$-arios
+En un árbol binario importa de qué lado cuelga un hijo único. En este árbol, $h$ tiene un solo hijo, $j$, **a la derecha**:
 
-Sea $T$ un árbol con raíz $r$ y subárboles $T_1, T_2, \dots, T_n$ (de izquierda a derecha):
+![h con un solo hijo a la derecha](images/solo.svg)
 
-- **Preorden:** $r$; luego $T_1$ en preorden, $T_2$ en preorden, …, $T_n$ en preorden.
-- **Inorden:** $T_1$ en inorden; luego $r$; luego $T_2$ en inorden, …, $T_n$ en inorden.
-- **Postorden:** $T_1$ en postorden, $T_2$ en postorden, …, $T_n$ en postorden; luego $r$.
+> **¿Va $j$ antes o después de $h$ en inorden?**
+
+:::{admonition} Respuesta
+:class: dropdown
+Después: el subárbol izquierdo de $h$ está vacío, así que se visita $h$ y luego su subárbol derecho, $j$. El inorden es a – b – c – d – h – j. Si $j$ colgara a la izquierda, iría antes: $\dots, j, h, \dots$.
+:::
+
+### Árboles $n$-arios
+
+En un árbol $n$-ario, el preorden incluye primero la raíz y luego recorre en preorden todos sus subárboles. El orden que resulta no cumple ninguna propiedad particular, pero se garantiza que cada elemento del árbol aparece **exactamente una vez**.
 
 ![nario](images/nario.svg)
 
@@ -222,42 +244,54 @@ Sea $T$ un árbol con raíz $r$ y subárboles $T_1, T_2, \dots, T_n$ (de izquier
 
 :::{admonition} Respuesta
 :class: dropdown
-- Preorden: a – b – e – f – g – c – d – h – i – j
-- Inorden: e – b – f – g – a – c – h – d – i – j
-- Postorden: e – f – g – b – c – h – i – j – d – a
+- Preorden: a – b – c – e – f – d – g – j – k – l – m – h – i
+- Inorden: b – a – e – c – f – j – g – k – l – m – d – h – i
+- Postorden: b – e – f – c – j – k – l – m – g – h – i – d – a
 
-En inorden, la raíz va después del **primer** subárbol: $e$ (el subárbol de $b$ empieza con su primer hijo), luego $b$, luego $f$ y $g$.
+En inorden, la raíz va después del **primer** subárbol: $b$, luego $a$, luego los subárboles de $c$ y de $d$. Dentro de $g$, que tiene cuatro hijos, va $j$, luego $g$, luego $k, l, m$.
 :::
 
-## 4. Árboles de expresiones
+### Recorrido por niveles
 
-Una expresión aritmética con operadores binarios ($+$, $-$, $\times$, $/$, $↑$ para potencia) se representa con un árbol binario: los nodos internos son **operadores** y las hojas son **operandos**.
+También se puede recorrer **nivel por nivel**, de izquierda a derecha: primero la raíz, luego los elementos del nivel $1$, y así sucesivamente. Para el árbol de las pestañas: e – f – b – a – d – h – i – c – g. Es el recorrido BFS de la Unidad 5, que usa una **cola**; los otros tres bajan por un subárbol hasta el fondo antes de pasar al siguiente, como el DFS.
 
-:::::{admonition} Construir el árbol de ((x+y)↑2)+((x−4)/3)
+## 3. Notación infija, prefija y postfija
+
+Los recorridos permiten escribir expresiones complejas: proposiciones compuestas, combinaciones de conjuntos y expresiones aritméticas. En una expresión aritmética con suma ($+$), resta ($-$), multiplicación ($*$), división ($/$) y potencia ($↑$), cada operador tiene dos operandos, así que la expresión se representa con un **árbol binario**: los nodos internos son operadores y las hojas son operandos.
+
+Muestre un árbol binario que represente la expresión $((x+y)↑2)+((x-4)/3)$:
+
+:::::{admonition} Árbol de ((x+y)↑2)+((x−4)/3)
 :class: dropdown
 ::::{tab-set}
 :::{tab-item} Paso 1
 ![Árbol de expresión, paso 1](images/expr-00.svg)
 
-> El operador que se evalúa **último** es el $+$ central: $\big((x+y)↑2\big) \mathbin{\mathbf{+}} \big((x-4)/3\big)$. Es la raíz.
+> Se empieza por los paréntesis de adentro: $x+y$.
 
 :::
 :::{tab-item} Paso 2
 ![Árbol de expresión, paso 2](images/expr-01.svg)
 
-> Su operando izquierdo es $(x+y)↑2$ (raíz $↑$) y el derecho es $(x-4)/3$ (raíz $/$).
+> $(x+y)↑2$: el árbol de $x+y$ es el operando izquierdo de $↑$.
 
 :::
 :::{tab-item} Paso 3
 ![Árbol de expresión, paso 3](images/expr-02.svg)
 
-> Se repite en cada operando: $x+y$, el exponente $2$, $x-4$ y el divisor $3$.
+> Por el otro lado, $x-4$.
 
 :::
 :::{tab-item} Paso 4
 ![Árbol de expresión, paso 4](images/expr-03.svg)
 
-> Las hojas son siempre **operandos** (variables o números); los nodos internos, **operadores**.
+> $(x-4)/3$: el árbol de $x-4$ es el operando izquierdo de $/$.
+
+:::
+:::{tab-item} Paso 5
+![Árbol de expresión, paso 5](images/expr-04.svg)
+
+> El $+$ del centro se evalúa **último**: es la raíz, con los dos árboles como subárboles.
 
 :::
 ::::
@@ -267,319 +301,135 @@ Los tres recorridos dan tres **notaciones**:
 
 | Recorrido | Notación | Resultado |
 |---|---|---|
-| Inorden | infija (con paréntesis) | $((x + y) ↑ 2) + ((x - 4) / 3)$ |
-| Preorden | prefija (polaca) | `+ ↑ + x y 2 / − x 4 3` |
-| Postorden | posfija (polaca inversa) | `x y + 2 ↑ x 4 − 3 / +` |
+| Inorden | infija | $((x + y) ↑ 2) + ((x - 4) / 3)$ |
+| Preorden | prefija | `+ ↑ + x y 2 / − x 4 3` |
+| Postorden | postfija | `x y + 2 ↑ x 4 − 3 / +` |
 
 > **¿Por qué la notación infija necesita paréntesis y las otras dos no?**
 
 :::{admonition} Respuesta
 :class: dropdown
-En inorden, $x + y ↑ 2$ puede venir de dos árboles distintos: $(x + y) ↑ 2$ o $x + (y ↑ 2)$. Los paréntesis deshacen la ambigüedad. En preorden y en postorden el árbol se reconstruye sin ambigüedad (cada operador tiene exactamente dos operandos), así que no hacen falta.
+En inorden, $x + y ↑ 2$ puede venir de dos árboles distintos: $(x + y) ↑ 2$ o $x + (y ↑ 2)$. Los paréntesis deshacen la ambigüedad. En prefija y en postfija cada operador tiene exactamente dos operandos en un lugar fijo, así que el árbol se reconstruye sin ambigüedad.
 :::
 
-### Evaluar en notación posfija
+Represente en notación infija, prefija y postfija la expresión dada por el siguiente árbol:
 
-Se lee de izquierda a derecha con una **pila**: un número se apila; un operador saca los dos de arriba, opera y apila el resultado. Es la expresión $((8 - 6) ↑ 3) + (10 / (7 - 2))$:
+![Árbol de expresión](images/ocho.svg)
 
-:::::{admonition} Evaluar 8 6 − 3 ↑ 10 7 2 − / + con una pila
+:::{admonition} Respuesta
 :class: dropdown
-::::{tab-set}
-:::{tab-item} Paso 1
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| $\textcolor{#a94700}{\textbf{8}}$ | $\textcolor{#a94700}{\textbf{es número: se apila}}$ | $\textcolor{#a94700}{\textbf{8}}$ |
-
+- Notación infija: $((8-6)↑3)+(10/(7-2))$
+- Notación prefija: `+ ↑ − 8 6 3 / 10 − 7 2`
+- Notación postfija: `8 6 − 3 ↑ 10 7 2 − / +`
 :::
-:::{tab-item} Paso 2
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| $\textcolor{#a94700}{\textbf{6}}$ | $\textcolor{#a94700}{\textbf{es número: se apila}}$ | $\textcolor{#a94700}{\textbf{8 6}}$ |
-
-:::
-:::{tab-item} Paso 3
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| **−** | **saca 6 y 8; 8 − 6 = 2** | $\textcolor{#a94700}{\textbf{2}}$ |
-
-:::
-:::{tab-item} Paso 4
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| $\textcolor{#a94700}{\textbf{3}}$ | $\textcolor{#a94700}{\textbf{es número: se apila}}$ | $\textcolor{#a94700}{\textbf{2 3}}$ |
-
-:::
-:::{tab-item} Paso 5
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| `3` | es número: se apila | 2 3 |
-| **↑** | **saca 3 y 2; 2 ↑ 3 = 8** | $\textcolor{#a94700}{\textbf{8}}$ |
-
-:::
-:::{tab-item} Paso 6
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| `3` | es número: se apila | 2 3 |
-| `↑` | saca 3 y 2; 2 ↑ 3 = 8 | 8 |
-| $\textcolor{#a94700}{\textbf{10}}$ | $\textcolor{#a94700}{\textbf{es número: se apila}}$ | $\textcolor{#a94700}{\textbf{8 10}}$ |
-
-:::
-:::{tab-item} Paso 7
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| `3` | es número: se apila | 2 3 |
-| `↑` | saca 3 y 2; 2 ↑ 3 = 8 | 8 |
-| `10` | es número: se apila | 8 10 |
-| $\textcolor{#a94700}{\textbf{7}}$ | $\textcolor{#a94700}{\textbf{es número: se apila}}$ | $\textcolor{#a94700}{\textbf{8 10 7}}$ |
-
-:::
-:::{tab-item} Paso 8
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| `3` | es número: se apila | 2 3 |
-| `↑` | saca 3 y 2; 2 ↑ 3 = 8 | 8 |
-| `10` | es número: se apila | 8 10 |
-| `7` | es número: se apila | 8 10 7 |
-| $\textcolor{#a94700}{\textbf{2}}$ | $\textcolor{#a94700}{\textbf{es número: se apila}}$ | $\textcolor{#a94700}{\textbf{8 10 7 2}}$ |
-
-:::
-:::{tab-item} Paso 9
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| `3` | es número: se apila | 2 3 |
-| `↑` | saca 3 y 2; 2 ↑ 3 = 8 | 8 |
-| `10` | es número: se apila | 8 10 |
-| `7` | es número: se apila | 8 10 7 |
-| `2` | es número: se apila | 8 10 7 2 |
-| **−** | **saca 2 y 7; 7 − 2 = 5** | $\textcolor{#a94700}{\textbf{8 10 5}}$ |
-
-:::
-:::{tab-item} Paso 10
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| `3` | es número: se apila | 2 3 |
-| `↑` | saca 3 y 2; 2 ↑ 3 = 8 | 8 |
-| `10` | es número: se apila | 8 10 |
-| `7` | es número: se apila | 8 10 7 |
-| `2` | es número: se apila | 8 10 7 2 |
-| `−` | saca 2 y 7; 7 − 2 = 5 | 8 10 5 |
-| $\textcolor{#a94700}{\textbf{/}}$ | $\textcolor{#a94700}{\textbf{saca 5 y 10; 10 / 5 = 2}}$ | $\textcolor{#a94700}{\textbf{8 2}}$ |
-
-:::
-:::{tab-item} Paso 11
-| Símbolo | Acción | Pila (tope a la derecha) |
-|---|---|---|
-| `8` | es número: se apila | 8 |
-| `6` | es número: se apila | 8 6 |
-| `−` | saca 6 y 8; 8 − 6 = 2 | 2 |
-| `3` | es número: se apila | 2 3 |
-| `↑` | saca 3 y 2; 2 ↑ 3 = 8 | 8 |
-| `10` | es número: se apila | 8 10 |
-| `7` | es número: se apila | 8 10 7 |
-| `2` | es número: se apila | 8 10 7 2 |
-| `−` | saca 2 y 7; 7 − 2 = 5 | 8 10 5 |
-| `/` | saca 5 y 10; 10 / 5 = 2 | 8 2 |
-| $\textcolor{#a94700}{\textbf{+}}$ | $\textcolor{#a94700}{\textbf{saca 2 y 8; 8 + 2 = 10}}$ | $\textcolor{#a94700}{\textbf{10}}$ |
-
-> Al final la pila tiene un solo valor: **10**.
-
-:::
-::::
-:::::
 
 ### Evaluar en notación prefija
 
-Se busca el operador **más a la derecha** que tenga dos números a continuación, se reemplaza por su resultado y se repite:
+Se busca el operador **más a la derecha** que esté seguido de dos números, se reemplaza por su resultado y se repite:
 
-:::::{admonition} Evaluar + − * 2 3 5 / ↑ 2 3 4
+:::::{admonition} Evaluar + ↑ − 8 6 3 / 10 − 7 2
 :class: dropdown
 ::::{tab-set}
 :::{tab-item} Paso 1
-- **`+ − * 2 3 5 / ↑ 2 3 4`** ←
+- **`+ ↑ − 8 6 3 / 10 − 7 2`** ←
 
-> Se busca el operador **más a la derecha** que esté seguido de dos números.
+> El operador más a la derecha seguido de dos números es `− 7 2`: se reemplaza por $5$.
 
 :::
 :::{tab-item} Paso 2
-- `+ − * 2 3 5 / ↑ 2 3 4`
-- **`+ − * 2 3 5 / 8 4`** ←
+- `+ ↑ − 8 6 3 / 10 − 7 2`
+- **`+ ↑ − 8 6 3 / 10 5`** ←
 
 :::
 :::{tab-item} Paso 3
-- `+ − * 2 3 5 / ↑ 2 3 4`
-- `+ − * 2 3 5 / 8 4`
-- **`+ − * 2 3 5 2`** ←
+- `+ ↑ − 8 6 3 / 10 − 7 2`
+- `+ ↑ − 8 6 3 / 10 5`
+- **`+ ↑ − 8 6 3 2`** ←
 
 :::
 :::{tab-item} Paso 4
-- `+ − * 2 3 5 / ↑ 2 3 4`
-- `+ − * 2 3 5 / 8 4`
-- `+ − * 2 3 5 2`
-- **`+ − 6 5 2`** ←
+- `+ ↑ − 8 6 3 / 10 − 7 2`
+- `+ ↑ − 8 6 3 / 10 5`
+- `+ ↑ − 8 6 3 2`
+- **`+ ↑ 2 3 2`** ←
 
 :::
 :::{tab-item} Paso 5
-- `+ − * 2 3 5 / ↑ 2 3 4`
-- `+ − * 2 3 5 / 8 4`
-- `+ − * 2 3 5 2`
-- `+ − 6 5 2`
-- **`+ 1 2`** ←
+- `+ ↑ − 8 6 3 / 10 − 7 2`
+- `+ ↑ − 8 6 3 / 10 5`
+- `+ ↑ − 8 6 3 2`
+- `+ ↑ 2 3 2`
+- **`+ 8 2`** ←
 
 :::
 :::{tab-item} Paso 6
-- `+ − * 2 3 5 / ↑ 2 3 4`
-- `+ − * 2 3 5 / 8 4`
-- `+ − * 2 3 5 2`
-- `+ − 6 5 2`
-- `+ 1 2`
-- **`3`** ←
+- `+ ↑ − 8 6 3 / 10 − 7 2`
+- `+ ↑ − 8 6 3 / 10 5`
+- `+ ↑ − 8 6 3 2`
+- `+ ↑ 2 3 2`
+- `+ 8 2`
+- **`10`** ←
+
+> Queda un solo número: el valor es **10**.
 
 :::
 ::::
 :::::
 
-El valor es $3$: $(2 \cdot 3 - 5) + (2^3 / 4) = 1 + 2$.
+### Evaluar en notación postfija
 
-## 5. Implementación en Java
+Al revés: se busca el operador **más a la izquierda** que esté precedido de dos números:
 
-**Análisis.**
+:::::{admonition} Evaluar 8 6 − 3 ↑ 10 7 2 − / +
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+- **`8 6 − 3 ↑ 10 7 2 − / +`** ←
 
-| | |
-|---|---|
-| **Entradas** | Un árbol binario. |
-| **Salidas** | Las listas de elementos en preorden, inorden, postorden y por niveles. |
-| **Proceso** | Tres métodos recursivos que llenan una lista; uno iterativo con una cola para el recorrido por niveles. |
+> El operador más a la izquierda precedido de dos números es `8 6 −`: se reemplaza por $2$.
 
-**Diseño.** El pseudocódigo de la sección 2. Cada método recibe la lista donde acumula el resultado; el caso base es el subárbol vacío (`null`).
+:::
+:::{tab-item} Paso 2
+- `8 6 − 3 ↑ 10 7 2 − / +`
+- **`2 3 ↑ 10 7 2 − / +`** ←
 
-**Codificación.**
+:::
+:::{tab-item} Paso 3
+- `8 6 − 3 ↑ 10 7 2 − / +`
+- `2 3 ↑ 10 7 2 − / +`
+- **`8 10 7 2 − / +`** ←
 
-```java
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+:::
+:::{tab-item} Paso 4
+- `8 6 − 3 ↑ 10 7 2 − / +`
+- `2 3 ↑ 10 7 2 − / +`
+- `8 10 7 2 − / +`
+- **`8 10 5 / +`** ←
 
-public class Recorridos {
+:::
+:::{tab-item} Paso 5
+- `8 6 − 3 ↑ 10 7 2 − / +`
+- `2 3 ↑ 10 7 2 − / +`
+- `8 10 7 2 − / +`
+- `8 10 5 / +`
+- **`8 2 +`** ←
 
-    static class Nodo<T> {
-        T elem;
-        Nodo<T> izq;
-        Nodo<T> der;
+:::
+:::{tab-item} Paso 6
+- `8 6 − 3 ↑ 10 7 2 − / +`
+- `2 3 ↑ 10 7 2 − / +`
+- `8 10 7 2 − / +`
+- `8 10 5 / +`
+- `8 2 +`
+- **`10`** ←
 
-        Nodo(T elem, Nodo<T> izq, Nodo<T> der) {
-            this.elem = elem;
-            this.izq = izq;
-            this.der = der;
-        }
-    }
+> Queda un solo número: el valor es **10**.
 
-    static <T> void preorden(Nodo<T> n, List<T> res) {
-        if (n == null) {
-            return;
-        }
-        res.add(n.elem);           // raíz
-        preorden(n.izq, res);      // subárbol izquierdo
-        preorden(n.der, res);      // subárbol derecho
-    }
+:::
+::::
+:::::
 
-    static <T> void inorden(Nodo<T> n, List<T> res) {
-        if (n == null) {
-            return;
-        }
-        inorden(n.izq, res);
-        res.add(n.elem);
-        inorden(n.der, res);
-    }
-
-    static <T> void postorden(Nodo<T> n, List<T> res) {
-        if (n == null) {
-            return;
-        }
-        postorden(n.izq, res);
-        postorden(n.der, res);
-        res.add(n.elem);
-    }
-
-    // Por niveles: es BFS sobre el árbol, con una cola.
-    static <T> List<T> porNiveles(Nodo<T> raiz) {
-        List<T> res = new ArrayList<>();
-        Queue<Nodo<T>> cola = new ArrayDeque<>();
-        if (raiz != null) {
-            cola.add(raiz);
-        }
-        while (!cola.isEmpty()) {
-            Nodo<T> n = cola.remove();
-            res.add(n.elem);
-            if (n.izq != null) {
-                cola.add(n.izq);
-            }
-            if (n.der != null) {
-                cola.add(n.der);
-            }
-        }
-        return res;
-    }
-
-    static <T> Nodo<T> n(T e, Nodo<T> izq, Nodo<T> der) {
-        return new Nodo<>(e, izq, der);
-    }
-
-    public static void main(String[] args) {
-        Nodo<Character> raiz =
-                n('A', n('C', n('D', n('F', null, null), null),
-                              n('G', n('E', null, null), n('J', null, null))),
-                       n('B', n('H', n('I', null, null), null), null));
-        List<Character> pre = new ArrayList<>();
-        List<Character> in = new ArrayList<>();
-        List<Character> post = new ArrayList<>();
-        preorden(raiz, pre);
-        inorden(raiz, in);
-        postorden(raiz, post);
-        System.out.println("preorden:    " + pre);
-        System.out.println("inorden:     " + in);
-        System.out.println("postorden:   " + post);
-        System.out.println("por niveles: " + porNiveles(raiz));
-    }
-}
-```
-
-**Prueba.** Con el árbol del ejemplo de la sección 2:
-
-```text
-preorden:    [A, C, D, F, G, E, J, B, H, I]
-inorden:     [F, D, C, E, G, J, A, I, H, B]
-postorden:   [F, D, E, J, G, C, I, H, B, A]
-por niveles: [A, C, B, D, G, H, F, E, J, I]
-```
-
-Son las secuencias de las pestañas de la sección 2.
-
-**Complejidad.** Cada recorrido visita cada nodo una vez y hace una cantidad constante de trabajo por nodo: $\Theta(n)$ para un árbol de $n$ nodos.
+Las dos dan $10$, el valor de $((8-6)↑3)+(10/(7-2)) = 2^3 + 2$.
 
 ## Ejercicios
 
@@ -588,7 +438,8 @@ Practique con los [ejercicios de recorridos](exercises.md).
 ## Fuentes
 
 - Bedoya, O. *Árboles: recorridos de los árboles, notación infija, prefija y postfija*. Diapositivas del curso, Universidad del Valle.
-- Aristizábal, A. *Árboles $n$-arios*. Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Aristizábal, A. *Árboles $n$-arios* (preorden en un árbol $n$-ario). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Vargas Forero, V. M. *Estructuras de datos: recorrido de árboles binarios* (preorden, inorden, postorden y por niveles). Universidad del Valle.
 - Rosen, K. H. *Discrete Mathematics and Its Applications*, 7.ª ed. McGraw-Hill, 2011. Sección 11.3.
 
 ---

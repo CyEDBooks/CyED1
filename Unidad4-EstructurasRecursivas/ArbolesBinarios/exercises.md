@@ -13,6 +13,48 @@ Use esta página después de leer el [material de estudio de árboles binarios](
 
 ### Ejercicio 1
 
+Dado el siguiente árbol binario, indique:
+
+![Árbol binario](images/vv.svg)
+
+- La raíz del árbol
+- El padre de $E$
+- Los hijos de $C$
+- Las hojas del árbol
+- Los elementos no terminales
+- El nivel de $I$
+- La altura y el peso del árbol
+- ¿Es completo? ¿Está lleno?
+
+:::{admonition} Pistas
+:class: dropdown
+- El nivel es la longitud del camino desde la raíz: la raíz está en el nivel $0$.
+- Completo: todo no terminal tiene sus **dos** subárboles no vacíos.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+Raíz $A$; padre de $E$: $G$; hijos de $C$: $D$, $G$; hojas: $F$, $E$, $J$, $I$; no terminales: $A$, $C$, $D$, $G$, $B$, $H$; nivel de $I$: $3$; altura $4$ y peso $10$. No es completo ($D$, $B$, $H$ tienen un solo hijo), así que tampoco está lleno.
+:::
+
+### Ejercicio 2
+
+Dado el siguiente árbol binario, indique: la raíz, el padre de $9$, los hijos de $19$, las hojas, el nivel de $13$, la altura y el peso. ¿Es completo? ¿Está lleno?
+
+![Árbol binario](images/bed.svg)
+
+:::{admonition} Pistas
+:class: dropdown
+- Para decidir si está lleno, compare los niveles de las hojas $21$ y $1$.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+Raíz $24$; padre de $9$: $7$; hijos de $19$: $16$, $21$; hojas: $1$, $5$, $8$, $10$, $13$, $18$, $21$, $26$, $29$, $33$, $42$, $45$, $50$, $53$; nivel de $13$: $4$; altura $5$ y peso $27$. **Es completo**: todos sus no terminales tienen dos hijos. **No está lleno**: la hoja $21$ está en el nivel $3$ y la hoja $1$, en el nivel $4$.
+:::
+
+### Ejercicio 3
+
 Para el siguiente árbol binario indique: peso, altura, hojas, elementos no terminales, el nivel de $R$, el camino de $M$ a $G$ y su longitud. ¿Es completo? ¿Está lleno?
 
 ![Árbol binario del ejercicio](images/ex1.svg)
@@ -28,7 +70,7 @@ Para el siguiente árbol binario indique: peso, altura, hojas, elementos no term
 Peso 9, altura 4, hojas B, G, R, W. $R$ está en el nivel $3$. El camino de $M$ a $G$ es $M, F, H, G$, de longitud $3$. No es completo ($H$ y $P$ tienen un solo hijo) y por lo tanto no está lleno.
 :::
 
-### Ejercicio 2
+### Ejercicio 4
 
 Dibuje **todos** los árboles binarios distintos con $3$ nodos (sin importar los valores). ¿Cuántos son? ¿Cuántos tienen altura $3$?
 
@@ -43,7 +85,7 @@ Dibuje **todos** los árboles binarios distintos con $3$ nodos (sin importar los
 Son $5$: $2 \cdot 1 + 1 \cdot 1 + 1 \cdot 2$. Cuatro tienen altura $3$ (son «cadenas»); solo el que tiene un hijo a cada lado tiene altura $2$. En general, el número de árboles binarios con $n$ nodos es el número de Catalan $\frac{1}{n+1}\binom{2n}{n}$.
 :::
 
-### Ejercicio 3
+### Ejercicio 5
 
 Demuestre que en un árbol binario **completo** (todo no terminal tiene exactamente dos hijos) con $\ell$ hojas hay exactamente $\ell - 1$ elementos no terminales.
 
@@ -58,25 +100,25 @@ Demuestre que en un árbol binario **completo** (todo no terminal tiene exactame
 Con $i$ no terminales, $n = 2i + 1$ y también $n = i + \ell$. Igualando: $\ell = i + 1$.
 :::
 
-### Ejercicio 4
+### Ejercicio 6
 
-Agregue a `ArbolBinario<T>` los métodos `boolean estaLleno()`, `int contarEnNivel(int k)` (cuántos elementos hay en el nivel $k$) y `boolean esIgual(ArbolBinario<T> otro)` (misma forma y mismos elementos). Pruébelos con el árbol del Ejercicio 1.
+Escriba en pseudocódigo los algoritmos recursivos `ESTA-LLENO(x)`, `CONTAR-EN-NIVEL(x, k)` (cuántos elementos hay en el nivel $k$ del subárbol con raíz $x$) y `SON-IGUALES(x, y)` (misma forma y mismos elementos). Aplíquelos al árbol del Ejercicio 3.
 
 :::{admonition} Pistas
 :class: dropdown
-- `estaLleno`: completo y con todas las hojas a la misma profundidad. Otra forma: el peso es $2^{\text{altura}} - 1$.
-- `contarEnNivel(k)`: si $k = 0$ es $1$; si no, sume `contarEnNivel(k - 1)` en cada hijo.
+- `ESTA-LLENO`: completo y con todas las hojas a la misma profundidad. Otra forma: el peso es $2^{\text{altura}} - 1$.
+- `CONTAR-EN-NIVEL(x, k)`: si $x$ es vacío es $0$; si $k = 0$ es $1$; si no, sume `CONTAR-EN-NIVEL` con $k - 1$ en cada hijo.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-Para el árbol del Ejercicio 1: `estaLleno()` es `false`; `contarEnNivel(0..3)` da $1, 2, 4, 2$; `esIgual` con una copia del mismo árbol es `true`, y con el árbol del ejemplo de la sección 2 es `false`.
+Para el árbol del Ejercicio 3: `ESTA-LLENO` da falso; `CONTAR-EN-NIVEL` con $k = 0, 1, 2, 3$ da $1, 2, 4, 2$; `SON-IGUALES` con una copia del mismo árbol da verdadero, y con el árbol del ejemplo de la sección 2 da falso.
 :::
 
-### Ejercicio 5
+### Ejercicio 7
 
-Escriba un método que reciba un árbol binario y devuelva su **espejo** (el mismo árbol con los subárboles izquierdo y derecho intercambiados en todos los niveles). Demuestre por inducción estructural que el espejo del espejo es el árbol original.
+Escriba un algoritmo que reciba un árbol binario y devuelva su **espejo** (el mismo árbol con los subárboles izquierdo y derecho intercambiados en todos los niveles). Demuestre por inducción estructural que el espejo del espejo es el árbol original.
 
 ---
 
-*Material adaptado del material original de los profesores Andrés Aristizábal y Oscar Bedoya.*
+*Material adaptado del material original de los profesores Oscar Bedoya, Andrés Aristizábal y Victor Manuel Vargas.*

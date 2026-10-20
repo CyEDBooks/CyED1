@@ -7,7 +7,7 @@ title: "Unidad 5: Conectividad, caminos de Euler y de Hamilton"
 
 # Unidad 5: Conectividad, caminos de Euler y de Hamilton
 
-Algunos ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**. En las figuras de caminos, los números indican el orden en que se recorren las aristas.
+En las figuras de caminos, los números indican el orden en que se recorren las aristas.
 
 ## 1. El problema
 
@@ -25,10 +25,13 @@ Intente encontrar el paseo antes de seguir. La respuesta está en la sección 4.
 
 **Camino.** Una trayectoria que comienza en un vértice $v_0$ y termina en un vértice $v_n$, en la que se pueden repetir aristas y vértices. Se escribe como la sucesión de vértices $v_0, v_1, \dots, v_n$ o como la de aristas $(v_0, v_1), (v_1, v_2), \dots, (v_{n-1}, v_n)$.
 
-- **Longitud** de un camino: el número de aristas que recorre. Un camino de longitud $n$ tiene $n + 1$ vértices (contando repeticiones).
-- **Camino simple:** no repite aristas.
-- **Camino cerrado:** comienza y termina en el mismo vértice; puede repetir aristas y vértices.
-- **Circuito simple:** camino cerrado que no repite aristas.
+**Camino simple.** Un camino que **no repite aristas**.
+
+**Circuito** (o camino cerrado). Un camino que comienza y termina en el mismo vértice; puede repetir aristas y vértices.
+
+**Circuito simple.** Un circuito que no repite aristas.
+
+La **longitud** de un camino es el número de aristas que recorre: un camino de longitud $n$ tiene $n + 1$ vértices, contando repeticiones.
 
 ![caminos](images/caminos.svg)
 
@@ -36,24 +39,30 @@ Intente encontrar el paseo antes de seguir. La respuesta está en la sección 4.
 :class: dropdown
 ::::{tab-set}
 :::{tab-item} Paso 1
-![cam-1](images/cam-1.svg)
+![cam-0](images/cam-0.svg)
 
-> Un camino **simple** de longitud $4$ que empieza en $b$: $b, a, c, e, f$. No repite aristas (ni vértices).
+> Un **camino**: $a, b, d, e, c, b, d, f$. Repite la arista $\{b, d\}$ y los vértices $b$ y $d$: está permitido.
 
 :::
 :::{tab-item} Paso 2
-![cam-2](images/cam-2.svg)
+![cam-1](images/cam-1.svg)
 
-> Un camino **cerrado** de longitud $5$ que empieza en $f$: $f, d, c, d, e, f$. Repite la arista $\{c, d\}$, así que no es un circuito simple.
+> Un **camino simple**: $f, d, c, e, d, b$. Repite el vértice $d$, pero no repite aristas.
 
 :::
 :::{tab-item} Paso 3
-![cam-3](images/cam-3.svg)
+![cam-2](images/cam-2.svg)
 
-> Un camino de longitud $5$ de $d$ a $d$… y que repite aristas: $d, b, c, b, c, d$.
+> Un camino simple de longitud $4$ que empieza en $b$: $b, a, c, e, f$.
 
 :::
 :::{tab-item} Paso 4
+![cam-3](images/cam-3.svg)
+
+> Un **circuito** de longitud $5$ que empieza en $f$: $f, d, c, d, e, f$. Repite la arista $\{c, d\}$, así que no es un circuito simple.
+
+:::
+:::{tab-item} Paso 5
 ![cam-4](images/cam-4.svg)
 
 > Un **circuito simple** de longitud $4$ que empieza en $c$: $c, b, d, e, c$.
@@ -66,11 +75,9 @@ Intente encontrar el paseo antes de seguir. La respuesta está en la sección 4.
 
 **Grafo conexo.** Un grafo no dirigido $G = (V, E)$ es conexo si para cualquier par de vértices $a, b \in V$ existe un camino entre ellos.
 
-| | |
-|---|---|
-| ![G₁](images/conexo.svg) | ![G₂](images/no-conexo.svg) |
+![conexo](images/conexo.svg)
 
-$G_1$ es conexo. $G_2$ no lo es: no hay camino de $a$ a $c$. Las partes conexas maximales de un grafo son sus **componentes conexas**; $G_2$ tiene dos: $\{a, b, d\}$ y $\{c, e\}$.
+El primero es conexo. El segundo no lo es: por ejemplo, no hay camino de $a$ a $d$. Las partes conexas maximales de un grafo son sus **componentes conexas**; el segundo tiene dos: $\{a, b, c\}$ y $\{d, e, f\}$.
 
 ### Grafos dirigidos
 
@@ -99,56 +106,50 @@ $G_1$ es conexo. $G_2$ no lo es: no hay camino de $a$ a $c$. Las partes conexas 
 
 ## 4. Caminos y circuitos de Euler
 
-**Circuito de Euler.** Un circuito simple que pasa **exactamente una vez por cada arista** del grafo.
-**Camino de Euler.** Un camino simple que pasa exactamente una vez por cada arista.
+**Camino de Euler.** Un camino simple que pasa **exactamente una vez por cada arista** del grafo: no se pueden repetir aristas.
+**Circuito de Euler.** Un circuito simple que pasa exactamente una vez por cada arista del grafo.
 
 Se pueden repetir **vértices**, pero no aristas.
 
 | | |
 |---|---|
-| ![A](images/euler-A.svg) | ![B](images/euler-B.svg) |
+| ![euler-1](images/euler-1.svg) | ![euler-2](images/euler-2.svg) |
+| Camino de Euler: $e, d, a, b, c, d$ | Circuito de Euler: $a, c, e, d, c, b, a$ |
 
-> **¿Tienen camino o circuito de Euler?**
+Fíjese en los grados. En el primero, $\delta(d) = 3$, $\delta(e) = 1$ y los demás tienen grado $2$: hay **dos** vértices de grado impar, y el camino va de uno al otro. En el segundo, $\delta(c) = 4$ y los demás tienen grado $2$: **todos** son pares.
 
-:::{admonition} Respuesta
-:class: dropdown
-En $A$ hay un camino de Euler: $t, z, w, x, y, z$. No hay circuito: el camino tiene que empezar o terminar en $t$, que tiene una sola arista.
+**Teorema.** Sea $G$ un grafo no dirigido. $G$ tiene un **camino** de Euler si, y solo si, es conexo y tiene **dos** vértices de grado impar. El camino empieza en uno de ellos y termina en el otro.
 
-![euler-A-sol](images/euler-A-sol.svg)
+**Teorema.** Sea $G$ un grafo no dirigido. $G$ tiene un **circuito** de Euler si, y solo si, es conexo y **todos** sus vértices tienen grado par.
 
-En $B$ hay un circuito de Euler: $a, e, c, d, e, b, a$.
-
-![euler-B-sol](images/euler-B-sol.svg)
-:::
-
-Fíjese en los grados. En $A$: $\delta(t) = 1$, $\delta(z) = 3$ y los demás tienen grado $2$; hay **dos** vértices de grado impar, y el camino va de uno al otro. En $B$: $\delta(e) = 4$ y los demás tienen grado $2$; **todos** son pares.
-
-**Teorema (Euler).** Un multigrafo conexo (con al menos dos vértices):
-
-- tiene un **circuito** de Euler si y solo si **todos** sus vértices tienen grado par;
-- tiene un **camino** de Euler que no es circuito si y solo si tiene **exactamente dos** vértices de grado impar. El camino empieza en uno de ellos y termina en el otro.
+Los dos valen también para multigrafos y pseudografos (un bucle suma $2$ al grado).
 
 **Razón (de la parte «solo si»).** Cada vez que el camino pasa por un vértice intermedio, entra por una arista y sale por otra: usa $2$ aristas de ese vértice. Si el camino es cerrado, también el vértice inicial queda emparejado (sale al principio, entra al final). Solo el inicio y el fin de un camino abierto usan un número impar de aristas.
 
-Volvamos a Königsberg:
+Indique si el siguiente grafo tiene un camino de Euler y/o un circuito de Euler:
 
-![konigsberg-grados](images/konigsberg-grados.svg)
-
-Los cuatro vértices tienen grado impar: **no hay circuito de Euler** (ni siquiera un camino de Euler). El paseo es imposible.
-
-Indique si cada grafo tiene camino y/o circuito de Euler:
-
-| | | |
-|---|---|---|
-| ![a)](images/e1.svg) | ![b)](images/e2.svg) | ![c)](images/e3.svg) |
+![e1](images/e1.svg)
 
 :::{admonition} Respuesta
 :class: dropdown
-- a) $K_4$: los cuatro vértices tienen grado $3$. Ni camino ni circuito.
-- b) $C_5$: todos tienen grado $2$. Tiene circuito de Euler (el ciclo mismo).
-- c) $\delta(b) = \delta(c) = 3$ y los demás tienen grado $2$. Tiene camino de Euler de $b$ a $c$, pero no circuito: b, a, c, b, d, e, c.
+Grados: $\delta(a) = 2$, $\delta(b) = 4$, $\delta(c) = 4$, $\delta(d) = 3$, $\delta(e) = 3$. Hay dos vértices de grado impar, $d$ y $e$: tiene **camino** de Euler, de $e$ a $d$, pero **no** circuito.
 
-![e3-sol](images/e3-sol.svg)
+![e1-sol](images/e1-sol.svg)
+
+Camino de Euler: $e, d, c, a, b, c, e, b, d$.
+:::
+
+### El problema de los puentes de Königsberg
+
+Volvamos a la pregunta de la sección 1:
+
+![konigsberg-grados](images/konigsberg-grados.svg)
+
+> **¿Hay un circuito de Euler? ¿Hay un camino de Euler?**
+
+:::{admonition} Respuesta
+:class: dropdown
+Los cuatro vértices tienen grado impar. No hay circuito de Euler (haría falta que todos fueran pares) ni camino de Euler (haría falta que fueran exactamente dos). **El paseo es imposible**, empiece donde empiece.
 :::
 
 ### Construir un circuito de Euler
@@ -195,33 +196,41 @@ $$
 
 ## 5. Caminos y circuitos de Hamilton
 
-**Camino de Hamilton.** Un camino simple que pasa **exactamente una vez por cada vértice**.
-**Circuito de Hamilton.** Un circuito simple que pasa exactamente una vez por cada vértice (y regresa al inicial).
+**Camino de Hamilton.** Un camino simple que pasa **exactamente una vez por cada vértice** del grafo: no se pueden repetir vértices.
+**Circuito de Hamilton.** Un circuito simple que pasa exactamente una vez por cada vértice del grafo (y regresa al inicial).
 
 Formalmente: el camino $x_0, x_1, \dots, x_n$ en $G = (V, E)$ es de Hamilton si $V = \{x_0, x_1, \dots, x_n\}$ y $x_i \neq x_j$ para $0 \le i < j \le n$; el circuito $x_0, x_1, \dots, x_n, x_0$ ($n > 0$) es de Hamilton si $x_0, x_1, \dots, x_n$ es un camino de Hamilton.
 
-Los grafos $A$ y $B$ de la sección 4:
+Los dos grafos de la sección 4:
 
 | | |
 |---|---|
-| ![ham-A](images/ham-A.svg) | ![ham-B](images/ham-B.svg) |
+| ![ham-1](images/ham-1.svg) | ![ham-2](images/ham-2.svg) |
+| Camino de Hamilton: $e, d, a, b, c$ | Camino de Hamilton: $a, b, c, d, e$ |
 
-$A$ tiene el camino de Hamilton $t, z, y, x, w$ y $B$ tiene el camino de Hamilton $a, b, e, d, c$. **Ninguno** tiene circuito de Hamilton.
-
-> **¿Por qué $B$ no tiene circuito de Hamilton?**
+> **¿Por qué el segundo no tiene circuito de Hamilton?**
 
 :::{admonition} Respuesta
 :class: dropdown
-$a$, $b$, $c$ y $d$ tienen grado $2$, así que un circuito de Hamilton tendría que usar **todas** sus aristas. Pero entonces $e$ quedaría con $4$ aristas del circuito ($e-a$, $e-b$, $e-c$, $e-d$), y en un circuito cada vértice usa exactamente $2$.
+Todo circuito que pase por $a$ y por $b$ tiene que pasar por $c$ para llegar a $d$ y a $e$, y luego volver a pasar por $c$ para regresar: repite $c$. En el primero, $e$ tiene una sola arista: un circuito no puede pasar por $e$.
 :::
 
-> **¿Tiene este grafo un circuito de Hamilton?**
+> **Indique cuáles de estos grafos tienen caminos y/o circuitos de Hamilton.**
+
+![kn](images/kn.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+$K_4$, $K_5$ y $K_6$ tienen circuitos de Hamilton (y por lo tanto caminos): como todos los vértices son adyacentes, se pueden visitar en cualquier orden y volver al primero.
+:::
+
+Indique si el siguiente grafo tiene un camino y/o un circuito de Hamilton:
 
 ![ham-C](images/ham-C.svg)
 
 :::{admonition} Respuesta
 :class: dropdown
-Sí: $a, b, c, d, e, f, g, a$ (el borde del heptágono).
+Tiene el circuito de Hamilton $a, b, c, d, e, g, f, a$ (y por lo tanto también un camino).
 
 ![ham-C-sol](images/ham-C-sol.svg)
 :::
@@ -247,10 +256,9 @@ Practique con los [ejercicios de conectividad, Euler y Hamilton](exercises.md).
 
 ## Fuentes
 
-- Caicedo Mejía, J. M. *Unidad 5: Grafos* (Grafos 2: conectividad, circuitos de Euler y Hamilton). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
-- Bedoya, O. *Grafos: camino y circuito de Euler, camino y circuito de Hamilton*. Diapositivas del curso, Universidad del Valle.
+- Bedoya, O. *Grafos: camino, camino simple, circuito, grafo conexo, camino y circuito de Euler, puentes de Königsberg, camino y circuito de Hamilton; conexidad de grafos dirigidos*. Diapositivas del curso, Universidad del Valle.
 - Rosen, K. H. *Discrete Mathematics and Its Applications*, 7.ª ed. McGraw-Hill, 2011. Secciones 10.4 y 10.5.
 
 ---
 
-*Material adaptado del material original de los profesores Oscar Bedoya y Juan Marcos Caicedo Mejía.*
+*Material adaptado del material original del profesor Oscar Bedoya.*

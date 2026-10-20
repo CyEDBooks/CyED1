@@ -96,7 +96,7 @@ Con vértices $w, u, v$ y aristas $(w, w)$, $(u, w)$ y $(v, u)$, recorriendo en 
 
 ### Ejercicio 5
 
-Escriba en Java un método `boolean tieneCircuito()` para la clase `DFS` de la sección 6, que decida si el grafo dirigido tiene un circuito. Pruébelo con el grafo del Ejemplo 2 y con el grafo de la ropa de la sección 5.
+Escriba en pseudocódigo un algoritmo `TIENE-CIRCUITO(G)`, basado en DFS, que decida si el grafo dirigido $G$ tiene un circuito. Aplíquelo al grafo del Ejemplo 2 y al grafo de la ropa de la sección 5.
 
 ---
 

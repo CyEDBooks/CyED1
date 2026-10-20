@@ -49,7 +49,7 @@ def bfs_steps(page, prefix, vertices, pos, edges, s, directed=False, label_pos=N
             ns[sn["u"]] = "newblack"
         svg = SVG()
         draw_graph(svg, pos, edges, directed, node_style=ns, edge_style=es, labels=lab,
-                   label_style=lst, label_pos=label_pos)
+                   label_style=lst, label_pos=label_pos, dots=False)
         ys = max(y for _, y in pos.values()) + 52
         x0 = min(x for x, _ in pos.values()) - 10
         qnew = [k for k, v in enumerate(sn["Q"]) if v in sn["new"]]
@@ -120,7 +120,7 @@ def dfs_steps(page, prefix, vertices, pos, edges, directed=True, label_pos=None,
             lst[u] = "new"
         svg = SVG()
         draw_graph(svg, pos, edges, directed, node_style=ns, edge_style=es, labels=lab,
-                   label_style=lst, label_pos=label_pos, curved=curved)
+                   label_style=lst, label_pos=label_pos, curved=curved, dots=False)
         if classify:
             # Etiqueta B/F/C sobre las aristas no-árbol ya clasificadas.
             for (a, b), k in sn["cls"].items():
@@ -178,14 +178,14 @@ def dijkstra_steps(page, prefix, vertices, pos, edges, s, directed=False, label_
         ns, es, lab, lst, ws = {}, {}, {}, {}, {}
         for v in vertices:
             if v in sn["S"]:
-                ns[v] = "black"
+                ns[v] = "hl"
             if sn["L"][v] < INF:
                 lab[v] = _lab(sn["L"], sn["pred"], v)
             if sn["pred"][v] is not None:
                 es[(sn["pred"][v], v)] = "tree"
         u = sn["u"]
         if u is not None:
-            ns[u] = "newblack"
+            ns[u] = "new"
             for v, _ in adj[u]:
                 if v not in sn["S"]:
                     es[(u, v)] = "new" if v in sn["changed"] else "cand"
@@ -244,7 +244,7 @@ def dijkstra_path_steps(page, prefix, vertices, pos, edges, snaps, s, t, directe
     out = []
     for k in range(1, len(chain) + 1):
         part = chain[:k]
-        ns = {v: "black" for v in vertices}
+        ns = {v: "plain" for v in vertices}
         for v in part:
             ns[v] = "hl"
         es = {}
@@ -283,7 +283,7 @@ def prim_steps(page, prefix, vertices, pos, edges, start, label_pos=None, notes=
     for i, sn in enumerate(snaps):
         ns, es, ws = {}, {}, {}
         for v in vertices:
-            ns[v] = "tree" if v in sn["inT"] else "plain"
+            ns[v] = "tree" if v in sn["inT"] else "out"
         for e in sn["T"]:
             es[(e[0], e[1])] = "tree"
             ws[(e[0], e[1])] = "tree"
@@ -357,7 +357,7 @@ def kruskal_steps(page, prefix, vertices, pos, edges, notes=None, questions=None
         ns, es, ws = {}, {}, {}
         inT = {v for e in sn["T"] for v in e[:2]}
         for v in vertices:
-            ns[v] = "tree" if v in inT else "plain"
+            ns[v] = "tree" if v in inT else "out"
         for e in sn["T"]:
             es[(e[0], e[1])] = "tree"
             ws[(e[0], e[1])] = "tree"

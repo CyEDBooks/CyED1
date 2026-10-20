@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="213" viewBox="-11.0 -38.0 580.0 213.0" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-11.0" y="-38.0" width="580.0" height="213.0" fill="#ffffff"/>
+<line x1="115.9" y1="62.6" x2="92.0" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="132.1" y1="62.6" x2="156.0" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="65.6" y1="10.8" x2="28.0" y2="50.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="86.4" y1="10.8" x2="113.6" y2="39.2" stroke="#111111" stroke-width="1.2"/>
+<polygon points="28.0,50.0 4.0,110.0 52.0,110.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="28.0" y="101.0" font-size="14" fill="#111111" text-anchor="middle">α</text>
+<polygon points="92.0,100.0 68.0,160.0 116.0,160.0" fill="#ffe3e3" stroke="#d62020" stroke-width="1.2"/>
+<text x="92.0" y="151.0" font-size="14" fill="#d62020" text-anchor="middle">β</text>
+<polygon points="156.0,100.0 132.0,160.0 180.0,160.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="156.0" y="151.0" font-size="14" fill="#111111" text-anchor="middle">γ</text>
+<circle cx="124.0" cy="50.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="124.0" y="54.5" font-size="12" fill="#111111" text-anchor="middle"></text>
+<text x="143.0" y="41.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">y</text>
+<circle cx="76.0" cy="0.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="76.0" y="4.5" font-size="12" fill="#111111" text-anchor="middle"></text>
+<text x="95.0" y="-9.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">x</text>
+<line x1="204.0" y1="30.0" x2="350.0" y2="30.0" stroke="#d62020" stroke-width="1.6" marker-end="url(#arr-new)"/>
+<text x="279.0" y="22.0" font-size="13" fill="#d62020" text-anchor="middle">LEFT-ROTATE(x)</text>
+<line x1="354.0" y1="62.0" x2="208.0" y2="62.0" stroke="#d62020" stroke-width="1.6" marker-end="url(#arr-new)"/>
+<text x="279.0" y="82.0" font-size="13" fill="#d62020" text-anchor="middle">RIGHT-ROTATE(y)</text>
+<line x1="425.9" y1="62.6" x2="402.0" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="442.1" y1="62.6" x2="466.0" y2="100.0" stroke="#111111" stroke-width="1.2"/>
+<line x1="471.6" y1="10.8" x2="444.4" y2="39.2" stroke="#111111" stroke-width="1.2"/>
+<line x1="492.4" y1="10.8" x2="530.0" y2="50.0" stroke="#111111" stroke-width="1.2"/>
+<polygon points="402.0,100.0 378.0,160.0 426.0,160.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="402.0" y="151.0" font-size="14" fill="#111111" text-anchor="middle">α</text>
+<polygon points="466.0,100.0 442.0,160.0 490.0,160.0" fill="#ffe3e3" stroke="#d62020" stroke-width="1.2"/>
+<text x="466.0" y="151.0" font-size="14" fill="#d62020" text-anchor="middle">β</text>
+<circle cx="434.0" cy="50.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="434.0" y="54.5" font-size="12" fill="#111111" text-anchor="middle"></text>
+<text x="453.0" y="41.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">x</text>
+<polygon points="530.0,50.0 506.0,110.0 554.0,110.0" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+<text x="530.0" y="101.0" font-size="14" fill="#111111" text-anchor="middle">γ</text>
+<circle cx="482.0" cy="0.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="482.0" y="4.5" font-size="12" fill="#111111" text-anchor="middle"></text>
+<text x="501.0" y="-9.0" font-size="15" fill="#111111" text-anchor="start" font-style="italic">y</text>
+</svg>

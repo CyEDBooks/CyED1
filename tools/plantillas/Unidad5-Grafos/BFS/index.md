@@ -7,8 +7,6 @@ title: "Unidad 5: Recorrido en anchura (BFS)"
 
 # Unidad 5: Recorrido en anchura (BFS)
 
-Los ejemplos se desarrollan en desplegables. Dentro, las pestañas **Paso 1, Paso 2, …** construyen la solución poco a poco, como diapositivas: cada paso conserva lo anterior y muestra lo nuevo **en color**.
-
 ## 1. El problema
 
 Cada vértice es una estación y cada arista es un tramo entre dos estaciones.
@@ -41,7 +39,23 @@ Traza a mano con la figura: $s.d = 0$, $w.d = 1$ con $w.\pi = s$, $x.d = 2$ con 
 
 > **¿Por qué $y.\pi = x$ y no $u$?** Las dos opciones dan caminos de longitud $3$. El algoritmo devuelve **uno** de los caminos mínimos; cuál, depende del orden en que se revisan los vecinos.
 
-## 2. Idea: explorar por niveles
+## 2. Recorridos de un grafo
+
+**Recorrido.** Un procedimiento sistemático de exploración de un grafo mediante la visita a todos sus vértices y aristas. Un recorrido es **eficiente** si visita todos los vértices y aristas en un tiempo proporcional a su número, es decir, en tiempo **lineal**.
+
+Las búsquedas en grafos sirven para buscar un elemento a partir de un origen, y para hacer recorridos parciales en grafos infinitos o tan grandes que resultan inmanejables. Hay dos tipos:
+
+- **Búsqueda ciega** o sin información: no utiliza información sobre el problema; normalmente es una búsqueda exhaustiva.
+- **Búsqueda heurística**: utiliza información sobre el problema (costos, por ejemplo) para orientar la búsqueda.
+
+En una búsqueda ciega, el proceso se concibe como la construcción de un recorrido del grafo: en cada paso se escoge uno de los nodos posibles, y si hay varios que se pueden **expandir**, la elección se hace según una **estrategia**. Las técnicas se diferencian solo en el orden en que expanden los nodos:
+
+- **por amplitud** (o anchura): el origen, luego sus vecinos, luego los vecinos de esos, etc.;
+- **por profundidad**: se expande un nodo hasta que no se pueda más, y luego se regresa.
+
+Esta página estudia la primera; la [página de DFS](../DFS/index.md), la segunda.
+
+## 3. Idea: explorar por niveles
 
 En lugar de seguir caminos completos, se avanza **por capas**: primero el origen, luego todo lo que está a distancia $1$, luego todo lo que está a distancia $2$, etc. Así, la primera vez que se alcanza un vértice se hace por un camino de la menor longitud posible.
 
@@ -55,7 +69,7 @@ El primer ejemplo es un árbol, donde los niveles se ven a simple vista. Se reco
 
 El orden de visita fue $A, B, G, C, D, E, H, F, I$: **nivel por nivel**, de izquierda a derecha.
 
-## 3. El algoritmo
+## 4. El algoritmo
 
 Para que funcione en cualquier grafo (con circuitos, donde un vértice se puede alcanzar por varios caminos), BFS lleva el estado de cada vértice con un **color**:
 
@@ -64,6 +78,8 @@ Para que funcione en cualquier grafo (con circuitos, donde un vértice se puede 
 | **blanco** | todavía no se ha descubierto |
 | **gris** | ya se descubrió y está en la cola: es la **frontera** entre lo descubierto y lo no descubierto |
 | **negro** | ya se descubrió y ya se revisaron todos sus vecinos |
+
+Todos los vértices empiezan blancos; un vértice se **descubre** la primera vez que se encuentra durante la búsqueda, y en ese momento deja de ser blanco. Si $(u, v) \in E$ y $u$ es negro, entonces $v$ es negro o gris: todos los vecinos de un vértice negro ya fueron descubiertos. Los grises pueden tener vecinos blancos. BFS distingue grises y negros para garantizar que la búsqueda avance por anchura.
 
 Cada vértice $u$ guarda tres atributos: $u.color$, $u.d$ (distancia desde $s$) y $u.\pi$ (predecesor). El grafo se representa con **listas de adyacencia**: $G.Adj[u]$ son los vecinos de $u$.
 
@@ -93,7 +109,7 @@ Las líneas 1–9 inicializan. Cada vuelta del `while` (líneas 10–18) saca un
 
 ### Ejemplo 2
 
-Volvemos al problema de las estaciones, desde $s$. Las listas de adyacencia están en orden alfabético. En la figura se marca la distancia $d$ de cada vértice; las aristas en azul forman el **árbol BF**, que se explica en la sección 4.
+Volvemos al problema de las estaciones, desde $s$. Las listas de adyacencia están en orden alfabético. En la figura se marca la distancia $d$ de cada vértice; las aristas en azul forman el **árbol BF**, que se explica en la sección 5.
 
 {{GEN:ej2}}
 
@@ -121,7 +137,7 @@ BFS también funciona sobre grafos **dirigidos**: los vecinos de $u$ son los vé
 
 El bucle $6 \to 6$ no cambia nada: cuando se revisa, $6$ ya es gris.
 
-## 4. El árbol BF y el camino más corto
+## 5. El árbol BF y el camino más corto
 
 Las aristas $(v.\pi, v)$ forman un árbol con raíz en $s$: el **árbol BF** (*breadth-first tree*). Para el Ejemplo 2:
 
@@ -141,7 +157,7 @@ PRINT-PATH(G, s, v)
 
 {{GEN:camino}}
 
-## 5. Complejidad
+## 6. Complejidad
 
 > **¿Cuántas veces entra cada vértice a la cola?**
 
@@ -159,112 +175,6 @@ T_{BFS}(V, E) = O(V + E)
 $$
 
 Es tiempo **lineal** en el tamaño de la representación con listas de adyacencia.
-
-## 6. Implementación en Java
-
-**Análisis.**
-
-| | |
-|---|---|
-| **Entradas** | Número de vértices $n$, lista de aristas, origen $s$. |
-| **Salidas** | Arreglos `d[]` y `pi[]`; el camino de $s$ a cualquier $v$. |
-| **Proceso** | BFS con una cola (`ArrayDeque`) y colores; el camino se arma recursivamente con `pi[]`, como `PRINT-PATH`. |
-
-**Diseño.** El pseudocódigo `BFS(G, s)` y `PRINT-PATH(G, s, v)` de las secciones 3 y 4. Los vértices son enteros y `-1` hace las veces de `NIL`.
-
-**Codificación.**
-
-```java
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Queue;
-
-public class BFS {
-
-    enum Color { BLANCO, GRIS, NEGRO }
-
-    static final int INF = Integer.MAX_VALUE;
-
-    private final List<List<Integer>> adj;
-    private final int[] d;
-    private final int[] pi;
-
-    public BFS(int n) {
-        adj = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            adj.add(new ArrayList<>());
-        }
-        d = new int[n];
-        pi = new int[n];
-    }
-
-    public void agregarArista(int u, int v) {
-        adj.get(u).add(v);
-        adj.get(v).add(u);
-    }
-
-    public void bfs(int s) {
-        int n = adj.size();
-        Color[] color = new Color[n];
-        Arrays.fill(color, Color.BLANCO);
-        Arrays.fill(d, INF);
-        Arrays.fill(pi, -1);
-        color[s] = Color.GRIS;
-        d[s] = 0;
-        Queue<Integer> q = new ArrayDeque<>();
-        q.add(s);
-        while (!q.isEmpty()) {
-            int u = q.remove();
-            for (int v : adj.get(u)) {
-                if (color[v] == Color.BLANCO) {
-                    color[v] = Color.GRIS;
-                    d[v] = d[u] + 1;
-                    pi[v] = u;
-                    q.add(v);
-                }
-            }
-            color[u] = Color.NEGRO;
-        }
-    }
-
-    public String camino(int s, int v) {
-        if (v == s) {
-            return String.valueOf(s);
-        }
-        if (pi[v] == -1) {
-            return "no hay camino de " + s + " a " + v;
-        }
-        return camino(s, pi[v]) + " -> " + v;
-    }
-
-    public static void main(String[] args) {
-        BFS g = new BFS(6);           // vértices 1..5 (el 0 no se usa)
-        int[][] aristas = {{1, 2}, {1, 5}, {2, 3}, {2, 4}, {2, 5}, {3, 4}, {4, 5}};
-        for (int[] a : aristas) {
-            g.agregarArista(a[0], a[1]);
-        }
-        g.bfs(3);
-        for (int v = 1; v <= 5; v++) {
-            System.out.println(v + ": d = " + g.d[v] + ", pi = " + (g.pi[v] == -1 ? "NIL" : g.pi[v])
-                    + ", camino = " + g.camino(3, v));
-        }
-    }
-}
-```
-
-**Prueba.** Con el grafo del Ejemplo 3 y origen $3$ (las aristas se agregan en un orden que deja cada lista de adyacencia en orden numérico):
-
-```text
-1: d = 2, pi = 2, camino = 3 -> 2 -> 1
-2: d = 1, pi = 3, camino = 3 -> 2
-3: d = 0, pi = NIL, camino = 3
-4: d = 1, pi = 3, camino = 3 -> 4
-5: d = 2, pi = 2, camino = 3 -> 2 -> 5
-```
-
-Coincide con la última pestaña del Ejemplo 3.
 
 ## 7. Formalización
 
@@ -289,7 +199,7 @@ Practique con los [ejercicios de BFS](exercises.md).
 
 ## Fuentes
 
-- Caicedo Mejía, J. M. *Unidad 5: Grafos - Recorridos*. Computación y Estructuras Discretas I, Universidad Icesi, 2026 (adaptado de material de A. Aristizábal y M. Gómez).
+- Aristizábal, A. y Gómez, M. *Grafos: recorridos (BFS y DFS)*. Computación y Estructuras Discretas I, Universidad Icesi, 2025.
 - Bedoya, O. *Búsqueda no informada: búsqueda preferente por amplitud*. Diapositivas del curso, Universidad del Valle.
 - Cormen, T. H., Leiserson, C. E., Rivest, R. L., Stein, C. *Introduction to Algorithms*, 3.ª ed. The MIT Press, 2009. Sección 22.2.
 

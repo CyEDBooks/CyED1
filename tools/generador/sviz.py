@@ -75,9 +75,9 @@ def search_step_svg(nodes, pos, children, snap, upto, label, kind="circle", r=20
         elif i in created:
             st = "new"
         elif i in expanded:
-            st = "tree"
+            st = "green"
         elif i in frontier:
-            st = "gray"
+            st = "plain"
         else:
             st = "plain"
         x, y = pos[i]

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="465" height="266" viewBox="-41.0 -40.6 464.8 265.6" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-41.0" y="-40.6" width="464.8" height="265.6" fill="#ffffff"/>
+<line x1="90.0" y1="129.3" x2="71.0" y2="180.7" stroke="#111111" stroke-width="1.2"/>
+<line x1="94.0" y1="129.3" x2="113.0" y2="180.7" stroke="#111111" stroke-width="1.2"/>
+<line x1="42.6" y1="66.6" x2="3.4" y2="119.4" stroke="#111111" stroke-width="1.2"/>
+<line x1="49.4" y1="66.6" x2="88.6" y2="119.4" stroke="#111111" stroke-width="1.2"/>
+<line x1="205.0" y1="67.3" x2="186.0" y2="118.7" stroke="#111111" stroke-width="1.2"/>
+<line x1="209.0" y1="67.3" x2="228.0" y2="118.7" stroke="#111111" stroke-width="1.2"/>
+<line x1="120.9" y1="4.3" x2="50.5" y2="58.5" stroke="#111111" stroke-width="1.2"/>
+<line x1="132.1" y1="4.3" x2="202.5" y2="58.5" stroke="#111111" stroke-width="1.2"/>
+<circle cx="0.0" cy="124.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="-9.2" y="129.2" font-size="15" fill="#111111" text-anchor="end">a</text>
+<circle cx="69.0" cy="186.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="62.5" y="203.8" font-size="15" fill="#111111" text-anchor="end">c</text>
+<circle cx="115.0" cy="186.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="115.0" y="206.4" font-size="15" fill="#111111" text-anchor="middle">g</text>
+<circle cx="92.0" cy="124.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="101.2" y="129.2" font-size="15" fill="#111111" text-anchor="start">d</text>
+<circle cx="46.0" cy="62.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="39.5" y="54.5" font-size="15" fill="#111111" text-anchor="end">f</text>
+<circle cx="184.0" cy="124.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="190.5" y="141.8" font-size="15" fill="#111111" text-anchor="start">h</text>
+<circle cx="230.0" cy="124.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="239.2" y="129.2" font-size="15" fill="#111111" text-anchor="start">i</text>
+<circle cx="207.0" cy="62.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="213.5" y="54.5" font-size="15" fill="#111111" text-anchor="start">b</text>
+<circle cx="126.5" cy="0.0" r="5.6" fill="#d62020" stroke="#d62020" stroke-width="1.2"/>
+<text x="126.5" y="-11.6" font-size="15" fill="#d62020" text-anchor="middle" font-weight="bold">e</text>
+<ellipse cx="57.5" cy="124.0" rx="83.5" ry="86.0" fill="none" stroke="#d62020" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="120.1" y="36.0" font-size="15" fill="#d62020" text-anchor="middle">T₁</text>
+<ellipse cx="207.0" cy="93.0" rx="49.0" ry="55.0" fill="none" stroke="#d62020" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="243.8" y="36.0" font-size="15" fill="#d62020" text-anchor="middle">T₂</text>
+<text x="290.0" y="20.0" font-size="14" fill="#111111" text-anchor="start">Paso 1: T₁</text>
+<text x="290.0" y="46.0" font-size="14" fill="#111111" text-anchor="start">Paso 2: T₂</text>
+<text x="290.0" y="72.0" font-size="14" fill="#111111" text-anchor="start">Paso 3: visitar r</text>
+</svg>

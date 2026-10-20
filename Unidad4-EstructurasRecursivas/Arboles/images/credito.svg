@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="679" height="310" viewBox="-55.7 -30.0 679.1 310.4" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-55.7" y="-30.0" width="679.1" height="310.4" fill="#ffffff"/>
+<line x1="367.5" y1="185.0" x2="315.0" y2="249.0" stroke="#111111" stroke-width="1.1"/>
+<rect x="320.5" y="205.2" width="20.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="337.9" y="215.0" font-size="12" fill="#555555" text-anchor="end" font-style="italic">sí</text>
+<line x1="367.5" y1="185.0" x2="420.0" y2="249.0" stroke="#111111" stroke-width="1.1"/>
+<rect x="394.1" y="205.2" width="20.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="397.1" y="215.0" font-size="12" fill="#555555" text-anchor="start" font-style="italic">no</text>
+<line x1="367.5" y1="99.0" x2="157.5" y2="163.0" stroke="#111111" stroke-width="1.1"/>
+<rect x="231.4" y="119.2" width="38.6" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="267.0" y="129.0" font-size="12" fill="#555555" text-anchor="end" font-style="italic">&lt; 600</text>
+<line x1="367.5" y1="99.0" x2="367.5" y2="159.0" stroke="#111111" stroke-width="1.1"/>
+<rect x="370.5" y="119.2" width="63.6" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="373.5" y="129.0" font-size="12" fill="#555555" text-anchor="start" font-style="italic">600-1200</text>
+<line x1="367.5" y1="99.0" x2="577.5" y2="163.0" stroke="#111111" stroke-width="1.1"/>
+<rect x="465.0" y="119.2" width="45.8" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="468.0" y="129.0" font-size="12" fill="#555555" text-anchor="start" font-style="italic">&gt; 1200</text>
+<line x1="183.8" y1="13.0" x2="0.0" y2="77.0" stroke="#111111" stroke-width="1.1"/>
+<rect x="77.7" y="33.2" width="20.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="95.1" y="43.0" font-size="12" fill="#555555" text-anchor="end" font-style="italic">sí</text>
+<line x1="183.8" y1="13.0" x2="367.5" y2="73.0" stroke="#111111" stroke-width="1.1"/>
+<rect x="269.4" y="33.2" width="20.4" height="13.2" fill="#ffffff" fill-opacity="0.92"/>
+<text x="272.4" y="43.0" font-size="12" fill="#555555" text-anchor="start" font-style="italic">no</text>
+<text x="0.0" y="90.5" font-size="13" fill="#111111" text-anchor="middle">No conceder</text>
+<text x="157.5" y="176.5" font-size="13" fill="#111111" text-anchor="middle">No conceder</text>
+<text x="315.0" y="262.5" font-size="13" fill="#111111" text-anchor="middle">Conceder</text>
+<text x="420.0" y="262.5" font-size="13" fill="#111111" text-anchor="middle">No conceder</text>
+<ellipse cx="367.5" cy="172.0" rx="65.5" ry="15.0" fill="#ffffff" stroke="#3a8ec9" stroke-width="1.1"/>
+<text x="367.5" y="176.5" font-size="13" fill="#111111" text-anchor="middle">¿Trabajo fijo?</text>
+<text x="577.5" y="176.5" font-size="13" fill="#111111" text-anchor="middle">Conceder</text>
+<ellipse cx="367.5" cy="86.0" rx="77.2" ry="15.0" fill="#ffffff" stroke="#3a8ec9" stroke-width="1.1"/>
+<text x="367.5" y="90.5" font-size="13" fill="#111111" text-anchor="middle">Ingresos (€/mes)</text>
+<ellipse cx="183.8" cy="0.0" rx="47.1" ry="15.0" fill="#ffffff" stroke="#3a8ec9" stroke-width="1.1"/>
+<text x="183.8" y="4.5" font-size="13" fill="#111111" text-anchor="middle">¿Moroso?</text>
+</svg>

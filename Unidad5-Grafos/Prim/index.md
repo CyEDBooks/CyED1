@@ -7,26 +7,26 @@ title: "Unidad 5: Algoritmo de Prim"
 
 # Unidad 5: Algoritmo de Prim
 
-Los ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**.
-
 ## 1. El problema
 
-Una empresa tiene siete sedes. Cada arista es un enlace de comunicaciones que se puede mantener; su peso es el costo mensual de mantenerlo.
+El siguiente grafo indica los costos de una red de comunicaciones. **¿Qué enlaces se deben mantener para asegurar que hay una forma de comunicar cada dos ciudades?** Se quiere gastar lo menos posible.
 
-![Red de sedes con costos](images/problema.svg)
-
-**¿Qué enlaces se deben mantener para que todas las sedes sigan comunicadas (directa o indirectamente) con el menor costo total?**
+![Red de comunicaciones con costos](images/problema.svg)
 
 Pruebe con una selección propia antes de seguir.
 
-:::{admonition} Algunas observaciones
+:::{admonition} Dos selecciones
 :class: dropdown
-- Si la selección tiene un **circuito**, se puede quitar cualquier arista del circuito y todo sigue comunicado, más barato. La solución no tiene circuitos.
-- Si la selección no **conecta** todas las sedes, no sirve.
-- Un subgrafo conexo, sin circuitos y con los $7$ vértices es un **árbol**: tiene exactamente $7 - 1 = 6$ aristas.
+![ciudades](images/ciudades.svg)
+
+Las dos comunican todas las ciudades con $4$ enlaces, pero la primera cuesta $3600$ y la segunda $4700$.
+
+- Si una selección tiene un **circuito**, se puede quitar cualquier enlace del circuito y todo sigue comunicado, más barato. La solución no tiene circuitos.
+- Si la selección no **conecta** todas las ciudades, no sirve.
+- Un subgrafo conexo, sin circuitos y con los $5$ vértices es un **árbol**: tiene exactamente $5 - 1 = 4$ aristas.
 :::
 
-Una primera idea es listar **todos** los árboles que contienen a los $7$ vértices y quedarse con el de menor peso. Pero son demasiados: un grafo completo de $n$ vértices tiene $n^{n-2}$ de esos árboles (fórmula de Cayley); con $n = 20$ son más de $10^{23}$.
+Una primera idea es listar **todos** los árboles que contienen a todos los vértices y quedarse con el de menor peso. Pero son demasiados: un grafo completo de $n$ vértices tiene $n^{n-2}$ de esos árboles (fórmula de Cayley); con $n = 20$ son más de $10^{23}$.
 
 ## 2. Árbol recubridor
 
@@ -42,7 +42,7 @@ Ejemplo. El grafo $G$:
 
 **Árbol recubridor mínimo.** En un grafo con pesos, el peso de un árbol recubridor es la suma de los pesos de sus aristas. Un árbol recubridor mínimo es uno cuyo peso es menor o igual que el de cualquier otro árbol recubridor.
 
-El problema de las sedes pide un árbol recubridor mínimo.
+El problema de la red de comunicaciones pide un árbol recubridor mínimo. La selección de costo $3600$ lo es.
 
 ### ¿Entendimos el problema?
 
@@ -59,7 +59,61 @@ El problema de las sedes pide un árbol recubridor mínimo.
 
 ### Ejemplo 1
 
-El grafo de las sedes. En cada paso las aristas punteadas son las **candidatas**: tienen un extremo en el árbol y el otro fuera.
+Encontrar un árbol recubridor mínimo usando el algoritmo de Prim. En cada paso, las aristas punteadas son las **candidatas**: tienen un extremo en el árbol y el otro fuera.
+
+![Grafo con empates](images/ej2-grafo.svg)
+
+:::::{admonition} Prim, empezando por la arista de menor peso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Prim, paso 1](images/ej2-00.svg)
+
+> Todas las aristas son candidatas. Se busca la de menor peso de todo el grafo.
+
+:::
+:::{tab-item} Paso 2
+![Prim, paso 2](images/ej2-01.svg)
+
+> La arista de menor peso es $\{a,c\}$ con peso $1$: se agrega al árbol. Ahora las candidatas (punteadas) son las aristas con un extremo en el árbol y el otro fuera.
+
+:::
+:::{tab-item} Paso 3
+![Prim, paso 3](images/ej2-02.svg)
+
+> Entre las candidatas, la de menor peso es $\{c,f\}$ con peso $4$: se agrega al árbol junto con el vértice $f$.
+
+:::
+:::{tab-item} Paso 4
+![Prim, paso 4](images/ej2-03.svg)
+
+> Entre las candidatas, la de menor peso es $\{d,f\}$ con peso $2$: se agrega al árbol junto con el vértice $d$.
+
+:::
+:::{tab-item} Paso 5
+![Prim, paso 5](images/ej2-04.svg)
+
+> Entre las candidatas, la de menor peso es $\{b,c\}$ con peso $5$: se agrega al árbol junto con el vértice $b$.
+
+:::
+:::{tab-item} Paso 6
+![Prim, paso 6](images/ej2-05.svg)
+
+> Entre las candidatas, la de menor peso es $\{b,e\}$ con peso $3$: se agrega al árbol junto con el vértice $e$.
+
+> El árbol ya tiene $n-1 = 5$ aristas: terminó. Peso total: $15$.
+
+:::
+::::
+:::::
+
+Árbol recubridor mínimo obtenido con el algoritmo de Prim: $\{a,c\}$ (1), $\{c,f\}$ (4), $\{d,f\}$ (2), $\{b,c\}$ (5), $\{b,e\}$ (3). Peso: **15**.
+
+### Ejemplo 2
+
+Encontrar un árbol recubridor mínimo usando el algoritmo de Prim.
+
+![Grafo con pesos](images/ej1-grafo.svg)
 
 :::::{admonition} Prim, empezando por la arista de menor peso
 :class: dropdown
@@ -117,61 +171,9 @@ El grafo de las sedes. En cada paso las aristas punteadas son las **candidatas**
 
 Árbol recubridor mínimo obtenido con el algoritmo de Prim: $\{a,b\}$ (1), $\{b,c\}$ (2), $\{a,d\}$ (4), $\{d,e\}$ (3), $\{d,g\}$ (4), $\{f,g\}$ (3). Peso: **17**.
 
-### Ejemplo 2
-
-Se puede empezar desde un **vértice** en lugar de hacerlo desde la arista más barata: el árbol inicial tiene solo ese vértice y ninguna arista. En este grafo hay varias aristas de peso $5$ y de peso $6$.
-
-![Grafo con empates](images/ej2-grafo.svg)
-
-:::::{admonition} Prim desde a
-:class: dropdown
-::::{tab-set}
-:::{tab-item} Paso 1
-![Prim, paso 1](images/ej2-00.svg)
-
-> Se empieza con el árbol que solo tiene a $a$. Las aristas candidatas (punteadas) son las que tienen un extremo en el árbol y el otro fuera: $\{a,b\}$ (6), $\{a,c\}$ (1), $\{a,d\}$ (5).
-
-:::
-:::{tab-item} Paso 2
-![Prim, paso 2](images/ej2-01.svg)
-
-> Entre las candidatas, la de menor peso es $\{a,c\}$ con peso $1$: se agrega al árbol junto con el vértice $c$.
-
-:::
-:::{tab-item} Paso 3
-![Prim, paso 3](images/ej2-02.svg)
-
-> Entre las candidatas, la de menor peso es $\{c,f\}$ con peso $4$: se agrega al árbol junto con el vértice $f$.
-
-:::
-:::{tab-item} Paso 4
-![Prim, paso 4](images/ej2-03.svg)
-
-> Entre las candidatas, la de menor peso es $\{d,f\}$ con peso $2$: se agrega al árbol junto con el vértice $d$.
-
-:::
-:::{tab-item} Paso 5
-![Prim, paso 5](images/ej2-04.svg)
-
-> Entre las candidatas, la de menor peso es $\{b,c\}$ con peso $5$: se agrega al árbol junto con el vértice $b$.
-
-:::
-:::{tab-item} Paso 6
-![Prim, paso 6](images/ej2-05.svg)
-
-> Entre las candidatas, la de menor peso es $\{b,e\}$ con peso $3$: se agrega al árbol junto con el vértice $e$.
-
-> El árbol ya tiene $n-1 = 5$ aristas: terminó. Peso total: $15$.
-
-:::
-::::
-:::::
-
-Aristas: $\{a,c\}$ (1), $\{c,f\}$ (4), $\{d,f\}$ (2), $\{b,c\}$ (5), $\{b,e\}$ (3). Peso: **15**.
-
 ### Ejemplo 3
 
-El mismo grafo, empezando desde $e$.
+Al usar el algoritmo de Prim se pueden obtener árboles recubridores **diferentes** para un mismo grafo. También se puede empezar desde un **vértice**, en lugar de hacerlo desde la arista más barata: el árbol inicial tiene solo ese vértice. El grafo del Ejemplo 1, empezando desde $e$:
 
 :::::{admonition} Prim desde e
 :class: dropdown
@@ -219,7 +221,12 @@ El mismo grafo, empezando desde $e$.
 
 Aristas: $\{b,e\}$ (3), $\{b,c\}$ (5), $\{a,c\}$ (1), $\{c,f\}$ (4), $\{d,f\}$ (2). Peso: **15**.
 
-> **¿Cambió el resultado?** El **orden** en que entran las aristas cambió, pero el árbol y el peso son los mismos. Cuando hay empates, Prim puede producir árboles distintos según el vértice inicial o la arista que escoja en un empate; todos tienen el mismo peso mínimo.
+> **¿Cambió el resultado?**
+
+:::{admonition} Respuesta
+:class: dropdown
+El **orden** en que entran las aristas cambió, pero el árbol y el peso son los mismos. Cuando hay empates, Prim puede producir árboles distintos según el punto de partida o la arista que escoja en un empate; todos tienen el mismo peso mínimo.
+:::
 
 ## 4. El algoritmo
 
@@ -246,105 +253,7 @@ Encontrar la candidata de menor peso. Si se revisan todas las aristas en cada un
 
 Con una **cola de prioridad** (un *heap*) que entrega la candidata de menor peso, el total es $O(E \log V)$.
 
-## 5. Implementación en Java
-
-**Análisis.**
-
-| | |
-|---|---|
-| **Entradas** | Número de vértices, aristas no dirigidas con peso, vértice inicial. |
-| **Salidas** | La lista de aristas del árbol, en el orden en que se agregan, y su peso total. |
-| **Proceso** | `enArbol[v]` marca los vértices del árbol; una `PriorityQueue` guarda las candidatas. |
-
-**Diseño.** Se empieza desde un vértice. Al sacar una arista de la cola se revisa si sus dos extremos ya están en el árbol; en ese caso dejó de ser candidata (crearía un circuito) y se descarta. Si no, se agrega y entran a la cola las aristas del vértice nuevo.
-
-**Codificación.**
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-
-public class Prim {
-
-    record Arista(int u, int v, int peso) { }
-
-    private final int n;
-    private final List<List<Arista>> adj;
-
-    public Prim(int n) {
-        this.n = n;
-        adj = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            adj.add(new ArrayList<>());
-        }
-    }
-
-    public void agregarArista(int u, int v, int w) {
-        Arista a = new Arista(u, v, w);
-        adj.get(u).add(a);
-        adj.get(v).add(a);
-    }
-
-    public List<Arista> prim(int inicio) {
-        boolean[] enArbol = new boolean[n];
-        List<Arista> arbol = new ArrayList<>();
-        PriorityQueue<Arista> candidatas =
-                new PriorityQueue<>((a, b) -> Integer.compare(a.peso(), b.peso()));
-        enArbol[inicio] = true;
-        candidatas.addAll(adj.get(inicio));
-        while (arbol.size() < n - 1 && !candidatas.isEmpty()) {
-            Arista a = candidatas.remove();
-            if (enArbol[a.u()] && enArbol[a.v()]) {
-                continue;   // ya no es candidata: crearía un circuito
-            }
-            int nuevo = enArbol[a.u()] ? a.v() : a.u();
-            enArbol[nuevo] = true;
-            arbol.add(a);
-            for (Arista b : adj.get(nuevo)) {
-                if (!enArbol[b.u()] || !enArbol[b.v()]) {
-                    candidatas.add(b);
-                }
-            }
-        }
-        return arbol;
-    }
-
-    public static void main(String[] args) {
-        String nombres = "abcdefg";
-        Prim g = new Prim(7);
-        String[] aristas = {"ab1", "bc2", "ad4", "bd6", "be4", "ce5", "cf6", "de3", "ef8", "dg4",
-                            "eg7", "fg3"};
-        for (String a : aristas) {
-            g.agregarArista(nombres.indexOf(a.charAt(0)), nombres.indexOf(a.charAt(1)),
-                    a.charAt(2) - '0');
-        }
-        int total = 0;
-        for (Arista a : g.prim(0)) {
-            System.out.println("{" + nombres.charAt(a.u()) + "," + nombres.charAt(a.v()) + "} "
-                    + a.peso());
-            total += a.peso();
-        }
-        System.out.println("peso total = " + total);
-    }
-}
-```
-
-**Prueba.** Con el grafo del Ejemplo 1, desde $a$:
-
-```text
-{a,b} 1
-{b,c} 2
-{b,e} 4
-{d,e} 3
-{d,g} 4
-{f,g} 3
-peso total = 17
-```
-
-El peso es $17$, como en el Ejemplo 1, pero el árbol no es el mismo: en el tercer paso hay un empate entre $\{a,d\}$ y $\{b,e\}$ (peso $4$), y la `PriorityQueue` de Java escogió $\{b,e\}$. Los dos árboles son mínimos.
-
-## 6. Formalización
+## 5. Formalización
 
 - **Propiedad del corte.** Sea $S$ un conjunto de vértices con $\emptyset \neq S \neq V$. Si $e$ es una arista de peso mínimo entre las que tienen un extremo en $S$ y el otro en $V - S$, entonces existe un árbol recubridor mínimo que contiene a $e$.
 - Prim aplica la propiedad del corte en cada paso con $S$ = vértices del árbol: la arista que agrega es la de menor peso que cruza de $S$ a $V - S$. Por eso el resultado es un árbol recubridor mínimo.

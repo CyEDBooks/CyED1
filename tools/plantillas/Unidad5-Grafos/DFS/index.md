@@ -7,7 +7,6 @@ title: "Unidad 5: Recorrido en profundidad (DFS)"
 
 # Unidad 5: Recorrido en profundidad (DFS)
 
-Los ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**.
 
 ## 1. El problema
 
@@ -151,106 +150,7 @@ Ordenando por $f$ decreciente:
 
 Funciona porque, en un grafo sin circuitos, toda arista $(u, v)$ cumple $v.f < u.f$: cuando se explora $(u, v)$, el vértice $v$ no puede ser gris (sería una arista de retorno, es decir, un circuito), así que es blanco y termina antes que $u$, o ya es negro y terminó antes.
 
-## 6. Implementación en Java
-
-**Análisis.**
-
-| | |
-|---|---|
-| **Entradas** | Número de vértices $n$ y lista de arcos (grafo dirigido). |
-| **Salidas** | Arreglos `d[]`, `f[]` y `pi[]`. |
-| **Proceso** | `dfs()` recorre los vértices y llama al método recursivo `dfsVisit(u)` sobre cada vértice blanco; `tiempo` es un atributo de la clase. |
-
-**Diseño.** El pseudocódigo `DFS(G)` y `DFS-VISIT(G, u)` de la sección 2. La pila de llamadas de Java hace el papel de la pila de vértices grises.
-
-**Codificación.**
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class DFS {
-
-    enum Color { BLANCO, GRIS, NEGRO }
-
-    private final List<List<Integer>> adj;
-    private final Color[] color;
-    private final int[] d;
-    private final int[] f;
-    private final int[] pi;
-    private int tiempo;
-
-    public DFS(int n) {
-        adj = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            adj.add(new ArrayList<>());
-        }
-        color = new Color[n];
-        d = new int[n];
-        f = new int[n];
-        pi = new int[n];
-    }
-
-    public void agregarArco(int u, int v) {
-        adj.get(u).add(v);
-    }
-
-    public void dfs() {
-        Arrays.fill(color, Color.BLANCO);
-        Arrays.fill(pi, -1);
-        tiempo = 0;
-        for (int u = 0; u < adj.size(); u++) {
-            if (color[u] == Color.BLANCO) {
-                dfsVisit(u);
-            }
-        }
-    }
-
-    private void dfsVisit(int u) {
-        tiempo++;
-        d[u] = tiempo;
-        color[u] = Color.GRIS;
-        for (int v : adj.get(u)) {
-            if (color[v] == Color.BLANCO) {
-                pi[v] = u;
-                dfsVisit(v);
-            }
-        }
-        color[u] = Color.NEGRO;
-        tiempo++;
-        f[u] = tiempo;
-    }
-
-    public static void main(String[] args) {
-        String nombres = "uvwxyz";
-        DFS g = new DFS(6);
-        String[] arcos = {"uv", "ux", "vy", "wy", "wz", "xv", "yx", "zz"};
-        for (String a : arcos) {
-            g.agregarArco(nombres.indexOf(a.charAt(0)), nombres.indexOf(a.charAt(1)));
-        }
-        g.dfs();
-        for (int u = 0; u < 6; u++) {
-            System.out.println(nombres.charAt(u) + ": " + g.d[u] + "/" + g.f[u]);
-        }
-    }
-}
-```
-
-**Prueba.** Con el grafo del Ejemplo 2:
-
-```text
-u: 1/8
-v: 2/7
-w: 9/12
-x: 4/5
-y: 3/6
-z: 10/11
-```
-
-Son los mismos tiempos de la tabla del Ejemplo 2.
-
-## 7. Formalización
+## 6. Formalización
 
 Las propiedades que se usaron en los ejemplos (Cormen et al., sección 22.3):
 
@@ -267,7 +167,7 @@ Practique con los [ejercicios de DFS](exercises.md).
 
 ## Fuentes
 
-- Caicedo Mejía, J. M. *Unidad 5: Grafos - Recorridos*. Computación y Estructuras Discretas I, Universidad Icesi, 2026 (adaptado de material de A. Aristizábal y M. Gómez).
+- Aristizábal, A. y Gómez, M. *Grafos: recorridos (BFS y DFS)*. Computación y Estructuras Discretas I, Universidad Icesi, 2025.
 - Bedoya, O. *Búsqueda no informada*. Diapositivas del curso, Universidad del Valle.
 - Cormen, T. H., Leiserson, C. E., Rivest, R. L., Stein, C. *Introduction to Algorithms*, 3.ª ed. The MIT Press, 2009. Secciones 22.3 y 22.4.
 

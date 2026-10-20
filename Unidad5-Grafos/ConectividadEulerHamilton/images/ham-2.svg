@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="152" height="180" viewBox="-30.5 -37.5 152.0 179.7" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-30.5" y="-37.5" width="152.0" height="179.7" fill="#ffffff"/>
+<line x1="7.1" y1="0.0" x2="85.3" y2="0.0" stroke="#d62020" stroke-width="3.2"/>
+<line x1="4.7" y1="5.4" x2="41.8" y2="48.2" stroke="#111111" stroke-width="1.2"/>
+<line x1="87.3" y1="4.3" x2="49.2" y2="48.2" stroke="#d62020" stroke-width="3.2"/>
+<line x1="41.8" y1="56.8" x2="3.7" y2="100.7" stroke="#d62020" stroke-width="3.2"/>
+<line x1="49.2" y1="56.8" x2="86.3" y2="99.6" stroke="#111111" stroke-width="1.2"/>
+<line x1="5.7" y1="105.0" x2="83.9" y2="105.0" stroke="#d62020" stroke-width="3.2"/>
+<circle cx="0.0" cy="0.0" r="5.6" fill="#d62020" stroke="#d62020" stroke-width="1.2"/>
+<text x="-7.5" y="-8.5" font-size="15" fill="#d62020" text-anchor="end" font-weight="bold">a</text>
+<circle cx="91.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="97.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">b</text>
+<circle cx="45.5" cy="52.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="45.5" y="42.3" font-size="15" fill="#111111" text-anchor="middle">c</text>
+<circle cx="0.0" cy="105.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+<text x="-6.5" y="122.8" font-size="15" fill="#111111" text-anchor="end">d</text>
+<circle cx="91.0" cy="105.0" r="5.6" fill="#d62020" stroke="#d62020" stroke-width="1.2"/>
+<text x="98.5" y="123.7" font-size="15" fill="#d62020" text-anchor="start" font-weight="bold">e</text>
+<rect x="39.2" y="7.0" width="12.6" height="12.1" fill="#ffffff" fill-opacity="0.92"/>
+<text x="45.5" y="16.0" font-size="11" fill="#d62020" text-anchor="middle" font-weight="bold">1</text>
+<rect x="52.9" y="13.4" width="12.6" height="12.1" fill="#ffffff" fill-opacity="0.92"/>
+<text x="59.2" y="22.4" font-size="11" fill="#d62020" text-anchor="middle" font-weight="bold">2</text>
+<rect x="7.4" y="65.9" width="12.6" height="12.1" fill="#ffffff" fill-opacity="0.92"/>
+<text x="13.7" y="74.9" font-size="11" fill="#d62020" text-anchor="middle" font-weight="bold">3</text>
+<rect x="39.2" y="112.0" width="12.6" height="12.1" fill="#ffffff" fill-opacity="0.92"/>
+<text x="45.5" y="121.0" font-size="11" fill="#d62020" text-anchor="middle" font-weight="bold">4</text>
+</svg>

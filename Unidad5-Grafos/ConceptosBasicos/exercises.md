@@ -13,38 +13,139 @@ Use esta página después de leer el [material de estudio](index.md). Cada ejerc
 
 ### Ejercicio 1
 
-Dibuje un grafo no dirigido **simple** con $4$ vértices $u, v, w, x$ cuyos grados sean $\delta(u) = 3$, $\delta(v) = 2$, $\delta(w) = 3$, $\delta(x) = 2$. Luego, uno con $5$ vértices y grados $3, 3, 4, 2, 2$.
+Clasifique cada grafo como simple, multigrafo o pseudografo.
+
+![cl](images/cl.svg)
 
 :::{admonition} Pistas
 :class: dropdown
-- Primero verifique con *handshaking* cuántas aristas debe tener.
+- Busque primero bucles; después, pares de vértices unidos por más de una arista.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+- a) Simple: ni bucles ni aristas paralelas.
+- b) Pseudografo: tiene dos bucles.
+- c) Multigrafo: hay dos aristas paralelas, y no tiene bucles.
+- d) Pseudografo: tiene un bucle y un par de aristas paralelas.
+:::
+
+### Ejercicio 2
+
+Indique el grado de cada vértice.
+
+![g2](images/g2.svg)
+
+:::{admonition} Pistas
+:class: dropdown
+- Cada bucle suma $2$; cada arista paralela cuenta por separado.
+- Verifique con *handshaking*: la suma tiene que ser par.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+$\delta(u) = 1$, $\delta(v) = 6$, $\delta(w) = 5$, $\delta(x) = 4$, $\delta(y) = 4$. La suma es $1 + 6 + 5 + 4 + 4 = 20$, así que el grafo tiene $10$ aristas.
+:::
+
+### Ejercicio 3
+
+Indique $e$ y el grado de cada vértice en cada grafo.
+
+![hs23](images/hs23.svg)
+
+:::{admonition} Pistas
+:class: dropdown
+- Cuente $e$ directamente y verifique que la suma de los grados es $2e$.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+- a) $e = 7$; $\delta(u) = 3$, $\delta(v) = 5$, $\delta(w) = 4$, $\delta(x) = 2$.
+- b) $e = 8$; $\delta(u) = 2$, $\delta(v) = 6$, $\delta(w) = 4$, $\delta(x) = 4$.
+:::
+
+### Ejercicio 4
+
+Dibuje un grafo no dirigido **simple** con $4$ vértices $u, v, w, x$ cuyos grados sean $\delta(u) = 3$, $\delta(v) = 2$, $\delta(w) = 3$, $\delta(x) = 2$. Luego, uno con $5$ vértices $u, v, w, x, y$ y grados $\delta(u) = 3$, $\delta(v) = 3$, $\delta(w) = 4$, $\delta(x) = 2$, $\delta(y) = 2$.
+
+:::{admonition} Pistas
+:class: dropdown
+- Primero calcule con *handshaking* cuántas aristas debe tener.
 - Un vértice de grado $n - 1$ es vecino de todos los demás: empiece por él.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-- $4$ vértices: $e = 10/2 = 5$. Por ejemplo $u-v$, $u-w$, $u-x$, $v-w$, $w-x$ ($K_4$ sin la arista $\{v, x\}$).
-- $5$ vértices: $e = 14/2 = 7$. El de grado $4$ es vecino de todos; con eso los demás quedan con grados pendientes $2, 2, 1, 1$, que se completan con un camino de $3$ aristas entre ellos, por ejemplo $\{u, v\}$, $\{u, x\}$ y $\{v, y\}$, si los de grado $3$ son $u$ y $v$.
+Con $4$ vértices hay $e = 10/2 = 5$ aristas; con $5$ vértices, $e = 14/2 = 7$. Una solución para cada uno:
+
+![dibujar](images/dibujar.svg)
 :::
 
-### Ejercicio 2
+### Ejercicio 5
 
-En el grafo de $5$ vértices del Ejercicio 1, ¿cuántos vértices son de grado impar? ¿Se puede modificar el grafo (agregando o quitando aristas) para que tenga **solo un** vértice de grado impar?
+Indique la cantidad de aristas de un grafo si los grados de sus vértices son:
+
+- $3, 3, 3, 3, 2$
+- $1, 2, 3, 4, 4$
+- $0, 1, 2, 2, 3$
+- $4, 5, 5, 2, 2$
+- $1, 3, 2, 2, 2, 2, 4$
 
 :::{admonition} Pistas
 :class: dropdown
-- Agregar o quitar una arista cambia la paridad del grado de **sus dos** extremos.
-- Use el corolario del teorema de *handshaking*.
+- Por *handshaking*, $e$ es la mitad de la suma de los grados.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-Hay dos vértices de grado impar (los de grado $3$). **No** se puede dejar uno solo: todo grafo no dirigido tiene un número par de vértices de grado impar. Cada arista que se agrega o se quita cambia la paridad de dos vértices a la vez, así que la cantidad de vértices impares cambia en $-2$, $0$ o $+2$.
+$7$, $7$, $4$, $9$ y $8$ aristas.
 :::
 
-### Ejercicio 3
+### Ejercicio 6
 
-¿Cuántas aristas tiene $\bar{G}$ si el grafo simple $G$ tiene $v$ vértices y $e$ aristas?
+Indique $\delta^-(v)$ y $\delta^+(v)$ para cada vértice de cada grafo dirigido.
+
+![dirs](images/dirs.svg)
+
+:::{admonition} Pistas
+:class: dropdown
+- Un bucle suma $1$ al grado de entrada y $1$ al de salida.
+- Verifique: la suma de los grados de entrada es igual a la suma de los de salida, y las dos son el número de aristas.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+- a) $\delta^-(a) = 2$, $\delta^+(a) = 4$; $\delta^-(b) = 2$, $\delta^+(b) = 1$; $\delta^-(c) = 3$, $\delta^+(c) = 2$; $\delta^-(d) = 2$, $\delta^+(d) = 2$; $\delta^-(e) = 3$, $\delta^+(e) = 3$; $\delta^-(f) = 0$, $\delta^+(f) = 0$. Total: $12$ aristas.
+- b) $\delta^-(u) = 2$, $\delta^+(u) = 1$; $\delta^-(v) = 0$, $\delta^+(v) = 4$; $\delta^-(w) = 4$, $\delta^+(w) = 1$; $\delta^-(x) = 2$, $\delta^+(x) = 3$; $\delta^-(y) = 2$, $\delta^+(y) = 1$. Total: $10$ aristas.
+- c) $\delta^-(a) = 3$, $\delta^+(a) = 1$; $\delta^-(b) = 3$, $\delta^+(b) = 3$; $\delta^-(c) = 0$, $\delta^+(c) = 3$; $\delta^-(d) = 2$, $\delta^+(d) = 1$. Total: $8$ aristas.
+- d) $\delta^-(a) = 3$, $\delta^+(a) = 1$; $\delta^-(b) = 2$, $\delta^+(b) = 5$; $\delta^-(c) = 1$, $\delta^+(c) = 1$; $\delta^-(d) = 2$, $\delta^+(d) = 1$. Total: $8$ aristas.
+:::
+
+### Ejercicio 7
+
+Indique cuáles de los siguientes grafos son bipartitos. Muestre $V_1$ y $V_2$ para los que lo sean.
+
+![bip](images/bip.svg)
+
+:::{admonition} Pistas
+:class: dropdown
+- Ponga un vértice en $V_1$, todos sus vecinos en $V_2$, los vecinos de esos en $V_1$, y así. Si dos vecinos quedan en el mismo conjunto, no es bipartito.
+- Un triángulo nunca es bipartito.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+![bip-sol](images/bip-sol.svg)
+
+- a) Sí: $V_1 = \{a, d\}$, $V_2 = \{b, c\}$.
+- b) Sí: $V_1 = \{a, c\}$, $V_2 = \{b, d, e\}$.
+- c) No: $a$, $b$ y $c$ forman un triángulo.
+- d) Sí: $V_1 = \{a, b, d, e\}$, $V_2 = \{c\}$.
+:::
+
+### Ejercicio 8
+
+Si el grafo simple $G$ tiene $v$ vértices y $e$ aristas, ¿cuántas aristas tiene $\bar{G}$? Úselo para calcular cuántas aristas tiene el complementario de $C_6$ y el de $K_{3,3}$.
 
 :::{admonition} Pistas
 :class: dropdown
@@ -53,10 +154,10 @@ Hay dos vértices de grado impar (los de grado $3$). **No** se puede dejar uno s
 
 :::{admonition} Solución general
 :class: dropdown
-$\dfrac{v(v-1)}{2} - e$.
+$\dfrac{v(v-1)}{2} - e$. $\bar{C_6}$ tiene $15 - 6 = 9$ aristas, y $\bar{K_{3,3}}$ tiene $15 - 9 = 6$ (son dos triángulos separados).
 :::
 
-### Ejercicio 4
+### Ejercicio 9
 
 ¿Cuántos vértices y cuántas aristas tienen $K_n$, $C_n$, $W_n$ y $K_{m,n}$? ¿Cuáles de ellos son bipartitos?
 
@@ -76,7 +177,7 @@ $\dfrac{v(v-1)}{2} - e$.
 | $K_{m,n}$ | $m + n$ | $mn$ | siempre |
 :::
 
-### Ejercicio 5
+### Ejercicio 10
 
 Muestre que en todo grafo simple con al menos $2$ vértices hay **dos vértices con el mismo grado**.
 
@@ -84,15 +185,14 @@ Muestre que en todo grafo simple con al menos $2$ vértices hay **dos vértices 
 :class: dropdown
 - Con $n$ vértices, los grados posibles van de $0$ a $n - 1$: son $n$ valores.
 - ¿Pueden aparecer a la vez un vértice de grado $0$ y uno de grado $n - 1$?
-- Principio del palomar.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-Un vértice de grado $n - 1$ es vecino de todos, así que no puede haber uno de grado $0$. Entonces los $n$ grados caen en a lo sumo $n - 1$ valores ($\{0, \dots, n-2\}$ o $\{1, \dots, n-1\}$) y, por el principio del palomar, dos vértices comparten grado.
+Un vértice de grado $n - 1$ es vecino de todos, así que no puede haber uno de grado $0$. Entonces los $n$ grados caen en a lo sumo $n - 1$ valores y, por el principio del palomar, dos vértices comparten grado.
 :::
 
-### Ejercicio 6
+### Ejercicio 11
 
 Sea $G$ un grafo dirigido con $n$ vértices en el que, para cada par de vértices distintos $u, v$, existe **exactamente una** de las aristas $(u, v)$ o $(v, u)$ (un **torneo**). Muestre que $\sum_v \big(\delta^+(v)\big)^2 = \sum_v \big(\delta^-(v)\big)^2$.
 

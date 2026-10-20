@@ -52,8 +52,8 @@ def layout(root, dx=44, dy=62):
     return pos, edges
 
 
-def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, r=18,
-         panel=None, caption=None, dx=44, dy=62, label_side="right", font=14, ghost=None):
+def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, r=15,
+         panel=None, caption=None, dx=40, dy=56, label_side="right", font=13, ghost=None):
     """Dibuja un árbol binario. ghost = (clave_padre, 'L'|'R', texto) para un hueco."""
     svg = SVG()
     if root is None:
@@ -76,7 +76,7 @@ def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, 
         gx, gy = x + (-dx * 0.7 if side == "L" else dx * 0.7), y + dy
         x1, y1, x2, y2 = _shorten(x, y, gx, gy, r, r)
         svg.line(x1, y1, x2, y2, PAL["new"], 2.4, "5,4")
-        svg.circle(gx, gy, r, "#ffe8c2", PAL["new"], 2.4)
+        svg.circle(gx, gy, r, "#ffe3e3", PAL["new"], 2.4)
         svg.text(gx, gy + 5, txt, font, PAL["new"], bold=True)
     for k, (x, y) in pos.items():
         st = node_style.get(k, "plain")
@@ -87,11 +87,11 @@ def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, 
         svg.text(x, y + size * 0.35, t, size, tc, bold=st in ("new", "hl", "bad"))
         if k in labels and labels[k] != "":
             ls = label_style.get(k)
-            col = PAL["new"] if ls == "new" else (PAL["bad"] if ls == "bad" else PAL["muted"])
+            col = PAL["new"] if ls == "new" else (PAL["bad"] if ls == "bad" else PAL["teal"])
             if label_side == "right":
-                svg.text(x + r + 3, y - r + 4, labels[k], 12, col, anchor="start", bold=ls is not None)
+                svg.text(x + r + 3, y - r + 5, labels[k], 13, col, anchor="start", bold=ls is not None)
             else:
-                svg.text(x, y + r + 15, labels[k], 12, col, bold=ls is not None)
+                svg.text(x, y + r + 15, labels[k], 13, col, bold=ls is not None)
     if panel:
         ys = max(y for _, y in pos.values()) + 48
         x0 = min(x for x, _ in pos.values()) - 10
@@ -104,7 +104,7 @@ def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, 
     return svg
 
 
-EDGE_STYLES_T = {"plain": (PAL["muted"], 1.5, None), "new": (PAL["new"], 3.0, None),
+EDGE_STYLES_T = {"plain": (PAL["ink"], 1.2, None), "new": (PAL["new"], 3.0, None),
                  "path": (PAL["new"], 3.0, None), "dim": (PAL["dim"], 1.3, None),
                  "tree": (PAL["teal"], 2.6, None)}
 
@@ -248,4 +248,99 @@ def double_rotation_middle(root, pk, case):
         p.right = rot_right(p.right)
     else:
         p.left = rot_left(p.left)
+    return root
+
+
+def _rebalance_at(root, p, par):
+    """Rebalancea el subárbol con raíz p (|fb(p)| = 2). Devuelve raíz, datos del paso."""
+    f = fb(p)
+    q = p.right if f == 2 else p.left
+    fq = fb(q)
+    mid = None
+    if f == 2:
+        if fq >= 0:
+            case = "A" if fq == 1 else "B"
+            new = rot_left(p)
+            rots = [("izquierda", p.key)]
+        else:
+            case = "C"
+            p.right = rot_right(q)
+            mid = True
+            new = rot_left(p)
+            rots = [("derecha", q.key), ("izquierda", p.key)]
+    else:
+        if fq <= 0:
+            case = "D" if fq == -1 else "E"
+            new = rot_right(p)
+            rots = [("derecha", p.key)]
+        else:
+            case = "F"
+            p.left = rot_left(q)
+            mid = True
+            new = rot_right(p)
+            rots = [("izquierda", q.key), ("derecha", p.key)]
+    pp = par.get(p.key)
+    if pp is None:
+        root = new
+    elif pp.left is p:
+        pp.left = new
+    else:
+        pp.right = new
+    return root, dict(case=case, rots=rots, fq=fq, newroot=new.key, q=q.key)
+
+
+def avl_delete_trace(root, k):
+    """Borra k como en un ABB (con el sucesor si tiene dos hijos) y rebalancea todos los
+    nodos desbalanceados desde el padre del nodo que salió hasta la raíz."""
+    snaps = []
+    root = copy_tree(root)
+    z = find(root, k)
+    y = z
+    if z.left is not None and z.right is not None:
+        y = z.right
+        while y.left is not None:
+            y = y.left
+    par = parent_map(root)
+    py = par[y.key]
+    x = y.left if y.left is not None else y.right
+    if py is None:
+        root = x
+    elif py.left is y:
+        py.left = x
+    else:
+        py.right = x
+    succ_key = None
+    if y is not z:
+        succ_key = y.key
+        z.key = y.key
+    start = py.key if py is not None else None
+    snaps.append(dict(tree=copy_tree(root), kind="delete", key=k, succ=succ_key, start=start,
+                      nchildren=(0 if (z.left is None and z.right is None and y is z) else None)))
+    if py is None:
+        return root, snaps
+    # camino de la raíz al padre del nodo que salió (objetos, para seguirlos tras rotar)
+    path = []
+    cur = root
+    while cur is not None:
+        path.append(cur)
+        if cur is py:
+            break
+        cur = cur.left if py.key < cur.key else cur.right
+    for node in reversed(path):
+        if abs(fb(node)) <= 1:
+            continue
+        par = parent_map(root)
+        before = copy_tree(root)
+        f = fb(node)
+        qn = node.right if f == 2 else node.left
+        snaps.append(dict(tree=before, kind="unbalanced", key=node.key, fb=f))
+        pk = node.key
+        root, info = _rebalance_at(root, node, par)
+        snaps.append(dict(tree=copy_tree(root), kind="rotated", key=pk, before=before, **info))
+    return root, snaps
+
+
+def avl_insert(root, k):
+    """Inserción AVL sin traza (para construir árboles de partida)."""
+    root, _ = avl_insert_trace(root, k)
     return root

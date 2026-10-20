@@ -7,66 +7,93 @@ title: "Unidad 4: Árboles binarios ordenados y de búsqueda"
 
 # Unidad 4: Árboles binarios ordenados y de búsqueda
 
-Los ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**.
-
 ## 1. El problema
 
-Se tiene una colección de llaves en la que hay que **buscar**, **insertar** y **eliminar** con frecuencia. ¿Qué estructura usar?
+En una bolsa hay $27$ fichas, cada una con una llave. **Buscar la llave $45$.**
 
-- **Lista sin orden:** insertar es $O(1)$, pero buscar es $O(n)$ (hay que revisar todo).
-- **Arreglo ordenado:** buscar es rápido con **búsqueda binaria**, que divide sucesivamente la lista por la mitad. Pero insertar o eliminar cuesta $O(n)$, porque hay que correr elementos.
-
-Búsqueda binaria del $6$ en la lista ordenada $1, 2, 5, 6, 10, 22, 26, 32, 40, 50$:
-
-{{GEN:binaria}}
-
-En cada paso se descarta la mitad: con $n$ elementos se hacen a lo sumo $\lfloor \log_2 n \rfloor + 1$ comparaciones. **¿Se puede tener una estructura que busque así de rápido y que además permita insertar sin correr elementos?** La idea: guardar «la mitad» de la búsqueda binaria en un nodo, la parte menor a su izquierda y la mayor a su derecha.
-
-## 2. Definiciones
-
-**Árbol binario ordenado.** Un árbol binario en el que todos los elementos del subárbol izquierdo son **menores** que la raíz y todos los del subárbol derecho son **mayores**. A su vez, los subárboles izquierdo y derecho son árboles binarios ordenados.
-
-**Árbol binario de búsqueda (ABB).** Un árbol binario en el que cada nodo $x$ tiene una llave y se cumple la **propiedad del ABB**: si $y$ está en el subárbol izquierdo de $x$, entonces $y.key \le x.key$; si $y$ está en el subárbol derecho de $x$, entonces $y.key \ge x.key$.
-
-Son la misma idea. La versión del ABB (Cormen et al.) permite llaves repetidas; la del árbol binario ordenado, no.
-
-{{GEN:fig-clrs}}
-
-> **Recorra el árbol en inorden. ¿Qué observa?**
+{{GEN:fig-bolsa}}
 
 :::{admonition} Respuesta
 :class: dropdown
-$2, 3, 4, 6, 7, 9, 13, 15, 17, 18, 20$: las llaves salen **ordenadas de forma ascendente**. En inorden se visita primero todo lo menor (el subárbol izquierdo), luego la raíz y luego todo lo mayor. Recorrer el árbol en inorden toma $\Theta(n)$.
+Sin ningún orden, no queda más que sacar fichas una por una: $28, 38, 8, 7, 12, 19, 32, 4, 9, 16, 21, 1, 5, 45$. Se necesitan **$14$ comparaciones**, y en el peor caso, $27$.
 :::
+
+Si las llaves estuvieran en una **lista ordenada**, se podría usar la **búsqueda binaria**: dividir sucesivamente la lista por la mitad hasta encontrar el elemento. Buscar $6$ en la lista $1, 2, 5, 6, 10, 22, 26, 32, 40, 50$:
+
+{{GEN:binaria}}
+
+Pero en una lista, insertar o quitar una llave obliga a correr las demás. Las mismas $27$ llaves de la bolsa, organizadas en un árbol:
+
+{{GEN:fig-bed}}
+
+{{GEN:buscar-45}}
+
+**¿Qué propiedad del árbol permite descartar la mitad de las llaves en cada comparación?**
+
+## 2. Árbol binario de búsqueda
+
+**Árbol binario de búsqueda (ABB).** Es un árbol binario en el que cada vértice tiene una **llave**. La llave de un vértice es **mayor** que las llaves de los vértices de su subárbol izquierdo y **menor** que las llaves de los vértices de su subárbol derecho.
+
+{{GEN:fig-def-bed}}
+
+Con llaves repetidas, la propiedad se escribe con $\le$ y $\ge$. Sea $x$ un nodo del árbol:
+
+- si $y$ es un nodo del subárbol **izquierdo** de $x$, entonces $key[y] \le key[x]$;
+- si $y$ es un nodo del subárbol **derecho** de $x$, entonces $key[y] \ge key[x]$.
+
+{{GEN:fig-def-and}}
+
+A un árbol binario en el que todos los elementos del subárbol izquierdo son menores que la raíz, todos los del derecho son mayores y ambos subárboles son a su vez ordenados, también se le llama **árbol binario ordenado**.
+
+> **Recorra el árbol de la derecha en inorden. ¿Qué observa?**
+
+:::{admonition} Respuesta
+:class: dropdown
+$1, 20, 21, 24, 26, 30, 34$: si se recorre en inorden, un ABB produce la lista de sus llaves **ordenada ascendentemente**. En inorden se visita primero todo lo menor (el subárbol izquierdo), luego la raíz y luego todo lo mayor.
+
+```text
+INORDER-TREE-WALK(x)
+1  if x ≠ NIL
+2      INORDER-TREE-WALK(left[x])
+3      print key[x]
+4      INORDER-TREE-WALK(right[x])
+```
+
+Visita cada nodo una vez: toma $\Theta(n)$ en un árbol de $n$ nodos.
+:::
+
+Las operaciones básicas (insertar, borrar, buscar) toman un tiempo **proporcional a la altura** del árbol. Para un árbol binario completo con $n$ nodos toman $\Theta(\log n)$; si el árbol se construye como una cadena lineal de $n$ nodos, toman $\Theta(n)$.
 
 ## 3. Consultas
 
-Todas las consultas siguen un solo camino desde la raíz hacia abajo (o hacia arriba): cuestan $O(h)$, donde $h$ es la altura del árbol.
+Las consultas sobre un ABB son: **buscar** una llave, el **mínimo**, el **máximo**, el **sucesor** y el **predecesor** de un nodo. Cada una recorre un solo camino del árbol: todas toman $O(h)$, con $h$ la altura del árbol.
 
 ### Buscar
 
-Para buscar la llave $k$ desde un nodo $x$: si $x$ es `nil` o tiene la llave $k$, terminar. Si $k$ es menor, buscar en el subárbol izquierdo; si es mayor, en el derecho.
+Para buscar un nodo con llave $k$ empezando en el nodo $x$ (la raíz): si $x$ es `nil` o tiene la llave $k$, terminar. Si $k$ es menor, buscar en el subárbol izquierdo; si es mayor, en el derecho.
 
 ```text
 TREE-SEARCH(x, k)                       ITERATIVE-TREE-SEARCH(x, k)
-1  if x == NIL or k == x.key            1  while x ≠ NIL and k ≠ x.key
-2      return x                         2      if k < x.key
-3  if k < x.key                         3          x = x.left
-4      return TREE-SEARCH(x.left, k)    4      else x = x.right
-5  else return TREE-SEARCH(x.right, k)  5  return x
+1  if x = NIL or k = key[x]             1  while x ≠ NIL and k ≠ key[x]
+2      return x                         2      if k < key[x]
+3  if k < key[x]                        3          x ← left[x]
+4      return TREE-SEARCH(left[x], k)   4      else x ← right[x]
+5  else return TREE-SEARCH(right[x], k) 5  return x
 ```
 
-{{GEN:buscar-13}}
+Si la llave no está, la búsqueda baja hasta un subárbol vacío:
 
-{{GEN:buscar-14}}
+{{GEN:buscar-11}}
 
 ### Mínimo y máximo
 
 > **¿En un ABB dónde se ubica el elemento mínimo? ¿Y el máximo?**
 
+{{GEN:fig-minmax}}
+
 :::{admonition} Respuesta
 :class: dropdown
-El mínimo: siguiendo los apuntadores al hijo **izquierdo** desde la raíz hasta encontrar `nil`. El máximo: siguiendo los apuntadores al hijo **derecho**.
+El mínimo: se siguen los apuntadores al hijo **izquierdo** desde la raíz hasta que se encuentre `nil`. El máximo: se siguen los apuntadores al hijo **derecho**.
 
 | Mínimo | Máximo |
 |---|---|
@@ -74,69 +101,69 @@ El mínimo: siguiendo los apuntadores al hijo **izquierdo** desde la raíz hasta
 
 ```text
 TREE-MINIMUM(x)                 TREE-MAXIMUM(x)
-1  while x.left ≠ NIL           1  while x.right ≠ NIL
-2      x = x.left               2      x = x.right
+1  while left[x] ≠ NIL          1  while right[x] ≠ NIL
+2      x ← left[x]              2      x ← right[x]
 3  return x                     3  return x
 ```
+
+Este árbol tiene llaves repetidas: hay tres $4$ y dos $7$. La propiedad con $\le$ y $\ge$ se cumple, y el mínimo y el máximo se encuentran igual.
 :::
 
 ### Sucesor y predecesor
 
-Dado un nodo $x$ con $x.key = k$:
+Dado un nodo $x$ con $key[x] = k$:
 
-- El **sucesor** de $x$ es el nodo $y$ cuya llave es la **menor** llave mayor que $k$ (el que sigue a $x$ en inorden).
-- El **predecesor** de $x$ es el nodo $y$ cuya llave es la **mayor** llave menor que $k$.
+- El **sucesor** de $x$ es el nodo $y$ tal que $key[y]$ es la **menor** llave mayor que $key[x]$: el que sigue a $x$ en inorden.
+- El **predecesor** de $x$ es el nodo $y$ tal que $key[y]$ es la **mayor** llave menor que $key[x]$.
 
-Hay dos casos para el sucesor:
+En el árbol de la sección 1, el sucesor de $19$ es $21$ y el de $21$ es $24$. Para encontrarlos hay dos casos:
 
-{{GEN:succ-6}}
+{{GEN:succ-19}}
 
-{{GEN:succ-13}}
+{{GEN:succ-21}}
 
 ```text
 TREE-SUCCESSOR(x)
-1  if x.right ≠ NIL
-2      return TREE-MINIMUM(x.right)
-3  y = x.p
-4  while y ≠ NIL and x == y.right
-5      x = y
-6      y = y.p
+1  if right[x] ≠ NIL
+2      return TREE-MINIMUM(right[x])
+3  y ← p[x]
+4  while y ≠ NIL and x = right[y]
+5      x ← y
+6      y ← p[y]
 7  return y
 ```
 
-> **¿Cuál es el sucesor de $20$?**
+> **¿Cuál es el sucesor de $53$?**
 
 :::{admonition} Respuesta
 :class: dropdown
-No tiene: $20$ es el máximo. $20$ no tiene subárbol derecho, y al subir siempre se llega desde un hijo derecho ($20$ es hijo derecho de $18$, $18$ de $15$) hasta la raíz, cuyo padre es `nil`. `TREE-SUCCESSOR` devuelve `nil`.
+No tiene: $53$ es el máximo. No tiene subárbol derecho, y al subir siempre se llega desde un hijo derecho ($53$ es hijo derecho de $51$, $51$ de $48$, $48$ de $43$ y $43$ de $24$) hasta la raíz, cuyo padre es `nil`. `TREE-SUCCESSOR` devuelve `nil`.
 :::
 
 ## 4. Inserción
 
-Para insertar la llave $k$ se busca como si estuviera en el árbol. La búsqueda termina en `nil`, y **ahí** se cuelga el nodo nuevo, como hoja.
-
-Crear un ABB insertando las llaves $12, 5, 18, 2, 9, 15, 19, 13, 17$, en ese orden:
-
-{{GEN:insertar}}
-
-Inorden del árbol final: {{GEN:ins-inorden}}.
+Para insertar el nodo $z$, se baja como en una búsqueda: $x$ es el nodo actual y $y$ va un paso atrás (el padre de $x$). Cuando $x$ llega a `nil`, $z$ se cuelga de $y$, como hoja.
 
 ```text
 TREE-INSERT(T, z)
-1  y = NIL
-2  x = T.root
-3  while x ≠ NIL           // bajar como en una búsqueda; y es el padre de x
-4      y = x
-5      if z.key < x.key
-6          x = x.left
-7      else x = x.right
-8  z.p = y
-9  if y == NIL
-10     T.root = z          // el árbol estaba vacío
-11 elseif z.key < y.key
-12     y.left = z
-13 else y.right = z
+1  y ← NIL
+2  x ← root[T]
+3  while x ≠ NIL
+4      y ← x
+5      if key[z] < key[x]
+6          x ← left[x]
+7      else x ← right[x]
+8  p[z] ← y
+9  if y = NIL
+10     root[T] ← z            // el árbol estaba vacío
+11 else if key[z] < key[y]
+12     left[y] ← z
+13 else right[y] ← z
 ```
+
+Explique el código anterior para el caso de `TREE-INSERT(z)` con $key[z] = 5$:
+
+{{GEN:insertar}}
 
 ### El orden de inserción importa
 
@@ -146,160 +173,48 @@ TREE-INSERT(T, z)
 :class: dropdown
 {{GEN:fig-degenerado}}
 
-Cada llave es mayor que todas las anteriores y siempre va a la derecha: el árbol degenera en una **cadena** de altura $n$. Buscar $5$ toma $5$ comparaciones, igual que en una lista.
+Cada llave es mayor que todas las anteriores y siempre va a la derecha: el árbol es una **cadena** de altura $n$. Buscar $5$ toma $5$ comparaciones, igual que en la bolsa.
 :::
 
-Por eso: si el árbol se construye bien, la altura es cercana a $\log_2 n$ y las operaciones toman $\Theta(\log n)$; si degenera en una cadena, toman $\Theta(n)$. Los **árboles AVL** de la siguiente página evitan el caso malo.
+Si el árbol se construye bien, la altura es cercana a $\log_2 n$; si es una cadena, es $n$. Los **árboles AVL** de la siguiente página evitan el caso malo.
 
 ## 5. Eliminación
 
-Eliminar el nodo $z$ tiene tres casos:
+Para borrar un nodo $z$ hay tres casos.
 
-1. $z$ **no tiene hijos**: su padre pasa a apuntar a `nil`.
-2. $z$ **tiene un solo hijo**: se separa $z$ y su hijo ocupa su lugar.
-3. $z$ **tiene dos hijos**: se separa su **sucesor** $y$ (que no tiene hijo izquierdo, así que se quita como en el caso 1 o 2) y la llave de $y$ reemplaza la de $z$.
+**Caso 1: $z$ no tiene hijos.** `TREE-DELETE(T, z)` con $key[z] = 5$. ¿Qué se debe hacer?
 
-Sobre el árbol de la sección 4: eliminar $9$, luego $5$ y luego $12$.
+{{GEN:caso1}}
 
-{{GEN:eliminar}}
+**Caso 2: $z$ tiene un solo hijo.** `TREE-DELETE(T, z)` con $key[z] = 10$. ¿Qué se debe hacer?
 
-Inorden después de las tres eliminaciones: {{GEN:del-inorden}}. Sigue ordenado.
+{{GEN:caso2}}
 
-## 6. Implementación en Java
+**Caso 3: $z$ tiene dos hijos.** `TREE-DELETE(T, z)` con $key[z] = 12$. ¿Qué se debe hacer?
 
-**Análisis.**
-
-| | |
-|---|---|
-| **Entradas** | Llaves de un tipo comparable (`T extends Comparable<T>`). |
-| **Salidas** | El árbol tras insertar y eliminar; respuestas a buscar y mínimo; el inorden. |
-| **Proceso** | Nodo con `llave`, `izq` y `der`; buscar y mínimo iterativos; insertar y eliminar recursivos. |
-
-**Diseño.** Insertar y eliminar se escriben como funciones recursivas que **devuelven la nueva raíz del subárbol**. Así, `x.izq = insertar(x.izq, k)` reconecta el árbol sin necesitar apuntadores al padre. Para el caso 3 de eliminar se copia la llave del sucesor y luego se elimina el sucesor del subárbol derecho.
-
-**Codificación.**
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class ABB<T extends Comparable<T>> {
-
-    private static class Nodo<T> {
-        T llave;
-        Nodo<T> izq;
-        Nodo<T> der;
-
-        Nodo(T llave) {
-            this.llave = llave;
-        }
-    }
-
-    private Nodo<T> raiz;
-
-    public boolean buscar(T k) {
-        Nodo<T> x = raiz;
-        while (x != null && k.compareTo(x.llave) != 0) {
-            x = k.compareTo(x.llave) < 0 ? x.izq : x.der;
-        }
-        return x != null;
-    }
-
-    public T minimo() {
-        Nodo<T> x = raiz;
-        while (x.izq != null) {
-            x = x.izq;
-        }
-        return x.llave;
-    }
-
-    public void insertar(T k) {
-        raiz = insertar(raiz, k);
-    }
-
-    // Devuelve la raíz del subárbol después de insertar k en él.
-    private Nodo<T> insertar(Nodo<T> x, T k) {
-        if (x == null) {
-            return new Nodo<>(k);
-        }
-        if (k.compareTo(x.llave) < 0) {
-            x.izq = insertar(x.izq, k);
-        } else {
-            x.der = insertar(x.der, k);
-        }
-        return x;
-    }
-
-    public void eliminar(T k) {
-        raiz = eliminar(raiz, k);
-    }
-
-    private Nodo<T> eliminar(Nodo<T> x, T k) {
-        if (x == null) {
-            return null;                      // k no está
-        }
-        int c = k.compareTo(x.llave);
-        if (c < 0) {
-            x.izq = eliminar(x.izq, k);
-        } else if (c > 0) {
-            x.der = eliminar(x.der, k);
-        } else if (x.izq == null) {
-            return x.der;                     // casos 1 y 2: cero o un hijo
-        } else if (x.der == null) {
-            return x.izq;
-        } else {
-            Nodo<T> s = x.der;                // caso 3: dos hijos
-            while (s.izq != null) {
-                s = s.izq;                    // sucesor = mínimo del subárbol derecho
-            }
-            x.llave = s.llave;
-            x.der = eliminar(x.der, s.llave);
-        }
-        return x;
-    }
-
-    public List<T> inorden() {
-        List<T> res = new ArrayList<>();
-        inorden(raiz, res);
-        return res;
-    }
-
-    private void inorden(Nodo<T> x, List<T> res) {
-        if (x != null) {
-            inorden(x.izq, res);
-            res.add(x.llave);
-            inorden(x.der, res);
-        }
-    }
-
-    public static void main(String[] args) {
-        ABB<Integer> t = new ABB<>();
-        for (int k : new int[] {12, 5, 18, 2, 9, 15, 19, 13, 17}) {
-            t.insertar(k);
-        }
-        System.out.println("inorden: " + t.inorden());
-        System.out.println("buscar 13: " + t.buscar(13) + ", buscar 14: " + t.buscar(14));
-        System.out.println("minimo: " + t.minimo());
-        t.eliminar(9);
-        t.eliminar(5);
-        t.eliminar(12);
-        System.out.println("después de eliminar 9, 5 y 12: " + t.inorden());
-    }
-}
-```
-
-**Prueba.**
+{{GEN:caso3}}
 
 ```text
-inorden: [2, 5, 9, 12, 13, 15, 17, 18, 19]
-buscar 13: true, buscar 14: false
-minimo: 2
-después de eliminar 9, 5 y 12: [2, 13, 15, 17, 18, 19]
+TREE-DELETE(T, z)
+1  if left[z] = NIL or right[z] = NIL
+2      y ← z                       // casos 1 y 2: se separa z
+3  else y ← TREE-SUCCESSOR(z)      // caso 3: se separa el sucesor
+4  if left[y] ≠ NIL
+5      x ← left[y]
+6  else x ← right[y]
+7  if x ≠ NIL
+8      p[x] ← p[y]
+9  if p[y] = NIL
+10     root[T] ← x
+11 else if y = left[p[y]]
+12     left[p[y]] ← x
+13 else right[p[y]] ← x
+14 if y ≠ z
+15     key[z] ← key[y]             // la llave del sucesor reemplaza la de z
+16 return y
 ```
 
-Son los resultados de las secciones 4 y 5.
-
-## 7. Formalización
+## 6. Formalización
 
 - Si $x$ es la raíz de un subárbol con $n$ nodos, `INORDER-TREE-WALK(x)` toma $\Theta(n)$ y lista las llaves en orden.
 - `SEARCH`, `MINIMUM`, `MAXIMUM`, `SUCCESSOR`, `PREDECESSOR`, `INSERT` y `DELETE` toman $O(h)$ en un ABB de altura $h$.
@@ -312,7 +227,8 @@ Practique con los [ejercicios de árboles binarios de búsqueda](exercises.md).
 ## Fuentes
 
 - Aristizábal, A. *Árboles de búsqueda binaria* (propiedad, consultas, inserción, eliminación). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
-- Bedoya, O. *Árboles: árboles binarios de búsqueda*. Diapositivas del curso, Universidad del Valle.
+- Bedoya, O. *Árboles: árboles binarios de búsqueda* (buscar la llave 45, construir un ABB con una estructura dada). Diapositivas del curso, Universidad del Valle.
+- Vargas Forero, V. M. *Estructuras de datos: árboles binarios ordenados, búsqueda binaria*. Universidad del Valle.
 - Cormen, T. H., Leiserson, C. E., Rivest, R. L., Stein, C. *Introduction to Algorithms*, 3.ª ed. The MIT Press, 2009. Capítulo 12.
 
 ---

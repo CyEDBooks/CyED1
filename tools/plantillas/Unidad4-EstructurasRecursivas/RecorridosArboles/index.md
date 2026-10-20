@@ -7,8 +7,6 @@ title: "Unidad 4: Recorridos en preorden, inorden y postorden"
 
 # Unidad 4: Recorridos en preorden, inorden y postorden
 
-Los ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**. Junto a cada nodo visitado aparece el número de orden en que se visitó.
-
 ## 1. El problema
 
 Hay que imprimir **todos** los elementos de un árbol, cada uno **exactamente una vez**. En una lista basta con ir de izquierda a derecha, pero un árbol no tiene un «siguiente» natural. **¿En qué orden se visitan los nodos?**
@@ -28,11 +26,15 @@ Lo único que cambia es **cuándo** se visita la raíz respecto a sus subárbole
 
 Como el árbol es una estructura recursiva, cada subárbol se recorre **con la misma regla**.
 
-## 2. Definiciones para árboles binarios
+## 2. Definiciones
 
-- **Preorden:** primero se visita la raíz, luego se recorre en preorden el subárbol izquierdo y finalmente en preorden el subárbol derecho.
-- **Inorden:** primero se recorre en inorden el subárbol izquierdo, luego se visita la raíz y finalmente se recorre en inorden el subárbol derecho.
-- **Postorden:** primero se recorre en postorden el subárbol izquierdo, luego en postorden el derecho y finalmente se visita la raíz.
+Sea $T$ un árbol con raíz $r$ y subárboles $T_1, T_2, \dots, T_n$, de izquierda a derecha.
+
+- **Preorden:** se visita $r$, luego se recorre $T_1$ en preorden, luego $T_2$ en preorden, así hasta $T_n$ en preorden.
+- **Inorden:** se recorre $T_1$ en inorden, luego se visita $r$, luego se recorre $T_2$ en inorden, así hasta $T_n$ en inorden.
+- **Postorden:** se recorre $T_1$ en postorden, $T_2$ en postorden, hasta $T_n$ en postorden, y luego se visita $r$.
+
+En un árbol **binario** los subárboles son el izquierdo y el derecho:
 
 ```text
 PREORDEN(x)              INORDEN(x)               POSTORDEN(x)
@@ -44,13 +46,15 @@ PREORDEN(x)              INORDEN(x)               POSTORDEN(x)
 
 Los tres recorridos se diferencian en una sola cosa: la línea donde está `visitar(x)`.
 
-### Ejemplo
-
-{{GEN:fig-let}}
+### Recorrido en preorden
 
 {{GEN:pre}}
 
+### Recorrido en inorden
+
 {{GEN:in}}
+
+### Recorrido en postorden
 
 {{GEN:post}}
 
@@ -60,19 +64,29 @@ Los tres recorridos se diferencian en una sola cosa: la línea donde está `visi
 | Inorden | {{GEN:in-seq}} |
 | Postorden | {{GEN:post-seq}} |
 
-> **Observe** que en preorden la raíz $A$ es la **primera**, en postorden es la **última**, y en inorden separa los elementos del subárbol izquierdo ($F, D, C, E, G, J$) de los del derecho ($I, H, B$).
+> **¿Qué tienen en común los tres resultados?**
 
-### Recorrido por niveles
+:::{admonition} Respuesta
+:class: dropdown
+La raíz $e$ es la **primera** en preorden y la **última** en postorden. En inorden separa los nodos del subárbol $T_1$ ($a, f, c, d, g$) de los del subárbol $T_2$ ($h, b, i$). Y en los tres, cada subárbol aparece **seguido**, sin mezclarse con otros nodos.
+:::
 
-También se puede recorrer **nivel por nivel**, de izquierda a derecha: primero la raíz, luego los elementos del nivel $1$, y así sucesivamente. Para el ejemplo: $A, C, B, D, G, H, F, E, J, I$. Es el recorrido BFS de la Unidad 5, con una **cola**; los otros tres son recorridos en profundidad (DFS), con la **pila** de la recursión.
+### Un hijo solo: ¿izquierdo o derecho?
 
-## 3. Árboles $n$-arios
+En un árbol binario importa de qué lado cuelga un hijo único. En este árbol, $h$ tiene un solo hijo, $j$, **a la derecha**:
 
-Sea $T$ un árbol con raíz $r$ y subárboles $T_1, T_2, \dots, T_n$ (de izquierda a derecha):
+{{GEN:fig-solo}}
 
-- **Preorden:** $r$; luego $T_1$ en preorden, $T_2$ en preorden, …, $T_n$ en preorden.
-- **Inorden:** $T_1$ en inorden; luego $r$; luego $T_2$ en inorden, …, $T_n$ en inorden.
-- **Postorden:** $T_1$ en postorden, $T_2$ en postorden, …, $T_n$ en postorden; luego $r$.
+> **¿Va $j$ antes o después de $h$ en inorden?**
+
+:::{admonition} Respuesta
+:class: dropdown
+Después: el subárbol izquierdo de $h$ está vacío, así que se visita $h$ y luego su subárbol derecho, $j$. El inorden es {{GEN:solo-in}}. Si $j$ colgara a la izquierda, iría antes: $\dots, j, h, \dots$.
+:::
+
+### Árboles $n$-arios
+
+En un árbol $n$-ario, el preorden incluye primero la raíz y luego recorre en preorden todos sus subárboles. El orden que resulta no cumple ninguna propiedad particular, pero se garantiza que cada elemento del árbol aparece **exactamente una vez**.
 
 {{GEN:fig-nar}}
 
@@ -84,12 +98,18 @@ Sea $T$ un árbol con raíz $r$ y subárboles $T_1, T_2, \dots, T_n$ (de izquier
 - Inorden: {{GEN:nar-in}}
 - Postorden: {{GEN:nar-post}}
 
-En inorden, la raíz va después del **primer** subárbol: $e$ (el subárbol de $b$ empieza con su primer hijo), luego $b$, luego $f$ y $g$.
+En inorden, la raíz va después del **primer** subárbol: $b$, luego $a$, luego los subárboles de $c$ y de $d$. Dentro de $g$, que tiene cuatro hijos, va $j$, luego $g$, luego $k, l, m$.
 :::
 
-## 4. Árboles de expresiones
+### Recorrido por niveles
 
-Una expresión aritmética con operadores binarios ($+$, $-$, $\times$, $/$, $↑$ para potencia) se representa con un árbol binario: los nodos internos son **operadores** y las hojas son **operandos**.
+También se puede recorrer **nivel por nivel**, de izquierda a derecha: primero la raíz, luego los elementos del nivel $1$, y así sucesivamente. Para el árbol de las pestañas: {{GEN:niveles}}. Es el recorrido BFS de la Unidad 5, que usa una **cola**; los otros tres bajan por un subárbol hasta el fondo antes de pasar al siguiente, como el DFS.
+
+## 3. Notación infija, prefija y postfija
+
+Los recorridos permiten escribir expresiones complejas: proposiciones compuestas, combinaciones de conjuntos y expresiones aritméticas. En una expresión aritmética con suma ($+$), resta ($-$), multiplicación ($*$), división ($/$) y potencia ($↑$), cada operador tiene dos operandos, así que la expresión se representa con un **árbol binario**: los nodos internos son operadores y las hojas son operandos.
+
+Muestre un árbol binario que represente la expresión $((x+y)↑2)+((x-4)/3)$:
 
 {{GEN:expr-steps}}
 
@@ -97,147 +117,41 @@ Los tres recorridos dan tres **notaciones**:
 
 | Recorrido | Notación | Resultado |
 |---|---|---|
-| Inorden | infija (con paréntesis) | $((x + y) ↑ 2) + ((x - 4) / 3)$ |
-| Preorden | prefija (polaca) | `{{GEN:expr-pre}}` |
-| Postorden | posfija (polaca inversa) | `{{GEN:expr-post}}` |
+| Inorden | infija | $((x + y) ↑ 2) + ((x - 4) / 3)$ |
+| Preorden | prefija | `{{GEN:expr-pre}}` |
+| Postorden | postfija | `{{GEN:expr-post}}` |
 
 > **¿Por qué la notación infija necesita paréntesis y las otras dos no?**
 
 :::{admonition} Respuesta
 :class: dropdown
-En inorden, $x + y ↑ 2$ puede venir de dos árboles distintos: $(x + y) ↑ 2$ o $x + (y ↑ 2)$. Los paréntesis deshacen la ambigüedad. En preorden y en postorden el árbol se reconstruye sin ambigüedad (cada operador tiene exactamente dos operandos), así que no hacen falta.
+En inorden, $x + y ↑ 2$ puede venir de dos árboles distintos: $(x + y) ↑ 2$ o $x + (y ↑ 2)$. Los paréntesis deshacen la ambigüedad. En prefija y en postfija cada operador tiene exactamente dos operandos en un lugar fijo, así que el árbol se reconstruye sin ambigüedad.
 :::
 
-### Evaluar en notación posfija
+Represente en notación infija, prefija y postfija la expresión dada por el siguiente árbol:
 
-Se lee de izquierda a derecha con una **pila**: un número se apila; un operador saca los dos de arriba, opera y apila el resultado. Es la expresión $((8 - 6) ↑ 3) + (10 / (7 - 2))$:
+{{GEN:fig-ocho}}
 
-{{GEN:post-eval}}
+:::{admonition} Respuesta
+:class: dropdown
+- Notación infija: $((8-6)↑3)+(10/(7-2))$
+- Notación prefija: `{{GEN:ocho-pre}}`
+- Notación postfija: `{{GEN:ocho-post}}`
+:::
 
 ### Evaluar en notación prefija
 
-Se busca el operador **más a la derecha** que tenga dos números a continuación, se reemplaza por su resultado y se repite:
+Se busca el operador **más a la derecha** que esté seguido de dos números, se reemplaza por su resultado y se repite:
 
 {{GEN:pre-eval}}
 
-El valor es ${{GEN:pre-eval-res}}$: $(2 \cdot 3 - 5) + (2^3 / 4) = 1 + 2$.
+### Evaluar en notación postfija
 
-## 5. Implementación en Java
+Al revés: se busca el operador **más a la izquierda** que esté precedido de dos números:
 
-**Análisis.**
+{{GEN:post-eval}}
 
-| | |
-|---|---|
-| **Entradas** | Un árbol binario. |
-| **Salidas** | Las listas de elementos en preorden, inorden, postorden y por niveles. |
-| **Proceso** | Tres métodos recursivos que llenan una lista; uno iterativo con una cola para el recorrido por niveles. |
-
-**Diseño.** El pseudocódigo de la sección 2. Cada método recibe la lista donde acumula el resultado; el caso base es el subárbol vacío (`null`).
-
-**Codificación.**
-
-```java
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-
-public class Recorridos {
-
-    static class Nodo<T> {
-        T elem;
-        Nodo<T> izq;
-        Nodo<T> der;
-
-        Nodo(T elem, Nodo<T> izq, Nodo<T> der) {
-            this.elem = elem;
-            this.izq = izq;
-            this.der = der;
-        }
-    }
-
-    static <T> void preorden(Nodo<T> n, List<T> res) {
-        if (n == null) {
-            return;
-        }
-        res.add(n.elem);           // raíz
-        preorden(n.izq, res);      // subárbol izquierdo
-        preorden(n.der, res);      // subárbol derecho
-    }
-
-    static <T> void inorden(Nodo<T> n, List<T> res) {
-        if (n == null) {
-            return;
-        }
-        inorden(n.izq, res);
-        res.add(n.elem);
-        inorden(n.der, res);
-    }
-
-    static <T> void postorden(Nodo<T> n, List<T> res) {
-        if (n == null) {
-            return;
-        }
-        postorden(n.izq, res);
-        postorden(n.der, res);
-        res.add(n.elem);
-    }
-
-    // Por niveles: es BFS sobre el árbol, con una cola.
-    static <T> List<T> porNiveles(Nodo<T> raiz) {
-        List<T> res = new ArrayList<>();
-        Queue<Nodo<T>> cola = new ArrayDeque<>();
-        if (raiz != null) {
-            cola.add(raiz);
-        }
-        while (!cola.isEmpty()) {
-            Nodo<T> n = cola.remove();
-            res.add(n.elem);
-            if (n.izq != null) {
-                cola.add(n.izq);
-            }
-            if (n.der != null) {
-                cola.add(n.der);
-            }
-        }
-        return res;
-    }
-
-    static <T> Nodo<T> n(T e, Nodo<T> izq, Nodo<T> der) {
-        return new Nodo<>(e, izq, der);
-    }
-
-    public static void main(String[] args) {
-        Nodo<Character> raiz =
-                n('A', n('C', n('D', n('F', null, null), null),
-                              n('G', n('E', null, null), n('J', null, null))),
-                       n('B', n('H', n('I', null, null), null), null));
-        List<Character> pre = new ArrayList<>();
-        List<Character> in = new ArrayList<>();
-        List<Character> post = new ArrayList<>();
-        preorden(raiz, pre);
-        inorden(raiz, in);
-        postorden(raiz, post);
-        System.out.println("preorden:    " + pre);
-        System.out.println("inorden:     " + in);
-        System.out.println("postorden:   " + post);
-        System.out.println("por niveles: " + porNiveles(raiz));
-    }
-}
-```
-
-**Prueba.** Con el árbol del ejemplo de la sección 2:
-
-```text
-preorden:    [A, C, D, F, G, E, J, B, H, I]
-inorden:     [F, D, C, E, G, J, A, I, H, B]
-postorden:   [F, D, E, J, G, C, I, H, B, A]
-por niveles: [A, C, B, D, G, H, F, E, J, I]
-```
-
-Son las secuencias de las pestañas de la sección 2.
-
-**Complejidad.** Cada recorrido visita cada nodo una vez y hace una cantidad constante de trabajo por nodo: $\Theta(n)$ para un árbol de $n$ nodos.
+Las dos dan $10$, el valor de $((8-6)↑3)+(10/(7-2)) = 2^3 + 2$.
 
 ## Ejercicios
 
@@ -246,7 +160,8 @@ Practique con los [ejercicios de recorridos](exercises.md).
 ## Fuentes
 
 - Bedoya, O. *Árboles: recorridos de los árboles, notación infija, prefija y postfija*. Diapositivas del curso, Universidad del Valle.
-- Aristizábal, A. *Árboles $n$-arios*. Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Aristizábal, A. *Árboles $n$-arios* (preorden en un árbol $n$-ario). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Vargas Forero, V. M. *Estructuras de datos: recorrido de árboles binarios* (preorden, inorden, postorden y por niveles). Universidad del Valle.
 - Rosen, K. H. *Discrete Mathematics and Its Applications*, 7.ª ed. McGraw-Hill, 2011. Sección 11.3.
 
 ---

@@ -59,14 +59,65 @@ def build():
     p.put("ruta2", steps("Recorrido mínimo de c a e", floyd_route_steps(CL_V, sn2, "c", "e")))
     p.assemble("index.md")
 
-    p.put("fig-ex1", f"![Grafo a..e]({static(p, 'ex1', EX_POS, EX_E)})")
-    m, t = final_mats(EX_V, EX_E)
-    p.put("ex1-sol", m)
-    p.put("ex1-ae", route_text(EX_V, t, "a", "e"))
-    p.put("ex1-db", route_text(EX_V, t, "d", "b"))
-    tt = floyd_trace(EX_V, EX_E)
-    p.put("ex1-cambios", ", ".join(
-        f"$W_{{{i}}}$ (pivote ${x['k']}$): {len(x['changed'])}" for i, x in enumerate(tt[1:], 1)))
+    # Ejercicios: los siete grafos de Bedoya, dados por su W0, con las respuestas de las diapositivas
+    I = INF
+
+    def from_w0(V, rows):
+        return [(V[i], V[j], w) for i, r in enumerate(rows) for j, w in enumerate(r) if i != j and w != I]
+    pos4 = scale({"a": (0, 0), "b": (1.4, 0), "c": (0, 1.2), "d": (1.4, 1.2)}, 85)
+    pos5 = scale({"a": (0, 0.8), "b": (1.2, 0), "c": (1.2, 1.6), "d": (2.5, 0), "e": (2.5, 1.6)}, 80)
+    pos6 = scale({"a": (0, 1), "b": (1.2, 0), "c": (1.2, 2), "d": (2.6, 0), "e": (2.6, 2), "f": (3.7, 1)}, 80)
+    fw = [
+        ("abcd", pos4, [[0, 5, I, I], [I, 0, I, 2], [3, I, 0, 4], [6, I, 1, 0]],
+         [("b", "a", 6, "bdca"), ("a", "c", 8, "abdc")]),
+        ("abcd", pos4, [[0, 4, 7, I], [I, 0, 1, 6], [I, I, 0, 2], [I, 3, I, 0]],
+         [("a", "d", 7, "abcd"), ("d", "c", 4, "dbc")]),
+        ("abcde", pos5, [[0, 5, 1, I, I], [I, 0, I, 3, I], [I, I, 0, I, 2], [6, I, I, 0, 4],
+                         [I, I, I, I, 0]],
+         [("b", "c", 10, "bdac"), ("a", "e", 3, "ace")]),
+        ("abcde", pos5, [[0, 4, 2, I, I], [I, 0, I, 6, 1], [I, 1, 0, I, 4], [I, I, I, 0, I],
+                         [I, I, 3, 2, 0]],
+         [("a", "d", 6, "acbed"), ("c", "d", 4, "cbed")]),
+        ("abcde", pos5, [[0, 3, 5, I, I], [I, 0, 1, 6, I], [I, I, 0, 2, 7], [I, 4, I, 0, 2],
+                         [I, I, I, 3, 0]],
+         [("a", "e", 8, "abcde"), ("e", "c", 8, "edbc")]),
+        ("abcde", pos5, [[0, I, 2, I, I], [1, 0, I, 4, I], [I, I, 0, 1, 5], [3, I, I, 0, 1],
+                         [I, 5, I, I, 0]],
+         [("a", "e", 4, "acde"), ("e", "c", 8, "ebac")]),
+        ("abcdef", pos6, [[0, 3, 5, I, I, I], [I, 0, 1, 6, I, I], [I, I, 0, 2, 2, I],
+                          [I, I, I, 0, 2, 7], [I, I, I, I, 0, 3], [I, I, I, I, I, 0]],
+         [("a", "d", 6, "abcd"), ("a", "f", 9, "abcef")]),
+    ]
+    enun = {1: [], 2: []}
+    sols = {1: [], 2: []}
+    for k, (Vs, pos, W0, asks) in enumerate(fw):
+        V = list(Vs)
+        E = from_w0(V, W0)
+        t = floyd_trace(V, E)
+        idx = {v: i for i, v in enumerate(V)}
+        lines = []
+        for x, y, want, route in asks:
+            got = t[-1]["W"][idx[x]][idx[y]]
+            r = floyd_route(V, t[-1]["P"], x, y)[-1]
+            assert got == want and "".join(r) == route, (k, x, y, got, r)
+            lines.append(f"entre ${x}$ y ${y}$: valor mínimo ${want}$, recorrido ${', '.join(r)}$")
+        grp = 1 if k < 4 else 2
+        cap = "abcd"[k if grp == 1 else k - 4] + ")"
+        img = static(p, f"fw{k + 1}", pos, E)
+        q = " y ".join(f"entre ${x}$ y ${y}$" for x, y, *_ in asks)
+        enun[grp].append(f"{cap} Encuentre los valores mínimos y los recorridos {q}.\n\n![Grafo dirigido con pesos]({img})")
+        Wm = latex_matrix("W", V, V, t[-1]["W"], (), lfmt, sub=f"_{{{len(V)}}}")
+        Pm = latex_matrix("P", V, V, t[-1]["P"], (), str, sub=f"_{{{len(V)}}}")
+        cambios = ", ".join(f"${x['k']}$: {len(x['changed'])}" for x in t[1:])
+        sols[grp].append(f"{cap} Casillas que mejoran con cada pivote: {cambios}.\n\n$$\n{Wm} \\qquad {Pm}\n$$\n\n"
+                         + "; ".join(lines) + ".")
+    for g in (1, 2):
+        p.put(f"fw-enunciados-{g}", "\n\n".join(enun[g]))
+        p.put(f"fw-soluciones-{g}", "\n\n".join(sols[g]))
+    posO = scale({"a": (0, 0), "b": (1.3, 0), "d": (2.6, 0), "c": (1.3, 1.3), "e": (2.6, 1.3)}, 80)
+    EO = [("a", "b", 4), ("a", "c", 2), ("c", "b", 1), ("b", "d", 3), ("d", "e", 2), ("e", "c", 5),
+          ("e", "a", 4, 40)]
+    p.put("fig-fw-open", f"![Grafo dirigido con pesos]({static(p, 'fw-open', posO, EO)})")
     p.assemble("exercises.md")
 
 

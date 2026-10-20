@@ -7,85 +7,88 @@ title: "Unidad 4: Árboles"
 
 # Unidad 4: Árboles
 
-Las preguntas tienen la respuesta en un desplegable justo debajo. Intente responder antes de abrirlo.
-
 ## 1. El problema
 
-Hay $7$ computadores y se quiere tender cable para que **todos se puedan comunicar** (directamente o pasando por otros). **¿Cuál es el menor número de cables necesario? ¿Qué forma tiene la red resultante?**
+Hay $6$ ciudades y se quiere tender cable para que **todas se puedan comunicar**, directamente o pasando por otras. **¿Cuál es el menor número de cables necesario? ¿Qué forma tiene la red?**
 
-Pruebe con $3$, $4$ y $5$ computadores antes de seguir.
+Pruebe con $3$ y con $4$ ciudades antes de seguir.
 
 :::{admonition} Respuesta
 :class: dropdown
-Hacen falta $n - 1$ cables: $6$ para $7$ computadores. Con menos, algún computador queda aislado del resto. Con exactamente $n - 1$ cables y todos comunicados, la red **no tiene circuitos**: si hubiera uno, se podría quitar un cable del circuito y todo seguiría conectado, así que no sería el mínimo.
+Hacen falta $n - 1$ cables: $5$ para $6$ ciudades. Con menos, alguna ciudad queda aislada. Con exactamente $n - 1$ cables y todo comunicado, la red **no tiene circuitos**: si tuviera uno, se podría quitar un cable del circuito y todo seguiría comunicado, así que no sería el mínimo.
 
 Una red conexa y sin circuitos es un **árbol**.
 :::
 
-## 2. Definición
+## 2. Árbol
 
-**Árbol.** Un árbol es un grafo **conexo** que **no tiene circuitos** simples.
+**Árbol.** Un árbol es un grafo **conexo** que **no tiene circuitos**.
 
-Indique cuáles de los siguientes grafos son árboles:
+{{GEN:fig-intro}}
 
-| | | | |
-|---|---|---|---|
-| {{GEN:fig-es-1}} | {{GEN:fig-es-2}} | {{GEN:fig-es-3}} | {{GEN:fig-es-4}} |
+> **¿Por qué el segundo no es un árbol?**
 
 :::{admonition} Respuesta
 :class: dropdown
-- a) Es un árbol.
-- b) No es árbol porque tiene el circuito $b \to c \to e \to d \to b$.
+Tiene el circuito $a \to b \to d \to c \to a$:
 
-{{GEN:fig-es-2-sol}}
+{{GEN:fig-intro-sol}}
 
-- c) No es árbol porque no es conexo (no hay camino de $a$ a $c$). Un grafo sin circuitos, conexo o no, se llama **bosque**: cada componente es un árbol.
-- d) Es un árbol (una «estrella»).
+El primero y el tercero son conexos y no tienen circuitos. En el tercero las aristas $\{a, f\}$ y $\{b, e\}$ se cruzan en el dibujo, pero un cruce no es un vértice: no forma circuito.
 :::
 
-**Teorema.** Un grafo no dirigido es un árbol si y solo si entre cada par de vértices hay **un único** camino simple.
+Dos hechos que se usan todo el tiempo:
 
-**Teorema.** Un árbol con $n$ vértices tiene exactamente $n - 1$ aristas.
+- Entre cada par de vértices de un árbol hay **un único** camino simple.
+- Un árbol con $n$ vértices tiene exactamente $n - 1$ aristas.
 
 ### Árbol con raíz
 
-En muchas aplicaciones se escoge un vértice como **raíz** y todas las aristas se orientan alejándose de ella. Un mismo árbol da árboles con raíz distintos según el vértice que se escoja:
+En un árbol se puede escoger un vértice como **raíz** y dibujar el árbol colgando de él. El mismo árbol da dibujos distintos según la raíz:
 
-| | | |
-|---|---|---|
-| {{GEN:fig-raiz-g}} | {{GEN:fig-raiz-a}} | {{GEN:fig-raiz-d}} |
+{{GEN:raiz-steps}}
 
-Se dibujan con la raíz arriba. En el resto de la unidad, «árbol» quiere decir árbol con raíz.
+Desde aquí, «árbol» quiere decir árbol con raíz, dibujado con la raíz arriba.
 
-## 3. Terminología
+## 3. El árbol $n$-ario: una estructura recursiva
 
-{{GEN:fig-t1}}
+**Árbol $n$-ario.** Es una estructura **recursiva** en la que cada elemento puede tener **cualquier número** de subárboles $n$-arios asociados. Generaliza al árbol binario.
+
+{{GEN:fig-recursivo}}
+
+En un árbol $n$-ario el orden de los subárboles **no importa**: no hace falta saber cuál es el primero o el último, solo que es un subárbol.
+
+## 4. Terminología
+
+Los términos se leen sobre este árbol:
+
+{{GEN:term-steps}}
+
+En resumen:
 
 | Término | Significado | En el árbol |
 |---|---|---|
-| **raíz** | el único vértice sin padre | $a$ |
-| **padre** de $v$ | el vértice inmediatamente arriba de $v$ | el padre de $e$ es $b$ |
-| **hijos** de $v$ | los vértices inmediatamente abajo de $v$ | los hijos de $a$ son $b, c, d$ |
-| **hermanos** | vértices con el mismo padre | $h, i, j$ |
-| **ancestros** de $v$ | los vértices del camino de la raíz a $v$, sin $v$ | los de $n$ son $a, c, g, m$ |
-| **descendientes** de $v$ | los vértices que tienen a $v$ como ancestro | los de $g$ son $l, m, n, o$ |
-| **hoja** | vértice sin hijos | $h, i, j, \dots$ |
-| **nodo interno** | vértice con al menos un hijo | $a, b, c, \dots$ |
-| **profundidad** (nivel) de $v$ | longitud del camino de la raíz a $v$ | la de $a$ es $0$; la de $e$ es $2$ |
-| **aridad** (orden) de $v$ | número de hijos de $v$ | la de $e$ es $3$; la de una hoja, $0$ |
-| **altura** del árbol | número de nodos de la rama más larga (profundidad máxima $+ 1$) | {{GEN:t1-alt}} |
+| **nodo** | elemento del árbol | $a, b, \dots, s$ |
+| **raíz** | nodo inicial del árbol; no tiene padre | $a$ |
+| **hoja** | nodo sin hijos | {{GEN:t0-hojas}} |
+| **nodo interno** | nodo con al menos un hijo | {{GEN:t0-internos}} |
+| **padre** de $v$ | el nodo justo encima de $v$ | el padre de $f$ es $b$ |
+| **hijos** de $v$ | los nodos justo debajo de $v$ | los hijos de $a$ son $b, c, d, e$ |
+| **camino** de $E_1$ a $E_2$ | secuencia $\langle N_1, \dots, N_k \rangle$ con $N_1 = E_1$, $N_k = E_2$ y $N_i$ padre de $N_{i+1}$ | $\langle a, d, k \rangle$ |
+| **longitud** de un camino | número de elementos de la secuencia menos $1$ | la de $\langle a, d, k \rangle$ es $2$ |
+| **ancestro** / **descendiente** | si hay camino de $E_1$ a $E_2$, $E_1$ es ancestro de $E_2$ y $E_2$ es descendiente de $E_1$ | $d$ es ancestro de $r$ |
+| **rama** | camino de la raíz a una hoja | $\langle a, d, k, o, s \rangle$ |
+| **profundidad** (nivel) de $v$ | longitud del camino de la raíz a $v$ | la de $k$ es $2$ |
+| **aridad** u **orden** de $v$ | número de hijos (subárboles) de $v$ | la de $d$ es $3$; una hoja tiene orden $0$ |
+| **orden del árbol** | el mayor orden de sus elementos | {{GEN:t0-orden}} |
+| **altura** | longitud de la rama más larga, más $1$ | {{GEN:t0-alt}} |
+| **peso** | número de nodos del árbol | {{GEN:t0-peso}} |
 
-Algunos textos (por ejemplo Rosen) definen la altura como la profundidad máxima, sin sumar $1$. En este curso se cuenta en **nodos**, como en las diapositivas y en el código de la sección 7.
+Un camino no siempre existe entre dos elementos: de $b$ a $d$ no hay camino, porque $b$ no es ancestro de $d$. Como cada hoja es el final de exactamente una rama, un árbol tiene **tantas ramas como hojas**.
 
-**Rama.** Un camino desde la raíz hasta una hoja. Por ejemplo $a \to c \to g \to m \to o$:
+Dado el siguiente árbol, indique:
 
-{{GEN:fig-rama}}
-
-**Subárbol.** Un vértice junto con todos sus descendientes. El subárbol de $T$ con raíz en $c$:
-
-{{GEN:fig-sub}}
-
-Dado el árbol de arriba, indique:
+{{GEN:fig-t1}}
 
 - La raíz del árbol
 - El padre de $e$
@@ -108,51 +111,34 @@ Dado el árbol de arriba, indique:
 - La aridad de $j$: {{GEN:t1-ar-j}}
 :::
 
-Ahora con otro árbol:
+## 5. Árboles $n$-arios y $n$-arios completos
 
-{{GEN:fig-t2}}
+> **¿Cuál es la aridad de los nodos internos de cada árbol?**
 
-- El padre de $i$
-- Los hijos de $b$
-- Las hojas del árbol
-- La profundidad de $n$
-- La profundidad de $a$
-- La aridad de $d$
-- La altura del árbol
+{{GEN:fig-aridad}}
 
 :::{admonition} Respuesta
 :class: dropdown
-- El padre de $i$: {{GEN:t2-padre-i}}
-- Los hijos de $b$: {{GEN:t2-hijos-b}}
-- Las hojas del árbol: {{GEN:t2-hojas}}
-- La profundidad de $n$: {{GEN:t2-prof-n}}
-- La profundidad de $a$: {{GEN:t2-prof-a}}
-- La aridad de $d$: {{GEN:t2-ar-d}}
-- La altura del árbol: {{GEN:t2-alt}}
+En el de la izquierda **todos** los nodos internos tienen aridad $2$. En el de la derecha hay nodos internos de aridad $1$, $2$ y $3$.
 :::
 
-## 4. Árboles $n$-arios
+- **Árbol $n$-ario completo.** Cada nodo interno tiene **exactamente** $n$ hijos. El de la izquierda es $2$-ario completo.
+- **Árbol $n$-ario.** Cada nodo interno tiene **a lo sumo** $n$ hijos. El de la derecha es $3$-ario. Un árbol $2$-ario se llama **binario**.
 
-- **Árbol $n$-ario:** cada nodo interno tiene **a lo sumo** $n$ hijos. Un árbol $2$-ario se llama **binario**.
-- **Árbol $n$-ario completo:** cada nodo interno tiene **exactamente** $n$ hijos.
+Indique cuáles de los siguientes árboles son $n$-arios completos y cuáles $n$-arios (con el menor $n$ posible):
 
-Indique cuáles de los siguientes árboles son $n$-arios completos y cuáles solo $n$-arios (con el menor $n$ posible):
-
-| | | | |
-|---|---|---|---|
-| {{GEN:fig-nar-1}} | {{GEN:fig-nar-2}} | {{GEN:fig-nar-3}} | {{GEN:fig-nar-4}} |
+{{GEN:fig-nar-1}}
 
 :::{admonition} Respuesta
 :class: dropdown
-- a) Árbol binario ($c$ es hoja y $b$ tiene $2$ hijos; $a$ tiene $2$): es **binario completo**.
-- b) Árbol $3$-ario completo: los nodos internos $a$ y $c$ tienen $3$ hijos cada uno.
-- c) Árbol binario completo.
-- d) Árbol $4$-ario, **no** completo: $a$ tiene $3$ hijos y $d$ tiene $1$.
+{{GEN:fig-nar-1-sol}}
+
+El primero es **binario completo**: sus tres nodos internos tienen $2$ hijos. El segundo es **$3$-ario**: la raíz y su primer hijo tienen $3$ hijos, pero hay nodos internos con $2$.
 :::
 
-### Propiedades
+### Contar nodos
 
-Sea $T$ un árbol $m$-ario **completo** con $i$ nodos internos (contando la raíz si tiene hijos). Entonces tiene $n = m \cdot i + 1$ nodos: cada nodo interno aporta $m$ hijos, y el único nodo que no es hijo de nadie es la raíz.
+Un árbol $m$-ario completo con $i$ nodos internos tiene $n = m \cdot i + 1$ nodos: cada nodo interno aporta $m$ hijos, y el único nodo que no es hijo de nadie es la raíz.
 
 > **¿Cuántos nodos tiene un árbol $3$-ario completo con $4$ nodos internos? ¿Cuántas hojas?**
 
@@ -161,173 +147,129 @@ Sea $T$ un árbol $m$-ario **completo** con $i$ nodos internos (contando la raí
 $n = 3 \cdot 4 + 1 = 13$ nodos, de los cuales $13 - 4 = 9$ son hojas.
 :::
 
-Un árbol $m$-ario de altura $h$ (en nodos) tiene a lo sumo $m^{h-1}$ hojas: el nivel $k$ tiene a lo sumo $m^k$ nodos.
+## 6. Subárboles
 
-## 5. Aplicaciones
+**Subárbol.** Un nodo junto con todos sus descendientes. Sobre el árbol $T$ de la pregunta de la sección 4:
 
-- **Árboles de decisión.** En cada nodo interno hay una pregunta, cada rama es una respuesta y cada hoja es una decisión. Árbol de decisión para ordenar tres elementos distintos $a, b, c$ comparando de a dos:
+{{GEN:sub-steps}}
+
+## 7. Aplicaciones de los árboles
+
+- **Árboles de juego**: modelan las jugadas de cada jugador en un juego con adversario. Se estudian en [Recorridos en espacios de estados y juegos](../../Unidad5-Grafos/BusquedaEspacioEstados/index.md).
+- **Árboles binarios de búsqueda**: guardan llaves ordenadas para buscarlas rápido. Se estudian en [Árboles binarios ordenados y de búsqueda](../ArbolesBinariosBusqueda/index.md).
+- **Árboles de decisión**: se ven a continuación.
+
+### Árboles de decisión
+
+**Árbol de decisión.** Un árbol en cuyos vértices hay **comparaciones** y en cuyas hojas hay **decisiones** sobre un problema particular.
+
+Árbol de decisión para ordenar tres elementos $a$, $b$ y $c$:
 
 {{GEN:fig-decision}}
 
-> **¿Cuántas comparaciones hacen falta, como mínimo en el peor caso, para ordenar $3$ elementos?**
+Se sigue con $a = 1$, $b = 7$, $c = 5$:
+
+{{GEN:decision-steps}}
+
+> **¿Cuántas comparaciones hacen falta, en el peor caso, para ordenar $3$ elementos?**
 
 :::{admonition} Respuesta
 :class: dropdown
-Hay $3! = 6$ órdenes posibles, y cada uno debe ser una hoja distinta. Un árbol binario con altura $h$ (en nodos) tiene a lo sumo $2^{h-1}$ hojas; para tener $6$ hojas se necesita $h - 1 \ge 3$. En el peor caso se hacen $3$ comparaciones (la rama más larga del árbol de la figura).
+$3$: es la rama más larga del árbol. Ningún árbol de decisión puede hacerlo con $2$: hay $3! = 6$ órdenes posibles, cada uno tiene que ser una hoja distinta, y con $2$ comparaciones solo se llega a $2^2 = 4$ hojas.
 :::
 
-- **Árboles de juego.** Modelan las jugadas posibles de cada jugador; se analizan de las hojas a la raíz. Ver [Recorridos en espacios de estados y juegos](../../Unidad5-Grafos/BusquedaEspacioEstados/index.md).
-- **Árboles binarios de búsqueda.** Guardan llaves ordenadas para buscarlas rápido. Ver [Árboles binarios ordenados y de búsqueda](../ArbolesBinariosBusqueda/index.md).
-- **Árboles de expresiones.** Representan expresiones aritméticas. Ver [Recorridos de árboles](../RecorridosArboles/index.md).
-- **Sistemas de archivos, organigramas, el DOM de una página web**: todas son jerarquías.
+Los árboles de decisión también se construyen a partir de ejemplos. Con esta tabla de días en que se jugó ($P$) o no se jugó ($N$) golf:
 
-## 6. El árbol como estructura recursiva
+{{GEN:golf-tabla}}
 
-Un árbol $n$-ario es una **estructura recursiva**: es un elemento (la raíz) con una lista de árboles asociados (sus subárboles). En un árbol $n$-ario el orden de los subárboles no importa. Los algoritmos sobre árboles copian esa forma recursiva, y casi todos siguen uno de dos patrones (Villalobos):
+se obtiene este árbol:
 
-- **Descenso recursivo:** se baja por los subárboles y se puede **detener** apenas se encuentra la respuesta (por ejemplo, buscar un elemento).
-- **Recorrido total:** se visitan **todos** los elementos y se acumula una respuesta (por ejemplo, contar nodos).
+{{GEN:fig-golf}}
 
-Los algoritmos se escriben en **dos niveles**:
+> **¿Se juega un día soleado, con humedad normal y con viento?**
 
-1. **Primer nivel** (clase del árbol): trata el caso del árbol vacío y delega la responsabilidad en la raíz.
-2. **Segundo nivel** (clase del nodo): el planteamiento recursivo. Como hay $n$ subárboles, se usa un ciclo sobre los hijos.
+:::{admonition} Respuesta
+:class: dropdown
+Ambiente soleado → se pregunta por la humedad → normal → $P$: **sí se juega**. Es lo que dice la fila «soleado, media, normal, sí» de la tabla.
+:::
 
-## 7. Implementación en Java
+Árbol de decisión para aprobar un crédito en un banco:
 
-**Análisis.**
+{{GEN:fig-credito}}
 
-| | |
-|---|---|
-| **Entradas** | Pares (padre, hijo) para construir el árbol. |
-| **Salidas** | Peso (número de nodos), número de hojas y altura. |
-| **Proceso** | Clase `Nodo<T>` con su elemento y una lista de hijos; métodos recursivos en dos niveles. |
+## 8. Algoritmos sobre árboles $n$-arios
 
-**Diseño.**
+Un árbol $n$-ario se guarda con dos estructuras: cada **nodo** tiene su elemento y la lista de sus hijos (sus subárboles), y el **árbol** tiene una referencia a la raíz, que puede ser vacía.
 
-- `darPeso()` (recorrido total): $1$ por la raíz más el peso de cada subárbol.
-- `darNroHojas()` (recorrido total): $1$ si es hoja; si no, la suma de las hojas de los hijos.
-- `darAltura()` (recorrido total): $1$ más la altura del hijo más alto.
-- `buscar(e)` (descenso recursivo): si la raíz es `e`, terminar; si no, buscar en cada hijo hasta encontrarlo.
-- Para insertar hay que indicar **el padre**: en un árbol $n$-ario no hay un orden que diga dónde va un elemento nuevo.
+Cada algoritmo se escribe en **dos niveles**:
 
-**Codificación.**
+1. **Primer nivel** (el árbol): trata el caso del árbol vacío y delega la responsabilidad en la raíz.
+2. **Segundo nivel** (el nodo): el planteamiento recursivo. Hay $n$ avances posibles en la recursión, uno por subárbol, así que hace falta un **ciclo** sobre los hijos.
 
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class ArbolNArio<T> {
-
-    static class Nodo<T> {
-        private final T elem;
-        private final List<Nodo<T>> hijos = new ArrayList<>();
-
-        Nodo(T elem) {
-            this.elem = elem;
-        }
-
-        boolean esHoja() {
-            return hijos.isEmpty();
-        }
-
-        // Patrón de recorrido total: la raíz cuenta 1 y se suma el peso de cada hijo.
-        int darPeso() {
-            int peso = 1;
-            for (Nodo<T> h : hijos) {
-                peso += h.darPeso();
-            }
-            return peso;
-        }
-
-        int darNroHojas() {
-            if (esHoja()) {
-                return 1;
-            }
-            int hojas = 0;
-            for (Nodo<T> h : hijos) {
-                hojas += h.darNroHojas();
-            }
-            return hojas;
-        }
-
-        // Altura = número de nodos de la rama más larga.
-        int darAltura() {
-            int maxAltura = 0;
-            for (Nodo<T> h : hijos) {
-                maxAltura = Math.max(maxAltura, h.darAltura());
-            }
-            return maxAltura + 1;
-        }
-
-        // Patrón de descenso recursivo: se detiene apenas encuentra el elemento.
-        Nodo<T> buscar(T e) {
-            if (elem.equals(e)) {
-                return this;
-            }
-            for (Nodo<T> h : hijos) {
-                Nodo<T> r = h.buscar(e);
-                if (r != null) {
-                    return r;
-                }
-            }
-            return null;
-        }
-    }
-
-    private Nodo<T> raiz;
-
-    // Primer nivel: trata el árbol vacío y delega en la raíz.
-    public int darPeso() {
-        return raiz == null ? 0 : raiz.darPeso();
-    }
-
-    public int darNroHojas() {
-        return raiz == null ? 0 : raiz.darNroHojas();
-    }
-
-    public int darAltura() {
-        return raiz == null ? 0 : raiz.darAltura();
-    }
-
-    public void insertar(T padre, T elem) {
-        if (raiz == null) {
-            raiz = new Nodo<>(elem);
-            return;
-        }
-        Nodo<T> p = raiz.buscar(padre);
-        if (p == null) {
-            throw new IllegalArgumentException("El padre " + padre + " no existe");
-        }
-        p.hijos.add(new Nodo<>(elem));
-    }
-
-    public static void main(String[] args) {
-        ArbolNArio<String> t = new ArbolNArio<>();
-        t.insertar(null, "a");
-        String[][] aristas = {{"a", "b"}, {"a", "c"}, {"a", "d"}, {"b", "e"}, {"b", "f"},
-                              {"e", "h"}, {"e", "i"}, {"e", "j"}, {"c", "g"}, {"c", "k"},
-                              {"g", "l"}, {"g", "m"}, {"m", "n"}, {"m", "o"}, {"d", "p"},
-                              {"d", "q"}};
-        for (String[] a : aristas) {
-            t.insertar(a[0], a[1]);
-        }
-        System.out.println("peso = " + t.darPeso());
-        System.out.println("hojas = " + t.darNroHojas());
-        System.out.println("altura = " + t.darAltura());
-    }
-}
-```
-
-**Prueba.** Con el árbol de la sección 3:
+Para buscar un elemento:
 
 ```text
-peso = 17
-hojas = 10
-altura = 5
+BUSCAR(T, e)                         // primer nivel
+1  if raíz[T] = NIL
+2      return NIL
+3  return BUSCAR-NODO(raíz[T], e)
+
+BUSCAR-NODO(x, e)                    // segundo nivel
+1  if elem[x] = e
+2      return x
+3  for cada hijo h de x
+4      r ← BUSCAR-NODO(h, e)
+5      if r ≠ NIL
+6          return r
+7  return NIL
 ```
 
-Coincide con lo que se cuenta en la figura: $17$ vértices, las hojas {{GEN:t1-hojas}} y la rama más larga $a, c, g, m, n$, con $5$ nodos.
+> **¿Qué cambia respecto a insertar y eliminar en un árbol binario ordenado?**
+
+:::{admonition} Respuesta
+:class: dropdown
+En un árbol $n$-ario no hay un orden que diga dónde va un elemento. Para insertar o eliminar hay que indicar el **padre**: se busca el padre y se le agrega (o se le quita) el hijo. Y solo se puede eliminar una **hoja**: si se elimina un nodo con hijos, sus descendientes quedan sueltos.
+:::
+
+### Dos patrones
+
+Casi todos los algoritmos sobre árboles $n$-arios siguen uno de dos patrones:
+
+**Descenso recursivo.** Hay una o varias salidas de la recursión con solución directa. El ciclo avanza sobre los subárboles y puede **terminar antes**, cuando el problema ya está resuelto (en `BUSCAR-NODO`, al encontrar el elemento).
+
+```text
+if condición1
+    solución directa 1
+else if condición2
+    solución directa 2
+else
+    inicializar las variables donde se acumula la respuesta
+    for cada subárbol h, mientras el problema no esté resuelto
+        avanzar la recursión sobre h
+        acumular o componer la respuesta
+```
+
+**Recorrido total.** Se visita **cada** elemento del árbol haciendo una operación sobre él: primero se incluye la raíz y luego se recorre cada subárbol.
+
+```text
+incluir la raíz en el recorrido
+for cada subárbol h
+    recorrido total sobre h
+```
+
+Peso, número de hojas y altura siguen el mismo esquema: se calcula la respuesta de cada hijo y se acumula.
+
+```text
+PESO(x)                      HOJAS(x)                       ALTURA(x)
+1  p ← 1                     1  if x no tiene hijos         1  m ← 0
+2  for cada hijo h de x      2      return 1                2  for cada hijo h de x
+3      p ← p + PESO(h)       3  k ← 0                       3      m ← max(m, ALTURA(h))
+4  return p                  4  for cada hijo h de x        4  return m + 1
+                             5      k ← k + HOJAS(h)
+                             6  return k
+```
+
+Con el árbol de la sección 4: `PESO` da {{GEN:t0-peso}}, `HOJAS` da {{GEN:t0-nhojas}} y `ALTURA` da $5$, por la rama $\langle a, d, k, o, r \rangle$. Si se elimina la hoja $f$, el nodo $b$ se vuelve hoja: el número de hojas no cambia.
 
 ## Ejercicios
 
@@ -335,11 +277,12 @@ Practique con los [ejercicios de árboles](exercises.md).
 
 ## Fuentes
 
-- Bedoya, O. *Árboles* (definición, terminología, árboles $n$-arios, aplicaciones). Diapositivas del curso, Universidad del Valle.
-- Aristizábal, A. *Árboles $n$-arios*. Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Aristizábal, A. *Árboles $n$-arios* (definición, terminología, algoritmos en dos niveles, patrones). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Bedoya, O. *Árboles* (definición, árbol con raíz, terminología, árboles $n$-arios, subárboles, árboles de decisión). Diapositivas del curso, Universidad del Valle.
+- Vargas Forero, V. M. *Estructuras de datos: tipos de árboles*. Introducción a la Programación Orientada a Objetos, Universidad del Valle.
 - Villalobos, J. A. *Patrones de algoritmo para árboles $n$-arios* (sección 4.5.6), tal como se cita en las diapositivas de A. Aristizábal.
 - Rosen, K. H. *Discrete Mathematics and Its Applications*, 7.ª ed. McGraw-Hill, 2011. Secciones 11.1 y 11.2.
 
 ---
 
-*Material adaptado del material original de los profesores Oscar Bedoya y Andrés Aristizábal.*
+*Material adaptado del material original de los profesores Andrés Aristizábal y Oscar Bedoya.*

@@ -21,6 +21,34 @@ SP_E = [("a", "b"), ("a", "c"), ("b", "c"), ("b", "d"), ("c", "e"), ("d", "e")]
 SP_POS = scale({"a": (1, 0), "b": (0, 1), "c": (2, 1), "d": (0.3, 2.1), "e": (1.7, 2.1)}, 80)
 
 
+# Grafos de las diapositivas de Bedoya (cuadrícula a b c d / e f g h / i j k l)
+GRID12 = {v: ((i % 4) * 95, (i // 4) * 85) for i, v in enumerate("abcdefghijkl")}
+B3_E = [("a", "b", 2), ("b", "c", 3), ("c", "d", 1), ("a", "e", 3), ("b", "f", 1), ("c", "g", 2),
+        ("d", "h", 5), ("e", "f", 4), ("f", "g", 3), ("g", "h", 3), ("e", "i", 4), ("f", "j", 2),
+        ("g", "k", 4), ("h", "l", 3), ("i", "j", 3), ("j", "k", 3), ("k", "l", 1)]
+B4_POS = scale({"a": (0, 0), "b": (1.2, 0), "c": (2.4, 0), "d": (3.1, 0.55), "e": (0, 1.1),
+                "f": (1.2, 1.1), "g": (2.4, 1.1), "h": (1.2, 2.3)}, 85)
+B4_E = [("a", "b", 1), ("b", "c", 2), ("a", "e", 4), ("b", "e", 3), ("b", "f", 4), ("b", "g", 1),
+        ("c", "g", 6), ("c", "d", 4), ("d", "g", 2), ("e", "f", 1), ("f", "g", 8), ("e", "h", 5),
+        ("f", "h", 2), ("g", "h", 7)]
+B5_E = [("a", "b", 5), ("b", "c", 3), ("c", "d", 2), ("a", "e", 3), ("a", "f", 1), ("b", "f", 2),
+        ("c", "f", 5), ("c", "g", 3), ("d", "h", 5), ("e", "f", 4), ("f", "g", 6), ("g", "h", 4),
+        ("e", "i", 1), ("f", "i", 1), ("f", "j", 2), ("f", "k", 1), ("g", "k", 4), ("h", "l", 2),
+        ("i", "j", 3), ("j", "k", 1), ("k", "l", 6)]
+OPEN_E = [("a", "b", 2), ("b", "c", 3), ("c", "d", 1), ("a", "e", 3), ("b", "e", 3), ("b", "f", 6),
+          ("b", "g", 1), ("c", "g", 4), ("d", "g", 7), ("d", "h", 5), ("e", "f", 4), ("f", "g", 9),
+          ("g", "h", 2), ("e", "i", 1), ("f", "i", 3), ("f", "j", 5), ("f", "k", 1), ("g", "k", 4),
+          ("h", "k", 5), ("h", "l", 3), ("i", "j", 3), ("j", "k", 3), ("k", "l", 8)]
+CIT_POS = scale({"San Francisco": (0, 0.6), "Denver": (1.4, 0.95), "Chicago": (3.0, 0.3),
+                 "New York": (4.4, 0), "Atlanta": (3.7, 1.9)}, 95)
+CIT_E = [("San Francisco", "Chicago", 1200), ("San Francisco", "New York", 2000, -75),
+         ("San Francisco", "Denver", 900), ("San Francisco", "Atlanta", 2200, 80),
+         ("Denver", "Chicago", 1300), ("Denver", "New York", 1600), ("Denver", "Atlanta", 1400),
+         ("Chicago", "New York", 1000), ("Chicago", "Atlanta", 700), ("New York", "Atlanta", 800)]
+CIT_NAMES = {"San Francisco": "left", "Denver": "below", "Chicago": "above", "New York": "right",
+             "Atlanta": "right"}
+
+
 def static(page, name, pos, edges, directed=False, **kw):
     svg = SVG()
     draw_graph(svg, pos, edges, directed, **kw)
@@ -42,7 +70,20 @@ def edge_list(T):
 
 def build_prim():
     p = Page("Unidad5-Grafos/Prim")
-    p.put("fig-problema", f"![Red de sedes con costos]({static(p, 'problema', G.MST_POS, G.MST_E)})")
+    p.put("fig-problema", f"![Red de comunicaciones con costos]({static(p, 'problema', CIT_POS, CIT_E, name_pos=CIT_NAMES)})")
+    t3600 = [("San Francisco", "Chicago"), ("San Francisco", "Denver"), ("Chicago", "Atlanta"),
+             ("New York", "Atlanta")]
+    t4700 = [("San Francisco", "Chicago"), ("Denver", "Chicago"), ("Denver", "Atlanta"),
+             ("New York", "Atlanta")]
+    w = {(a, b): x for a, b, x, *_ in CIT_E}
+    assert sum(w[e] for e in t3600) == 3600 and sum(w[e] for e in t4700) == 4700
+    mst = prim_trace(list(CIT_POS), [e[:3] for e in CIT_E], None)[-1]["T"]
+    assert sum(e[2] for e in mst) == 3600
+    items = []
+    for T, cap in ((t3600, "costo 3600"), (t4700, "costo 4700")):
+        es = {e: "new" for e in T}
+        items.append((CIT_POS, CIT_E, cap, {"edge_style": es, "weight_style": es, "name_pos": CIT_NAMES}))
+    p.put("fig-ciudades", graph_row(p, "ciudades", items, gap=120))
     # qué es un árbol recubridor
     p.put("fig-sp-g", f"![Grafo G]({static(p, 'sp-g', SP_POS, SP_E)})")
     p.put("fig-sp-t1", f"![Árbol recubridor de G]({tree_fig(p, 'sp-t1', SP_POS, SP_E, [('a', 'b'), ('a', 'c'), ('b', 'd'), ('c', 'e')])})")
@@ -62,8 +103,8 @@ def build_prim():
     p.put("ej1-peso", str(sum(e[2] for e in sn[-1]["T"])))
 
     p.put("fig-ej2", f"![Grafo con empates]({static(p, 'ej2-grafo', MST2_POS, MST2_E)})")
-    st, sn2 = prim_steps(p, "ej2", MST2_V, MST2_POS, MST2_E, "a")
-    p.put("ej2", steps("Prim desde a", st))
+    st, sn2 = prim_steps(p, "ej2", MST2_V, MST2_POS, MST2_E, None)
+    p.put("ej2", steps("Prim, empezando por la arista de menor peso", st))
     p.put("ej2-peso", str(sum(e[2] for e in sn2[-1]["T"])))
 
     st, sn3 = prim_steps(p, "ej3", MST2_V, MST2_POS, MST2_E, "e")
@@ -71,15 +112,30 @@ def build_prim():
     p.put("ej3-peso", str(sum(e[2] for e in sn3[-1]["T"])))
     p.put("ej2-aristas", edge_list(sn2[-1]["T"]))
     p.put("ej3-aristas", edge_list(sn3[-1]["T"]))
+    p.put("fig-ej1", f"![Grafo con pesos]({static(p, 'ej1-grafo', G.MST_POS, G.MST_E)})")
+    same = {frozenset(e[:2]) for e in sn2[-1]["T"]} == {frozenset(e[:2]) for e in sn3[-1]["T"]}
+    p.put("ej3-cmp", ("El **orden** en que entran las aristas cambió, pero el árbol y el peso son los "
+                      "mismos." if same else
+                      "El árbol es **otro**: cambian algunas aristas. Pero el peso es el mismo: los "
+                      "dos son árboles recubridores mínimos.") +
+          " Cuando hay empates, Prim puede producir árboles distintos según el punto de partida o la "
+          "arista que escoja en un empate; todos tienen el mismo peso mínimo.")
     p.assemble("index.md")
 
-    p.put("fig-ex1", f"![Grafo a..h]({static(p, 'ex1', EX_POS, EX_E)})")
-    t = prim_trace(EX_V, EX_E, "a")[-1]["T"]
-    p.put("ex1-sol", edge_list(t))
-    p.put("ex1-peso", str(sum(e[2] for e in t)))
-    p.put("fig-ex1-sol", f"![Árbol recubridor mínimo]({tree_fig(p, 'ex1-sol', EX_POS, EX_E, t)})")
-    t = prim_trace(EX_V, EX_E, "h")[-1]["T"]
-    p.put("ex2-sol", edge_list(t))
+    # Ejercicios (Bedoya)
+    p.put("fig-bm3", f"![Cuadrícula con pesos]({static(p, 'bm3', GRID12, B3_E)})")
+    t3 = prim_trace(list(GRID12), B3_E, None)[-1]["T"]
+    assert sum(e[2] for e in t3) == 24        # costo que dan las diapositivas
+    p.put("bm3-prim", f"Orden de las aristas: {edge_list(t3)}.\n\n"
+                      f"![Árbol recubridor mínimo]({tree_fig(p, 'bm3-sol', GRID12, B3_E, t3)})\n\n"
+                      f"Costo **{sum(e[2] for e in t3)}**.")
+    p.put("fig-bm45", graph_row(p, "bm45", [(B4_POS, B4_E, "a)"), (GRID12, B5_E, "b)")], gap=90))
+    sols = []
+    for cap, pos, E, nm in (("a)", B4_POS, B4_E, "bm4"), ("b)", GRID12, B5_E, "bm5")):
+        t = prim_trace(sorted(pos), E, None)[-1]["T"]
+        sols.append(f"{cap} Orden: {edge_list(t)}. Costo **{sum(e[2] for e in t)}**.\n\n"
+                    f"![Árbol recubridor mínimo]({tree_fig(p, nm + '-sol', pos, E, t)})")
+    p.put("bm45-prim", "\n\n".join(sols))
     p.assemble("exercises.md")
 
 
@@ -111,11 +167,23 @@ def build_kruskal():
     p.put("ingenuo-aristas", edge_list(order))
     p.assemble("index.md")
 
-    p.put("fig-ex1", f"![Grafo a..h]({static(p, 'ex1', EX_POS, EX_E)})")
-    sk = kruskal_trace(EX_V, EX_E)
-    p.put("ex1-sol", edge_list(sk[-1]["T"]))
-    p.put("ex1-desc", ", ".join(f"$\\{{{x['edge'][0]},{x['edge'][1]}\\}}$" for x in sk[1:] if not x["accepted"]) or "ninguna")
-    p.put("ex1-peso", str(sum(e[2] for e in sk[-1]["T"])))
+    items, sols = [], []
+    for cap, pos, E, nm in (("a)", GRID12, B3_E, "k3"), ("b)", B4_POS, B4_E, "k4"), ("c)", GRID12, B5_E, "k5")):
+        items.append((pos, E, cap))
+        sk = kruskal_trace(sorted(pos), E)
+        tk = sk[-1]["T"]
+        tp = prim_trace(sorted(pos), E, None)[-1]["T"]
+        assert sum(e[2] for e in tk) == sum(e[2] for e in tp)
+        same = {frozenset(e[:2]) for e in tk} == {frozenset(e[:2]) for e in tp}
+        desc = ", ".join(f"$\\{{{x['edge'][0]},{x['edge'][1]}\\}}$" for x in sk[1:]
+                         if x["kind"] == "edge" and not x["accepted"]) or "ninguna"
+        sols.append(f"{cap} Orden: {edge_list(tk)}. Descartadas: {desc}. Costo **{sum(e[2] for e in tk)}**, "
+                    f"igual que con Prim; " + ("es el **mismo** árbol." if same else
+                    "el árbol es **distinto** al de Prim (hay empates), con el mismo costo.") +
+                    f"\n\n![Árbol de Kruskal]({tree_fig(p, nm + '-sol', pos, E, tk)})")
+    p.put("fig-bmk", graph_row(p, "bmk", items, gap=80))
+    p.put("bmk-sol", "\n\n".join(sols))
+    p.put("fig-open", f"![Cuadrícula con pesos]({static(p, 'open', GRID12, OPEN_E)})")
     p.assemble("exercises.md")
 
 

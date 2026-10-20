@@ -7,8 +7,6 @@ title: "Unidad 5: Representación de grafos y matriz de conectividad"
 
 # Unidad 5: Representación de grafos y matriz de conectividad
 
-Algunos ejemplos se desarrollan en desplegables con pestañas **Paso 1, Paso 2, …**: cada paso conserva lo anterior y muestra lo nuevo **en color**.
-
 ## 1. El problema
 
 ![r1](images/r1.svg)
@@ -24,7 +22,7 @@ Para cada vértice se guarda la lista de sus vecinos:
 - $c$: $a$, $b$
 - $d$: $b$
 
-Es la representación que usan BFS y DFS. Ocupa espacio $\Theta(V + E)$ y permite recorrer los vecinos de un vértice en tiempo proporcional a su grado. En Java: `List<List<Integer>>`.
+Es la representación que usan BFS y DFS. Ocupa espacio $\Theta(V + E)$ y permite recorrer los vecinos de un vértice en tiempo proporcional a su grado.
 
 ## 3. Matriz de adyacencia
 
@@ -78,7 +76,23 @@ $$
 
 ### Pseudografos y grafos dirigidos
 
-Con aristas paralelas, $a_{ij}$ es el **número** de aristas entre $v_i$ y $v_j$ (la matriz deja de ser booleana). Un bucle en $v_i$ se representa con un $1$ en la posición $(i, i)$.
+Un bucle en $v_i$ se representa con un $1$ en la posición $(i, i)$:
+
+![bed-bucles](images/bed-bucles.svg)
+
+$$
+A = \begin{array}{c|cccc} & \mathbf{u} & \mathbf{v} & \mathbf{w} & \mathbf{x} \\ \hline \mathbf{u} & 1 & 1 & 0 & 0 \\ \mathbf{v} & 1 & 1 & 1 & 1 \\ \mathbf{w} & 0 & 1 & 1 & 1 \\ \mathbf{x} & 0 & 1 & 1 & 0\end{array}
+$$
+
+La matriz de adyacencia de un grafo con aristas paralelas indica la **cantidad** de aristas que hay entre cada par de nodos $v_i$ y $v_j$: deja de ser booleana.
+
+![bed-paralelas](images/bed-paralelas.svg)
+
+$$
+A = \begin{array}{c|cccc} & \mathbf{u} & \mathbf{v} & \mathbf{w} & \mathbf{x} \\ \hline \mathbf{u} & 0 & 2 & 0 & 0 \\ \mathbf{v} & 2 & 1 & 1 & 1 \\ \mathbf{w} & 0 & 1 & 0 & 3 \\ \mathbf{x} & 0 & 1 & 3 & 0\end{array}
+$$
+
+Todos los grafos no dirigidos, incluidos multigrafos y pseudografos, tienen matrices **simétricas**.
 
 ![pseudo](images/pseudo.svg)
 
@@ -93,7 +107,13 @@ $$
 Sigue siendo simétrica: el grafo no es dirigido.
 :::
 
-En un grafo **dirigido**, $a_{ij} = 1$ si hay una arista **de** $v_i$ **a** $v_j$. Ya no tiene que ser simétrica.
+La matriz de adyacencia de un grafo **dirigido** tiene un $1$ en la posición $(i, j)$ si existe una arista que va **de** $v_i$ **a** $v_j$. Ya no tiene que ser simétrica.
+
+![bed-dirigido](images/bed-dirigido.svg)
+
+$$
+M_R = \begin{array}{c|cccc} & \mathbf{a} & \mathbf{b} & \mathbf{c} & \mathbf{d} \\ \hline \mathbf{a} & 1 & 0 & 0 & 0 \\ \mathbf{b} & 1 & 1 & 0 & 1 \\ \mathbf{c} & 1 & 1 & 0 & 1 \\ \mathbf{d} & 0 & 1 & 0 & 0\end{array}
+$$
 
 ![dir](images/dir.svg)
 
@@ -432,8 +452,7 @@ Practique con los [ejercicios de representación y conectividad](exercises.md).
 
 ## Fuentes
 
-- Bedoya, O. *Grafos* (matriz de adyacencia, producto booleano, algoritmo de Warshall). Diapositivas del curso, Universidad del Valle.
-- Caicedo Mejía, J. M. *Unidad 5: Grafos* (Grafos 2: representación de grafos, conectividad). Computación y Estructuras Discretas I, Universidad Icesi, 2026.
+- Bedoya, O. *Grafos* (matriz de adyacencia, producto booleano, caminos de longitud $k$, matriz de conectividad, algoritmo de Warshall; matriz de incidencia y conteo de caminos). Diapositivas del curso, Universidad del Valle.
 - Rosen, K. H. *Discrete Mathematics and Its Applications*, 7.ª ed. McGraw-Hill, 2011. Secciones 9.4 y 10.3.
 
 ---

@@ -13,79 +13,162 @@ Use esta página después de leer el [material de estudio](index.md). Cada ejerc
 
 ### Ejercicio 1
 
-En el siguiente árbol, $I$ y $F$ son nodos meta. Aplique búsqueda preferente por amplitud y búsqueda preferente por profundidad. En cada caso: ¿cuál meta encuentra? Liste los nodos creados y los nodos expandidos.
+Aplique búsqueda preferente por amplitud en cada árbol. Las metas están subrayadas con doble borde. **¿Cuál meta encuentra? Liste los nodos creados y los nodos expandidos.**
 
-![Árbol de búsqueda con metas I y F](images/t2.svg)
+a) $L$ y $D$ son los nodos meta.
+
+![Árbol con metas D y L](images/t2.svg)
+
+b) $L$ y $A$ son los nodos meta.
+
+![Árbol con metas A y L](images/t3.svg)
 
 :::{admonition} Pistas
 :class: dropdown
 - Expandir = verificar si es meta y, si no lo es, crear los hijos.
 - Al expandir un nodo meta no se crean sus hijos.
-- Lleve la tabla «Estado de la cola / Iteración» (o de la pila) como en el Ejemplo 1.
+- Lleve la tabla «Estado de la cola / Iteración» como en el Ejemplo 1.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-- **Amplitud.** Encuentra **F**. Creados: A, B, C, D, E, F, G, H, I. Expandidos: A, B, C, D, E, F.
-- **Profundidad.** Encuentra **I**. Creados: A, B, C, D, E, H, I. Expandidos: A, B, D, H, I.
+- a) Encuentra **L**. Creados: Z, W, X, T, P, F, E, A, C, B, K, L, G, H, D, I. Expandidos: Z, W, X, T, P, F, E, A, C, B, K, L.
+- b) Encuentra **A**. Creados: Z, W, X, T, P, Y, F, E, A, C, Q, R, K, L, G. Expandidos: Z, W, X, T, P, Y, F, E, A.
 
-La búsqueda por amplitud encuentra la meta menos profunda ($F$, nivel $2$); la de profundidad encuentra primero la que está en la rama de más a la izquierda ($I$, nivel $3$).
+En b), $A$ está en el nivel $2$ y $L$ en el $3$: gana $A$ aunque $L$ esté más a la izquierda.
 :::
 
 ### Ejercicio 2
 
-Aplique búsqueda preferente por amplitud para ir de Sibiu (Sib) a Bucarest (Buc) en el siguiente mapa de Rumania, **evitando devolverse** (no se crea un hijo cuyo estado ya está en la rama). Los hijos se crean en este orden: Ara, Zer, Ora, Sib, Tim, Lug, Meh, Dro, Cra, Rim, Fag, Pit, Buc. Liste los nodos expandidos y la ruta encontrada.
-
-![Mapa de Rumania](images/rumania.svg)
+Aplique búsqueda preferente por **profundidad** a los dos árboles del Ejercicio 1. ¿Encuentra las mismas metas?
 
 :::{admonition} Pistas
 :class: dropdown
-- Los hijos de Sib son Ara, Ora, Rim y Fag.
-- Bucarest está a dos tramos de Sibiu por Fagaras y a tres por Rimnicu y Pitesti.
-- Ignore las distancias: esta búsqueda cuenta tramos.
+- La pila deja arriba el hijo de más a la izquierda: se baja por la primera rama hasta el fondo antes de pasar a la siguiente.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-Nodos expandidos, en orden: Sib, Ara, Ora, Rim, Fag, Zer, Tim, Zer, Cra, Pit, Buc. Ruta: **Sib → Fag → Buc** (18 nodos creados).
-
-Si **no** se evita devolverse se encuentra la misma ruta, porque los ciclos no afectan la búsqueda en amplitud, pero se crean 43 nodos y se expanden 15.
+- a) Encuentra **L**. Creados: Z, W, X, T, P, K, L. Expandidos: Z, W, P, K, L.
+- b) Encuentra **L**. Creados: Z, W, X, T, P, Y, Q, R, K, L. Expandidos: Z, W, P, Q, R, Y, K, L.
 :::
 
 ### Ejercicio 3
 
-**El mundo de la aspiradora.** Hay dos cuartos, izquierdo y derecho. Cada uno puede estar sucio o limpio, y la aspiradora está en uno de los dos. Formule el problema: estados, estado inicial (aspiradora a la izquierda, los dos cuartos sucios), operadores, prueba de meta y costo de ruta, si aspirar cuesta $3$ y desplazarse cuesta $1$. Dibuje el árbol de búsqueda por amplitud hasta encontrar la meta.
+Aplique búsqueda preferente por amplitud para ir de Arad a Bucarest en el mapa de Rumania del material de estudio. Evite devolverse. Los hijos se crean en el orden de esta lista: Ara, Zer, Ora, Sib, Tim, Lug, Meh, Dro, Cra, Rim, Fag, Pit, Buc. Luego haga lo mismo desde Sibiu.
 
 :::{admonition} Pistas
 :class: dropdown
-- Un estado necesita tres datos: dónde está la aspiradora y si cada cuarto está sucio.
-- ¿Cuántos estados posibles hay?
-- Operadores: mover a la izquierda (I), mover a la derecha (D), aspirar (A).
+- Ignore las distancias: esta búsqueda cuenta tramos.
+- Bucarest está a tres tramos de Arad (por Sibiu y Fagaras) y a dos de Sibiu.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-Hay $2 \cdot 2 \cdot 2 = 8$ estados. Meta: los dos cuartos limpios (la aspiradora puede estar en cualquiera). La solución menos profunda es A, D, A (profundidad $3$), con costo $3 + 1 + 3 = 7$. La búsqueda por amplitud la encuentra porque es la de menor profundidad; aquí también es la de menor costo, pero eso no siempre pasa cuando los operadores cuestan distinto.
+- Desde Arad: nodos expandidos Ara, Zer, Sib, Tim, Ora, Ora, Rim, Fag, Lug, Sib, Zer, Cra, Pit, Buc. Ruta **Ara → Sib → Fag → Buc** (21 nodos creados).
+- Desde Sibiu: nodos expandidos Sib, Ara, Ora, Rim, Fag, Zer, Tim, Zer, Cra, Pit, Buc. Ruta **Sib → Fag → Buc** (18 nodos creados).
+
+![Árbol de búsqueda desde Arad](images/arad-bfs.svg)
+
+La ruta encontrada tiene la menor cantidad de tramos, pero no la menor cantidad de kilómetros: por Rimnicu y Pitesti son $418$ km contra $450$ por Fagaras. La búsqueda por amplitud no es óptima.
 :::
 
 ### Ejercicio 4
 
-Construya el árbol del juego NIM con **5** fichas (cada jugador toma $1$, $2$ o $3$; pierde quien toma la última; empieza J1). Evalúelo con *minimax*. ¿J1 puede asegurar la victoria? ¿Con qué jugada?
+Aplique búsqueda preferente por amplitud. El ratón (verde) busca el queso; las casillas grises están bloqueadas. Se mueve a una casilla vecina libre en el orden ↑, ←, →, ↓. **No** evite devolverse.
+
+![Cuadrícula](images/raton-grid.svg)
 
 :::{admonition} Pistas
 :class: dropdown
-- No hace falta dibujar todo de nuevo: el subárbol que empieza con $4$ fichas ya se evaluó en el Ejemplo de la sección 7, pero ahora en ese nodo juega **J2**.
+- Sin evitar devolverse, un hijo puede repetir el estado del padre.
+- El queso está a dos movimientos.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+![Árbol de búsqueda](images/raton-arbol.svg)
+
+Camino: (3,1) → (3,0) → (2,0). Se crearon 7 nodos y se expandieron 4. Algunos hijos repiten el estado de su abuelo (volver a $(3,1)$), porque no se evita devolverse.
+:::
+
+### Ejercicio 5
+
+**El mundo de la aspiradora.** Hay dos cuartos, izquierdo y derecho; cada uno puede tener mugre o no, y la aspiradora está en uno de los dos. Formule el problema: estados, operadores (mover a la izquierda I, mover a la derecha D, aspirar A), prueba de meta y costo de ruta, si aspirar cuesta $3$ y desplazarse cuesta $1$. Escriba en pseudocódigo los operadores `MOVER-IZQUIERDA` y `ASPIRAR`. Luego aplique búsqueda preferente por amplitud **sin evitar devolverse**, desde la aspiradora a la izquierda y los dos cuartos con mugre, con los operadores en el orden A, D, I. Un operador que no cambia el estado (aspirar un cuarto limpio, moverse a la izquierda estando a la izquierda) no se aplica.
+
+:::{admonition} Pistas
+:class: dropdown
+- Un estado necesita tres datos: dónde está la aspiradora y si cada cuarto tiene mugre. ¿Cuántos estados hay?
+- La meta: no hay mugre en ninguno de los cuartos, esté donde esté la aspiradora.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+Hay $2 \cdot 2 \cdot 2 = 8$ estados. `MOVER-IZQUIERDA` solo cambia la posición de la aspiradora; `ASPIRAR` quita la mugre del cuarto donde está.
+
+![Árbol de búsqueda de la aspiradora](images/aspiradora.svg)
+
+La meta se encuentra con los operadores A, D, A (profundidad 3, costo $3 + 1 + 3 = 7$). Se crearon 11 nodos y se expandieron 7. Algunos nodos repiten un estado de su rama (moverse a la derecha y luego otra vez a la izquierda): los ciclos no afectan la búsqueda en amplitud, solo crean más nodos.
+:::
+
+### Ejercicio 6
+
+Construya el árbol de juego y analícelo. En cada uno la jugada es de X (el jugador 1). ¿Con qué jugada empezaría?
+
+| a) | b) |
+|---|---|
+| ![Tablero a](images/gato-ej-0.svg) | ![Tablero b](images/gato-ej-1.svg) |
+
+:::{admonition} Pistas
+:class: dropdown
+- Hay tres casillas libres: el árbol tiene a lo sumo $3 \cdot 2 \cdot 1$ hojas.
+- Marque cada hoja con «gana», «pierde» o «empate» del jugador 1 y suba: en los niveles de O se supone que O juega lo mejor para O.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+a) Ninguna jugada lo salva: tome la casilla que tome, si O juega bien, el jugador 1 **pierde**. O amenaza con dos líneas a la vez.
+
+![Árbol analizado](images/gato-ej-0-val.svg)
+
+b) Con **X en el centro** el jugador 1 asegura «gana jugador1».
+
+![Árbol analizado](images/gato-ej-1-val.svg)
+:::
+
+### Ejercicio 7
+
+Hay una jarra de **4 litros** y una de **3 litros**, sin marcas, y una llave de agua. Se puede llenar una jarra, vaciarla, o pasar agua de una a otra hasta que la que recibe se llene o la que entrega quede vacía. Formule el problema y aplique búsqueda preferente por amplitud, sin crear estados que ya se crearon, para conseguir **exactamente 2 litros en la jarra de 4**. Los operadores en orden: llenar 4, llenar 3, vaciar 4, vaciar 3, pasar 4→3, pasar 3→4.
+
+:::{admonition} Pistas
+:class: dropdown
+- Un estado es un par $(a, b)$: litros en la jarra de 4 y en la de 3. El inicial es $(0, 0)$.
+- Desde $(4, 1)$, «pasar 4→3» mueve $\min(4,\ 3 - 1) = 2$ litros.
+:::
+
+:::{admonition} Solución general
+:class: dropdown
+Solución: $(0,0)$ → **Llenar 4** $(4,0)$ → **4→3** $(1,3)$ → **Vaciar 3** $(1,0)$ → **4→3** $(0,1)$ → **Llenar 4** $(4,1)$ → **4→3** $(2,3)$. Son $6$ movimientos; como la búsqueda va por niveles, no hay solución con menos. Se crearon 14 nodos.
+:::
+
+### Ejercicio 8
+
+Construya el árbol del juego NIM con **5** fichas (cada jugador toma $1$, $2$ o $3$; pierde quien toma la última; empieza J1). ¿J1 puede asegurar la victoria? ¿Con qué jugada?
+
+:::{admonition} Pistas
+:class: dropdown
+- El subárbol que empieza con $4$ fichas ya se analizó en el material de estudio, pero ahora en ese nodo juega **J2**.
 - Con $1$ ficha, el que juega pierde.
 :::
 
 :::{admonition} Solución general
 :class: dropdown
-J1 **no** puede asegurar la victoria: con $5$ fichas, tome lo que tome, deja $4$, $3$ o $2$ fichas, y desde cualquiera de esas posiciones el jugador que mueve (J2) puede dejarle $1$ ficha a J1. Las posiciones perdedoras para quien mueve son $1, 5, 9, \dots$ fichas, es decir, $n \equiv 1 \pmod 4$.
+J1 **no** puede asegurar la victoria: con $5$ fichas, tome lo que tome, deja $4$, $3$ o $2$ fichas, y desde cualquiera de esas posiciones J2 puede dejarle $1$ ficha. Las posiciones perdedoras para quien mueve son $1, 5, 9, \dots$ fichas.
 :::
 
-### Ejercicio 5
+### Ejercicio 9
 
-**Misioneros y caníbales.** Tres misioneros y tres caníbales deben cruzar un río en un bote donde caben máximo dos personas. Si en alguna orilla hay más caníbales que misioneros (y hay al menos un misionero), los misioneros son devorados. Formule el problema, implemente en Java la búsqueda preferente por amplitud (puede partir de la clase `Jarras`) y reporte la solución y el número de nodos creados.
+**Misioneros y caníbales.** Tres misioneros y tres caníbales deben cruzar un río en un bote donde caben máximo dos personas. Si en alguna orilla hay más caníbales que misioneros (y hay al menos un misionero), los misioneros son devorados. Formule el problema (estados, operadores, prueba de meta y costo de ruta) y aplique búsqueda preferente por amplitud, sin crear estados que ya se crearon. Reporte la solución y el número de nodos creados.
 
 ---
 
