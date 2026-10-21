@@ -83,18 +83,13 @@ def utree(t):
 
 def ufig_row(p, name, trees, caps, dx=24, dy=46, gap=70):
     """Varios árboles sin nombres, uno al lado del otro, con su rótulo."""
-    svg = SVG()
-    x0 = 0
-    for t, cap in zip(trees, caps):
+    parts = []
+    for t in trees:
         pos, E = tree_pos(utree(t), dx, dy)
-        minx = min(x for x, _ in pos.values())
-        pos = {v: (x - minx + x0, y) for v, (x, y) in pos.items()}
+        svg = SVG()
         draw_graph(svg, pos, E, node_text={v: "" for v in pos})
-        xs = [x for x, _ in pos.values()]
-        ymax = max(y for _, y in pos.values())
-        svg.text((min(xs) + max(xs)) / 2, ymax + 34, cap, 14, PAL["ink"])
-        x0 = max(xs) + gap
-    return f"![{', '.join(caps)}]({p.img(name, svg)})"
+        parts.append(svg)
+    return f"![{', '.join(caps)}]({p.img(name, tile(parts, gap, caps=caps))})"
 
 
 def gcap(svg, pos, cap, dy=34):
@@ -104,16 +99,13 @@ def gcap(svg, pos, cap, dy=34):
 
 def graph_row(p, name, items, gap=80, **kw):
     """items: lista de (pos, aristas, rótulo, estilos de arista)."""
-    svg = SVG()
-    x0 = 0
-    for pos, E, cap, es in items:
-        minx = min(x for x, _ in pos.values())
-        pos = {v: (x - minx + x0, y) for v, (x, y) in pos.items()}
+    parts = []
+    for pos, E, _, es in items:
+        svg = SVG()
         draw_graph(svg, pos, E, edge_style=es, **kw)
-        if cap:
-            gcap(svg, pos, cap)
-        x0 = max(x for x, _ in pos.values()) + gap
-    return f"![{name}]({p.img(name, svg)})"
+        parts.append(svg)
+    caps = [it[2] for it in items]
+    return f"![{name}]({p.img(name, tile(parts, gap, caps=caps))})"
 
 
 GRID = scale({"a": (0, 0), "b": (1, 0), "c": (0, 1), "d": (1, 1), "e": (0, 2), "f": (1, 2)}, 72)
@@ -131,7 +123,7 @@ def rooted(edges, r):
 
 
 # Árboles de decisión: cada nodo es (texto, forma, [(rótulo de la rama, hijo), ...])
-def draw_dtree(node, dx=110, dy=86, hl_path=(), shapes=None):
+def draw_dtree(node, dx=110, dy=86, hl_path=(), shapes=None, compact=False):
     ids, labs, shp, kids, elab = {}, {}, {}, {}, {}
     k = [0]
 
@@ -151,7 +143,7 @@ def draw_dtree(node, dx=110, dy=86, hl_path=(), shapes=None):
 
     def as_t(v):
         return (v, [as_t(c) for c in kids[v]])
-    pos, E = tree_pos(as_t(root), dx, dy)
+    pos, E = tree_pos(as_t(root), dx, dy, compact)
     hl = set(hl_path)
     svg = SVG()
 
@@ -369,19 +361,17 @@ def build():
             r = subt(c, v)
             if r:
                 return r
-    svg = SVG()
-    x0 = 0
+    parts = []
     for v in ("e", "g"):
         pos, E = tree_pos(subt(T1, v), 40, 56)
-        minx = min(x for x, _ in pos.values())
-        pos = {k: (x - minx + x0, y) for k, (x, y) in pos.items()}
+        svg = SVG()
         draw_graph(svg, pos, E, node_style={v: "hl"})
-        gcap(svg, pos, f"Subárbol con raíz en {v}")
-        x0 = max(x for x, _ in pos.values()) + 110
-    p.put("fig-ex6", f"![Subárboles con raíz en e y en g]({p.img('ex6', svg)})")
+        parts.append(svg)
+    caps = [f"Subárbol con raíz en {v}" for v in ("e", "g")]
+    p.put("fig-ex6", f"![Subárboles con raíz en e y en g]({p.img('ex6', tile(parts, 110, caps=caps))})")
 
     # Árboles de decisión
-    svg, _ = draw_dtree(SORT3)
+    svg, _ = draw_dtree(SORT3, compact=True)
     p.put("fig-decision", f"![Árbol de decisión para ordenar tres elementos]({p.img('decision', svg)})")
     # a = 1, b = 7, c = 5: a < b, b > c, a < c
     path_ids = ["n1", "n7", "n8", "n10"]
@@ -392,7 +382,7 @@ def build():
              "$3$ comparaciones."]
     tabs = []
     for i in range(len(path_ids)):
-        svg, _ = draw_dtree(SORT3, hl_path=path_ids[:i + 1])
+        svg, _ = draw_dtree(SORT3, hl_path=path_ids[:i + 1], compact=True)
         tabs.append(f"![Decisión, paso {i + 1}]({p.img(f'decision-{i}', svg)})\n\n> {texts[i]}")
     p.put("decision-steps", steps("a = 1, b = 7, c = 5", tabs))
     rows = [list(r) for r in GOLF_ROWS]

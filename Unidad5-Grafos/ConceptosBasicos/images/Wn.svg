@@ -1,88 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="599" height="201" viewBox="-20.5 -91.2 599.0 201.4" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<svg xmlns="http://www.w3.org/2000/svg" width="936" height="319" viewBox="-14.0 -14.0 623.9 212.3" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
 <defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
-<rect x="-20.5" y="-91.2" width="599.0" height="201.4" fill="#ffffff"/>
-<line x1="47.9" y1="-47.1" x2="87.2" y2="21.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="84.4" y1="26.0" x2="5.7" y2="26.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="2.9" y1="21.1" x2="42.2" y2="-47.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="45.0" y1="-5.7" x2="45.0" y2="-46.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="50.0" y1="2.8" x2="85.1" y2="23.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="40.1" y1="2.8" x2="4.9" y2="23.1" stroke="#111111" stroke-width="1.2"/>
-<circle cx="45.0" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="45.0" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text>
-<circle cx="90.1" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="96.6" y="43.8" font-size="15" fill="#111111" text-anchor="start"></text>
-<circle cx="0.0" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="-6.5" y="43.8" font-size="15" fill="#111111" text-anchor="end"></text>
-<circle cx="45.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="45.0" y="20.4" font-size="15" fill="#111111" text-anchor="middle"></text>
-<text x="45.0" y="66.0" font-size="14" fill="#111111" text-anchor="middle">W3</text>
-<line x1="202.6" y1="-48.0" x2="246.5" y2="-4.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="246.5" y1="4.0" x2="202.6" y2="48.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="194.5" y1="48.0" x2="150.6" y2="4.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="150.6" y1="-4.0" x2="194.5" y2="-48.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="198.6" y1="-5.7" x2="198.6" y2="-46.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="204.3" y1="0.0" x2="244.9" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="198.6" y1="5.7" x2="198.6" y2="46.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="192.9" y1="0.0" x2="152.3" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<circle cx="198.6" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="198.6" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text>
-<circle cx="250.6" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="259.8" y="5.2" font-size="15" fill="#111111" text-anchor="start"></text>
-<circle cx="198.6" cy="52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="198.6" y="72.5" font-size="15" fill="#111111" text-anchor="middle"></text>
-<circle cx="146.6" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="137.4" y="5.3" font-size="15" fill="#111111" text-anchor="end"></text>
-<circle cx="198.6" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="192.1" y="-7.5" font-size="15" fill="#111111" text-anchor="end"></text>
-<text x="198.6" y="92.0" font-size="14" fill="#111111" text-anchor="middle">W4</text>
-<line x1="363.8" y1="-48.6" x2="404.1" y2="-19.4" stroke="#111111" stroke-width="1.2"/>
-<line x1="406.9" y1="-10.6" x2="391.6" y2="36.6" stroke="#111111" stroke-width="1.2"/>
-<line x1="384.1" y1="42.1" x2="334.4" y2="42.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="326.9" y1="36.6" x2="311.5" y2="-10.6" stroke="#111111" stroke-width="1.2"/>
-<line x1="314.4" y1="-19.4" x2="354.6" y2="-48.6" stroke="#111111" stroke-width="1.2"/>
-<line x1="359.2" y1="-5.7" x2="359.2" y2="-46.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="364.6" y1="-1.8" x2="403.3" y2="-14.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="362.6" y1="4.6" x2="386.4" y2="37.5" stroke="#111111" stroke-width="1.2"/>
-<line x1="355.9" y1="4.6" x2="332.0" y2="37.5" stroke="#111111" stroke-width="1.2"/>
-<line x1="353.8" y1="-1.8" x2="315.2" y2="-14.3" stroke="#111111" stroke-width="1.2"/>
-<circle cx="359.2" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="359.2" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text>
-<circle cx="408.7" cy="-16.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="417.9" y="-10.8" font-size="15" fill="#111111" text-anchor="start"></text>
-<circle cx="389.8" cy="42.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="396.3" y="59.8" font-size="15" fill="#111111" text-anchor="start"></text>
-<circle cx="328.7" cy="42.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="322.2" y="59.8" font-size="15" fill="#111111" text-anchor="end"></text>
-<circle cx="309.8" cy="-16.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="300.6" y="-10.8" font-size="15" fill="#111111" text-anchor="end"></text>
-<circle cx="359.2" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="352.7" y="-7.5" font-size="15" fill="#111111" text-anchor="end"></text>
-<text x="359.2" y="82.1" font-size="14" fill="#111111" text-anchor="middle">W5</text>
-<line x1="517.9" y1="-49.1" x2="553.0" y2="-28.9" stroke="#111111" stroke-width="1.2"/>
-<line x1="557.9" y1="-20.3" x2="557.9" y2="20.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="553.0" y1="28.9" x2="517.9" y2="49.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="508.0" y1="49.1" x2="472.8" y2="28.8" stroke="#111111" stroke-width="1.2"/>
-<line x1="467.9" y1="20.3" x2="467.9" y2="-20.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="472.8" y1="-28.9" x2="508.0" y2="-49.2" stroke="#111111" stroke-width="1.2"/>
-<line x1="512.9" y1="-5.7" x2="512.9" y2="-46.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="517.9" y1="-2.9" x2="553.0" y2="-23.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="517.9" y1="2.9" x2="553.0" y2="23.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="512.9" y1="5.7" x2="512.9" y2="46.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="508.0" y1="2.8" x2="472.8" y2="23.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="508.0" y1="-2.8" x2="472.8" y2="-23.2" stroke="#111111" stroke-width="1.2"/>
-<circle cx="512.9" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="512.9" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text>
-<circle cx="557.9" cy="-26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="564.5" y="-33.5" font-size="15" fill="#111111" text-anchor="start"></text>
-<circle cx="557.9" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="564.5" y="43.8" font-size="15" fill="#111111" text-anchor="start"></text>
-<circle cx="512.9" cy="52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="512.9" y="72.5" font-size="15" fill="#111111" text-anchor="middle"></text>
-<circle cx="467.9" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="461.4" y="43.8" font-size="15" fill="#111111" text-anchor="end"></text>
-<circle cx="467.9" cy="-26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="461.4" y="-33.5" font-size="15" fill="#111111" text-anchor="end"></text>
-<circle cx="512.9" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="503.7" y="5.3" font-size="15" fill="#111111" text-anchor="end"></text>
-<text x="512.9" y="92.0" font-size="14" fill="#111111" text-anchor="middle">W6</text>
+<rect x="-14.0" y="-14.0" width="623.9" height="212.3" fill="#ffffff"/>
+<g transform="translate(51.5,77.2)"><line x1="2.9" y1="-47.1" x2="42.2" y2="21.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><line x1="39.3" y1="26.0" x2="-39.3" y2="26.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><line x1="-42.2" y1="21.1" x2="-2.8" y2="-47.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><line x1="0.0" y1="-5.7" x2="0.0" y2="-46.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><line x1="4.9" y1="2.8" x2="40.1" y2="23.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><line x1="-4.9" y1="2.8" x2="-40.1" y2="23.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><circle cx="0.0" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><text x="0.0" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text></g>
+<g transform="translate(51.5,77.2)"><circle cx="45.0" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><text x="51.5" y="43.8" font-size="15" fill="#111111" text-anchor="start"></text></g>
+<g transform="translate(51.5,77.2)"><circle cx="-45.0" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><text x="-51.5" y="43.8" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<g transform="translate(51.5,77.2)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(51.5,77.2)"><text x="0.0" y="20.4" font-size="15" fill="#111111" text-anchor="middle"></text></g>
+<text x="51.5" y="180.2" font-size="14" fill="#111111" text-anchor="middle">W3</text>
+<g transform="translate(214.3,77.2)"><line x1="4.0" y1="-48.0" x2="48.0" y2="-4.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><line x1="48.0" y1="4.0" x2="4.0" y2="48.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><line x1="-4.0" y1="48.0" x2="-48.0" y2="4.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><line x1="-48.0" y1="-4.0" x2="-4.0" y2="-48.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><line x1="0.0" y1="-5.7" x2="0.0" y2="-46.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><line x1="5.7" y1="0.0" x2="46.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><line x1="0.0" y1="5.7" x2="0.0" y2="46.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><line x1="-5.7" y1="0.0" x2="-46.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><circle cx="0.0" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><text x="0.0" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text></g>
+<g transform="translate(214.3,77.2)"><circle cx="52.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><text x="61.2" y="5.2" font-size="15" fill="#111111" text-anchor="start"></text></g>
+<g transform="translate(214.3,77.2)"><circle cx="0.0" cy="52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><text x="0.0" y="72.5" font-size="15" fill="#111111" text-anchor="middle"></text></g>
+<g transform="translate(214.3,77.2)"><circle cx="-52.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><text x="-61.2" y="5.3" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<g transform="translate(214.3,77.2)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(214.3,77.2)"><text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<text x="214.3" y="180.2" font-size="14" fill="#111111" text-anchor="middle">W4</text>
+<g transform="translate(384.1,77.2)"><line x1="4.6" y1="-48.6" x2="44.8" y2="-19.4" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="47.7" y1="-10.6" x2="32.3" y2="36.6" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="24.9" y1="42.1" x2="-24.9" y2="42.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="-32.3" y1="36.6" x2="-47.7" y2="-10.6" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="-44.8" y1="-19.4" x2="-4.6" y2="-48.6" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="0.0" y1="-5.7" x2="0.0" y2="-46.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="5.4" y1="-1.8" x2="44.0" y2="-14.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="3.4" y1="4.6" x2="27.2" y2="37.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="-3.4" y1="4.6" x2="-27.2" y2="37.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><line x1="-5.4" y1="-1.8" x2="-44.0" y2="-14.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><circle cx="0.0" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><text x="0.0" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text></g>
+<g transform="translate(384.1,77.2)"><circle cx="49.5" cy="-16.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><text x="58.7" y="-10.8" font-size="15" fill="#111111" text-anchor="start"></text></g>
+<g transform="translate(384.1,77.2)"><circle cx="30.6" cy="42.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><text x="37.1" y="59.8" font-size="15" fill="#111111" text-anchor="start"></text></g>
+<g transform="translate(384.1,77.2)"><circle cx="-30.6" cy="42.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><text x="-37.1" y="59.8" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<g transform="translate(384.1,77.2)"><circle cx="-49.5" cy="-16.1" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><text x="-58.7" y="-10.8" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<g transform="translate(384.1,77.2)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(384.1,77.2)"><text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<text x="384.1" y="180.2" font-size="14" fill="#111111" text-anchor="middle">W5</text>
+<g transform="translate(544.3,77.2)"><line x1="4.9" y1="-49.1" x2="40.1" y2="-28.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="45.0" y1="-20.3" x2="45.0" y2="20.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="40.1" y1="28.8" x2="4.9" y2="49.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="-4.9" y1="49.1" x2="-40.1" y2="28.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="-45.0" y1="20.3" x2="-45.0" y2="-20.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="-40.1" y1="-28.9" x2="-4.9" y2="-49.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="0.0" y1="-5.7" x2="0.0" y2="-46.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="4.9" y1="-2.8" x2="40.1" y2="-23.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="4.9" y1="2.8" x2="40.1" y2="23.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="0.0" y1="5.7" x2="0.0" y2="46.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="-4.9" y1="2.8" x2="-40.1" y2="23.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><line x1="-4.9" y1="-2.9" x2="-40.1" y2="-23.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><circle cx="0.0" cy="-52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><text x="0.0" y="-62.2" font-size="15" fill="#111111" text-anchor="middle"></text></g>
+<g transform="translate(544.3,77.2)"><circle cx="45.0" cy="-26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><text x="51.5" y="-33.5" font-size="15" fill="#111111" text-anchor="start"></text></g>
+<g transform="translate(544.3,77.2)"><circle cx="45.0" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><text x="51.5" y="43.8" font-size="15" fill="#111111" text-anchor="start"></text></g>
+<g transform="translate(544.3,77.2)"><circle cx="0.0" cy="52.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><text x="0.0" y="72.5" font-size="15" fill="#111111" text-anchor="middle"></text></g>
+<g transform="translate(544.3,77.2)"><circle cx="-45.0" cy="26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><text x="-51.5" y="43.8" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<g transform="translate(544.3,77.2)"><circle cx="-45.0" cy="-26.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><text x="-51.5" y="-33.5" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<g transform="translate(544.3,77.2)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(544.3,77.2)"><text x="-9.2" y="5.3" font-size="15" fill="#111111" text-anchor="end"></text></g>
+<text x="544.3" y="180.2" font-size="14" fill="#111111" text-anchor="middle">W6</text>
 </svg>

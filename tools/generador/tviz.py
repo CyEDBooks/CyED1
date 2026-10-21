@@ -52,15 +52,54 @@ def layout(root, dx=44, dy=62):
     return pos, edges
 
 
+def compact_layout(root, dx=44, dy=62):
+    """Como layout, pero cada subárbol se arrima al de al lado hasta quedar a dx en su nivel
+    más cercano, y el padre queda centrado sobre sus hijos. Mucho más angosto en árboles
+    grandes; ya no hay una columna por nodo."""
+    def rec(n):
+        # devuelve (x relativa de cada llave con la raíz en 0, contorno izquierdo y derecho por nivel)
+        subs = [(c, rec(c)) for c in (n.left, n.right) if c is not None]
+        if not subs:
+            return {n.key: (0, 0)}, [0], [0]
+        if len(subs) == 2:
+            (_, (pl, ll, rl)), (_, (pr, lr, rr)) = subs
+            off = max(rl[i] - lr[i] + dx for i in range(min(len(rl), len(lr))))
+            sl, sr = -off / 2, off / 2
+        else:
+            c, (pl, ll, rl) = subs[0]
+            sl = -dx / 2 if c is n.left else dx / 2
+            pr, lr, rr, sr = {}, [], [], 0
+        pos = {n.key: (0, 0)}
+        for p_, s in ((pl, sl), (pr, sr)):
+            for k, (x, d) in p_.items():
+                pos[k] = (x + s, d + 1)
+        depth = max(len(ll), len(lr))
+        left = [0] + [min(v for v in (ll[i] + sl if i < len(ll) else None,
+                                      lr[i] + sr if i < len(lr) else None) if v is not None)
+                      for i in range(depth)]
+        right = [0] + [max(v for v in (rl[i] + sl if i < len(rl) else None,
+                                       rr[i] + sr if i < len(rr) else None) if v is not None)
+                       for i in range(depth)]
+        return pos, left, right
+
+    rel, _, _ = rec(root)
+    minx = min(x for x, _ in rel.values())
+    pos = {k: ((x - minx), d * dy) for k, (x, d) in rel.items()}
+    edges = [(n.key, c.key) for n in nodes(root) for c in (n.left, n.right) if c is not None]
+    return pos, edges
+
+
 def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, r=15,
-         panel=None, caption=None, dx=40, dy=56, label_side="right", font=13, ghost=None):
-    """Dibuja un árbol binario. ghost = (clave_padre, 'L'|'R', texto) para un hueco."""
+         panel=None, caption=None, dx=40, dy=56, label_side="right", font=13, ghost=None,
+         compact=False):
+    """Dibuja un árbol binario. ghost = (clave_padre, 'L'|'R', texto) para un hueco.
+    compact: usa compact_layout (para árboles grandes)."""
     svg = SVG()
     if root is None:
         svg.rect(0, 0, 120, 40, PAL["soft"], PAL["border"])
         svg.text(60, 26, "árbol vacío", 13, PAL["muted"])
         return svg
-    pos, edges = layout(root, dx, dy)
+    pos, edges = (compact_layout if compact else layout)(root, dx, dy)
     node_style = node_style or {}
     edge_style = edge_style or {}
     labels = labels or {}

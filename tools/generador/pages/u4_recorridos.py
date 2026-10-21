@@ -133,17 +133,13 @@ def traversal_steps(p, prefix, t, kind, why=None):
 
 
 def tree_row(p, name, trees, caps, dx=38, gap=80):
-    svg = SVG()
-    x0 = 0
-    for t, cap in zip(trees, caps):
+    parts = []
+    for t in trees:
         pos, E = gpos(t, dx, 54)
-        minx = min(x for x, _ in pos.values())
-        pos = {v: (x - minx + x0, y) for v, (x, y) in pos.items()}
+        svg = SVG()
         draw_graph(svg, pos, E)
-        xs = [x for x, _ in pos.values()]
-        svg.text((min(xs) + max(xs)) / 2, max(y for _, y in pos.values()) + 36, cap, 14)
-        x0 = max(xs) + gap
-    return f"![{', '.join(caps)}]({p.img(name, svg)})"
+        parts.append(svg)
+    return f"![{', '.join(caps)}]({p.img(name, tile(parts, gap, caps=caps))})"
 
 
 def border(n, kind):
@@ -307,22 +303,15 @@ def build():
         q += [c for c in (n.left, n.right) if c]
     p.put("ex3-niv", seq(lv))
 
-    svg = SVG()
-    x0 = 0
+    parts = []
     rows = []
-    for t, cap, txt in zip(EX4, ["a)", "b)", "c)"], EX4_TXT):
+    for t, txt in zip(EX4, EX4_TXT):
         r = from_tuple(t)
-        sub = draw(r, font=17)
-        # se copia el dibujo desplazado
-        for it in sub.items:
-            svg.items.append(f'<g transform="translate({x0 - sub.minx:.1f},0)">{it}</g>')
-        svg._box(x0, sub.miny, x0 + sub.maxx - sub.minx, sub.maxy)
-        svg.text(x0 + (sub.maxx - sub.minx) / 2, sub.maxy + 26, cap, 14)
-        x0 += sub.maxx - sub.minx + 60
+        parts.append(draw(r, font=17))
         pre = " ".join(n.key.strip() for n in border(r, "pre"))
         post = " ".join(n.key.strip() for n in border(r, "post"))
         rows.append(f"| ${txt}$ | `{pre}` | `{post}` |")
-    p.put("fig-ex4", f"![Árboles de las tres expresiones]({p.img('ex4', svg)})")
+    p.put("fig-ex4", f"![Árboles de las tres expresiones]({p.img('ex4', tile(parts, caps=['a)', 'b)', 'c)']))})")
     p.put("ex5-rows", "\n".join(rows))
     for key, expr, fn in (("ex6a", "+ − * 2 3 5 / ↑ 2 3 4", reduce_prefix),
                           ("ex6b", "/ − + + 4 3 13 5 − ↑ − 6 4 3 3", reduce_prefix),

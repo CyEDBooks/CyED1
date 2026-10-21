@@ -87,7 +87,7 @@ def build():
     p.put("ex1-hojas", ", ".join(n.key for n in nodes(ex) if n.left is None and n.right is None))
     for key, t in (("vv", VV), ("bed", BED)):
         r = from_tuple(t)
-        p.put(f"fig-{key}", f"![Árbol binario]({p.img(key, draw(r, dx=36 if key == 'bed' else 40))})")
+        p.put(f"fig-{key}", f"![Árbol binario]({p.img(key, draw(r, dx=44, compact=True) if key == 'bed' else draw(r))})")
         par, lev = {}, {}
 
         def rec(n, pa, d):

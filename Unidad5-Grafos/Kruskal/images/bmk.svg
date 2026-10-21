@@ -1,227 +1,227 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1094" height="293" viewBox="-32.2 -39.2 1094.3 292.9" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<svg xmlns="http://www.w3.org/2000/svg" width="524" height="1315" viewBox="-14.0 -14.0 349.4 876.6" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
 <defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
-<rect x="-32.2" y="-39.2" width="1094.3" height="292.9" fill="#ffffff"/>
-<line x1="5.7" y1="0.0" x2="89.3" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="40.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="47.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="100.7" y1="0.0" x2="184.3" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="135.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="142.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="195.7" y1="0.0" x2="279.3" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="230.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="237.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="0.0" y1="5.7" x2="0.0" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="-7.2" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="0.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="95.0" y1="5.7" x2="95.0" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="87.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="95.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="190.0" y1="5.7" x2="190.0" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="182.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="190.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="285.0" y1="5.7" x2="285.0" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="277.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="285.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text>
-<line x1="5.7" y1="85.0" x2="89.3" y2="85.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="40.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="47.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="100.7" y1="85.0" x2="184.3" y2="85.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="135.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="142.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="195.7" y1="85.0" x2="279.3" y2="85.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="230.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="237.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="0.0" y1="90.7" x2="0.0" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="-7.2" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="0.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="95.0" y1="90.7" x2="95.0" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="87.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="95.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="190.0" y1="90.7" x2="190.0" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="182.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="190.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="285.0" y1="90.7" x2="285.0" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="277.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="285.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="5.7" y1="170.0" x2="89.3" y2="170.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="40.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="47.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="100.7" y1="170.0" x2="184.3" y2="170.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="135.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="142.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="195.7" y1="170.0" x2="279.3" y2="170.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="230.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="237.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text>
-<circle cx="95.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="95.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text>
-<circle cx="190.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="190.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">c</text>
-<circle cx="285.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="291.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">d</text>
-<circle cx="0.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="-9.2" y="90.2" font-size="15" fill="#111111" text-anchor="end">e</text>
-<circle cx="95.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="88.5" y="77.5" font-size="15" fill="#111111" text-anchor="end">f</text>
-<circle cx="190.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="196.5" y="77.5" font-size="15" fill="#111111" text-anchor="start">g</text>
-<circle cx="285.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="294.2" y="90.2" font-size="15" fill="#111111" text-anchor="start">h</text>
-<circle cx="0.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="-6.5" y="187.8" font-size="15" fill="#111111" text-anchor="end">i</text>
-<circle cx="95.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="95.0" y="190.4" font-size="15" fill="#111111" text-anchor="middle">j</text>
-<circle cx="190.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="190.0" y="190.4" font-size="15" fill="#111111" text-anchor="middle">k</text>
-<circle cx="285.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="291.5" y="187.8" font-size="15" fill="#111111" text-anchor="start">l</text>
-<text x="142.5" y="210.0" font-size="14" fill="#111111" text-anchor="middle">a)</text>
-<line x1="388.9" y1="0.0" x2="479.5" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="427.0" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="434.2" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="490.9" y1="0.0" x2="581.5" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="529.0" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="536.2" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="383.2" y1="5.7" x2="383.2" y2="87.8" stroke="#111111" stroke-width="1.2"/>
-<rect x="376.0" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="383.2" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="481.0" y1="3.9" x2="387.4" y2="89.6" stroke="#111111" stroke-width="1.2"/>
-<rect x="427.0" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="434.2" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="485.2" y1="5.7" x2="485.2" y2="87.8" stroke="#111111" stroke-width="1.2"/>
-<rect x="478.0" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="485.2" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="489.4" y1="3.9" x2="583.0" y2="89.6" stroke="#111111" stroke-width="1.2"/>
-<rect x="529.0" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="536.2" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="587.2" y1="5.7" x2="587.2" y2="87.8" stroke="#111111" stroke-width="1.2"/>
-<rect x="580.0" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="587.2" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">6</text>
-<line x1="591.7" y1="3.5" x2="642.2" y2="43.2" stroke="#111111" stroke-width="1.2"/>
-<rect x="609.8" y="16.9" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="617.0" y="28.4" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="642.2" y1="50.3" x2="591.7" y2="90.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="609.8" y="63.6" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="617.0" y="75.1" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="388.9" y1="93.5" x2="479.5" y2="93.5" stroke="#111111" stroke-width="1.2"/>
-<rect x="427.0" y="87.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="434.2" y="98.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="490.9" y1="93.5" x2="581.5" y2="93.5" stroke="#111111" stroke-width="1.2"/>
-<rect x="529.0" y="87.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="536.2" y="98.5" font-size="14" fill="#1f3c88" text-anchor="middle">8</text>
-<line x1="387.2" y1="97.5" x2="481.2" y2="191.5" stroke="#111111" stroke-width="1.2"/>
-<rect x="427.0" y="138.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="434.2" y="149.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text>
-<line x1="485.2" y1="99.2" x2="485.2" y2="189.8" stroke="#111111" stroke-width="1.2"/>
-<rect x="478.0" y="138.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="485.2" y="149.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="583.2" y1="97.5" x2="489.2" y2="191.5" stroke="#111111" stroke-width="1.2"/>
-<rect x="529.0" y="138.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="536.2" y="149.5" font-size="14" fill="#1f3c88" text-anchor="middle">7</text>
-<circle cx="383.2" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="376.7" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text>
-<circle cx="485.2" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="485.2" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text>
-<circle cx="587.2" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="593.7" y="-7.5" font-size="15" fill="#111111" text-anchor="start">c</text>
-<circle cx="646.7" cy="46.8" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="655.9" y="52.0" font-size="15" fill="#111111" text-anchor="start">d</text>
-<circle cx="383.2" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="374.0" y="98.8" font-size="15" fill="#111111" text-anchor="end">e</text>
-<circle cx="485.2" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="478.7" y="111.3" font-size="15" fill="#111111" text-anchor="end">f</text>
-<circle cx="587.2" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="593.7" y="111.3" font-size="15" fill="#111111" text-anchor="start">g</text>
-<circle cx="485.2" cy="195.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="485.2" y="215.9" font-size="15" fill="#111111" text-anchor="middle">h</text>
-<text x="515.0" y="235.5" font-size="14" fill="#111111" text-anchor="middle">b)</text>
-<line x1="750.6" y1="0.0" x2="834.2" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="785.2" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="792.4" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">5</text>
-<line x1="845.6" y1="0.0" x2="929.2" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="880.2" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="887.4" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="940.6" y1="0.0" x2="1024.2" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="975.2" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="982.4" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="744.9" y1="5.7" x2="744.9" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="737.7" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="744.9" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="749.1" y1="3.8" x2="835.7" y2="81.2" stroke="#111111" stroke-width="1.2"/>
-<rect x="785.2" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="792.4" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="839.9" y1="5.7" x2="839.9" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="832.7" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="839.9" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="930.7" y1="3.8" x2="844.1" y2="81.2" stroke="#111111" stroke-width="1.2"/>
-<rect x="880.2" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="887.4" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text>
-<line x1="934.9" y1="5.7" x2="934.9" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="927.7" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="934.9" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="1029.9" y1="5.7" x2="1029.9" y2="79.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="1022.7" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="1029.9" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text>
-<line x1="750.6" y1="85.0" x2="834.2" y2="85.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="785.2" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="792.4" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="845.6" y1="85.0" x2="929.2" y2="85.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="880.2" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="887.4" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">6</text>
-<line x1="940.6" y1="85.0" x2="1024.2" y2="85.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="975.2" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="982.4" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="744.9" y1="90.7" x2="744.9" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="737.7" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="744.9" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="835.7" y1="88.8" x2="749.1" y2="166.2" stroke="#111111" stroke-width="1.2"/>
-<rect x="785.2" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="792.4" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="839.9" y1="90.7" x2="839.9" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="832.7" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="839.9" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="844.1" y1="88.8" x2="930.7" y2="166.2" stroke="#111111" stroke-width="1.2"/>
-<rect x="880.2" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="887.4" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="934.9" y1="90.7" x2="934.9" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="927.7" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="934.9" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">4</text>
-<line x1="1029.9" y1="90.7" x2="1029.9" y2="164.3" stroke="#111111" stroke-width="1.2"/>
-<rect x="1022.7" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="1029.9" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text>
-<line x1="750.6" y1="170.0" x2="834.2" y2="170.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="785.2" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="792.4" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text>
-<line x1="845.6" y1="170.0" x2="929.2" y2="170.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="880.2" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="887.4" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text>
-<line x1="940.6" y1="170.0" x2="1024.2" y2="170.0" stroke="#111111" stroke-width="1.2"/>
-<rect x="975.2" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/>
-<text x="982.4" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">6</text>
-<circle cx="744.9" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="738.4" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text>
-<circle cx="839.9" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="839.9" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text>
-<circle cx="934.9" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="934.9" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">c</text>
-<circle cx="1029.9" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="1036.4" y="-7.5" font-size="15" fill="#111111" text-anchor="start">d</text>
-<circle cx="744.9" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="735.7" y="90.2" font-size="15" fill="#111111" text-anchor="end">e</text>
-<circle cx="839.9" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="830.7" y="90.2" font-size="15" fill="#111111" text-anchor="end">f</text>
-<circle cx="934.9" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="941.4" y="77.5" font-size="15" fill="#111111" text-anchor="start">g</text>
-<circle cx="1029.9" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="1039.1" y="90.2" font-size="15" fill="#111111" text-anchor="start">h</text>
-<circle cx="744.9" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="738.4" y="187.8" font-size="15" fill="#111111" text-anchor="end">i</text>
-<circle cx="839.9" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="839.9" y="190.4" font-size="15" fill="#111111" text-anchor="middle">j</text>
-<circle cx="934.9" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="934.9" y="190.4" font-size="15" fill="#111111" text-anchor="middle">k</text>
-<circle cx="1029.9" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="1036.4" y="187.8" font-size="15" fill="#111111" text-anchor="start">l</text>
-<text x="887.4" y="210.0" font-size="14" fill="#111111" text-anchor="middle">c)</text>
+<rect x="-14.0" y="-14.0" width="349.4" height="876.6" fill="#ffffff"/>
+<g transform="translate(18.2,25.2)"><line x1="5.7" y1="0.0" x2="89.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="40.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="47.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(18.2,25.2)"><line x1="100.7" y1="0.0" x2="184.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="135.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="142.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,25.2)"><line x1="195.7" y1="0.0" x2="279.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="230.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="237.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,25.2)"><line x1="0.0" y1="5.7" x2="0.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="-7.2" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="0.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,25.2)"><line x1="95.0" y1="5.7" x2="95.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="87.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="95.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,25.2)"><line x1="190.0" y1="5.7" x2="190.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="182.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="190.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(18.2,25.2)"><line x1="285.0" y1="5.7" x2="285.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="277.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="285.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text></g>
+<g transform="translate(18.2,25.2)"><line x1="5.7" y1="85.0" x2="89.3" y2="85.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="40.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="47.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(18.2,25.2)"><line x1="100.7" y1="85.0" x2="184.3" y2="85.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="135.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="142.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,25.2)"><line x1="195.7" y1="85.0" x2="279.3" y2="85.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="230.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="237.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,25.2)"><line x1="0.0" y1="90.7" x2="0.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="-7.2" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="0.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(18.2,25.2)"><line x1="95.0" y1="90.7" x2="95.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="87.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="95.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(18.2,25.2)"><line x1="190.0" y1="90.7" x2="190.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="182.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="190.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(18.2,25.2)"><line x1="285.0" y1="90.7" x2="285.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="277.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="285.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,25.2)"><line x1="5.7" y1="170.0" x2="89.3" y2="170.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="40.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="47.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,25.2)"><line x1="100.7" y1="170.0" x2="184.3" y2="170.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="135.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="142.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,25.2)"><line x1="195.7" y1="170.0" x2="279.3" y2="170.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><rect x="230.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,25.2)"><text x="237.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="95.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="95.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="190.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="190.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">c</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="285.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="291.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">d</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="0.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="-9.2" y="90.2" font-size="15" fill="#111111" text-anchor="end">e</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="95.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="88.5" y="77.5" font-size="15" fill="#111111" text-anchor="end">f</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="190.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="196.5" y="77.5" font-size="15" fill="#111111" text-anchor="start">g</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="285.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="294.2" y="90.2" font-size="15" fill="#111111" text-anchor="start">h</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="0.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="-6.5" y="187.8" font-size="15" fill="#111111" text-anchor="end">i</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="95.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="95.0" y="190.4" font-size="15" fill="#111111" text-anchor="middle">j</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="190.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="190.0" y="190.4" font-size="15" fill="#111111" text-anchor="middle">k</text></g>
+<g transform="translate(18.2,25.2)"><circle cx="285.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,25.2)"><text x="291.5" y="187.8" font-size="15" fill="#111111" text-anchor="start">l</text></g>
+<text x="160.7" y="246.1" font-size="14" fill="#111111" text-anchor="middle">a)</text>
+<g transform="translate(28.9,311.5)"><line x1="5.7" y1="0.0" x2="96.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="43.8" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="51.0" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(28.9,311.5)"><line x1="107.7" y1="0.0" x2="198.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="145.8" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="153.0" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(28.9,311.5)"><line x1="0.0" y1="5.7" x2="0.0" y2="87.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="-7.2" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="0.0" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(28.9,311.5)"><line x1="97.8" y1="3.9" x2="4.2" y2="89.6" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="43.8" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="51.0" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(28.9,311.5)"><line x1="102.0" y1="5.7" x2="102.0" y2="87.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="94.8" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="102.0" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(28.9,311.5)"><line x1="106.2" y1="3.9" x2="199.8" y2="89.6" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="145.8" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="153.0" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(28.9,311.5)"><line x1="204.0" y1="5.7" x2="204.0" y2="87.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="196.8" y="40.3" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="204.0" y="51.8" font-size="14" fill="#1f3c88" text-anchor="middle">6</text></g>
+<g transform="translate(28.9,311.5)"><line x1="208.5" y1="3.5" x2="259.0" y2="43.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="226.6" y="16.9" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="233.8" y="28.4" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(28.9,311.5)"><line x1="259.0" y1="50.3" x2="208.5" y2="90.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="226.6" y="63.6" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="233.8" y="75.1" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(28.9,311.5)"><line x1="5.7" y1="93.5" x2="96.3" y2="93.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="43.8" y="87.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="51.0" y="98.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(28.9,311.5)"><line x1="107.7" y1="93.5" x2="198.3" y2="93.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="145.8" y="87.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="153.0" y="98.5" font-size="14" fill="#1f3c88" text-anchor="middle">8</text></g>
+<g transform="translate(28.9,311.5)"><line x1="4.0" y1="97.5" x2="98.0" y2="191.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="43.8" y="138.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="51.0" y="149.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text></g>
+<g transform="translate(28.9,311.5)"><line x1="102.0" y1="99.2" x2="102.0" y2="189.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="94.8" y="138.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="102.0" y="149.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(28.9,311.5)"><line x1="200.0" y1="97.5" x2="106.0" y2="191.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><rect x="145.8" y="138.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(28.9,311.5)"><text x="153.0" y="149.5" font-size="14" fill="#1f3c88" text-anchor="middle">7</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="102.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="102.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="204.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="210.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">c</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="263.5" cy="46.8" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="272.7" y="52.0" font-size="15" fill="#111111" text-anchor="start">d</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="0.0" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="-9.2" y="98.8" font-size="15" fill="#111111" text-anchor="end">e</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="102.0" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="95.5" y="111.3" font-size="15" fill="#111111" text-anchor="end">f</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="204.0" cy="93.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="210.5" y="111.3" font-size="15" fill="#111111" text-anchor="start">g</text></g>
+<g transform="translate(28.9,311.5)"><circle cx="102.0" cy="195.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(28.9,311.5)"><text x="102.0" y="215.9" font-size="15" fill="#111111" text-anchor="middle">h</text></g>
+<text x="160.7" y="558.0" font-size="14" fill="#111111" text-anchor="middle">b)</text>
+<g transform="translate(18.2,623.4)"><line x1="5.7" y1="0.0" x2="89.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="40.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="47.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">5</text></g>
+<g transform="translate(18.2,623.4)"><line x1="100.7" y1="0.0" x2="184.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="135.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="142.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,623.4)"><line x1="195.7" y1="0.0" x2="279.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="230.3" y="-6.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="237.5" y="5.0" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(18.2,623.4)"><line x1="0.0" y1="5.7" x2="0.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="-7.2" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="0.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,623.4)"><line x1="4.2" y1="3.8" x2="90.8" y2="81.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="40.3" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="47.5" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,623.4)"><line x1="95.0" y1="5.7" x2="95.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="87.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="95.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(18.2,623.4)"><line x1="185.8" y1="3.8" x2="99.2" y2="81.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="135.3" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="142.5" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text></g>
+<g transform="translate(18.2,623.4)"><line x1="190.0" y1="5.7" x2="190.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="182.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="190.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,623.4)"><line x1="285.0" y1="5.7" x2="285.0" y2="79.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="277.8" y="36.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="285.0" y="47.5" font-size="14" fill="#1f3c88" text-anchor="middle">5</text></g>
+<g transform="translate(18.2,623.4)"><line x1="5.7" y1="85.0" x2="89.3" y2="85.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="40.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="47.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(18.2,623.4)"><line x1="100.7" y1="85.0" x2="184.3" y2="85.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="135.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="142.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">6</text></g>
+<g transform="translate(18.2,623.4)"><line x1="195.7" y1="85.0" x2="279.3" y2="85.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="230.3" y="78.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="237.5" y="90.0" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(18.2,623.4)"><line x1="0.0" y1="90.7" x2="0.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="-7.2" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="0.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,623.4)"><line x1="90.8" y1="88.8" x2="4.2" y2="166.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="40.3" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="47.5" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,623.4)"><line x1="95.0" y1="90.7" x2="95.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="87.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="95.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(18.2,623.4)"><line x1="99.2" y1="88.8" x2="185.8" y2="166.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="135.3" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="142.5" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,623.4)"><line x1="190.0" y1="90.7" x2="190.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="182.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="190.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">4</text></g>
+<g transform="translate(18.2,623.4)"><line x1="285.0" y1="90.7" x2="285.0" y2="164.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="277.8" y="121.0" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="285.0" y="132.5" font-size="14" fill="#1f3c88" text-anchor="middle">2</text></g>
+<g transform="translate(18.2,623.4)"><line x1="5.7" y1="170.0" x2="89.3" y2="170.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="40.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="47.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">3</text></g>
+<g transform="translate(18.2,623.4)"><line x1="100.7" y1="170.0" x2="184.3" y2="170.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="135.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="142.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">1</text></g>
+<g transform="translate(18.2,623.4)"><line x1="195.7" y1="170.0" x2="279.3" y2="170.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><rect x="230.3" y="163.5" width="14.4" height="15.4" fill="#ffffff" fill-opacity="0.92"/></g>
+<g transform="translate(18.2,623.4)"><text x="237.5" y="175.0" font-size="14" fill="#1f3c88" text-anchor="middle">6</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="95.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="95.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">b</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="190.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="190.0" y="-10.2" font-size="15" fill="#111111" text-anchor="middle">c</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="285.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="291.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">d</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="0.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="-9.2" y="90.2" font-size="15" fill="#111111" text-anchor="end">e</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="95.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="85.8" y="90.2" font-size="15" fill="#111111" text-anchor="end">f</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="190.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="196.5" y="77.5" font-size="15" fill="#111111" text-anchor="start">g</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="285.0" cy="85.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="294.2" y="90.2" font-size="15" fill="#111111" text-anchor="start">h</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="0.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="-6.5" y="187.8" font-size="15" fill="#111111" text-anchor="end">i</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="95.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="95.0" y="190.4" font-size="15" fill="#111111" text-anchor="middle">j</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="190.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="190.0" y="190.4" font-size="15" fill="#111111" text-anchor="middle">k</text></g>
+<g transform="translate(18.2,623.4)"><circle cx="285.0" cy="170.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(18.2,623.4)"><text x="291.5" y="187.8" font-size="15" fill="#111111" text-anchor="start">l</text></g>
+<text x="160.7" y="844.4" font-size="14" fill="#111111" text-anchor="middle">c)</text>
 </svg>

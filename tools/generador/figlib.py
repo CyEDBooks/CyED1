@@ -31,6 +31,15 @@ PAL = {
 # para los equipos que no tienen Comic Sans MS.
 FONT = "'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive"
 
+# Tamaño en pantalla respecto a las coordenadas del dibujo. Escala todo por igual
+# (letra, trazos, vértices); las figuras más anchas que la columna las ajusta el
+# navegador a su ancho.
+SCALE = 1.5
+
+# Ancho (en coordenadas del dibujo) a partir del cual una fila de figuras se parte
+# en varias: más ancha, el navegador la encoge y la letra vuelve a quedar pequeña.
+MAX_W = 680
+
 # Estilos de vértice dibujado como círculo: (relleno, borde, color del texto, grosor del borde)
 NODE_STYLES = {
     "plain": (PAL["white"], PAL["ink"], PAL["ink"], 1.3),
@@ -101,6 +110,12 @@ class SVG:
         self.miny = min(self.miny, y0)
         self.maxx = max(self.maxx, x1)
         self.maxy = max(self.maxy, y1)
+
+    def add(self, sub, dx, dy):
+        """Copia otro dibujo desplazado (dx, dy)."""
+        for it in sub.items:
+            self.items.append(f'<g transform="translate({dx:.1f},{dy:.1f})">{it}</g>')
+        self._box(sub.minx + dx, sub.miny + dy, sub.maxx + dx, sub.maxy + dy)
 
     def line(self, x1, y1, x2, y2, color, width=1.5, dash=None, marker=None):
         d = f' stroke-dasharray="{dash}"' if dash else ""
@@ -174,7 +189,7 @@ class SVG:
             for k, c in (("plain", PAL["muted"]), ("tree", PAL["teal"]), ("new", PAL["new"]),
                          ("dim", PAL["dim"]), ("cand", PAL["orange"]), ("reject", PAL["bad"]),
                          ("back", PAL["muted"]), ("ghost", PAL["dim"])))
-        head = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w:.0f}" height="{h:.0f}" '
+        head = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w * SCALE:.0f}" height="{h * SCALE:.0f}" '
                 f'viewBox="{minx:.1f} {miny:.1f} {w:.1f} {h:.1f}" font-family="{FONT}">\n'
                 f'<defs>{defs}</defs>\n'
                 f'<rect x="{minx:.1f}" y="{miny:.1f}" width="{w:.1f}" height="{h:.1f}" fill="#ffffff"/>\n')
@@ -184,6 +199,36 @@ class SVG:
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             f.write(self.render(**kw))
+
+
+def tile(parts, gap=60, vgap=36, max_w=MAX_W, caps=None, cap_dy=26):
+    """Pone varios dibujos lado a lado. Si la fila pasa de max_w, los reparte por igual
+    en más filas (4 quedan 2 y 2; 3 quedan 2 y 1), cada fila centrada. Los rótulos
+    (caps) van debajo de cada dibujo, a la misma altura en toda la fila."""
+    n = len(parts)
+    caps = caps or [""] * n
+    ws = [max(s.maxx - s.minx, text_width(c, 14)) for s, c in zip(parts, caps)]
+    for nrows in range(1, n + 1):
+        per = -(-n // nrows)
+        groups = [range(i, min(i + per, n)) for i in range(0, n, per)]
+        widths = [sum(ws[i] for i in g) + gap * (len(g) - 1) for g in groups]
+        if max(widths) <= max_w:
+            break
+    svg = SVG()
+    y0 = 0
+    for g, w in zip(groups, widths):
+        x0 = (max(widths) - w) / 2
+        top = min(parts[i].miny for i in g)
+        bottom = y0 + max(parts[i].maxy for i in g) - top
+        for i in g:
+            s = parts[i]
+            cx = x0 + ws[i] / 2
+            svg.add(s, cx - (s.minx + s.maxx) / 2, y0 - top)
+            if caps[i]:
+                svg.text(cx, bottom + cap_dy, caps[i], 14, PAL["ink"])
+            x0 += ws[i] + gap
+        y0 = svg.maxy + vgap
+    return svg
 
 
 def text_width(s, size):
@@ -502,4 +547,40 @@ def nary_layout(t, dx=50, dy=64, gap=0.5):
         return my
 
     root = rec(t, 0, None)
+    return pos, edges, keys, root
+
+
+def compact_nary_layout(t, dx=50, dy=64):
+    """Como nary_layout, pero cada subárbol se arrima a su hermano hasta quedar a dx en el
+    nivel donde más se acercan. Una hoja poco profunda ya no ocupa una columna entera."""
+    edges, keys = [], {}
+    ids = [0]
+
+    def rec(node):
+        # devuelve (id, x relativa y nivel de cada nodo, contorno izquierdo y derecho)
+        lab, ch = node
+        my = f"n{ids[0]}"
+        ids[0] += 1
+        keys[my] = lab
+        if not ch:
+            return my, {my: (0, 0)}, [], []
+        rel, left, right, xs = {}, [], [], []
+        for c in ch:
+            cid, crel, cl, cr = rec(c)
+            cl, cr = [0] + cl, [0] + cr
+            s = max((right[i] - cl[i] + dx for i in range(min(len(right), len(cl)))), default=0)
+            for k, (x, d) in crel.items():
+                rel[k] = (x + s, d)
+            left += [v + s for v in cl[len(left):]]
+            right = [v + s for v in cr] + right[len(cr):]
+            xs.append(s)
+            edges.append((my, cid))
+        mid = (xs[0] + xs[-1]) / 2
+        rel = {k: (x - mid, d + 1) for k, (x, d) in rel.items()}
+        rel[my] = (0, 0)
+        return my, rel, [v - mid for v in left], [v - mid for v in right]
+
+    root, rel, _, _ = rec(t)
+    minx = min(x for x, _ in rel.values())
+    pos = {k: (x - minx, d * dy) for k, (x, d) in rel.items()}
     return pos, edges, keys, root

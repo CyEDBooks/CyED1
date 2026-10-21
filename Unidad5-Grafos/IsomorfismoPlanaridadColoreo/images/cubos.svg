@@ -1,58 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="455" height="193" viewBox="-29.5 -36.5 454.5 192.7" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<svg xmlns="http://www.w3.org/2000/svg" width="705" height="301" viewBox="-14.0 -14.0 470.0 201.0" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
 <defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
-<rect x="-29.5" y="-36.5" width="454.5" height="192.7" fill="#ffffff"/>
-<line x1="5.7" y1="0.0" x2="134.3" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="140.0" y1="5.7" x2="140.0" y2="92.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="134.3" y1="98.0" x2="5.7" y2="98.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="0.0" y1="92.3" x2="0.0" y2="5.7" stroke="#111111" stroke-width="1.2"/>
-<line x1="47.7" y1="31.5" x2="92.3" y2="31.5" stroke="#111111" stroke-width="1.2"/>
-<line x1="98.0" y1="37.2" x2="98.0" y2="60.8" stroke="#111111" stroke-width="1.2"/>
-<line x1="92.3" y1="66.5" x2="47.7" y2="66.5" stroke="#111111" stroke-width="1.2"/>
-<line x1="42.0" y1="60.8" x2="42.0" y2="37.2" stroke="#111111" stroke-width="1.2"/>
-<line x1="135.4" y1="3.4" x2="102.6" y2="28.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="4.6" y1="94.6" x2="37.4" y2="69.9" stroke="#111111" stroke-width="1.2"/>
-<circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text>
-<circle cx="140.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="146.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">b</text>
-<circle cx="140.0" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="146.5" y="115.8" font-size="15" fill="#111111" text-anchor="start">c</text>
-<circle cx="0.0" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="-6.5" y="115.8" font-size="15" fill="#111111" text-anchor="end">d</text>
-<circle cx="42.0" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="35.5" y="24.0" font-size="15" fill="#111111" text-anchor="end">e</text>
-<circle cx="98.0" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="98.0" y="21.3" font-size="15" fill="#111111" text-anchor="middle">f</text>
-<circle cx="98.0" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="104.5" y="84.3" font-size="15" fill="#111111" text-anchor="start">g</text>
-<circle cx="42.0" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="42.0" y="87.0" font-size="15" fill="#111111" text-anchor="middle">h</text>
-<text x="70.0" y="138.0" font-size="14" fill="#111111" text-anchor="middle">G</text>
-<line x1="261.2" y1="0.0" x2="389.8" y2="0.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="395.5" y1="5.7" x2="395.5" y2="92.3" stroke="#111111" stroke-width="1.2"/>
-<line x1="389.8" y1="98.0" x2="261.2" y2="98.0" stroke="#111111" stroke-width="1.2"/>
-<line x1="255.5" y1="92.3" x2="255.5" y2="5.7" stroke="#111111" stroke-width="1.2"/>
-<line x1="303.2" y1="31.5" x2="347.8" y2="31.5" stroke="#111111" stroke-width="1.2"/>
-<line x1="353.5" y1="37.2" x2="353.5" y2="60.8" stroke="#111111" stroke-width="1.2"/>
-<line x1="347.8" y1="66.5" x2="303.2" y2="66.5" stroke="#111111" stroke-width="1.2"/>
-<line x1="297.5" y1="60.8" x2="297.5" y2="37.2" stroke="#111111" stroke-width="1.2"/>
-<line x1="260.1" y1="3.4" x2="292.9" y2="28.1" stroke="#111111" stroke-width="1.2"/>
-<line x1="260.1" y1="94.6" x2="292.9" y2="69.9" stroke="#111111" stroke-width="1.2"/>
-<circle cx="255.5" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="249.0" y="-7.5" font-size="15" fill="#111111" text-anchor="end">s</text>
-<circle cx="395.5" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="402.0" y="-7.5" font-size="15" fill="#111111" text-anchor="start">t</text>
-<circle cx="395.5" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="402.0" y="115.8" font-size="15" fill="#111111" text-anchor="start">u</text>
-<circle cx="255.5" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="249.0" y="115.8" font-size="15" fill="#111111" text-anchor="end">v</text>
-<circle cx="297.5" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="297.5" y="21.3" font-size="15" fill="#111111" text-anchor="middle">w</text>
-<circle cx="353.5" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="360.0" y="24.0" font-size="15" fill="#111111" text-anchor="start">x</text>
-<circle cx="353.5" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="360.0" y="84.3" font-size="15" fill="#111111" text-anchor="start">y</text>
-<circle cx="297.5" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/>
-<text x="297.5" y="87.0" font-size="15" fill="#111111" text-anchor="middle">z</text>
-<text x="325.5" y="138.0" font-size="14" fill="#111111" text-anchor="middle">H</text>
+<rect x="-14.0" y="-14.0" width="470.0" height="201.0" fill="#ffffff"/>
+<g transform="translate(15.5,22.5)"><line x1="5.7" y1="0.0" x2="134.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="140.0" y1="5.7" x2="140.0" y2="92.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="134.3" y1="98.0" x2="5.7" y2="98.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="0.0" y1="92.3" x2="0.0" y2="5.7" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="47.7" y1="31.5" x2="92.3" y2="31.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="98.0" y1="37.2" x2="98.0" y2="60.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="92.3" y1="66.5" x2="47.7" y2="66.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="42.0" y1="60.8" x2="42.0" y2="37.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="135.4" y1="3.4" x2="102.6" y2="28.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><line x1="4.6" y1="94.6" x2="37.4" y2="69.9" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end">a</text></g>
+<g transform="translate(15.5,22.5)"><circle cx="140.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="146.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">b</text></g>
+<g transform="translate(15.5,22.5)"><circle cx="140.0" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="146.5" y="115.8" font-size="15" fill="#111111" text-anchor="start">c</text></g>
+<g transform="translate(15.5,22.5)"><circle cx="0.0" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="-6.5" y="115.8" font-size="15" fill="#111111" text-anchor="end">d</text></g>
+<g transform="translate(15.5,22.5)"><circle cx="42.0" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="35.5" y="24.0" font-size="15" fill="#111111" text-anchor="end">e</text></g>
+<g transform="translate(15.5,22.5)"><circle cx="98.0" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="98.0" y="21.3" font-size="15" fill="#111111" text-anchor="middle">f</text></g>
+<g transform="translate(15.5,22.5)"><circle cx="98.0" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="104.5" y="84.3" font-size="15" fill="#111111" text-anchor="start">g</text></g>
+<g transform="translate(15.5,22.5)"><circle cx="42.0" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(15.5,22.5)"><text x="42.0" y="87.0" font-size="15" fill="#111111" text-anchor="middle">h</text></g>
+<text x="85.5" y="168.8" font-size="14" fill="#111111" text-anchor="middle">G</text>
+<g transform="translate(286.5,22.5)"><line x1="5.7" y1="0.0" x2="134.3" y2="0.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="140.0" y1="5.7" x2="140.0" y2="92.3" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="134.3" y1="98.0" x2="5.7" y2="98.0" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="0.0" y1="92.3" x2="0.0" y2="5.7" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="47.7" y1="31.5" x2="92.3" y2="31.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="98.0" y1="37.2" x2="98.0" y2="60.8" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="92.3" y1="66.5" x2="47.7" y2="66.5" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="42.0" y1="60.8" x2="42.0" y2="37.2" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="4.6" y1="3.4" x2="37.4" y2="28.1" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><line x1="4.6" y1="94.6" x2="37.4" y2="69.9" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><circle cx="0.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="-6.5" y="-7.5" font-size="15" fill="#111111" text-anchor="end">s</text></g>
+<g transform="translate(286.5,22.5)"><circle cx="140.0" cy="0.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="146.5" y="-7.5" font-size="15" fill="#111111" text-anchor="start">t</text></g>
+<g transform="translate(286.5,22.5)"><circle cx="140.0" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="146.5" y="115.8" font-size="15" fill="#111111" text-anchor="start">u</text></g>
+<g transform="translate(286.5,22.5)"><circle cx="0.0" cy="98.0" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="-6.5" y="115.8" font-size="15" fill="#111111" text-anchor="end">v</text></g>
+<g transform="translate(286.5,22.5)"><circle cx="42.0" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="42.0" y="21.3" font-size="15" fill="#111111" text-anchor="middle">w</text></g>
+<g transform="translate(286.5,22.5)"><circle cx="98.0" cy="31.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="104.5" y="24.0" font-size="15" fill="#111111" text-anchor="start">x</text></g>
+<g transform="translate(286.5,22.5)"><circle cx="98.0" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="104.5" y="84.3" font-size="15" fill="#111111" text-anchor="start">y</text></g>
+<g transform="translate(286.5,22.5)"><circle cx="42.0" cy="66.5" r="4.2" fill="#111111" stroke="#111111" stroke-width="1.2"/></g>
+<g transform="translate(286.5,22.5)"><text x="42.0" y="87.0" font-size="15" fill="#111111" text-anchor="middle">z</text></g>
+<text x="356.5" y="168.8" font-size="14" fill="#111111" text-anchor="middle">H</text>
 </svg>

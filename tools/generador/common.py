@@ -1,7 +1,8 @@
 import os
 import re
 
-from figlib import SVG, draw_graph, draw_panel, PAL, nary_layout, bin_layout
+from figlib import (SVG, draw_graph, draw_panel, PAL, nary_layout, compact_nary_layout,
+                    bin_layout, tile)
 from mdlib import steps, md_table, hl, c, latex_matrix
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -63,9 +64,9 @@ def scale(pos, sx=1.0, sy=None):
     return {k: (x * sx, y * sy) for k, (x, y) in pos.items()}
 
 
-def tree_pos(t, dx=50, dy=64):
+def tree_pos(t, dx=50, dy=64, compact=False):
     """Árbol n-ario con etiquetas únicas -> pos y aristas por etiqueta."""
-    pos, edges, keys, _ = nary_layout(t, dx, dy)
+    pos, edges, keys, _ = (compact_nary_layout if compact else nary_layout)(t, dx, dy)
     p = {keys[k]: v for k, v in pos.items()}
     e = [(keys[a], keys[b]) for a, b in edges]
     return p, e
@@ -95,19 +96,15 @@ def gfig_caption(page, name, pos, edges, cap, directed=False, **kw):
 
 
 def graph_row(page, name, items, gap=80, alt=None, directed=False):
-    """Varios grafos lado a lado. items: lista de (pos, aristas, rótulo, opciones de draw_graph)."""
-    svg = SVG()
-    x0 = 0
+    """Varios grafos lado a lado (en varias filas si no caben).
+    items: lista de (pos, aristas, rótulo, opciones de draw_graph)."""
+    parts = []
     for it in items:
-        pos, E, cap = it[0], it[1], it[2]
+        pos, E = it[0], it[1]
         kw = it[3] if len(it) > 3 else {}
         d = kw.pop("directed", directed)
-        minx = min(x for x, _ in pos.values())
-        pos = {v: (x - minx + x0, y) for v, (x, y) in pos.items()}
+        svg = SVG()
         draw_graph(svg, pos, E, d, **kw)
-        if cap:
-            xs = [x for x, _ in pos.values()]
-            svg.text((min(xs) + max(xs)) / 2, max(y for _, y in pos.values()) + 40, cap, 14,
-                     PAL["ink"])
-        x0 = svg.maxx + gap
-    return f"![{alt or name}]({page.img(name, svg)})"
+        parts.append(svg)
+    caps = [it[2] for it in items]
+    return f"![{alt or name}]({page.img(name, tile(parts, gap, caps=caps))})"

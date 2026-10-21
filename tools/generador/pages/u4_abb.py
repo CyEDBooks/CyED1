@@ -77,6 +77,10 @@ def delete(root, k):
     return root, nch + 1
 
 
+# El ABB de las 27 llaves es ancho: se dibuja compacto para que se vea a buen tamaño.
+BIG = dict(dx=44, compact=True)
+
+
 def build():
     p = Page("Unidad4-EstructurasRecursivas/ArbolesBinariosBusqueda")
     bed = bst_build(BED_KEYS)
@@ -90,9 +94,9 @@ def build():
         svg.circle(x, y, 17, "#f5ead6", PAL["ink"], 1.2)
         svg.text(x, y + 5, k, 14)
     p.put("fig-bolsa", f"![Bolsa con 27 llaves]({p.img('bolsa', svg)})")
-    p.put("fig-bed", f"![ABB con las 27 llaves]({p.img('bed', draw(bed, dx=30, r=13, font=12))})")
+    p.put("fig-bed", f"![ABB con las 27 llaves]({p.img('bed', draw(bed, **BIG))})")
 
-    def search_tabs(prefix, root, k, dx=30, r=13, font=12):
+    def search_tabs(prefix, root, k):
         path, found = search_path(root, k)
         tabs = []
         for i in range(len(path)):
@@ -109,7 +113,7 @@ def build():
             if not found and i == len(path) - 1:
                 ghost = (x, "L" if k < x else "R", "nil")
                 txt += f" Pero ese subárbol es vacío: **${k}$ no está** en el árbol."
-            svg = draw(root, node_style=ns, edge_style=es, ghost=ghost, dx=dx, r=r, font=font)
+            svg = draw(root, node_style=ns, edge_style=es, ghost=ghost, **BIG)
             tabs.append(f"![Buscar {k}, paso {i + 1}]({p.img(f'{prefix}-{i:02d}', svg)})\n\n{txt}")
         return steps(f"TREE-SEARCH(raíz, {k})", tabs)
 
@@ -199,7 +203,7 @@ def build():
                                    f"sucesor de ${k}$ es ${y.key}$."))
         out = []
         for i, (ns_, es_, txt) in enumerate(tabs):
-            svg = draw(bed, node_style=ns_, edge_style=es_, dx=30, r=13, font=12)
+            svg = draw(bed, node_style=ns_, edge_style=es_, **BIG)
             out.append(f"![Sucesor de {k}, paso {i + 1}]({p.img(f'{prefix}-{i:02d}', svg)})\n\n{txt}")
         return steps(f"TREE-SUCCESSOR({k})", out)
 
@@ -327,7 +331,7 @@ def build():
         t, c = delete(t, k)
         cases.append(c)
     assert cases == [1, 2, 3]
-    p.put("ex7-sol", f"![Árbol final]({p.img('ex7-sol', draw(t, node_style={26: 'new', 5: 'new'}, dx=30, r=13, font=12))})")
+    p.put("ex7-sol", f"![Árbol final]({p.img('ex7-sol', draw(t, node_style={26: 'new', 5: 'new'}, **BIG))})")
     p.assemble("exercises.md")
 
 

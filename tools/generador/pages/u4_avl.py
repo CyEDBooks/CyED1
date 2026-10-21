@@ -182,17 +182,20 @@ def schem(svg, spec, x0, y0=0):
 
 
 def schem_row(p, name, panels, ops, alt):
-    """panels: especificaciones; ops: texto de la flecha entre panel i e i+1."""
-    svg = SVG()
-    x = 0
+    """panels: especificaciones; ops: texto de la flecha entre panel i e i+1.
+    Cada flecha va pegada al panel que sigue, así una fila nueva empieza con su flecha."""
+    parts = []
     for i, spec in enumerate(panels):
-        x = schem(svg, spec, x)
-        if i < len(ops):
-            ax0, ax1 = x + 14, x + 14 + max(96, text_width(ops[i], 13) + 16)
-            svg.line(ax0, 40, ax1 - 4, 40, PAL["new"], 1.6, marker="arr-new")
-            svg.text((ax0 + ax1) / 2, 32, ops[i], 13, PAL["new"])
+        svg = SVG()
+        x = 0
+        if i > 0:
+            ax1 = max(96, text_width(ops[i - 1], 13) + 16)
+            svg.line(0, 40, ax1 - 4, 40, PAL["new"], 1.6, marker="arr-new")
+            svg.text(ax1 / 2, 32, ops[i - 1], 13, PAL["new"])
             x = ax1 + 18
-    return f"![{alt}]({p.img(name, svg)})"
+        schem(svg, spec, x)
+        parts.append(svg)
+    return f"![{alt}]({p.img(name, tile(parts, 14, max_w=720))})"
 
 
 def build():
@@ -237,16 +240,7 @@ def build():
     ]
 
     def row(name, trees, caps, f):
-        svg = SVG()
-        x0 = 0
-        for t, cap in zip(trees, caps):
-            sub = f(t)
-            for it in sub.items:
-                svg.items.append(f'<g transform="translate({x0 - sub.minx:.1f},0)">{it}</g>')
-            svg._box(x0, sub.miny, x0 + sub.maxx - sub.minx, sub.maxy)
-            svg.text(x0 + (sub.maxx - sub.minx) / 2, sub.maxy + 24, cap, 14)
-            x0 += sub.maxx - sub.minx + 50
-        return p.img(name, svg)
+        return p.img(name, tile([f(t) for t in trees], 50, caps=caps))
     trees = [from_tuple(t) for t in cands]
     caps = ["a)", "b)", "c)", "d)"]
     p.put("fig-es", f"![Cuatro ABB]({row('es', trees, caps, lambda t: draw(t, dx=34))})")
