@@ -1,6 +1,6 @@
 from common import *
 from tviz import (from_tuple, draw, bst_insert, bst_build, search_path, parent_map, find,
-                  copy_tree, nodes, height, N)
+                  copy_tree, nodes, height, N, halo, ring, badge)
 
 # Árbol de Bedoya: las 27 llaves de la bolsa, organizadas
 BED_KEYS = [24, 12, 43, 7, 19, 32, 48, 4, 9, 16, 21, 28, 38, 45, 51, 1, 5, 8, 10, 13, 18, 26, 29,
@@ -75,6 +75,167 @@ def delete(root, k):
     else:
         p.right = child
     return root, nch + 1
+
+
+# Cinco ejemplos, de muy fácil a difícil: construir el ABB y luego buscar o borrar.
+NIVELES = ["muy fácil", "fácil", "medio", "medio", "difícil"]
+EJEMPLOS = [
+    dict(keys=[5, 3, 8], ops=[("buscar", 8)]),
+    dict(keys=[50, 30, 70, 20, 40, 60], ops=[("buscar", 40), ("buscar", 65)]),
+    dict(keys=[45, 25, 65, 15, 35, 55, 75, 30], ops=[("borrar", 15), ("borrar", 35)]),
+    dict(keys=[40, 20, 60, 10, 30, 50, 70, 25, 35, 65], ops=[("borrar", 20)], compacto=True),
+    dict(keys=[50, 30, 80, 20, 40, 70, 90, 35, 45, 60, 75, 65, 85], ops=[("borrar", 50)],
+         compacto=True),
+]
+
+
+def _cmp(k, x):
+    return f"{k} {'<' if k < x else '>'} {x}"
+
+
+def _side(k, x):
+    return "izquierda" if k < x else "derecha"
+
+
+def _ring(keys):
+    def over(svg, pos):
+        for k in keys:
+            ring(svg, *pos[k])
+    return over
+
+
+def ejemplo(p, i, ex):
+    pref = f"ej{i}"
+    tabs = []
+
+    def add(svg, txt):
+        tabs.append(f"![Ejemplo {i}, paso {len(tabs) + 1}]({p.img(f'{pref}-{len(tabs):02d}', svg)})"
+                    f"\n\n> {txt}")
+
+    keys = ex["keys"]
+    acc = {"buscar": "busque", "borrar": "borre"}
+    tail = " y ".join(f"{acc[op]} ${k}$" for op, k in ex["ops"])
+    head = (f"**Ejemplo {i} ({NIVELES[i - 1]}).** Inserte, en este orden, "
+            f"{', '.join(f'${k}$' for k in keys)} en un ABB vacío; luego {tail}.")
+    t = None
+    if ex.get("compacto"):
+        t = bst_build(keys)
+        order = {k: j + 1 for j, k in enumerate(keys)}
+        add(draw(t, node_style={k: "tree" for k in keys},
+                 over=lambda svg, pos: [badge(svg, *pos[k], order[k]) for k in keys]),
+            f"Se insertan, en este orden, {', '.join(f'${k}$' for k in keys)}, con el mismo método "
+            f"de los ejemplos anteriores: se compara con cada nodo desde la raíz y se baja a la "
+            f"izquierda si es menor o a la derecha si es mayor. El número junto a cada nodo es su "
+            f"orden de llegada: un nodo siempre llega **después** que su padre.")
+    else:
+        for k in keys:
+            if t is None:
+                t = N(k)
+                add(draw(t, node_style={k: "new"}, over=_ring([k])),
+                    f"Insertar ${k}$: el árbol está vacío, ${k}$ es la **raíz**.")
+                continue
+            path = search_path(t, k)[0]
+            t, _ = bst_insert(t, k)
+            ns = {x: "hl" for x in path}
+            ns[k] = "new"
+            es = {(a, b): "path" for a, b in zip(path, path[1:] + [k])}
+            labels = {x: _cmp(k, x) for x in path}
+            steps_txt = "; ".join(f"${_cmp(k, x)}$ → {_side(k, x)}" for x in path)
+            add(draw(t, node_style=ns, edge_style=es, labels=labels, over=_ring([k])),
+                f"Insertar ${k}$: {steps_txt}. Ese lugar está vacío: ${k}$ queda como hijo "
+                f"**{'izquierdo' if k < path[-1] else 'derecho'}** de ${path[-1]}$.")
+    for op, k in ex["ops"]:
+        if op == "buscar":
+            path, found = search_path(t, k)
+            ns = {x: "hl" for x in path}
+            es = {(a, b): "path" for a, b in zip(path, path[1:])}
+            labels = {x: _cmp(k, x) for x in path if x != k}
+            steps_txt = "; ".join(f"${_cmp(k, x)}$ → {_side(k, x)}" for x in path if x != k)
+            if found:
+                ns[k] = "goal"
+                add(draw(t, node_style=ns, edge_style=es, labels=labels, over=_ring([k])),
+                    f"Buscar ${k}$: {steps_txt + '; ' if steps_txt else ''}${k} = {k}$: "
+                    f"**encontrado** con ${len(path)}$ comparaciones, sin mirar el resto del árbol.")
+            else:
+                last = path[-1]
+                add(draw(t, node_style=ns, edge_style=es, labels=labels,
+                         ghost=(last, "L" if k < last else "R", "nil")),
+                    f"Buscar ${k}$: {steps_txt}. Ese subárbol es vacío (`nil`): **${k}$ no está** "
+                    f"en el árbol. Bastaron ${len(path)}$ comparaciones para saberlo.")
+        else:
+            z = find(t, k)
+            par = parent_map(t)
+            nch = (z.left is not None) + (z.right is not None)
+            pz = par[k]
+            if nch == 0:
+                add(draw(t, node_style={k: "bad"}, over=_ring([k])),
+                    f"Borrar ${k}$: es **hoja** (caso 1). Basta con quitarla: su padre, "
+                    f"${pz.key}$, pasa a apuntar a `nil`.")
+                t, _ = delete(t, k)
+                add(draw(t, node_style={pz.key: "hl"}),
+                    f"${pz.key}$ se quedó sin hijo {'izquierdo' if k < pz.key else 'derecho'}. "
+                    f"Nada más cambió.")
+            elif nch == 1:
+                ch = z.left or z.right
+                add(draw(t, node_style={k: "bad"},
+                         under=lambda svg, pos: halo(svg, pos, ch, "orange", "sube"),
+                         over=_ring([k])),
+                    f"Borrar ${k}$: tiene **un solo hijo**, ${ch.key}$ (caso 2). Se separa ${k}$ y "
+                    f"su padre, ${pz.key}$, pasa a apuntar a ${ch.key}$, que sube con todo su "
+                    f"subárbol.")
+                t, _ = delete(t, k)
+                es = {(pz.key, ch.key): "new"}
+                add(draw(t, node_style={ch.key: "new"}, edge_style=es),
+                    f"Sigue siendo ABB: todo lo que colgaba de ${k}$ estaba del mismo lado de "
+                    f"${pz.key}$ que ${k}$.")
+            else:
+                sk = succ(t, k)
+                path = [k]
+                y = z.right
+                while y is not None:
+                    path.append(y.key)
+                    y = y.left
+                es = {(a, b): "path" for a, b in zip(path, path[1:])}
+                add(draw(t, node_style={k: "bad", sk: "goal"}, edge_style=es,
+                         under=lambda svg, pos: halo(svg, pos, z.right, "orange",
+                                                     f"subárbol derecho de {k}"),
+                         over=_ring([k, sk])),
+                    f"Borrar ${k}$: tiene **dos hijos** (caso 3). Su lugar lo toma su **sucesor**, el "
+                    f"mínimo del subárbol derecho: se baja a la derecha una vez y luego a la "
+                    f"izquierda hasta el final, {' → '.join(f'${x}$' for x in path)}. El sucesor es "
+                    f"${sk}$: mayor que todo lo de la izquierda de ${k}$ y menor que todo lo demás "
+                    f"de la derecha.")
+                sn = find(t, sk)
+                if sn.right is not None:
+                    sp = par[sk]
+                    add(draw(t, node_style={sk: "bad", sn.right.key: "hl"},
+                             under=lambda svg, pos: halo(svg, pos, sn.right, "orange", "sube"),
+                             over=_ring([sk])),
+                        f"Primero se separa ${sk}$ de donde está. No tiene hijo izquierdo (es un "
+                        f"mínimo), pero sí derecho, ${sn.right.key}$: es el caso 2, ${sn.right.key}$ "
+                        f"sube y queda colgando de ${sp.key}$.")
+                t, _ = delete(t, k)
+                add(draw(t, node_style={sk: "new"}, over=_ring([sk])),
+                    f"La llave ${sk}$ reemplaza a ${k}$. El árbol tiene un nodo menos y sigue "
+                    f"siendo ABB.")
+    r = t
+    ino = [n.key for n in nodes(r)]
+
+    def under(svg, pos):
+        halo(svg, pos, r.left, "blue", f"menores que {r.key}")
+        halo(svg, pos, r.right, "orange", f"mayores que {r.key}")
+
+    def over(svg, pos):
+        ring(svg, *pos[r.key])
+        ys = max(y for _, y in pos.values()) + 62
+        x0 = min(x for x, _ in pos.values()) - 10
+        draw_panel(svg, x0, ys, "Inorden:", [str(k) for k in ino], cell=30, wrap=12)
+    add(draw(r, under=under, over=over),
+        f"**¿Es ABB?** Todo lo que está a la izquierda de la raíz ${r.key}$ es menor y todo lo de la "
+        f"derecha es mayor, y lo mismo pasa en cada subárbol. Comprobación rápida: el inorden sale "
+        f"ordenado, {', '.join(f'${k}$' for k in ino)}.")
+    assert ino == sorted(ino)
+    return f"{head}\n\n" + steps("Paso a paso", tabs)
 
 
 # El ABB de las 27 llaves es ancho: se dibuja compacto para que se vea a buen tamaño.
@@ -272,6 +433,8 @@ def build():
             f"separa (elimina) su sucesor $y$ del árbol y se reemplaza el contenido de $z$ con el "
             f"de $y$: la raíz ahora tiene la llave $13$."]
     p.put("caso3", steps("Caso 3: borrar 12", tabs))
+    for i, ex in enumerate(EJEMPLOS, 1):
+        p.put(f"ej{i}", ejemplo(p, i, ex))
     p.assemble("index.md")
 
     # Ejercicios 1 y 2: estructura dada

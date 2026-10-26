@@ -161,6 +161,210 @@ El máximo se alcanza en un árbol **lleno**. Por ejemplo, con altura $4$: $2^4 
 
 Al revés: un árbol binario con $n$ nodos tiene altura **al menos** $\lceil \log_2(n + 1) \rceil$. Esto importa para los árboles de búsqueda: si el árbol se mantiene «bajo», recorrer una rama cuesta $O(\log n)$.
 
+## 5. Ejemplos
+
+Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo orden: hojas, niveles y altura, peso, ¿completo?, ¿lleno? Las hojas van en verde y los no terminales en amarillo; el **anillo rojo** señala lo que hace fallar una propiedad.
+
+**Ejemplo 1 (muy fácil).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+
+![Árbol del ejemplo 1](images/ej1-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 1, paso 1](images/ej1-01.svg)
+
+> **Hojas** (en verde, sin hijos): $4$, $9$. **No terminales** (en amarillo): $8$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 1, paso 2](images/ej1-02.svg)
+
+> Los niveles van de $0$ (la raíz) a $1$. La rama más larga, $8$ → $4$, tiene $2$ nodos: la **altura** es $2$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 1, paso 3](images/ej1-03.svg)
+
+> Se cuentan los nodos: el **peso** es $3$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 1, paso 4](images/ej1-04.svg)
+
+> **¿Completo?** Sí: cada no terminal ($8$) tiene exactamente dos hijos.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 1, paso 5](images/ej1-05.svg)
+
+> **¿Lleno?** Sí: es completo y todas sus hojas están en el nivel $1$. Con altura $2$ caben a lo sumo $2^2 - 1 = 3$ nodos y tiene $3$.
+
+:::
+::::
+:::::
+
+**Ejemplo 2 (fácil).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+
+![Árbol del ejemplo 2](images/ej2-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 2, paso 1](images/ej2-01.svg)
+
+> **Hojas** (en verde, sin hijos): $1$, $5$, $9$. **No terminales** (en amarillo): $6$, $3$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 2, paso 2](images/ej2-02.svg)
+
+> Los niveles van de $0$ (la raíz) a $2$. La rama más larga, $6$ → $3$ → $1$, tiene $3$ nodos: la **altura** es $3$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 2, paso 3](images/ej2-03.svg)
+
+> Se cuentan los nodos: el **peso** es $5$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 2, paso 4](images/ej2-04.svg)
+
+> **¿Completo?** Sí: cada no terminal ($6$, $3$) tiene exactamente dos hijos.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 2, paso 5](images/ej2-05.svg)
+
+> **¿Lleno?** No: es completo, pero sus hojas están en los niveles $1$, $2$: no todas están en el mismo nivel (en rojo, las que no están en el último). Con altura $3$ caben a lo sumo $2^3 - 1 = 7$ nodos y tiene $5$: le faltan $2$ para estar lleno.
+
+:::
+::::
+:::::
+
+**Ejemplo 3 (medio).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+
+![Árbol del ejemplo 3](images/ej3-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 3, paso 1](images/ej3-01.svg)
+
+> **Hojas** (en verde, sin hijos): $5$, $15$, $40$. **No terminales** (en amarillo): $20$, $10$, $30$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 3, paso 2](images/ej3-02.svg)
+
+> Los niveles van de $0$ (la raíz) a $2$. La rama más larga, $20$ → $10$ → $5$, tiene $3$ nodos: la **altura** es $3$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 3, paso 3](images/ej3-03.svg)
+
+> Se cuentan los nodos: el **peso** es $6$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 3, paso 4](images/ej3-04.svg)
+
+> **¿Completo?** No: $30$ es no terminal con un solo subárbol no vacío. En un árbol completo cada no terminal tiene **exactamente dos** hijos.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 3, paso 5](images/ej3-05.svg)
+
+> **¿Lleno?** No: no es completo, así que tampoco puede ser lleno. Con altura $3$ caben a lo sumo $2^3 - 1 = 7$ nodos y tiene $6$: le faltan $1$ para estar lleno.
+
+:::
+::::
+:::::
+
+**Ejemplo 4 (medio).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+
+![Árbol del ejemplo 4](images/ej4-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 4, paso 1](images/ej4-01.svg)
+
+> **Hojas** (en verde, sin hijos): $20$, $40$, $60$, $80$. **No terminales** (en amarillo): $50$, $30$, $70$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 4, paso 2](images/ej4-02.svg)
+
+> Los niveles van de $0$ (la raíz) a $2$. La rama más larga, $50$ → $30$ → $20$, tiene $3$ nodos: la **altura** es $3$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 4, paso 3](images/ej4-03.svg)
+
+> Se cuentan los nodos: el **peso** es $7$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 4, paso 4](images/ej4-04.svg)
+
+> **¿Completo?** Sí: cada no terminal ($50$, $30$, $70$) tiene exactamente dos hijos.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 4, paso 5](images/ej4-05.svg)
+
+> **¿Lleno?** Sí: es completo y todas sus hojas están en el nivel $2$. Con altura $3$ caben a lo sumo $2^3 - 1 = 7$ nodos y tiene $7$.
+
+:::
+::::
+:::::
+
+**Ejemplo 5 (difícil).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+
+![Árbol del ejemplo 5](images/ej5-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 5, paso 1](images/ej5-01.svg)
+
+> **Hojas** (en verde, sin hijos): $5$, $15$, $25$, $35$, $45$, $65$, $75$, $90$. **No terminales** (en amarillo): $40$, $20$, $10$, $30$, $60$, $50$, $70$, $80$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 5, paso 2](images/ej5-02.svg)
+
+> Los niveles van de $0$ (la raíz) a $4$. La rama más larga, $40$ → $60$ → $70$ → $80$ → $75$, tiene $5$ nodos: la **altura** es $5$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 5, paso 3](images/ej5-03.svg)
+
+> Se cuentan los nodos: el **peso** es $16$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 5, paso 4](images/ej5-04.svg)
+
+> **¿Completo?** No: $50$ es no terminal con un solo subárbol no vacío. En un árbol completo cada no terminal tiene **exactamente dos** hijos.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 5, paso 5](images/ej5-05.svg)
+
+> **¿Lleno?** No: no es completo, así que tampoco puede ser lleno (además, sus hojas están en distintos niveles: en rojo, las que no están en el último). Con altura $5$ caben a lo sumo $2^5 - 1 = 31$ nodos y tiene $16$: le faltan $15$ para estar lleno.
+
+:::
+::::
+:::::
+
 ## Ejercicios
 
 Practique con los [ejercicios de árboles binarios](exercises.md).

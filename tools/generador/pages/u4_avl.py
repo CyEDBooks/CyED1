@@ -1,7 +1,8 @@
 from common import *
 from figlib import text_width
 from tviz import (from_tuple, draw, nodes, fb, height, avl_insert_trace, avl_delete_trace,
-                  avl_insert, double_rotation_middle, copy_tree, find, rot_left, bst_build, N)
+                  avl_insert, double_rotation_middle, copy_tree, find, rot_left, bst_build, N,
+                  halo, ring, zoom, layout, parent_map, search_path)
 
 
 def fbtxt(f):
@@ -108,6 +109,256 @@ def avl_tabs(p, prefix, ops, start=None, k_img=0):
             out.append(f"![AVL, paso {len(out) + 1}]({path})\n\n{txt}")
         root = root_after
     return out, root
+
+
+# Cinco ejemplos, de muy fácil a difícil. Cada desbalanceo se trata igual: revisar los fb de
+# abajo hacia arriba, mirar de cerca el subárbol de p (alturas de sus dos lados y fb(q)),
+# decidir el caso, rotar y comprobar que el árbol volvió a ser AVL.
+NIVELES = ["muy fácil", "fácil", "medio", "medio", "difícil"]
+
+
+def _avl_from(keys):
+    r = None
+    for k in keys:
+        r = avl_insert(r, k)
+    return r
+
+
+EJEMPLOS = [
+    dict(start=None, ops=[("i", 10), ("i", 20), ("i", 30)]),
+    dict(start=bst_build([50, 40, 60, 30]), ops=[("i", 20)]),
+    dict(start=bst_build([20, 10, 40, 30, 50]), ops=[("i", 35)]),
+    dict(start=None, ops=[("i", k) for k in (40, 90, 25, 60, 75, 50, 95, 55)]),
+    dict(start=_avl_from([65, 75, 95, 15, 60, 80, 70, 85, 5, 90, 40, 50, 25]), ops=[("d", 75)]),
+]
+LG = 7          # separación entre el nodo y su fb, para que no choque con el anillo rojo
+ROT = {"izquierda": "LEFT", "derecha": "RIGHT"}
+
+
+def _rings(*keys):
+    def over(svg, pos):
+        for k in keys:
+            if k in pos:
+                ring(svg, *pos[k])
+    return over
+
+
+def _fb(k, t):
+    return f"fb({k}) = {fbtxt(fb(find(t, k)))}"
+
+
+def _ancestors(t, k, stop):
+    """Llaves de k hacia arriba hasta stop (inclusive)."""
+    par = parent_map(t)
+    out, x = [], find(t, k)
+    while x is not None:
+        out.append(x.key)
+        if x.key == stop:
+            break
+        x = par[x.key]
+    return out
+
+
+def _sides(pn, dx=40, dy=56):
+    """Sombras de los dos subárboles de p con su altura. Un lado vacío se dibuja como un hueco
+    punteado en el lugar del hijo que falta."""
+    def under(svg, pos):
+        halo(svg, pos, pn.left, "blue", f"h = {height(pn.left)}")
+        halo(svg, pos, pn.right, "orange", f"h = {height(pn.right)}")
+
+    def over(svg, pos):
+        x, y = pos[pn.key]
+        for child, sgn, col in ((pn.left, -1, PAL["teal"]), (pn.right, 1, "#b86a00")):
+            if child is None:
+                gx, gy = x + sgn * dx * 0.7, y + dy
+                svg.line(x + sgn * 9, y + 12, gx - sgn * 7, gy - 10, col, 1.2, "3,3")
+                svg.ellipse(gx, gy, 12, 12, PAL["white"], col, 1.4, "3,3")
+                svg.text(gx, gy + 5, "∅", 13, col)
+                svg.text(gx, gy + 30, "h = 0", 13, col, bold=True)
+    return under, over
+
+
+def _case_fig(t, pk):
+    """Figura del desbalanceo en p: con zoom al subárbol si el árbol es grande y p no es la raíz."""
+    pn = find(t, pk)
+    f = fb(pn)
+    q = pn.right if f == 2 else pn.left
+    under, over_sides = _sides(pn)
+    labels, ls = fbl(t)
+
+    def over(svg, pos):
+        over_sides(svg, pos)
+        ring(svg, *pos[q.key])
+    if t.key == pk or len(nodes(t)) < 7:
+        return adraw(t, node_style={pk: "bad", q.key: "hl"}, under=under, over=over, label_gap=LG, label_side="away")
+    big = adraw(t, node_style={pk: "bad"}, label_gap=LG, label_side="away")
+    pos, _ = layout(t, 40, 56)
+    ks = [n.key for n in nodes(pn)]
+    xs, ys = [pos[k][0] for k in ks], [pos[k][1] for k in ks]
+    box = (min(xs) - 24, min(ys) - 26, max(xs) + 50, max(ys) + 24)
+    sub = copy_tree(pn)
+    under2, over2 = _sides(sub, dx=46)
+
+    def over_z(svg, pos):
+        over2(svg, pos)
+        ring(svg, *pos[q.key])
+    small = adraw(sub, node_style={pk: "bad", q.key: "hl"}, under=under2, over=over_z, label_gap=LG, label_side="away",
+                  dx=46)
+    return zoom(big, small, box, title=f"Zoom: subárbol de {pk}")
+
+
+def _case_txt(t, pk):
+    pn = find(t, pk)
+    f = fb(pn)
+    q = pn.right if f == 2 else pn.left
+    fq = fb(q)
+    hi, lo = ("derecho", "izquierdo") if f == 2 else ("izquierdo", "derecho")
+    hh = height(pn.right if f == 2 else pn.left)
+    hl_ = height(pn.left if f == 2 else pn.right)
+    out = (f"Zoom en $p = {pk}$: su lado **{hi}** mide ${hh}$ y el {lo} ${hl_}$, así que "
+           f"$fb(p) = {fbtxt(f)}$. El hijo del lado alto es $q = {q.key}$ (en el anillo), con "
+           f"$fb(q) = {fbtxt(fq)}$. ")
+    case = {(2, 1): "A", (2, 0): "B", (2, -1): "C", (-2, -1): "D", (-2, 0): "E", (-2, 1): "F"}[(f, fq)]
+    d1 = "LEFT" if f == 2 else "RIGHT"
+    if case in ("C", "F"):
+        d0 = "RIGHT" if f == 2 else "LEFT"
+        out += (f"**Signo contrario**: caso **{case}**, rotación doble: primero "
+                f"`{d0}-ROTATE({q.key})` y luego `{d1}-ROTATE({pk})`.")
+    else:
+        same = "es $0$" if fq == 0 else "tiene el **mismo signo**"
+        out += f"$fb(q)$ {same}: caso **{case}**, una sola rotación: `{d1}-ROTATE({pk})`."
+    return out
+
+
+def ejemplo_avl(p, i, ex):
+    pref = f"ejx{i}"     # «ej1-», «ej2-», «ej3-» ya son de los ejemplos de las secciones 5 y 6
+    tabs = []
+
+    def add(svg, txt):
+        tabs.append(f"![Ejemplo {i + 3}, paso {len(tabs) + 1}]({p.img(f'{pref}-{len(tabs) + 1:02d}', svg)})"
+                    f"\n\n> {txt}")
+
+    n = i + 3            # los ejemplos 1 a 3 están en las secciones 5 y 6
+    root = copy_tree(ex["start"])
+    verbs = {"i": "inserte", "d": "elimine"}
+    ks = [k for _, k in ex["ops"]]
+    what = (f"{verbs[ex['ops'][0][0]]} ${ks[0]}$" if len(ks) == 1
+            else f"{verbs[ex['ops'][0][0]]}, en este orden, {', '.join(f'${k}$' for k in ks)}")
+    if root is not None:
+        head = (f"**Ejemplo {n} ({NIVELES[i - 1]}).** En el árbol AVL $T$, {what}. Junto a cada "
+                f"nodo está su factor de balanceo.\n\n"
+                f"![Árbol T del ejemplo {n}]({p.img(f'{pref}-00', adraw(root, label_gap=LG, label_side='away'))})")
+    else:
+        head = f"**Ejemplo {n} ({NIVELES[i - 1]}).** En un árbol AVL vacío, {what}."
+
+    def rebalance(snaps, start):
+        """Pestañas de cada par (unbalanced, rotated); start: llave desde donde se revisa."""
+        cur = start
+        drop = None      # (altura antes, altura después) del subárbol que se acaba de rotar
+        for a, b in zip(snaps[::2], snaps[1::2]):
+            t, pk = a["tree"], a["key"]
+            chain = _ancestors(t, cur, pk)
+            ns = {k: "goal" for k in chain[:-1]}
+            ns[pk] = "bad"
+            checks = ", ".join(f"${_fb(k, t)}$ ✓" for k in chain[:-1])
+            pre = (f"La rotación anterior bajó la altura de ese subárbol de ${drop[0]}$ a "
+                   f"${drop[1]}$, así que los factores de más arriba pueden cambiar: se sigue "
+                   f"subiendo. " if drop and drop[0] != drop[1] else "")
+            add(adraw(t, node_style=ns, over=_rings(pk), label_gap=LG, label_side="away"),
+                pre + f"Se revisan los factores de abajo hacia arriba desde ${chain[0]}$: "
+                + (checks + ", " if checks else "")
+                + f"${_fb(pk, t)}$ ✗. El primer nodo desbalanceado es $p = {pk}$.")
+            add(_case_fig(t, pk), _case_txt(t, pk))
+            case = b["case"]
+            if case in ("C", "F"):
+                mid = double_rotation_middle(t, pk, case)
+                r1 = b["rots"][0]
+                qn = find(t, pk).right if case == "C" else find(t, pk).left
+                rn = qn.left if case == "C" else qn.right
+                add(adraw(mid, node_style={pk: "bad", rn.key: "new", qn.key: "hl"},
+                          over=_rings(rn.key), label_gap=LG, label_side="away"),
+                    f"`{ROT[r1[0]]}-ROTATE({r1[1]})`: ${rn.key}$ sube al lugar de ${qn.key}$. Ahora "
+                    f"$p = {pk}$, ${rn.key}$ y ${qn.key}$ están **en línea**: el peso quedó todo de un "
+                    f"lado, como en el caso {'A' if case == 'C' else 'D'}.")
+            r2 = b["rots"][-1]
+            nr = b["newroot"]
+            others = [k for k in (pk, qn.key if case in ("C", "F") else None) if k is not None]
+            add(adraw(b["tree"], node_style={nr: "new", **{k: "hl" for k in others}},
+                      over=_rings(nr), label_gap=LG, label_side="away"),
+                f"`{ROT[r2[0]]}-ROTATE({r2[1]})`: ${nr}$ sube a la raíz "
+                f"{'del árbol' if b['tree'].key == nr else 'del subárbol'} y ${pk}$ baja "
+                f"a ser su hijo {'izquierdo' if r2[0] == 'izquierda' else 'derecho'}. Los factores de "
+                f"ese subárbol vuelven a estar entre $-1$ y $1$.")
+            drop = (height(find(t, pk)), height(find(b["tree"], nr)))
+            cur = nr
+
+    for op, k in ex["ops"]:
+        if op == "i":
+            after, snaps = avl_insert_trace(root, k)
+            s0 = snaps[0]
+            t, path = s0["tree"], s0["path"]
+            ns = {x: "hl" for x in path}
+            ns[k] = "new"
+            es = {(a, b): "path" for a, b in zip(path, path[1:] + [k])}
+            if not path:
+                txt = f"Insertar ${k}$: el árbol está vacío, ${k}$ es la raíz, con $fb = 0$."
+            else:
+                cmp_ = "; ".join(f"${k} {'<' if k < x else '>'} {x}$" for x in path)
+                txt = (f"Insertar ${k}$ como en un ABB ({cmp_}): queda como hijo "
+                       f"{'izquierdo' if k < path[-1] else 'derecho'} de ${path[-1]}$.")
+                if len(snaps) == 1:
+                    chain = _ancestors(t, k, t.key)
+                    txt += (" Revisión de abajo hacia arriba: "
+                            + ", ".join(f"${_fb(x, t)}$ ✓" for x in chain)
+                            + ". Sigue siendo AVL, no hay que rotar.")
+                else:
+                    txt += (" Los factores que cambiaron están en el camino del nodo nuevo; "
+                            "uno quedó en $\\pm 2$ (en rojo).")
+            add(adraw(t, node_style=ns, edge_style=es, over=_rings(k), label_gap=LG, label_side="away"), txt)
+            rebalance(snaps[1:], k)
+        else:
+            z = find(root, k)
+            if z.left is not None and z.right is not None:
+                sk = z.right
+                path = [k]
+                while sk is not None:
+                    path.append(sk.key)
+                    sk = sk.left
+                sk = path[-1]
+                es = {(a, b): "path" for a, b in zip(path, path[1:])}
+                add(adraw(root, node_style={k: "bad", sk: "goal"}, edge_style=es,
+                          under=lambda svg, pos: halo(svg, pos, z.right, "orange",
+                                                      f"subárbol derecho de {k}"),
+                          over=_rings(k, sk), label_gap=LG, label_side="away"),
+                    f"Borrar ${k}$ como en un ABB. Tiene dos hijos: lo reemplaza su **sucesor**, el "
+                    f"mínimo del subárbol derecho ({' → '.join(f'${x}$' for x in path)}): ${sk}$.")
+            else:
+                add(adraw(root, node_style={k: "bad"}, over=_rings(k), label_gap=LG, label_side="away"),
+                    f"Borrar ${k}$ como en un ABB.")
+            after, snaps = avl_delete_trace(root, k)
+            s0 = snaps[0]
+            st = s0["start"]
+            moved = s0["succ"]
+            ns = {st: "hl"}
+            if moved is not None:
+                ns[moved] = "new"
+            add(adraw(s0["tree"], node_style=ns, over=_rings(st), label_gap=LG, label_side="away"),
+                (f"${moved}$ sale de su lugar y su llave reemplaza a ${k}$. " if moved is not None
+                 else "")
+                + f"El nodo que salió físicamente colgaba de ${st}$: desde ahí se revisan los "
+                  f"factores hacia la raíz. Ahora hay factores en $\\pm 2$ (en rojo).")
+            rebalance(snaps[1:], st)
+        root = after
+
+    def over(svg, pos):
+        ys = max(y for _, y in pos.values()) + 50
+        x0 = min(x for x, _ in pos.values()) - 10
+        draw_panel(svg, x0, ys, "Inorden:", [str(n.key) for n in nodes(root)], cell=30, wrap=12)
+    assert all(abs(fb(n)) <= 1 for n in nodes(root))
+    add(adraw(root, node_style={n.key: "goal" for n in nodes(root)}, over=over, label_gap=LG, label_side="away"),
+        "**¿Es AVL?** Sí: todos los factores de balanceo están en $\\{-1, 0, 1\\}$. Y sigue siendo "
+        "ABB: el inorden sale ordenado.")
+    return f"{head}\n\n" + steps("Paso a paso", tabs)
 
 
 # Diagramas esquemáticos de los casos (nodos con su fb y subárboles como triángulos)
@@ -335,6 +586,8 @@ def build():
                "desbalanceó a la raíz: por eso hizo falta un **segundo** rebalanceo.")
     p.put("ej3", steps("AVL-DELETE(T, 1)", st))
 
+    for i, ex in enumerate(EJEMPLOS, 1):
+        p.put(f"ejx{i}", ejemplo_avl(p, i, ex))
     p.assemble("index.md")
 
     # Ejercicios

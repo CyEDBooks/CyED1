@@ -214,7 +214,21 @@ TREE-DELETE(T, z)
 16 return y
 ```
 
-## 6. Formalización
+## 6. Ejemplos
+
+Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las llaves una por una y luego se busca o se borra. En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho); en verde, lo que se encontró. Cada ejemplo cierra comprobando que el resultado **es** un ABB.
+
+{{GEN:ej1}}
+
+{{GEN:ej2}}
+
+{{GEN:ej3}}
+
+{{GEN:ej4}}
+
+{{GEN:ej5}}
+
+## 7. Formalización
 
 - Si $x$ es la raíz de un subárbol con $n$ nodos, `INORDER-TREE-WALK(x)` toma $\Theta(n)$ y lista las llaves en orden.
 - `SEARCH`, `MINIMUM`, `MAXIMUM`, `SUCCESSOR`, `PREDECESSOR`, `INSERT` y `DELETE` toman $O(h)$ en un ABB de altura $h$.

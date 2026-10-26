@@ -111,11 +111,13 @@ class SVG:
         self.maxx = max(self.maxx, x1)
         self.maxy = max(self.maxy, y1)
 
-    def add(self, sub, dx, dy):
-        """Copia otro dibujo desplazado (dx, dy)."""
+    def add(self, sub, dx, dy, scale=1):
+        """Copia otro dibujo desplazado (dx, dy) y, si se pide, ampliado."""
+        sc = f" scale({scale})" if scale != 1 else ""
         for it in sub.items:
-            self.items.append(f'<g transform="translate({dx:.1f},{dy:.1f})">{it}</g>')
-        self._box(sub.minx + dx, sub.miny + dy, sub.maxx + dx, sub.maxy + dy)
+            self.items.append(f'<g transform="translate({dx:.1f},{dy:.1f}){sc}">{it}</g>')
+        self._box(sub.minx * scale + dx, sub.miny * scale + dy, sub.maxx * scale + dx,
+                  sub.maxy * scale + dy)
 
     def line(self, x1, y1, x2, y2, color, width=1.5, dash=None, marker=None):
         d = f' stroke-dasharray="{dash}"' if dash else ""

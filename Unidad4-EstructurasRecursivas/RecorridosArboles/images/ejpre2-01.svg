@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="393" height="400" viewBox="-39.0 -43.6 262.0 266.6" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-39.0" y="-43.6" width="262.0" height="266.6" fill="#ffffff"/>
+<line x1="46.0" y1="56.0" x2="0.0" y2="112.0" stroke="#ffe0e0" stroke-width="46"/>
+<line x1="46.0" y1="56.0" x2="92.0" y2="112.0" stroke="#ffe0e0" stroke-width="46"/>
+<line x1="138.0" y1="0.0" x2="46.0" y2="56.0" stroke="#ffe0e0" stroke-width="46"/>
+<line x1="138.0" y1="0.0" x2="184.0" y2="56.0" stroke="#ffe0e0" stroke-width="46"/>
+<circle cx="138.0" cy="0.0" r="23" fill="#ffe0e0" stroke="#ffe0e0" stroke-width="0"/>
+<circle cx="46.0" cy="56.0" r="23" fill="#ffe0e0" stroke="#ffe0e0" stroke-width="0"/>
+<circle cx="0.0" cy="112.0" r="23" fill="#ffe0e0" stroke="#ffe0e0" stroke-width="0"/>
+<circle cx="92.0" cy="112.0" r="23" fill="#ffe0e0" stroke="#ffe0e0" stroke-width="0"/>
+<circle cx="184.0" cy="56.0" r="23" fill="#ffe0e0" stroke="#ffe0e0" stroke-width="0"/>
+<text x="92.0" y="150.0" font-size="13" fill="#d62020" text-anchor="middle" font-weight="bold">subárbol de f</text>
+<line x1="36.5" y1="67.6" x2="9.5" y2="100.4" stroke="#111111" stroke-width="1.2"/>
+<line x1="55.5" y1="67.6" x2="82.5" y2="100.4" stroke="#111111" stroke-width="1.2"/>
+<line x1="125.2" y1="7.8" x2="58.8" y2="48.2" stroke="#111111" stroke-width="1.2"/>
+<line x1="147.5" y1="11.6" x2="174.5" y2="44.4" stroke="#111111" stroke-width="1.2"/>
+<circle cx="0.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="0.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">a</text>
+<circle cx="46.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="46.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">c</text>
+<circle cx="92.0" cy="112.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="92.0" y="116.5" font-size="13" fill="#111111" text-anchor="middle">g</text>
+<circle cx="138.0" cy="0.0" r="15" fill="#ffffff" stroke="#d62020" stroke-width="2.6"/>
+<text x="138.0" y="4.5" font-size="13" fill="#d62020" text-anchor="middle" font-weight="bold">f</text>
+<circle cx="184.0" cy="56.0" r="15" fill="#ffffff" stroke="#111111" stroke-width="1.3"/>
+<text x="184.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">e</text>
+<circle cx="138.0" cy="0.0" r="21" fill="none" stroke="#d62020" stroke-width="2.2"/>
+<circle cx="157.1" cy="-19.1" r="8.5" fill="#d62020" stroke="#ffffff" stroke-width="1.2"/>
+<text x="157.1" y="-15.5" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="bold">1</text>
+<text x="-10.0" y="198.0" font-size="13" fill="#555555" text-anchor="start" font-weight="bold">Preorden:</text>
+<rect x="67.6" y="176.0" width="30.0" height="32.0" rx="4" fill="#ffe3e3" stroke="#d62020" stroke-width="2.2"/>
+<text x="82.6" y="197.0" font-size="14" fill="#d62020" text-anchor="middle" font-weight="bold">f</text>
+</svg>

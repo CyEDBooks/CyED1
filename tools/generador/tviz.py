@@ -91,9 +91,11 @@ def compact_layout(root, dx=44, dy=62):
 
 def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, r=15,
          panel=None, caption=None, dx=40, dy=56, label_side="right", font=13, ghost=None,
-         compact=False):
+         compact=False, under=None, over=None, label_gap=0):
     """Dibuja un árbol binario. ghost = (clave_padre, 'L'|'R', texto) para un hueco.
-    compact: usa compact_layout (para árboles grandes)."""
+    compact: usa compact_layout (para árboles grandes).
+    under / over: funciones f(svg, pos) que dibujan debajo / encima del árbol
+    (sombras de subárboles, anillos, rótulos)."""
     svg = SVG()
     if root is None:
         svg.rect(0, 0, 120, 40, PAL["soft"], PAL["border"])
@@ -104,6 +106,8 @@ def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, 
     edge_style = edge_style or {}
     labels = labels or {}
     label_style = label_style or {}
+    if under:
+        under(svg, pos)
     for a, b in edges:
         st = edge_style.get((a, b), "plain")
         color, width, dash = EDGE_STYLES_T[st]
@@ -127,8 +131,16 @@ def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, 
         if k in labels and labels[k] != "":
             ls = label_style.get(k)
             col = PAL["new"] if ls == "new" else (PAL["bad"] if ls == "bad" else PAL["teal"])
-            if label_side == "right":
-                svg.text(x + r + 3, y - r + 5, labels[k], 13, col, anchor="start", bold=ls is not None)
+            side = label_side
+            if side == "away":     # del lado contrario a la arista que sube al padre
+                par = next((a for a, b in edges if b == k), None)
+                side = "left" if par is not None and pos[par][0] > x else "right"
+            if side == "left":
+                svg.text(x - r - 3 - label_gap, y - r + 5, labels[k], 13, col, anchor="end",
+                         bold=ls is not None)
+            elif side == "right":
+                svg.text(x + r + 3 + label_gap, y - r + 5, labels[k], 13, col, anchor="start",
+                         bold=ls is not None)
             else:
                 svg.text(x, y + r + 15, labels[k], 13, col, bold=ls is not None)
     if panel:
@@ -136,11 +148,93 @@ def draw(root, node_style=None, edge_style=None, labels=None, label_style=None, 
         x0 = min(x for x, _ in pos.values()) - 10
         title, items, new = panel
         draw_panel(svg, x0, ys, title, items, new=new, cell=30, wrap=12)
+    if over:
+        over(svg, pos)
     if caption:
         ys = max(y for _, y in pos.values()) + (100 if panel else 44)
         x0 = min(x for x, _ in pos.values()) - 10
         svg.text(x0, ys, caption, 13, PAL["muted"], anchor="start")
     return svg
+
+
+# Sombras de subárbol: (relleno, color del rótulo)
+HALOS = {"red": ("#ffe0e0", PAL["new"]), "blue": ("#dde6fa", PAL["teal"]),
+         "orange": ("#ffe8c7", "#b86a00"), "green": ("#dcf2dc", PAL["goal"])}
+
+
+def subtree_keys(n):
+    return [] if n is None else [n.key] + subtree_keys(n.left) + subtree_keys(n.right)
+
+
+def halo(svg, pos, n, color="red", text=None, r=15, pad=8):
+    """Sombrea el subárbol con raíz n (círculos y aristas engrosadas) y escribe text debajo."""
+    if n is None:
+        return
+    fill, tc = HALOS[color]
+    keys = subtree_keys(n)
+    rad = r + pad
+    for x in nodes(n):     # el árbol puede no ser de búsqueda: se recorre, no se busca
+        for ch in (x.left, x.right):
+            if ch is not None:
+                (x1, y1), (x2, y2) = pos[x.key], pos[ch.key]
+                svg.line(x1, y1, x2, y2, fill, 2 * rad)
+    for k in keys:
+        svg.circle(*pos[k], rad, fill, fill, 0)
+    if text:
+        xs = [pos[k][0] for k in keys]
+        y = max(pos[k][1] for k in keys) + rad + 15
+        svg.text((min(xs) + max(xs)) / 2, y, text, 13, tc, bold=True)
+
+
+def badge(svg, x, y, txt, color=None, r=15):
+    """Número pequeño en un círculo lleno, arriba a la derecha del nodo (orden de visita)."""
+    bx, by = x + r * 0.9 + 2, y - r * 0.9 - 2
+    svg.circle(bx, by, 8.5, color or PAL["teal"], PAL["white"], 1.2)
+    svg.text(bx, by + 3.6, txt, 10.5, PAL["white"], bold=True)
+
+
+def level_lines(svg, pos, dy=56, r=15):
+    """Líneas punteadas por nivel, con «nivel i» a la izquierda."""
+    xs = [x for x, _ in pos.values()]
+    x0, x1 = min(xs) - r - 22, max(xs) + r + 22
+    for d in sorted({y for _, y in pos.values()}):
+        svg.line(x0, d, x1, d, "#c9c9c9", 1, "3,4")
+        svg.text(x0 - 6, d + 4, f"nivel {round(d / dy)}", 12, PAL["muted"], anchor="end")
+
+
+def ring(svg, x, y, r=15, color=None, gap=6):
+    """Anillo rojo alrededor de un nodo, para señalarlo."""
+    svg.circle(x, y, r + gap, "none", color or PAL["new"], 2.2)
+
+
+def zoom(big, small, box, scale=1.45, title="Zoom", gap=56, max_w=700):
+    """Pone 'small' ampliado junto a 'big' (a la derecha o debajo, según el ancho),
+    con un recuadro rojo punteado en 'box' = (x0, y0, x1, y1) de big y líneas que lo unen
+    con la ampliación."""
+    out = SVG()
+    out.add(big, 0, 0)
+    bx0, by0, bx1, by1 = box
+    out.rect(bx0, by0, bx1 - bx0, by1 - by0, "none", PAL["new"], 1.8, rx=10)
+    out.items[-1] = out.items[-1].replace("/>", ' stroke-dasharray="6,4"/>')
+    sw, sh = (small.maxx - small.minx) * scale, (small.maxy - small.miny) * scale
+    bw = big.maxx - big.minx
+    side = bw + gap + sw + 20 <= max_w
+    if side:
+        zx, zy = big.maxx + gap, max(big.miny, (by0 + by1) / 2 - sh / 2 - 10)
+    else:
+        zx, zy = big.minx + (bw - sw) / 2, big.maxy + gap
+    frame = (zx - 10, zy - 28, zx + sw + 10, zy + sh + 10)
+    out.rect(frame[0], frame[1], frame[2] - frame[0], frame[3] - frame[1], "#fffafa", PAL["new"], 1.8,
+             rx=10)
+    out.text(frame[0] + 10, frame[1] + 18, title, 13, PAL["new"], anchor="start", bold=True)
+    out.add(small, zx - small.minx * scale, zy - small.miny * scale, scale)
+    if side:
+        pairs = (((bx1, by0), (frame[0], frame[1])), ((bx1, by1), (frame[0], frame[3])))
+    else:
+        pairs = (((bx0, by1), (frame[0], frame[1])), ((bx1, by1), (frame[2], frame[1])))
+    for (x1, y1), (x2, y2) in pairs:
+        out.line(x1, y1, x2, y2, PAL["new"], 1.1, "4,4")
+    return out
 
 
 EDGE_STYLES_T = {"plain": (PAL["ink"], 1.2, None), "new": (PAL["new"], 3.0, None),

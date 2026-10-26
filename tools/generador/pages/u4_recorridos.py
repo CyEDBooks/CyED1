@@ -1,5 +1,5 @@
 from common import *
-from tviz import from_tuple, draw
+from tviz import from_tuple, draw, halo, ring, badge, parent_map, nodes, layout
 
 # Árboles de Bedoya. Un hijo puede ser None para dejar el hueco del lado vacío:
 # ("h", [None, ("j", [])]) es h con un único hijo j a la derecha.
@@ -194,6 +194,130 @@ def reduction_tabs(lines, first_note):
     return tabs
 
 
+# Cinco ejemplos por recorrido, de muy fácil a difícil. B(k, izq, der); "·" no se usa:
+# un hijo ausente es None. Las letras no siguen el orden alfabético para que el dibujo no
+# delate el resultado.
+def B(k, l=None, r=None):
+    return (k, l, r)
+
+
+NIVELES = ["muy fácil", "fácil", "medio", "medio", "difícil"]
+EJ = {
+    "pre": [B("k", B("m"), B("d")),
+            B("f", B("c", B("a"), B("g")), B("e")),
+            B("d", B("h", B("b")), B("k", B("e"), B("a", B("m")))),
+            B("g", B("c", B("f", None, B("j")), B("b")), B("m", B("h", B("l"), B("n")))),
+            B("p", B("e", B("k", B("a")), B("r", B("n", B("c"), B("s")))),
+              B("b", B("t", None, B("h", B("f"))), B("q", None, B("m"))))],
+    "in": [B("n", B("r"), B("g")),
+           B("e", B("b", B("d"), B("h")), B("c")),
+           B("k", B("d", None, B("f")), B("p", B("j", B("a")), B("s"))),
+           B("h", B("c", B("e", None, B("b")), B("g", B("n"))), B("r", None, B("l", B("t")))),
+           B("a", B("q", B("f", None, B("m", B("k"))), B("z", B("e"))),
+             B("d", B("n", None, B("w")), B("j", B("h", None, B("c")), B("y"))))],
+    "post": [B("c", B("f"), B("h")),
+             B("m", B("a", B("k"), B("d")), B("p")),
+             B("b", B("g", None, B("e", B("c"))), B("n", B("f"), B("h"))),
+             B("t", B("j", B("a", B("d")), B("k")), B("r", None, B("w", B("e"), B("q")))),
+             B("h", B("c", B("m", None, B("b", B("s"))), B("g", B("f"))),
+               B("r", B("e", None, B("x")), B("a", B("p", B("k")), B("v"))))],
+}
+REGLA = {"pre": "raíz, subárbol izquierdo, subárbol derecho",
+         "in": "subárbol izquierdo, raíz, subárbol derecho",
+         "post": "subárbol izquierdo, subárbol derecho, raíz"}
+
+
+def _lst(ns):
+    return ", ".join(f"${n.key}$" for n in ns)
+
+
+def _why(kind, x, k, order, par):
+    """Por qué x es el nodo número k + 1 del recorrido."""
+    pa = par[x.key]
+    if kind == "pre":
+        if pa is None:
+            return f"Se empieza por la raíz ${x.key}$: en preorden la raíz va **primero**."
+        if pa.left is x:
+            return (f"${x.key}$ es la raíz del subárbol **izquierdo** de ${pa.key}$: se visita "
+                    f"apenas se entra a ese subárbol, antes que sus hijos.")
+        prev = (f"se terminó el subárbol izquierdo de ${pa.key}$" if pa.left is not None
+                else f"${pa.key}$ no tiene subárbol izquierdo")
+        return (f"Como {prev}, sigue el **derecho**, que empieza por su raíz ${x.key}$.")
+    if kind == "in":
+        if x.left is not None:
+            return (f"Todo el subárbol izquierdo de ${x.key}$ ({_lst(border(x.left, 'in'))}) ya se "
+                    f"recorrió: ahora toca ${x.key}$.")
+        if k == 0:
+            chain = []
+            y = x
+            while y is not None:
+                chain.append(y.key)
+                y = par[y.key]
+            return (f"Se baja siempre por la izquierda desde la raíz: "
+                    f"{' → '.join(f'${c}$' for c in reversed(chain))}. ${x.key}$ no tiene subárbol "
+                    f"izquierdo: es el **primero**.")
+        return f"${x.key}$ no tiene subárbol izquierdo: se visita de inmediato."
+    if x.left is None and x.right is None:
+        if k == 0:
+            chain = []
+            y = x
+            while y is not None:
+                chain.append(y.key)
+                y = par[y.key]
+            return (f"Se baja por los subárboles izquierdos hasta la primera hoja: "
+                    f"{' → '.join(f'${c}$' for c in reversed(chain))}. Las hojas no tienen nada "
+                    f"pendiente debajo: ${x.key}$ va **primero**.")
+        return f"${x.key}$ es hoja: no tiene subárboles pendientes, se visita."
+    parts = []
+    if x.left is not None:
+        parts.append(f"el izquierdo ({_lst(border(x.left, 'post'))})")
+    if x.right is not None:
+        parts.append(f"el derecho ({_lst(border(x.right, 'post'))})")
+    tail = " Es la raíz: va de **última**." if par[x.key] is None else ""
+    return f"Ya se recorrieron sus subárboles, {' y '.join(parts)}: ahora sí ${x.key}$.{tail}"
+
+
+def ejemplo_recorrido(p, prefix, t, kind):
+    root = from_tuple(t)
+    order = border(root, kind)
+    par = parent_map(root)
+    nm = NAMES[kind].capitalize()
+
+    def panel(svg, pos, k):
+        ys = max(y for _, y in pos.values()) + 64
+        x0 = min(x for x, _ in pos.values()) - 10
+        draw_panel(svg, x0, ys, f"{nm}:", [n.key for n in order[:k + 1]], new=[k], cell=30, wrap=12)
+
+    head = f"![Árbol del ejemplo]({p.img(f'{prefix}-00', draw(root, dx=46))})"
+    tabs = []
+    for k, x in enumerate(order):
+        done = order[:k + 1]
+
+        def under(svg, pos, x=x):
+            if kind == "pre":
+                halo(svg, pos, x, "red", f"subárbol de {x.key}")
+            elif kind == "in":
+                halo(svg, pos, x.left, "blue", "izq. ✓")
+            else:
+                halo(svg, pos, x.left, "blue", "izq. ✓")
+                halo(svg, pos, x.right, "orange", "der. ✓")
+
+        def over(svg, pos, k=k, x=x, done=done):
+            ring(svg, *pos[x.key])
+            for i, n in enumerate(done):
+                badge(svg, *pos[n.key], i + 1, PAL["new"] if i == k else PAL["teal"],
+                      r=19 if i == k else 15)
+            panel(svg, pos, k)
+        ns = {n.key: "tree" for n in done}
+        ns[x.key] = "new"
+        svg = draw(root, node_style=ns, dx=46, under=under, over=over)
+        txt = _why(kind, x, k, order, par)
+        if k == len(order) - 1:
+            txt += f"\n\n> **{nm}:** {seq(n.key for n in order)}."
+        tabs.append(f"![{NAMES[kind]}, paso {k + 1}]({p.img(f'{prefix}-{k + 1:02d}', svg)})\n\n> {txt}")
+    return head, tabs, [n.key for n in order]
+
+
 # Resultados que dan las diapositivas de Bedoya, para verificar los árboles.
 BEDOYA = {
     ("TA", "pre"): "efadcgbhi", ("TA", "in"): "afcdgehbi", ("TA", "post"): "acgdfhibe",
@@ -284,6 +408,17 @@ def build():
     p.put("post-eval", steps("Evaluar " + " ".join(post8),
                              reduction_tabs(lines, "El operador más a la izquierda precedido de "
                                                    "dos números es `8 6 −`: se reemplaza por $2$.")))
+    for kind in ("pre", "in", "post"):
+        for i, t in enumerate(EJ[kind]):
+            head, tabs, order = ejemplo_recorrido(p, f"ej{kind}{i + 1}", t, kind)
+            # verificación independiente con el recorrido de los árboles n-arios
+            def as_gen(t):
+                return None if t is None else (t[0], [as_gen(t[1]), as_gen(t[2])]
+                                               if (t[1] or t[2]) else [])
+            assert order == gorder(as_gen(t), kind), (kind, i)
+            p.put(f"ej-{kind}-{i + 1}",
+                  f"**Ejemplo {i + 1} ({NIVELES[i]}).** Recorra el árbol en {NAMES[kind]} "
+                  f"({REGLA[kind]}).\n\n{head}\n\n" + steps("Paso a paso", tabs))
     p.assemble("index.md")
 
     # Ejercicios

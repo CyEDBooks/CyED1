@@ -105,7 +105,54 @@ En inorden, la raíz va después del **primer** subárbol: $b$, luego $a$, luego
 
 También se puede recorrer **nivel por nivel**, de izquierda a derecha: primero la raíz, luego los elementos del nivel $1$, y así sucesivamente. Para el árbol de las pestañas: {{GEN:niveles}}. Es el recorrido BFS de la Unidad 5, que usa una **cola**; los otros tres bajan por un subárbol hasta el fondo antes de pasar al siguiente, como el DFS.
 
-## 3. Notación infija, prefija y postfija
+## 3. Ejemplos
+
+Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho). El número junto a cada nodo es su turno en el recorrido: en rojo, el que se acaba de visitar. En preorden la sombra roja es el subárbol al que se acaba de entrar; en inorden y postorden, la sombra marca lo que **ya** se recorrió y por eso permite visitar el nodo.
+
+### Preorden
+
+{{GEN:ej-pre-1}}
+
+{{GEN:ej-pre-2}}
+
+{{GEN:ej-pre-3}}
+
+{{GEN:ej-pre-4}}
+
+{{GEN:ej-pre-5}}
+
+### Inorden
+
+{{GEN:ej-in-1}}
+
+{{GEN:ej-in-2}}
+
+{{GEN:ej-in-3}}
+
+{{GEN:ej-in-4}}
+
+{{GEN:ej-in-5}}
+
+> **En el ejemplo 5, $h$ va antes que $c$ aunque $c$ esté más abajo. ¿Por qué?**
+
+:::{admonition} Respuesta
+:class: dropdown
+$c$ es hijo **derecho** de $h$. En inorden, un nodo va antes que todo su subárbol derecho, sin importar la profundidad. En el dibujo se nota: en inorden los nodos salen de izquierda a derecha, y $h$ está a la izquierda de $c$.
+:::
+
+### Postorden
+
+{{GEN:ej-post-1}}
+
+{{GEN:ej-post-2}}
+
+{{GEN:ej-post-3}}
+
+{{GEN:ej-post-4}}
+
+{{GEN:ej-post-5}}
+
+## 4. Notación infija, prefija y postfija
 
 Los recorridos permiten escribir expresiones complejas: proposiciones compuestas, combinaciones de conjuntos y expresiones aritméticas. En una expresión aritmética con suma ($+$), resta ($-$), multiplicación ($*$), división ($/$) y potencia ($↑$), cada operador tiene dos operandos, así que la expresión se representa con un **árbol binario**: los nodos internos son operadores y las hojas son operandos.
 

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="306" height="310" viewBox="-31.0 -40.0 203.8 207.0" font-family="'Comic Sans MS', 'Comic Neue', 'Comic Relief', 'Chalkboard SE', cursive">
+<defs><marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-tree" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f3c88"/></marker><marker id="arr-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker><marker id="arr-cand" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e08a00"/></marker><marker id="arr-reject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d62020"/></marker><marker id="arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555555"/></marker><marker id="arr-ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cfcfcf"/></marker></defs>
+<rect x="-31.0" y="-40.0" width="203.8" height="207.0" fill="#ffffff"/>
+<line x1="36.5" y1="11.6" x2="9.5" y2="44.4" stroke="#111111" stroke-width="1.2"/>
+<line x1="55.5" y1="11.6" x2="82.5" y2="44.4" stroke="#111111" stroke-width="1.2"/>
+<circle cx="0.0" cy="56.0" r="15" fill="#dfe7fb" stroke="#1f3c88" stroke-width="2.0"/>
+<text x="0.0" y="60.5" font-size="13" fill="#111111" text-anchor="middle">r</text>
+<circle cx="46.0" cy="0.0" r="15" fill="#dfe7fb" stroke="#1f3c88" stroke-width="2.0"/>
+<text x="46.0" y="4.5" font-size="13" fill="#111111" text-anchor="middle">n</text>
+<circle cx="92.0" cy="56.0" r="15" fill="#ffffff" stroke="#d62020" stroke-width="2.6"/>
+<text x="92.0" y="60.5" font-size="13" fill="#d62020" text-anchor="middle" font-weight="bold">g</text>
+<circle cx="92.0" cy="56.0" r="21" fill="none" stroke="#d62020" stroke-width="2.2"/>
+<circle cx="15.5" cy="40.5" r="8.5" fill="#1f3c88" stroke="#ffffff" stroke-width="1.2"/>
+<text x="15.5" y="44.1" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="bold">1</text>
+<circle cx="61.5" cy="-15.5" r="8.5" fill="#1f3c88" stroke="#ffffff" stroke-width="1.2"/>
+<text x="61.5" y="-11.9" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<circle cx="111.1" cy="36.9" r="8.5" fill="#d62020" stroke="#ffffff" stroke-width="1.2"/>
+<text x="111.1" y="40.5" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
+<text x="-10.0" y="142.0" font-size="13" fill="#555555" text-anchor="start" font-weight="bold">Inorden:</text>
+<rect x="59.8" y="120.0" width="30.0" height="32.0" rx="4" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="1.2"/>
+<text x="74.8" y="141.0" font-size="14" fill="#111111" text-anchor="middle">r</text>
+<rect x="93.8" y="120.0" width="30.0" height="32.0" rx="4" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="1.2"/>
+<text x="108.8" y="141.0" font-size="14" fill="#111111" text-anchor="middle">n</text>
+<rect x="127.8" y="120.0" width="30.0" height="32.0" rx="4" fill="#ffe3e3" stroke="#d62020" stroke-width="2.2"/>
+<text x="142.8" y="141.0" font-size="14" fill="#d62020" text-anchor="middle" font-weight="bold">g</text>
+</svg>

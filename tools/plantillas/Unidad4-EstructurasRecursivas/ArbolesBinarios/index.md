@@ -111,6 +111,20 @@ El máximo se alcanza en un árbol **lleno**. Por ejemplo, con altura $4$: $2^4 
 
 Al revés: un árbol binario con $n$ nodos tiene altura **al menos** $\lceil \log_2(n + 1) \rceil$. Esto importa para los árboles de búsqueda: si el árbol se mantiene «bajo», recorrer una rama cuesta $O(\log n)$.
 
+## 5. Ejemplos
+
+Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo orden: hojas, niveles y altura, peso, ¿completo?, ¿lleno? Las hojas van en verde y los no terminales en amarillo; el **anillo rojo** señala lo que hace fallar una propiedad.
+
+{{GEN:ej1}}
+
+{{GEN:ej2}}
+
+{{GEN:ej3}}
+
+{{GEN:ej4}}
+
+{{GEN:ej5}}
+
 ## Ejercicios
 
 Practique con los [ejercicios de árboles binarios](exercises.md).

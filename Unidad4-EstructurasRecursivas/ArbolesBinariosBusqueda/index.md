@@ -458,7 +458,267 @@ TREE-DELETE(T, z)
 16 return y
 ```
 
-## 6. Formalización
+## 6. Ejemplos
+
+Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las llaves una por una y luego se busca o se borra. En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho); en verde, lo que se encontró. Cada ejemplo cierra comprobando que el resultado **es** un ABB.
+
+**Ejemplo 1 (muy fácil).** Inserte, en este orden, $5$, $3$, $8$ en un ABB vacío; luego busque $8$.
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 1, paso 1](images/ej1-00.svg)
+
+> Insertar $5$: el árbol está vacío, $5$ es la **raíz**.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 1, paso 2](images/ej1-01.svg)
+
+> Insertar $3$: $3 < 5$ → izquierda. Ese lugar está vacío: $3$ queda como hijo **izquierdo** de $5$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 1, paso 3](images/ej1-02.svg)
+
+> Insertar $8$: $8 > 5$ → derecha. Ese lugar está vacío: $8$ queda como hijo **derecho** de $5$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 1, paso 4](images/ej1-03.svg)
+
+> Buscar $8$: $8 > 5$ → derecha; $8 = 8$: **encontrado** con $2$ comparaciones, sin mirar el resto del árbol.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 1, paso 5](images/ej1-04.svg)
+
+> **¿Es ABB?** Todo lo que está a la izquierda de la raíz $5$ es menor y todo lo de la derecha es mayor, y lo mismo pasa en cada subárbol. Comprobación rápida: el inorden sale ordenado, $3$, $5$, $8$.
+
+:::
+::::
+:::::
+
+**Ejemplo 2 (fácil).** Inserte, en este orden, $50$, $30$, $70$, $20$, $40$, $60$ en un ABB vacío; luego busque $40$ y busque $65$.
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 2, paso 1](images/ej2-00.svg)
+
+> Insertar $50$: el árbol está vacío, $50$ es la **raíz**.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 2, paso 2](images/ej2-01.svg)
+
+> Insertar $30$: $30 < 50$ → izquierda. Ese lugar está vacío: $30$ queda como hijo **izquierdo** de $50$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 2, paso 3](images/ej2-02.svg)
+
+> Insertar $70$: $70 > 50$ → derecha. Ese lugar está vacío: $70$ queda como hijo **derecho** de $50$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 2, paso 4](images/ej2-03.svg)
+
+> Insertar $20$: $20 < 50$ → izquierda; $20 < 30$ → izquierda. Ese lugar está vacío: $20$ queda como hijo **izquierdo** de $30$.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 2, paso 5](images/ej2-04.svg)
+
+> Insertar $40$: $40 < 50$ → izquierda; $40 > 30$ → derecha. Ese lugar está vacío: $40$ queda como hijo **derecho** de $30$.
+
+:::
+:::{tab-item} Paso 6
+![Ejemplo 2, paso 6](images/ej2-05.svg)
+
+> Insertar $60$: $60 > 50$ → derecha; $60 < 70$ → izquierda. Ese lugar está vacío: $60$ queda como hijo **izquierdo** de $70$.
+
+:::
+:::{tab-item} Paso 7
+![Ejemplo 2, paso 7](images/ej2-06.svg)
+
+> Buscar $40$: $40 < 50$ → izquierda; $40 > 30$ → derecha; $40 = 40$: **encontrado** con $3$ comparaciones, sin mirar el resto del árbol.
+
+:::
+:::{tab-item} Paso 8
+![Ejemplo 2, paso 8](images/ej2-07.svg)
+
+> Buscar $65$: $65 > 50$ → derecha; $65 < 70$ → izquierda; $65 > 60$ → derecha. Ese subárbol es vacío (`nil`): **$65$ no está** en el árbol. Bastaron $3$ comparaciones para saberlo.
+
+:::
+:::{tab-item} Paso 9
+![Ejemplo 2, paso 9](images/ej2-08.svg)
+
+> **¿Es ABB?** Todo lo que está a la izquierda de la raíz $50$ es menor y todo lo de la derecha es mayor, y lo mismo pasa en cada subárbol. Comprobación rápida: el inorden sale ordenado, $20$, $30$, $40$, $50$, $60$, $70$.
+
+:::
+::::
+:::::
+
+**Ejemplo 3 (medio).** Inserte, en este orden, $45$, $25$, $65$, $15$, $35$, $55$, $75$, $30$ en un ABB vacío; luego borre $15$ y borre $35$.
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 3, paso 1](images/ej3-00.svg)
+
+> Insertar $45$: el árbol está vacío, $45$ es la **raíz**.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 3, paso 2](images/ej3-01.svg)
+
+> Insertar $25$: $25 < 45$ → izquierda. Ese lugar está vacío: $25$ queda como hijo **izquierdo** de $45$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 3, paso 3](images/ej3-02.svg)
+
+> Insertar $65$: $65 > 45$ → derecha. Ese lugar está vacío: $65$ queda como hijo **derecho** de $45$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 3, paso 4](images/ej3-03.svg)
+
+> Insertar $15$: $15 < 45$ → izquierda; $15 < 25$ → izquierda. Ese lugar está vacío: $15$ queda como hijo **izquierdo** de $25$.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 3, paso 5](images/ej3-04.svg)
+
+> Insertar $35$: $35 < 45$ → izquierda; $35 > 25$ → derecha. Ese lugar está vacío: $35$ queda como hijo **derecho** de $25$.
+
+:::
+:::{tab-item} Paso 6
+![Ejemplo 3, paso 6](images/ej3-05.svg)
+
+> Insertar $55$: $55 > 45$ → derecha; $55 < 65$ → izquierda. Ese lugar está vacío: $55$ queda como hijo **izquierdo** de $65$.
+
+:::
+:::{tab-item} Paso 7
+![Ejemplo 3, paso 7](images/ej3-06.svg)
+
+> Insertar $75$: $75 > 45$ → derecha; $75 > 65$ → derecha. Ese lugar está vacío: $75$ queda como hijo **derecho** de $65$.
+
+:::
+:::{tab-item} Paso 8
+![Ejemplo 3, paso 8](images/ej3-07.svg)
+
+> Insertar $30$: $30 < 45$ → izquierda; $30 > 25$ → derecha; $30 < 35$ → izquierda. Ese lugar está vacío: $30$ queda como hijo **izquierdo** de $35$.
+
+:::
+:::{tab-item} Paso 9
+![Ejemplo 3, paso 9](images/ej3-08.svg)
+
+> Borrar $15$: es **hoja** (caso 1). Basta con quitarla: su padre, $25$, pasa a apuntar a `nil`.
+
+:::
+:::{tab-item} Paso 10
+![Ejemplo 3, paso 10](images/ej3-09.svg)
+
+> $25$ se quedó sin hijo izquierdo. Nada más cambió.
+
+:::
+:::{tab-item} Paso 11
+![Ejemplo 3, paso 11](images/ej3-10.svg)
+
+> Borrar $35$: tiene **un solo hijo**, $30$ (caso 2). Se separa $35$ y su padre, $25$, pasa a apuntar a $30$, que sube con todo su subárbol.
+
+:::
+:::{tab-item} Paso 12
+![Ejemplo 3, paso 12](images/ej3-11.svg)
+
+> Sigue siendo ABB: todo lo que colgaba de $35$ estaba del mismo lado de $25$ que $35$.
+
+:::
+:::{tab-item} Paso 13
+![Ejemplo 3, paso 13](images/ej3-12.svg)
+
+> **¿Es ABB?** Todo lo que está a la izquierda de la raíz $45$ es menor y todo lo de la derecha es mayor, y lo mismo pasa en cada subárbol. Comprobación rápida: el inorden sale ordenado, $25$, $30$, $45$, $55$, $65$, $75$.
+
+:::
+::::
+:::::
+
+**Ejemplo 4 (medio).** Inserte, en este orden, $40$, $20$, $60$, $10$, $30$, $50$, $70$, $25$, $35$, $65$ en un ABB vacío; luego borre $20$.
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 4, paso 1](images/ej4-00.svg)
+
+> Se insertan, en este orden, $40$, $20$, $60$, $10$, $30$, $50$, $70$, $25$, $35$, $65$, con el mismo método de los ejemplos anteriores: se compara con cada nodo desde la raíz y se baja a la izquierda si es menor o a la derecha si es mayor. El número junto a cada nodo es su orden de llegada: un nodo siempre llega **después** que su padre.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 4, paso 2](images/ej4-01.svg)
+
+> Borrar $20$: tiene **dos hijos** (caso 3). Su lugar lo toma su **sucesor**, el mínimo del subárbol derecho: se baja a la derecha una vez y luego a la izquierda hasta el final, $20$ → $30$ → $25$. El sucesor es $25$: mayor que todo lo de la izquierda de $20$ y menor que todo lo demás de la derecha.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 4, paso 3](images/ej4-02.svg)
+
+> La llave $25$ reemplaza a $20$. El árbol tiene un nodo menos y sigue siendo ABB.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 4, paso 4](images/ej4-03.svg)
+
+> **¿Es ABB?** Todo lo que está a la izquierda de la raíz $40$ es menor y todo lo de la derecha es mayor, y lo mismo pasa en cada subárbol. Comprobación rápida: el inorden sale ordenado, $10$, $25$, $30$, $35$, $40$, $50$, $60$, $65$, $70$.
+
+:::
+::::
+:::::
+
+**Ejemplo 5 (difícil).** Inserte, en este orden, $50$, $30$, $80$, $20$, $40$, $70$, $90$, $35$, $45$, $60$, $75$, $65$, $85$ en un ABB vacío; luego borre $50$.
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 5, paso 1](images/ej5-00.svg)
+
+> Se insertan, en este orden, $50$, $30$, $80$, $20$, $40$, $70$, $90$, $35$, $45$, $60$, $75$, $65$, $85$, con el mismo método de los ejemplos anteriores: se compara con cada nodo desde la raíz y se baja a la izquierda si es menor o a la derecha si es mayor. El número junto a cada nodo es su orden de llegada: un nodo siempre llega **después** que su padre.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 5, paso 2](images/ej5-01.svg)
+
+> Borrar $50$: tiene **dos hijos** (caso 3). Su lugar lo toma su **sucesor**, el mínimo del subárbol derecho: se baja a la derecha una vez y luego a la izquierda hasta el final, $50$ → $80$ → $70$ → $60$. El sucesor es $60$: mayor que todo lo de la izquierda de $50$ y menor que todo lo demás de la derecha.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 5, paso 3](images/ej5-02.svg)
+
+> Primero se separa $60$ de donde está. No tiene hijo izquierdo (es un mínimo), pero sí derecho, $65$: es el caso 2, $65$ sube y queda colgando de $70$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 5, paso 4](images/ej5-03.svg)
+
+> La llave $60$ reemplaza a $50$. El árbol tiene un nodo menos y sigue siendo ABB.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 5, paso 5](images/ej5-04.svg)
+
+> **¿Es ABB?** Todo lo que está a la izquierda de la raíz $60$ es menor y todo lo de la derecha es mayor, y lo mismo pasa en cada subárbol. Comprobación rápida: el inorden sale ordenado, $20$, $30$, $35$, $40$, $45$, $60$, $65$, $70$, $75$, $80$, $85$, $90$.
+
+:::
+::::
+:::::
+
+## 7. Formalización
 
 - Si $x$ es la raíz de un subárbol con $n$ nodos, `INORDER-TREE-WALK(x)` toma $\Theta(n)$ y lista las llaves en orden.
 - `SEARCH`, `MINIMUM`, `MAXIMUM`, `SUCCESSOR`, `PREDECESSOR`, `INSERT` y `DELETE` toman $O(h)$ en un ABB de altura $h$.

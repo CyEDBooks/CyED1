@@ -282,7 +282,28 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 
 {{GEN:ej3}}
 
-## 7. Formalización
+## 7. Más ejemplos
+
+Cinco ejemplos más, de muy fácil a difícil. Cada vez que un factor llega a $\pm 2$ se siguen los mismos pasos:
+
+1. revisar los factores de abajo hacia arriba hasta el primer nodo desbalanceado, $p$ (en verde, los que están bien);
+2. mirar de cerca el subárbol de $p$: la altura de cada lado da $fb(p)$, y $fb(q)$ decide el caso;
+3. rotar, y seguir subiendo si es una eliminación;
+4. comprobar que el resultado es AVL: todos los factores en $\{-1, 0, 1\}$ y el inorden ordenado.
+
+En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho). Cuando el árbol es grande, el **recuadro punteado** marca el subárbol de $p$ y el **zoom** lo muestra ampliado.
+
+{{GEN:ejx1}}
+
+{{GEN:ejx2}}
+
+{{GEN:ejx3}}
+
+{{GEN:ejx4}}
+
+{{GEN:ejx5}}
+
+## 8. Formalización
 
 - Un árbol AVL con $n$ nodos tiene altura $O(\log n)$. Si $N(h)$ es el **mínimo** número de nodos de un AVL de altura $h$, entonces $N(h) = 1 + N(h-1) + N(h-2)$, que crece como los números de Fibonacci; de ahí, $h < 1{,}45 \log_2(n + 2)$.
 - Por lo tanto, buscar, insertar y eliminar en un AVL cuestan $O(\log n)$.

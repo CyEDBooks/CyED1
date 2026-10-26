@@ -693,7 +693,352 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 ::::
 :::::
 
-## 7. Formalización
+## 7. Más ejemplos
+
+Cinco ejemplos más, de muy fácil a difícil. Cada vez que un factor llega a $\pm 2$ se siguen los mismos pasos:
+
+1. revisar los factores de abajo hacia arriba hasta el primer nodo desbalanceado, $p$ (en verde, los que están bien);
+2. mirar de cerca el subárbol de $p$: la altura de cada lado da $fb(p)$, y $fb(q)$ decide el caso;
+3. rotar, y seguir subiendo si es una eliminación;
+4. comprobar que el resultado es AVL: todos los factores en $\{-1, 0, 1\}$ y el inorden ordenado.
+
+En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho). Cuando el árbol es grande, el **recuadro punteado** marca el subárbol de $p$ y el **zoom** lo muestra ampliado.
+
+**Ejemplo 4 (muy fácil).** En un árbol AVL vacío, inserte, en este orden, $10$, $20$, $30$.
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 4, paso 1](images/ejx1-01.svg)
+
+> Insertar $10$: el árbol está vacío, $10$ es la raíz, con $fb = 0$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 4, paso 2](images/ejx1-02.svg)
+
+> Insertar $20$ como en un ABB ($20 > 10$): queda como hijo derecho de $10$. Revisión de abajo hacia arriba: $fb(20) = 0$ ✓, $fb(10) = +1$ ✓. Sigue siendo AVL, no hay que rotar.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 4, paso 3](images/ejx1-03.svg)
+
+> Insertar $30$ como en un ABB ($30 > 10$; $30 > 20$): queda como hijo derecho de $20$. Los factores que cambiaron están en el camino del nodo nuevo; uno quedó en $\pm 2$ (en rojo).
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 4, paso 4](images/ejx1-04.svg)
+
+> Se revisan los factores de abajo hacia arriba desde $30$: $fb(30) = 0$ ✓, $fb(20) = +1$ ✓, $fb(10) = +2$ ✗. El primer nodo desbalanceado es $p = 10$.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 4, paso 5](images/ejx1-05.svg)
+
+> Zoom en $p = 10$: su lado **derecho** mide $2$ y el izquierdo $0$, así que $fb(p) = +2$. El hijo del lado alto es $q = 20$ (en el anillo), con $fb(q) = +1$. $fb(q)$ tiene el **mismo signo**: caso **A**, una sola rotación: `LEFT-ROTATE(10)`.
+
+:::
+:::{tab-item} Paso 6
+![Ejemplo 4, paso 6](images/ejx1-06.svg)
+
+> `LEFT-ROTATE(10)`: $20$ sube a la raíz del árbol y $10$ baja a ser su hijo izquierdo. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 7
+![Ejemplo 4, paso 7](images/ejx1-07.svg)
+
+> **¿Es AVL?** Sí: todos los factores de balanceo están en $\{-1, 0, 1\}$. Y sigue siendo ABB: el inorden sale ordenado.
+
+:::
+::::
+:::::
+
+**Ejemplo 5 (fácil).** En el árbol AVL $T$, inserte $20$. Junto a cada nodo está su factor de balanceo.
+
+![Árbol T del ejemplo 5](images/ejx2-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 5, paso 1](images/ejx2-01.svg)
+
+> Insertar $20$ como en un ABB ($20 < 50$; $20 < 40$; $20 < 30$): queda como hijo izquierdo de $30$. Los factores que cambiaron están en el camino del nodo nuevo; uno quedó en $\pm 2$ (en rojo).
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 5, paso 2](images/ejx2-02.svg)
+
+> Se revisan los factores de abajo hacia arriba desde $20$: $fb(20) = 0$ ✓, $fb(30) = −1$ ✓, $fb(40) = −2$ ✗. El primer nodo desbalanceado es $p = 40$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 5, paso 3](images/ejx2-03.svg)
+
+> Zoom en $p = 40$: su lado **izquierdo** mide $2$ y el derecho $0$, así que $fb(p) = −2$. El hijo del lado alto es $q = 30$ (en el anillo), con $fb(q) = −1$. $fb(q)$ tiene el **mismo signo**: caso **D**, una sola rotación: `RIGHT-ROTATE(40)`.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 5, paso 4](images/ejx2-04.svg)
+
+> `RIGHT-ROTATE(40)`: $30$ sube a la raíz del subárbol y $40$ baja a ser su hijo derecho. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 5, paso 5](images/ejx2-05.svg)
+
+> **¿Es AVL?** Sí: todos los factores de balanceo están en $\{-1, 0, 1\}$. Y sigue siendo ABB: el inorden sale ordenado.
+
+:::
+::::
+:::::
+
+**Ejemplo 6 (medio).** En el árbol AVL $T$, inserte $35$. Junto a cada nodo está su factor de balanceo.
+
+![Árbol T del ejemplo 6](images/ejx3-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 6, paso 1](images/ejx3-01.svg)
+
+> Insertar $35$ como en un ABB ($35 > 20$; $35 < 40$; $35 > 30$): queda como hijo derecho de $30$. Los factores que cambiaron están en el camino del nodo nuevo; uno quedó en $\pm 2$ (en rojo).
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 6, paso 2](images/ejx3-02.svg)
+
+> Se revisan los factores de abajo hacia arriba desde $35$: $fb(35) = 0$ ✓, $fb(30) = +1$ ✓, $fb(40) = −1$ ✓, $fb(20) = +2$ ✗. El primer nodo desbalanceado es $p = 20$.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 6, paso 3](images/ejx3-03.svg)
+
+> Zoom en $p = 20$: su lado **derecho** mide $3$ y el izquierdo $1$, así que $fb(p) = +2$. El hijo del lado alto es $q = 40$ (en el anillo), con $fb(q) = −1$. **Signo contrario**: caso **C**, rotación doble: primero `RIGHT-ROTATE(40)` y luego `LEFT-ROTATE(20)`.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 6, paso 4](images/ejx3-04.svg)
+
+> `RIGHT-ROTATE(40)`: $30$ sube al lugar de $40$. Ahora $p = 20$, $30$ y $40$ están **en línea**: el peso quedó todo de un lado, como en el caso A.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 6, paso 5](images/ejx3-05.svg)
+
+> `LEFT-ROTATE(20)`: $30$ sube a la raíz del árbol y $20$ baja a ser su hijo izquierdo. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 6
+![Ejemplo 6, paso 6](images/ejx3-06.svg)
+
+> **¿Es AVL?** Sí: todos los factores de balanceo están en $\{-1, 0, 1\}$. Y sigue siendo ABB: el inorden sale ordenado.
+
+:::
+::::
+:::::
+
+**Ejemplo 7 (medio).** En un árbol AVL vacío, inserte, en este orden, $40$, $90$, $25$, $60$, $75$, $50$, $95$, $55$.
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 7, paso 1](images/ejx4-01.svg)
+
+> Insertar $40$: el árbol está vacío, $40$ es la raíz, con $fb = 0$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 7, paso 2](images/ejx4-02.svg)
+
+> Insertar $90$ como en un ABB ($90 > 40$): queda como hijo derecho de $40$. Revisión de abajo hacia arriba: $fb(90) = 0$ ✓, $fb(40) = +1$ ✓. Sigue siendo AVL, no hay que rotar.
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 7, paso 3](images/ejx4-03.svg)
+
+> Insertar $25$ como en un ABB ($25 < 40$): queda como hijo izquierdo de $40$. Revisión de abajo hacia arriba: $fb(25) = 0$ ✓, $fb(40) = 0$ ✓. Sigue siendo AVL, no hay que rotar.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 7, paso 4](images/ejx4-04.svg)
+
+> Insertar $60$ como en un ABB ($60 > 40$; $60 < 90$): queda como hijo izquierdo de $90$. Revisión de abajo hacia arriba: $fb(60) = 0$ ✓, $fb(90) = −1$ ✓, $fb(40) = +1$ ✓. Sigue siendo AVL, no hay que rotar.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 7, paso 5](images/ejx4-05.svg)
+
+> Insertar $75$ como en un ABB ($75 > 40$; $75 < 90$; $75 > 60$): queda como hijo derecho de $60$. Los factores que cambiaron están en el camino del nodo nuevo; uno quedó en $\pm 2$ (en rojo).
+
+:::
+:::{tab-item} Paso 6
+![Ejemplo 7, paso 6](images/ejx4-06.svg)
+
+> Se revisan los factores de abajo hacia arriba desde $75$: $fb(75) = 0$ ✓, $fb(60) = +1$ ✓, $fb(90) = −2$ ✗. El primer nodo desbalanceado es $p = 90$.
+
+:::
+:::{tab-item} Paso 7
+![Ejemplo 7, paso 7](images/ejx4-07.svg)
+
+> Zoom en $p = 90$: su lado **izquierdo** mide $2$ y el derecho $0$, así que $fb(p) = −2$. El hijo del lado alto es $q = 60$ (en el anillo), con $fb(q) = +1$. **Signo contrario**: caso **F**, rotación doble: primero `LEFT-ROTATE(60)` y luego `RIGHT-ROTATE(90)`.
+
+:::
+:::{tab-item} Paso 8
+![Ejemplo 7, paso 8](images/ejx4-08.svg)
+
+> `LEFT-ROTATE(60)`: $75$ sube al lugar de $60$. Ahora $p = 90$, $75$ y $60$ están **en línea**: el peso quedó todo de un lado, como en el caso D.
+
+:::
+:::{tab-item} Paso 9
+![Ejemplo 7, paso 9](images/ejx4-09.svg)
+
+> `RIGHT-ROTATE(90)`: $75$ sube a la raíz del subárbol y $90$ baja a ser su hijo derecho. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 10
+![Ejemplo 7, paso 10](images/ejx4-10.svg)
+
+> Insertar $50$ como en un ABB ($50 > 40$; $50 < 75$; $50 < 60$): queda como hijo izquierdo de $60$. Los factores que cambiaron están en el camino del nodo nuevo; uno quedó en $\pm 2$ (en rojo).
+
+:::
+:::{tab-item} Paso 11
+![Ejemplo 7, paso 11](images/ejx4-11.svg)
+
+> Se revisan los factores de abajo hacia arriba desde $50$: $fb(50) = 0$ ✓, $fb(60) = −1$ ✓, $fb(75) = −1$ ✓, $fb(40) = +2$ ✗. El primer nodo desbalanceado es $p = 40$.
+
+:::
+:::{tab-item} Paso 12
+![Ejemplo 7, paso 12](images/ejx4-12.svg)
+
+> Zoom en $p = 40$: su lado **derecho** mide $3$ y el izquierdo $1$, así que $fb(p) = +2$. El hijo del lado alto es $q = 75$ (en el anillo), con $fb(q) = −1$. **Signo contrario**: caso **C**, rotación doble: primero `RIGHT-ROTATE(75)` y luego `LEFT-ROTATE(40)`.
+
+:::
+:::{tab-item} Paso 13
+![Ejemplo 7, paso 13](images/ejx4-13.svg)
+
+> `RIGHT-ROTATE(75)`: $60$ sube al lugar de $75$. Ahora $p = 40$, $60$ y $75$ están **en línea**: el peso quedó todo de un lado, como en el caso A.
+
+:::
+:::{tab-item} Paso 14
+![Ejemplo 7, paso 14](images/ejx4-14.svg)
+
+> `LEFT-ROTATE(40)`: $60$ sube a la raíz del árbol y $40$ baja a ser su hijo izquierdo. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 15
+![Ejemplo 7, paso 15](images/ejx4-15.svg)
+
+> Insertar $95$ como en un ABB ($95 > 60$; $95 > 75$; $95 > 90$): queda como hijo derecho de $90$. Los factores que cambiaron están en el camino del nodo nuevo; uno quedó en $\pm 2$ (en rojo).
+
+:::
+:::{tab-item} Paso 16
+![Ejemplo 7, paso 16](images/ejx4-16.svg)
+
+> Se revisan los factores de abajo hacia arriba desde $95$: $fb(95) = 0$ ✓, $fb(90) = +1$ ✓, $fb(75) = +2$ ✗. El primer nodo desbalanceado es $p = 75$.
+
+:::
+:::{tab-item} Paso 17
+![Ejemplo 7, paso 17](images/ejx4-17.svg)
+
+> Zoom en $p = 75$: su lado **derecho** mide $2$ y el izquierdo $0$, así que $fb(p) = +2$. El hijo del lado alto es $q = 90$ (en el anillo), con $fb(q) = +1$. $fb(q)$ tiene el **mismo signo**: caso **A**, una sola rotación: `LEFT-ROTATE(75)`.
+
+:::
+:::{tab-item} Paso 18
+![Ejemplo 7, paso 18](images/ejx4-18.svg)
+
+> `LEFT-ROTATE(75)`: $90$ sube a la raíz del subárbol y $75$ baja a ser su hijo izquierdo. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 19
+![Ejemplo 7, paso 19](images/ejx4-19.svg)
+
+> Insertar $55$ como en un ABB ($55 < 60$; $55 > 40$; $55 > 50$): queda como hijo derecho de $50$. Revisión de abajo hacia arriba: $fb(55) = 0$ ✓, $fb(50) = +1$ ✓, $fb(40) = +1$ ✓, $fb(60) = −1$ ✓. Sigue siendo AVL, no hay que rotar.
+
+:::
+:::{tab-item} Paso 20
+![Ejemplo 7, paso 20](images/ejx4-20.svg)
+
+> **¿Es AVL?** Sí: todos los factores de balanceo están en $\{-1, 0, 1\}$. Y sigue siendo ABB: el inorden sale ordenado.
+
+:::
+::::
+:::::
+
+**Ejemplo 8 (difícil).** En el árbol AVL $T$, elimine $75$. Junto a cada nodo está su factor de balanceo.
+
+![Árbol T del ejemplo 8](images/ejx5-00.svg)
+
+:::::{admonition} Paso a paso
+:class: dropdown
+::::{tab-set}
+:::{tab-item} Paso 1
+![Ejemplo 8, paso 1](images/ejx5-01.svg)
+
+> Borrar $75$ como en un ABB. Tiene dos hijos: lo reemplaza su **sucesor**, el mínimo del subárbol derecho ($75$ → $85$ → $80$): $80$.
+
+:::
+:::{tab-item} Paso 2
+![Ejemplo 8, paso 2](images/ejx5-02.svg)
+
+> $80$ sale de su lugar y su llave reemplaza a $75$. El nodo que salió físicamente colgaba de $85$: desde ahí se revisan los factores hacia la raíz. Ahora hay factores en $\pm 2$ (en rojo).
+
+:::
+:::{tab-item} Paso 3
+![Ejemplo 8, paso 3](images/ejx5-03.svg)
+
+> Se revisan los factores de abajo hacia arriba desde $85$: $fb(85) = +2$ ✗. El primer nodo desbalanceado es $p = 85$.
+
+:::
+:::{tab-item} Paso 4
+![Ejemplo 8, paso 4](images/ejx5-04.svg)
+
+> Zoom en $p = 85$: su lado **derecho** mide $2$ y el izquierdo $0$, así que $fb(p) = +2$. El hijo del lado alto es $q = 95$ (en el anillo), con $fb(q) = −1$. **Signo contrario**: caso **C**, rotación doble: primero `RIGHT-ROTATE(95)` y luego `LEFT-ROTATE(85)`.
+
+:::
+:::{tab-item} Paso 5
+![Ejemplo 8, paso 5](images/ejx5-05.svg)
+
+> `RIGHT-ROTATE(95)`: $90$ sube al lugar de $95$. Ahora $p = 85$, $90$ y $95$ están **en línea**: el peso quedó todo de un lado, como en el caso A.
+
+:::
+:::{tab-item} Paso 6
+![Ejemplo 8, paso 6](images/ejx5-06.svg)
+
+> `LEFT-ROTATE(85)`: $90$ sube a la raíz del subárbol y $85$ baja a ser su hijo izquierdo. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 7
+![Ejemplo 8, paso 7](images/ejx5-07.svg)
+
+> La rotación anterior bajó la altura de ese subárbol de $3$ a $2$, así que los factores de más arriba pueden cambiar: se sigue subiendo. Se revisan los factores de abajo hacia arriba desde $90$: $fb(90) = 0$ ✓, $fb(80) = −2$ ✗. El primer nodo desbalanceado es $p = 80$.
+
+:::
+:::{tab-item} Paso 8
+![Ejemplo 8, paso 8](images/ejx5-08.svg)
+
+> Zoom en $p = 80$: su lado **izquierdo** mide $4$ y el derecho $2$, así que $fb(p) = −2$. El hijo del lado alto es $q = 60$ (en el anillo), con $fb(q) = −1$. $fb(q)$ tiene el **mismo signo**: caso **D**, una sola rotación: `RIGHT-ROTATE(80)`.
+
+:::
+:::{tab-item} Paso 9
+![Ejemplo 8, paso 9](images/ejx5-09.svg)
+
+> `RIGHT-ROTATE(80)`: $60$ sube a la raíz del árbol y $80$ baja a ser su hijo derecho. Los factores de ese subárbol vuelven a estar entre $-1$ y $1$.
+
+:::
+:::{tab-item} Paso 10
+![Ejemplo 8, paso 10](images/ejx5-10.svg)
+
+> **¿Es AVL?** Sí: todos los factores de balanceo están en $\{-1, 0, 1\}$. Y sigue siendo ABB: el inorden sale ordenado.
+
+:::
+::::
+:::::
+
+## 8. Formalización
 
 - Un árbol AVL con $n$ nodos tiene altura $O(\log n)$. Si $N(h)$ es el **mínimo** número de nodos de un AVL de altura $h$, entonces $N(h) = 1 + N(h-1) + N(h-2)$, que crece como los números de Fibonacci; de ahí, $h < 1{,}45 \log_2(n + 2)$.
 - Por lo tanto, buscar, insertar y eliminar en un AVL cuestan $O(\log n)$.
