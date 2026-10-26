@@ -28,7 +28,6 @@ def B(k, l=None, r=None):
     return (k, l, r)
 
 
-NIVELES = ["muy fácil", "fácil", "medio", "medio", "difícil"]
 EJEMPLOS = [
     B(8, B(4), B(9)),
     B(6, B(3, B(1), B(5)), B(9)),
@@ -74,7 +73,7 @@ def ejemplo(p, i, t):
         tabs.append(f"![Ejemplo {i}, paso {len(tabs) + 1}]({p.img(f'{pref}-{len(tabs) + 1:02d}', svg)})"
                     f"\n\n> {txt}")
 
-    head = (f"**Ejemplo {i} ({NIVELES[i - 1]}).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es "
+    head = (f"**Ejemplo {i}.** Para este árbol, ¿cuáles son las hojas? ¿Cuál es "
             f"su altura y su peso? ¿Es completo? ¿Es lleno?\n\n"
             f"![Árbol del ejemplo {i}]({p.img(f'{pref}-00', draw(root, **D))})")
     ns = {k: "goal" for k in leaves}

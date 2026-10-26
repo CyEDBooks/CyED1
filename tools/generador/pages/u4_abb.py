@@ -78,7 +78,6 @@ def delete(root, k):
 
 
 # Cinco ejemplos, de muy fácil a difícil: construir el ABB y luego buscar o borrar.
-NIVELES = ["muy fácil", "fácil", "medio", "medio", "difícil"]
 EJEMPLOS = [
     dict(keys=[5, 3, 8], ops=[("buscar", 8)]),
     dict(keys=[50, 30, 70, 20, 40, 60], ops=[("buscar", 40), ("buscar", 65)]),
@@ -115,7 +114,7 @@ def ejemplo(p, i, ex):
     keys = ex["keys"]
     acc = {"buscar": "busque", "borrar": "borre"}
     tail = " y ".join(f"{acc[op]} ${k}$" for op, k in ex["ops"])
-    head = (f"**Ejemplo {i} ({NIVELES[i - 1]}).** Inserte, en este orden, "
+    head = (f"**Ejemplo {i}.** Inserte, en este orden, "
             f"{', '.join(f'${k}$' for k in keys)} en un ABB vacío; luego {tail}.")
     t = None
     if ex.get("compacto"):

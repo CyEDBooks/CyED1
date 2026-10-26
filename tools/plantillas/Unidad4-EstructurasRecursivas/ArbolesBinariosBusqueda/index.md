@@ -216,8 +216,6 @@ TREE-DELETE(T, z)
 
 ## 6. Ejemplos
 
-Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las llaves una por una y luego se busca o se borra. En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho); en verde, lo que se encontró. Cada ejemplo cierra comprobando que el resultado **es** un ABB.
-
 {{GEN:ej1}}
 
 {{GEN:ej2}}

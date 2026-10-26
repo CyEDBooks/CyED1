@@ -257,11 +257,9 @@ También se puede recorrer **nivel por nivel**, de izquierda a derecha: primero 
 
 ## 3. Ejemplos
 
-Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho). El número junto a cada nodo es su turno en el recorrido: en rojo, el que se acaba de visitar. En preorden la sombra roja es el subárbol al que se acaba de entrar; en inorden y postorden, la sombra marca lo que **ya** se recorrió y por eso permite visitar el nodo.
-
 ### Preorden
 
-**Ejemplo 1 (muy fácil).** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
+**Ejemplo 1.** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejpre1-00.svg)
 
@@ -291,7 +289,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 2 (fácil).** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
+**Ejemplo 2.** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejpre2-00.svg)
 
@@ -333,7 +331,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 3 (medio).** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
+**Ejemplo 3.** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejpre3-00.svg)
 
@@ -387,7 +385,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 4 (medio).** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
+**Ejemplo 4.** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejpre4-00.svg)
 
@@ -453,7 +451,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 5 (difícil).** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
+**Ejemplo 5.** Recorra el árbol en preorden (raíz, subárbol izquierdo, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejpre5-00.svg)
 
@@ -551,7 +549,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 
 ### Inorden
 
-**Ejemplo 1 (muy fácil).** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
+**Ejemplo 1.** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejin1-00.svg)
 
@@ -581,7 +579,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 2 (fácil).** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
+**Ejemplo 2.** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejin2-00.svg)
 
@@ -623,7 +621,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 3 (medio).** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
+**Ejemplo 3.** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejin3-00.svg)
 
@@ -677,7 +675,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 4 (medio).** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
+**Ejemplo 4.** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejin4-00.svg)
 
@@ -743,7 +741,7 @@ Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **ani
 ::::
 :::::
 
-**Ejemplo 5 (difícil).** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
+**Ejemplo 5.** Recorra el árbol en inorden (subárbol izquierdo, raíz, subárbol derecho).
 
 ![Árbol del ejemplo](images/ejin5-00.svg)
 
@@ -848,7 +846,7 @@ $c$ es hijo **derecho** de $h$. En inorden, un nodo va antes que todo su subárb
 
 ### Postorden
 
-**Ejemplo 1 (muy fácil).** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
+**Ejemplo 1.** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
 
 ![Árbol del ejemplo](images/ejpost1-00.svg)
 
@@ -878,7 +876,7 @@ $c$ es hijo **derecho** de $h$. En inorden, un nodo va antes que todo su subárb
 ::::
 :::::
 
-**Ejemplo 2 (fácil).** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
+**Ejemplo 2.** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
 
 ![Árbol del ejemplo](images/ejpost2-00.svg)
 
@@ -920,7 +918,7 @@ $c$ es hijo **derecho** de $h$. En inorden, un nodo va antes que todo su subárb
 ::::
 :::::
 
-**Ejemplo 3 (medio).** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
+**Ejemplo 3.** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
 
 ![Árbol del ejemplo](images/ejpost3-00.svg)
 
@@ -974,7 +972,7 @@ $c$ es hijo **derecho** de $h$. En inorden, un nodo va antes que todo su subárb
 ::::
 :::::
 
-**Ejemplo 4 (medio).** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
+**Ejemplo 4.** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
 
 ![Árbol del ejemplo](images/ejpost4-00.svg)
 
@@ -1040,7 +1038,7 @@ $c$ es hijo **derecho** de $h$. En inorden, un nodo va antes que todo su subárb
 ::::
 :::::
 
-**Ejemplo 5 (difícil).** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
+**Ejemplo 5.** Recorra el árbol en postorden (subárbol izquierdo, subárbol derecho, raíz).
 
 ![Árbol del ejemplo](images/ejpost5-00.svg)
 

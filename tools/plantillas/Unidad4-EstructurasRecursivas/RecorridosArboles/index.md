@@ -107,8 +107,6 @@ También se puede recorrer **nivel por nivel**, de izquierda a derecha: primero 
 
 ## 3. Ejemplos
 
-Cinco ejemplos por recorrido, de muy fácil a difícil. En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho). El número junto a cada nodo es su turno en el recorrido: en rojo, el que se acaba de visitar. En preorden la sombra roja es el subárbol al que se acaba de entrar; en inorden y postorden, la sombra marca lo que **ya** se recorrió y por eso permite visitar el nodo.
-
 ### Preorden
 
 {{GEN:ej-pre-1}}

@@ -113,8 +113,6 @@ Al revés: un árbol binario con $n$ nodos tiene altura **al menos** $\lceil \lo
 
 ## 5. Ejemplos
 
-Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo orden: hojas, niveles y altura, peso, ¿completo?, ¿lleno? Las hojas van en verde y los no terminales en amarillo; el **anillo rojo** señala lo que hace fallar una propiedad.
-
 {{GEN:ej1}}
 
 {{GEN:ej2}}

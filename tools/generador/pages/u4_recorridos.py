@@ -201,7 +201,6 @@ def B(k, l=None, r=None):
     return (k, l, r)
 
 
-NIVELES = ["muy fácil", "fácil", "medio", "medio", "difícil"]
 EJ = {
     "pre": [B("k", B("m"), B("d")),
             B("f", B("c", B("a"), B("g")), B("e")),
@@ -417,7 +416,7 @@ def build():
                                                if (t[1] or t[2]) else [])
             assert order == gorder(as_gen(t), kind), (kind, i)
             p.put(f"ej-{kind}-{i + 1}",
-                  f"**Ejemplo {i + 1} ({NIVELES[i]}).** Recorra el árbol en {NAMES[kind]} "
+                  f"**Ejemplo {i + 1}.** Recorra el árbol en {NAMES[kind]} "
                   f"({REGLA[kind]}).\n\n{head}\n\n" + steps("Paso a paso", tabs))
     p.assemble("index.md")
 

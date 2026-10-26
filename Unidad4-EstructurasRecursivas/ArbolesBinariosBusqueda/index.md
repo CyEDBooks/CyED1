@@ -460,9 +460,7 @@ TREE-DELETE(T, z)
 
 ## 6. Ejemplos
 
-Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las llaves una por una y luego se busca o se borra. En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho); en verde, lo que se encontró. Cada ejemplo cierra comprobando que el resultado **es** un ABB.
-
-**Ejemplo 1 (muy fácil).** Inserte, en este orden, $5$, $3$, $8$ en un ABB vacío; luego busque $8$.
+**Ejemplo 1.** Inserte, en este orden, $5$, $3$, $8$ en un ABB vacío; luego busque $8$.
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -500,7 +498,7 @@ Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las lla
 ::::
 :::::
 
-**Ejemplo 2 (fácil).** Inserte, en este orden, $50$, $30$, $70$, $20$, $40$, $60$ en un ABB vacío; luego busque $40$ y busque $65$.
+**Ejemplo 2.** Inserte, en este orden, $50$, $30$, $70$, $20$, $40$, $60$ en un ABB vacío; luego busque $40$ y busque $65$.
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -562,7 +560,7 @@ Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las lla
 ::::
 :::::
 
-**Ejemplo 3 (medio).** Inserte, en este orden, $45$, $25$, $65$, $15$, $35$, $55$, $75$, $30$ en un ABB vacío; luego borre $15$ y borre $35$.
+**Ejemplo 3.** Inserte, en este orden, $45$, $25$, $65$, $15$, $35$, $55$, $75$, $30$ en un ABB vacío; luego borre $15$ y borre $35$.
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -648,7 +646,7 @@ Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las lla
 ::::
 :::::
 
-**Ejemplo 4 (medio).** Inserte, en este orden, $40$, $20$, $60$, $10$, $30$, $50$, $70$, $25$, $35$, $65$ en un ABB vacío; luego borre $20$.
+**Ejemplo 4.** Inserte, en este orden, $40$, $20$, $60$, $10$, $30$, $50$, $70$, $25$, $35$, $65$ en un ABB vacío; luego borre $20$.
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -680,7 +678,7 @@ Cinco ejemplos, de muy fácil a difícil: se construye el ABB insertando las lla
 ::::
 :::::
 
-**Ejemplo 5 (difícil).** Inserte, en este orden, $50$, $30$, $80$, $20$, $40$, $70$, $90$, $35$, $45$, $60$, $75$, $65$, $85$ en un ABB vacío; luego borre $50$.
+**Ejemplo 5.** Inserte, en este orden, $50$, $30$, $80$, $20$, $40$, $70$, $90$, $35$, $45$, $60$, $75$, $65$, $85$ en un ABB vacío; luego borre $50$.
 
 :::::{admonition} Paso a paso
 :class: dropdown

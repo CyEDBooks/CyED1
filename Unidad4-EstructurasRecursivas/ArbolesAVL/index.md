@@ -695,16 +695,7 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 
 ## 7. Más ejemplos
 
-Cinco ejemplos más, de muy fácil a difícil. Cada vez que un factor llega a $\pm 2$ se siguen los mismos pasos:
-
-1. revisar los factores de abajo hacia arriba hasta el primer nodo desbalanceado, $p$ (en verde, los que están bien);
-2. mirar de cerca el subárbol de $p$: la altura de cada lado da $fb(p)$, y $fb(q)$ decide el caso;
-3. rotar, y seguir subiendo si es una eliminación;
-4. comprobar que el resultado es AVL: todos los factores en $\{-1, 0, 1\}$ y el inorden ordenado.
-
-En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las **sombras** marcan subárboles (azul, el izquierdo; naranja, el derecho). Cuando el árbol es grande, el **recuadro punteado** marca el subárbol de $p$ y el **zoom** lo muestra ampliado.
-
-**Ejemplo 4 (muy fácil).** En un árbol AVL vacío, inserte, en este orden, $10$, $20$, $30$.
+**Ejemplo 4.** En un árbol AVL vacío, inserte, en este orden, $10$, $20$, $30$.
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -754,7 +745,7 @@ En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las 
 ::::
 :::::
 
-**Ejemplo 5 (fácil).** En el árbol AVL $T$, inserte $20$. Junto a cada nodo está su factor de balanceo.
+**Ejemplo 5.** En el árbol AVL $T$, inserte $20$. Junto a cada nodo está su factor de balanceo.
 
 ![Árbol T del ejemplo 5](images/ejx2-00.svg)
 
@@ -794,7 +785,7 @@ En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las 
 ::::
 :::::
 
-**Ejemplo 6 (medio).** En el árbol AVL $T$, inserte $35$. Junto a cada nodo está su factor de balanceo.
+**Ejemplo 6.** En el árbol AVL $T$, inserte $35$. Junto a cada nodo está su factor de balanceo.
 
 ![Árbol T del ejemplo 6](images/ejx3-00.svg)
 
@@ -840,7 +831,7 @@ En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las 
 ::::
 :::::
 
-**Ejemplo 7 (medio).** En un árbol AVL vacío, inserte, en este orden, $40$, $90$, $25$, $60$, $75$, $50$, $95$, $55$.
+**Ejemplo 7.** En un árbol AVL vacío, inserte, en este orden, $40$, $90$, $25$, $60$, $75$, $50$, $95$, $55$.
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -968,7 +959,7 @@ En las figuras, el **anillo rojo** señala el nodo del que habla cada paso; las 
 ::::
 :::::
 
-**Ejemplo 8 (difícil).** En el árbol AVL $T$, elimine $75$. Junto a cada nodo está su factor de balanceo.
+**Ejemplo 8.** En el árbol AVL $T$, elimine $75$. Junto a cada nodo está su factor de balanceo.
 
 ![Árbol T del ejemplo 8](images/ejx5-00.svg)
 

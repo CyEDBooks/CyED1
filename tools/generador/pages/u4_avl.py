@@ -114,7 +114,6 @@ def avl_tabs(p, prefix, ops, start=None, k_img=0):
 # Cinco ejemplos, de muy fácil a difícil. Cada desbalanceo se trata igual: revisar los fb de
 # abajo hacia arriba, mirar de cerca el subárbol de p (alturas de sus dos lados y fb(q)),
 # decidir el caso, rotar y comprobar que el árbol volvió a ser AVL.
-NIVELES = ["muy fácil", "fácil", "medio", "medio", "difícil"]
 
 
 def _avl_from(keys):
@@ -245,11 +244,11 @@ def ejemplo_avl(p, i, ex):
     what = (f"{verbs[ex['ops'][0][0]]} ${ks[0]}$" if len(ks) == 1
             else f"{verbs[ex['ops'][0][0]]}, en este orden, {', '.join(f'${k}$' for k in ks)}")
     if root is not None:
-        head = (f"**Ejemplo {n} ({NIVELES[i - 1]}).** En el árbol AVL $T$, {what}. Junto a cada "
+        head = (f"**Ejemplo {n}.** En el árbol AVL $T$, {what}. Junto a cada "
                 f"nodo está su factor de balanceo.\n\n"
                 f"![Árbol T del ejemplo {n}]({p.img(f'{pref}-00', adraw(root, label_gap=LG, label_side='away'))})")
     else:
-        head = f"**Ejemplo {n} ({NIVELES[i - 1]}).** En un árbol AVL vacío, {what}."
+        head = f"**Ejemplo {n}.** En un árbol AVL vacío, {what}."
 
     def rebalance(snaps, start):
         """Pestañas de cada par (unbalanced, rotated); start: llave desde donde se revisa."""

@@ -163,9 +163,7 @@ Al revés: un árbol binario con $n$ nodos tiene altura **al menos** $\lceil \lo
 
 ## 5. Ejemplos
 
-Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo orden: hojas, niveles y altura, peso, ¿completo?, ¿lleno? Las hojas van en verde y los no terminales en amarillo; el **anillo rojo** señala lo que hace fallar una propiedad.
-
-**Ejemplo 1 (muy fácil).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+**Ejemplo 1.** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
 
 ![Árbol del ejemplo 1](images/ej1-00.svg)
 
@@ -205,7 +203,7 @@ Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo o
 ::::
 :::::
 
-**Ejemplo 2 (fácil).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+**Ejemplo 2.** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
 
 ![Árbol del ejemplo 2](images/ej2-00.svg)
 
@@ -245,7 +243,7 @@ Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo o
 ::::
 :::::
 
-**Ejemplo 3 (medio).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+**Ejemplo 3.** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
 
 ![Árbol del ejemplo 3](images/ej3-00.svg)
 
@@ -285,7 +283,7 @@ Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo o
 ::::
 :::::
 
-**Ejemplo 4 (medio).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+**Ejemplo 4.** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
 
 ![Árbol del ejemplo 4](images/ej4-00.svg)
 
@@ -325,7 +323,7 @@ Cinco árboles, de muy fácil a difícil, con las mismas preguntas en el mismo o
 ::::
 :::::
 
-**Ejemplo 5 (difícil).** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
+**Ejemplo 5.** Para este árbol, ¿cuáles son las hojas? ¿Cuál es su altura y su peso? ¿Es completo? ¿Es lleno?
 
 ![Árbol del ejemplo 5](images/ej5-00.svg)
 
