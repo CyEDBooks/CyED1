@@ -200,7 +200,7 @@ var TL = {"S": [0.0, 5.7, 8.8, 15.1, 21.4, 27.75, 34.65, 39.25, 43.8, 48.35, 54.
   var cnt = el('text', {x: x0 + w - 10, y: by + 23, 'font-size': 13, 'text-anchor': 'end', fill: INK,
                         'font-weight': 'bold'}, bar);
   el('text', {x: x0 + w / 2, y: by + 46, 'font-size': 10.5, 'text-anchor': 'middle', fill: '#555555'}, bar)
-    .textContent = 'Espacio: reproducir o pausar · ← →: cuadro a cuadro · clic en la barra: saltar';
+    .textContent = 'Espacio: reproducir o pausar - ← →: cuadro a cuadro - clic en la barra: saltar';
   prog.addEventListener('click', function (ev) {
     var p = svg.createSVGPoint(); p.x = ev.clientX; p.y = ev.clientY;
     var q = p.matrixTransform(svg.getScreenCTM().inverse());
