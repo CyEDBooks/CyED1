@@ -13,6 +13,10 @@ Inserte $1, 2, 3, 4, 5, 6, 7$, en ese orden, en un árbol binario de búsqueda:
 
 ![Cadena](images/cadena.svg)
 
+![Animación: insertar 1 a 7 en un ABB](images/cadena-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/cadena-anim.svg)
+
 Es una cadena: buscar $7$ cuesta $7$ comparaciones, como en una lista. Con las mismas llaves, este otro ABB tiene altura $3$:
 
 ![ABB de altura 3](images/lleno.svg)
@@ -110,6 +114,10 @@ Así como cada nodo de un árbol rojinegro tiene un color, cada nodo de un AVL t
 ::::
 :::::
 
+![Animación: altura y factor de balanceo de cada nodo](images/fb-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/fb-anim.svg)
+
 ### Balanceado en altura
 
 Un árbol binario está **balanceado en altura** si para **cada** nodo $v$:
@@ -143,14 +151,14 @@ En b) todos los nodos **menos la raíz** están bien. Hay que revisar **cada** n
 
 ### Más ejemplos: ¿es AVL?
 
-Siete árboles más, de fáciles a difíciles. El método es siempre el mismo:
+Siete árboles más, ordenados de menor a mayor dificultad. El método es siempre el mismo:
 
 1. **¿Es ABB?** El inorden debe salir ordenado.
 2. **¿Está balanceado en altura?** Se calcula $fb$ de abajo hacia arriba, nivel por nivel, y se revisa que **todos** estén en $\{-1, 0, 1\}$.
 
 Intente responder antes de abrir la respuesta: la animación hace las dos revisiones.
 
-**Ejemplo 1** (fácil). ¿Es AVL?
+**Ejemplo 1.** ¿Es AVL?
 
 ![Árbol del ejemplo 1](images/esavl1.svg)
 
@@ -158,10 +166,12 @@ Intente responder antes de abrir la respuesta: la animación hace las dos revisi
 :class: dropdown
 ![Animación: ¿es AVL? (ejemplo 1)](images/esavl1-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/esavl1-anim.svg)
+
 **Sí es AVL.** Cada nodo tiene $|fb| \le 1$; $30$ tiene un solo hijo y eso está permitido.
 :::
 
-**Ejemplo 2** (fácil). ¿Es AVL?
+**Ejemplo 2.** ¿Es AVL?
 
 ![Árbol del ejemplo 2](images/esavl2.svg)
 
@@ -169,10 +179,12 @@ Intente responder antes de abrir la respuesta: la animación hace las dos revisi
 :class: dropdown
 ![Animación: ¿es AVL? (ejemplo 2)](images/esavl2-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/esavl2-anim.svg)
+
 **No es AVL.** Una cadena de tres nodos: la raíz tiene $fb(30) = 0 - 2 = -2$.
 :::
 
-**Ejemplo 3** (medio). ¿Es AVL?
+**Ejemplo 3.** ¿Es AVL?
 
 ![Árbol del ejemplo 3](images/esavl3.svg)
 
@@ -180,10 +192,12 @@ Intente responder antes de abrir la respuesta: la animación hace las dos revisi
 :class: dropdown
 ![Animación: ¿es AVL? (ejemplo 3)](images/esavl3-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/esavl3-anim.svg)
+
 **No es AVL.** La raíz está bien ($fb(50) = 3 - 2 = +1$), pero $70$ no: su lado derecho mide $2$ y el izquierdo $0$. No basta mirar la raíz.
 :::
 
-**Ejemplo 4** (medio). ¿Es AVL?
+**Ejemplo 4.** ¿Es AVL?
 
 ![Árbol del ejemplo 4](images/esavl4.svg)
 
@@ -191,10 +205,12 @@ Intente responder antes de abrir la respuesta: la animación hace las dos revisi
 :class: dropdown
 ![Animación: ¿es AVL? (ejemplo 4)](images/esavl4-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/esavl4-anim.svg)
+
 **Sí es AVL.** Se ve cargado a la izquierda, pero ningún nodo pasa de $1$: $fb(50) = 2 - 3 = -1$. Sí es AVL.
 :::
 
-**Ejemplo 5** (medio). ¿Es AVL?
+**Ejemplo 5.** ¿Es AVL?
 
 ![Árbol del ejemplo 5](images/esavl5.svg)
 
@@ -202,10 +218,12 @@ Intente responder antes de abrir la respuesta: la animación hace las dos revisi
 :class: dropdown
 ![Animación: ¿es AVL? (ejemplo 5)](images/esavl5-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/esavl5-anim.svg)
+
 **No es AVL.** Todos los nodos están bien **menos la raíz**: $fb(40) = 1 - 3 = -2$. Hay que revisar cada nodo.
 :::
 
-**Ejemplo 6** (difícil). ¿Es AVL?
+**Ejemplo 6.** ¿Es AVL?
 
 ![Árbol del ejemplo 6](images/esavl6.svg)
 
@@ -213,16 +231,20 @@ Intente responder antes de abrir la respuesta: la animación hace las dos revisi
 :class: dropdown
 ![Animación: ¿es AVL? (ejemplo 6)](images/esavl6-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/esavl6-anim.svg)
+
 **No es AVL.** Los factores están perfectos, pero $60$ está en el subárbol **izquierdo** de $50$: no es ABB, y un AVL ante todo es un ABB.
 :::
 
-**Ejemplo 7** (difícil). ¿Es AVL?
+**Ejemplo 7.** ¿Es AVL?
 
 ![Árbol del ejemplo 7](images/esavl7.svg)
 
 :::{admonition} Respuesta
 :class: dropdown
 ![Animación: ¿es AVL? (ejemplo 7)](images/esavl7-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/esavl7-anim.svg)
 
 **Sí es AVL.** Es el AVL con **menos nodos** posibles para su altura ($5$ niveles con $12$ nodos): en cada nodo, el lado izquierdo es exactamente $1$ más alto que el derecho. Parece desbalanceado, pero todos los factores son $0$ o $-1$.
 :::
@@ -277,6 +299,8 @@ Al rotar $x$ a la izquierda, se **baja** $x$ y se **sube** $y$.
 ![Rotaciones](images/rot.svg)
 
 ![Animación: LEFT-ROTATE(x) y RIGHT-ROTATE(y)](images/rot-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/rot-anim.svg)
 
 ```text
 LEFT-ROTATE(x)                  RIGHT-ROTATE(y)
@@ -352,9 +376,13 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 7)`.
 
 ![Animación del caso A: insertar 50](images/casoA-i-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoA-i-anim.svg)
+
 **Eliminar $5$** (`AVL-DELETE(T, 5)`):
 
 ![Animación del caso A: eliminar 5](images/casoA-d-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoA-d-anim.svg)
 
 ### Caso B: $fb(p) = 2$ y $fb(q) = 0$
 
@@ -398,11 +426,17 @@ Este caso **no puede aparecer al insertar** (una inserción no deja a $q$ con su
 
 ![Animación del caso B: eliminar 5](images/casoB-d-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoB-d-anim.svg)
+
 ### Caso C: $fb(p) = 2$ y $fb(q) = -1$
 
 Ahora el peso de $q$ está en su subárbol **izquierdo**, el del medio. Se podría intentar otra vez rotar $p$ a la izquierda:
 
 ![Caso C: una sola rotación no basta](images/caso-C-falla.svg)
+
+![Animación: el caso C con una y con dos rotaciones](images/cfalla-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/cfalla-anim.svg)
 
 Lamentablemente no funciona: el subárbol del medio pasa a ser hijo derecho de $p$ y el desbalance aparece del otro lado. La solución es en dos pasos: primero `RIGHT-ROTATE(q)`, que deja el peso «en línea» (como en el caso A), y luego `LEFT-ROTATE(p)`. Sea $r$ la raíz del subárbol izquierdo de $q$:
 
@@ -450,9 +484,13 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 5)`.
 
 ![Animación del caso C: insertar 55](images/casoC-i-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoC-i-anim.svg)
+
 **Eliminar $5$** (`AVL-DELETE(T, 5)`):
 
 ![Animación del caso C: eliminar 5](images/casoC-d-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoC-d-anim.svg)
 
 ### Casos D, E y F: $fb(p) = -2$
 
@@ -498,9 +536,13 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 1)`.
 
 ![Animación del caso D: insertar 50](images/casoD-i-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoD-i-anim.svg)
+
 **Eliminar $95$** (`AVL-DELETE(T, 95)`):
 
 ![Animación del caso D: eliminar 95](images/casoD-d-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoD-d-anim.svg)
 
 **Caso E: $fb(p) = -2$ y $fb(q) = 0$.** Se ejecuta `RIGHT-ROTATE(p)`. Como el caso B, solo aparece al eliminar.
 
@@ -541,6 +583,8 @@ Ejemplo: dado $T$, siga `AVL-DELETE(T, 8)`.
 **Eliminar $95$** (`AVL-DELETE(T, 95)`):
 
 ![Animación del caso E: eliminar 95](images/casoE-d-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoE-d-anim.svg)
 
 **Caso F: $fb(p) = -2$ y $fb(q) = 1$.** Primero `LEFT-ROTATE(q)` y luego `RIGHT-ROTATE(p)`.
 
@@ -588,9 +632,13 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 4)`.
 
 ![Animación del caso F: insertar 45](images/casoF-i-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoF-i-anim.svg)
+
 **Eliminar $95$** (`AVL-DELETE(T, 95)`):
 
 ![Animación del caso F: eliminar 95](images/casoF-d-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/casoF-d-anim.svg)
 
 ### Resumen
 
@@ -630,6 +678,8 @@ AVL-REBALANCE(T, x)
 Las llaves de la sección 1, ahora en un AVL:
 
 ![Animación: insertar 1, 2, 3, 4, 5, 6, 7](images/ej1-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ej1-anim.svg)
 
 :::::{admonition} Insertar 1, 2, 3, 4, 5, 6, 7
 :class: dropdown
@@ -737,6 +787,8 @@ Dado el árbol $T$:
 
 ![Animación: AVL-INSERT(T, 25)](images/ej2-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ej2-anim.svg)
+
 :::::{admonition} AVL-INSERT(T, 25)
 :class: dropdown
 ::::{tab-set}
@@ -791,6 +843,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 
 ![Animación: AVL-DELETE(T, 1)](images/ej3-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ej3-anim.svg)
+
 :::::{admonition} AVL-DELETE(T, 1)
 :class: dropdown
 ::::{tab-set}
@@ -834,6 +888,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 **Ejemplo 4.** En un árbol AVL vacío, inserte, en este orden, $10$, $20$, $30$.
 
 ![Animación del ejemplo 4](images/ejx1-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ejx1-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -889,6 +945,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 
 ![Animación del ejemplo 5](images/ejx2-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ejx2-anim.svg)
+
 :::::{admonition} Paso a paso
 :class: dropdown
 ::::{tab-set}
@@ -930,6 +988,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 ![Árbol T del ejemplo 6](images/ejx3-00.svg)
 
 ![Animación del ejemplo 6](images/ejx3-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ejx3-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -976,6 +1036,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 **Ejemplo 7.** En un árbol AVL vacío, inserte, en este orden, $40$, $90$, $25$, $60$, $75$, $50$, $95$, $55$.
 
 ![Animación del ejemplo 7](images/ejx4-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ejx4-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -1108,6 +1170,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 ![Árbol T del ejemplo 8](images/ejx5-00.svg)
 
 ![Animación del ejemplo 8](images/ejx5-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ejx5-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown

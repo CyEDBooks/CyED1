@@ -57,6 +57,8 @@ La forma de Bedoya («las ramas miden $h$ o $h - 1$, y las largas van a la izqui
 
 ![Animación: orden en que se llenan las posiciones de un montículo](images/llenado-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/llenado-anim.svg)
+
 Una forma práctica de revisarla: numere las posiciones por niveles, de izquierda a derecha, como en la animación. El árbol cumple la forma si sus $n$ nodos ocupan **exactamente las posiciones $1$ a $n$, sin huecos**.
 
 Cuidado con los nombres: en la sección de [árboles binarios](../ArbolesBinarios/index.md) un árbol «completo» es otra cosa (todo nodo interno tiene dos hijos). Aquí se habla siempre de la **propiedad de forma**.
@@ -66,6 +68,8 @@ Cuidado con los nombres: en la sección de [árboles binarios](../ArbolesBinario
 Los datos se almacenan en el arreglo recorriendo el árbol **por niveles, de izquierda a derecha**. $A[1..heap\text{-}size[A]]$ es el montículo: el arreglo puede ser más largo ($length[A]$), pero lo que está después de $heap\text{-}size[A]$ no es parte del montículo.
 
 ![Animación: del árbol al arreglo](images/arreglo-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/arreglo-anim.svg)
 
 > **Evalúe $\lfloor i/2 \rfloor$ para $i = 2$ y $3$; para $i = 4$ y $5$; para $i = 6$ y $7$. ¿Qué obtiene?**
 
@@ -89,6 +93,8 @@ Por la propiedad de forma, un montículo de $n$ elementos tiene todos sus nivele
 |---|---|---|---|---|---|
 | altura | $1$ | $2$ | $3$ | $4$ | $5$ |
 
+Cormen et al. miden la altura en **aristas** y por eso escriben $\lfloor \lg n \rfloor$: es el mismo árbol, contado con un nodo menos.
+
 Esa altura es la que hace rápidas las operaciones de la sección 4: cada una recorre a lo sumo **una rama**.
 
 ## 3. ¿Es un montículo? Siete ejemplos
@@ -100,7 +106,7 @@ Para cada árbol o arreglo se aplica el mismo método:
 
 Si se da un arreglo, primero se arma el árbol: $A[1]$ es la raíz, los hijos de $A[i]$ son $A[2i]$ y $A[2i + 1]$, y solo cuentan $A[1..heap\text{-}size[A]]$. La animación de cada respuesta hace las dos revisiones; los ✓ en verde y los ✗ en rojo.
 
-### Ejemplo 1 (fácil)
+### Ejemplo 1
 
 Dado el árbol:
 
@@ -112,6 +118,8 @@ Dado el árbol:
 :class: dropdown
 ![Animación: ¿es un montículo? (ejemplo 1)](images/es1-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/es1-anim.svg)
+
 **Sí es un max-heap.**
 - Forma ✓.
 - Orden ✓.
@@ -119,7 +127,7 @@ Dado el árbol:
 El ejemplo de las diapositivas de Bedoya: un árbol lleno donde cada padre es mayor que sus hijos.
 :::
 
-### Ejemplo 2 (fácil)
+### Ejemplo 2
 
 Dado el árbol:
 
@@ -131,6 +139,8 @@ Dado el árbol:
 :class: dropdown
 ![Animación: ¿es un montículo? (ejemplo 2)](images/es2-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/es2-anim.svg)
+
 **No es un montículo.**
 - Forma ✓.
 - Orden ✗: $A[1] = 8 < A[3] = 9$.
@@ -138,7 +148,7 @@ Dado el árbol:
 Basta **un** padre menor que un hijo para que falle el orden: aquí $8 < 9$ en la raíz.
 :::
 
-### Ejemplo 3 (medio)
+### Ejemplo 3
 
 Dado el árbol:
 
@@ -150,6 +160,8 @@ Dado el árbol:
 :class: dropdown
 ![Animación: ¿es un montículo? (ejemplo 3)](images/es3-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/es3-anim.svg)
+
 **No es un montículo.**
 - Forma ✗: la posición $4$ está vacía y hay nodos más a la derecha o más abajo.
 - Orden ✓.
@@ -157,7 +169,7 @@ Dado el árbol:
 El orden se cumple, pero los dos hijos de $5$ faltan mientras $7$ tiene los suyos: hay ramas de longitud $2$ a la izquierda de ramas de longitud $3$.
 :::
 
-### Ejemplo 4 (medio)
+### Ejemplo 4
 
 $A = \langle 20, 10, 5, 4, 3, 1 \rangle$, con $heap\text{-}size[A] = 6$ y $length[A] = 10$.
 
@@ -169,6 +181,8 @@ $A = \langle 20, 10, 5, 4, 3, 1 \rangle$, con $heap\text{-}size[A] = 6$ y $lengt
 :class: dropdown
 ![Animación: ¿es un montículo? (ejemplo 4)](images/es4-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/es4-anim.svg)
+
 **Sí es un max-heap.**
 - Forma ✓.
 - Orden ✓.
@@ -176,7 +190,7 @@ $A = \langle 20, 10, 5, 4, 3, 1 \rangle$, con $heap\text{-}size[A] = 6$ y $lengt
 Del arreglo se arma el árbol por niveles: $A[1]$ es la raíz, $A[2]$ y $A[3]$ sus hijos, y así. Las casillas $7$ a $10$ están en el arreglo pero no en el montículo.
 :::
 
-### Ejemplo 5 (medio)
+### Ejemplo 5
 
 Dado el árbol:
 
@@ -188,6 +202,8 @@ Dado el árbol:
 :class: dropdown
 ![Animación: ¿es un montículo? (ejemplo 5)](images/es5-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/es5-anim.svg)
+
 **No es un montículo.**
 - Forma ✗: la posición $8$ está vacía y hay nodos más a la derecha o más abajo.
 - Orden ✓.
@@ -195,7 +211,7 @@ Dado el árbol:
 Parece casi un árbol lleno, pero $1$ cuelga de $3$ (posición $10$) mientras $4$ no tiene hijos (posiciones $8$ y $9$ vacías): el último nivel no se llenó de izquierda a derecha.
 :::
 
-### Ejemplo 6 (difícil)
+### Ejemplo 6
 
 $A = \langle 8, 4, 2, 1, 7, 9 \rangle$, con $heap\text{-}size[A] = 4$ y $length[A] = 10$.
 
@@ -207,6 +223,8 @@ $A = \langle 8, 4, 2, 1, 7, 9 \rangle$, con $heap\text{-}size[A] = 4$ y $length[
 :class: dropdown
 ![Animación: ¿es un montículo? (ejemplo 6)](images/es6-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/es6-anim.svg)
+
 **Sí es un max-heap.**
 - Forma ✓.
 - Orden ✓.
@@ -214,7 +232,7 @@ $A = \langle 8, 4, 2, 1, 7, 9 \rangle$, con $heap\text{-}size[A] = 4$ y $length[
 Aunque $7$ y $9$ son mayores que $4$ y $2$, **no** están en el montículo: $heap\text{-}size[A] = 4$ deja solo $8, 4, 2, 1$. Con $heap\text{-}size[A] = 6$ no sería montículo.
 :::
 
-### Ejemplo 7 (difícil)
+### Ejemplo 7
 
 Dado el árbol:
 
@@ -225,6 +243,8 @@ Dado el árbol:
 :::{admonition} Respuesta
 :class: dropdown
 ![Animación: ¿es un montículo? (ejemplo 7)](images/es7-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/es7-anim.svg)
 
 **No es un montículo.**
 - Forma ✓.
@@ -271,12 +291,16 @@ MAX-HEAP-INSERT(A, key)
 6         i ← PARENT(i)
 ```
 
+Cormen et al. escriben lo mismo de otra forma: ponen $-\infty$ en la nueva posición y llaman a `HEAP-INCREASE-KEY(A, heap-size[A], key)`, cuyo ciclo es idéntico a las líneas 4 a 6.
+
 - Las líneas 1 a 3 ponen `key` en la **siguiente posición libre**: la forma se conserva.
 - El orden puede fallar solo entre `key` y su padre. Si el padre es menor, se intercambian y se sigue revisando más arriba: `key` **sube** por su rama hasta encontrar un padre mayor o igual, o hasta llegar a la raíz.
 
 **Ejemplo 1.** El más simple: insertar $7$ en $A = \langle 9, 8, 6, 2, 5 \rangle$.
 
 ![Animación: MAX-HEAP-INSERT(A, 7)](images/ins1-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ins1-anim.svg)
 
 :::::{admonition} MAX-HEAP-INSERT(A, 7)
 :class: dropdown
@@ -320,6 +344,8 @@ Resultado: $A = \langle 9, 8, 7, 2, 5, 6 \rangle$.
 
 ![Animación: MAX-HEAP-INSERT(A, 4)](images/ins2-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ins2-anim.svg)
+
 :::::{admonition} MAX-HEAP-INSERT(A, 4)
 :class: dropdown
 ::::{tab-set}
@@ -355,6 +381,8 @@ Ninguna: el padre de la posición $6$ es $6 \ge 4$, así que la condición del `
 **Ejemplo 3.** Insertar $15$ en $A = \langle 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 \rangle$.
 
 ![Animación: MAX-HEAP-INSERT(A, 15)](images/ins3-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ins3-anim.svg)
 
 :::::{admonition} MAX-HEAP-INSERT(A, 15)
 :class: dropdown
@@ -403,6 +431,8 @@ Resultado: $A = \langle 16, 15, 10, 8, 14, 9, 3, 2, 4, 1, 7 \rangle$. $15$ subi�
 **Ejemplo 4.** Insertar $5, 12, 8, 20, 3, 15$, en ese orden, en un montículo vacío (los pacientes de la sección 1).
 
 ![Animación: insertar 5, 12, 8, 20, 3, 15](images/insseq-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/insseq-anim.svg)
 
 :::::{admonition} Insertar 5, 12, 8, 20, 3, 15
 :class: dropdown
@@ -540,6 +570,8 @@ Las líneas 4 a 6 son las mismas de `MAX-HEAP-INSERT`: después de **aumentar** 
 
 ![Animación: HEAP-INCREASE-KEY(A, 9, 15)](images/inc1-anim.svg)
 
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/inc1-anim.svg)
+
 :::::{admonition} HEAP-INCREASE-KEY(A, 9, 15)
 :class: dropdown
 ::::{tab-set}
@@ -625,11 +657,17 @@ HEAP-EXTRACT-MAX(A)
 :::{admonition} Respuesta
 :class: dropdown
 El hijo que sube queda como padre del otro. Si sube el menor de los dos, queda por encima de un hermano mayor que él y el orden falla de nuevo. En el ejemplo 7, en la raíz compiten $14$ y $10$: si subiera $10$, quedaría como padre de $14$.
+
+![Animación: hundir con el hijo equivocado y con el correcto](images/hijo-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/hijo-anim.svg)
 :::
 
 **Ejemplo 6.** El más simple: $A = \langle 9, 8, 6, 2, 5 \rangle$.
 
 ![Animación: HEAP-EXTRACT-MAX(A)](images/ext1-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ext1-anim.svg)
 
 :::::{admonition} HEAP-EXTRACT-MAX(A)
 :class: dropdown
@@ -684,6 +722,8 @@ Resultado: $A[1..4] = \langle 8, 5, 6, 2 \rangle$.
 **Ejemplo 7.** $A = \langle 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 \rangle$.
 
 ![Animación: HEAP-EXTRACT-MAX(A)](images/ext2-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ext2-anim.svg)
 
 :::::{admonition} HEAP-EXTRACT-MAX(A)
 :class: dropdown
@@ -748,6 +788,16 @@ Resultado: $A[1..4] = \langle 8, 5, 6, 2 \rangle$.
 Resultado: $A[1..9] = \langle 14, 8, 10, 4, 7, 9, 3, 2, 1 \rangle$. El $1$ que subió a la raíz bajó otra vez hasta una hoja, siempre por el lado del hijo mayor.
 
 Tiempo de ejecución: $O(\lg n)$: el elemento baja a lo sumo por una rama.
+
+### Una cola de urgencias
+
+**Ejemplo 8.** Vuelva a la sala de urgencias de la sección 1, ahora con las operaciones mezcladas, en este orden: llegan $5$, $12$ y $8$; se atiende a un paciente; llegan $20$ y $3$; se atiende a otro; llega $15$. ¿A quién se atiende cada vez y quién queda en espera?
+
+![Animación: cola de urgencias](images/urgencias-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/urgencias-anim.svg)
+
+Respuesta: se atiende a $12$ y luego a $20$, y quedan en espera $A = \langle 15, 8, 3, 5 \rangle$. Cada llegada es un `MAX-HEAP-INSERT` y cada atención un `HEAP-EXTRACT-MAX`; ninguna recorre más de una rama.
 
 ## 5. Formalización
 

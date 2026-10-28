@@ -89,6 +89,8 @@ Por la propiedad de forma, un montículo de $n$ elementos tiene todos sus nivele
 |---|---|---|---|---|---|
 | altura | $1$ | $2$ | $3$ | $4$ | $5$ |
 
+Cormen et al. miden la altura en **aristas** y por eso escriben $\lfloor \lg n \rfloor$: es el mismo árbol, contado con un nodo menos.
+
 Esa altura es la que hace rápidas las operaciones de la sección 4: cada una recorre a lo sumo **una rama**.
 
 ## 3. ¿Es un montículo? Siete ejemplos
@@ -139,6 +141,8 @@ MAX-HEAP-INSERT(A, key)
 5      do exchange A[i] ↔ A[PARENT(i)]
 6         i ← PARENT(i)
 ```
+
+Cormen et al. escriben lo mismo de otra forma: ponen $-\infty$ en la nueva posición y llaman a `HEAP-INCREASE-KEY(A, heap-size[A], key)`, cuyo ciclo es idéntico a las líneas 4 a 6.
 
 - Las líneas 1 a 3 ponen `key` en la **siguiente posición libre**: la forma se conserva.
 - El orden puede fallar solo entre `key` y su padre. Si el padre es menor, se intercambian y se sigue revisando más arriba: `key` **sube** por su rama hasta encontrar un padre mayor o igual, o hasta llegar a la raíz.
@@ -224,6 +228,8 @@ HEAP-EXTRACT-MAX(A)
 :::{admonition} Respuesta
 :class: dropdown
 El hijo que sube queda como padre del otro. Si sube el menor de los dos, queda por encima de un hermano mayor que él y el orden falla de nuevo. En el ejemplo 7, en la raíz compiten $14$ y $10$: si subiera $10$, quedaría como padre de $14$.
+
+{{GEN:anim-hijo}}
 :::
 
 **Ejemplo 6.** El más simple: $A = \langle 9, 8, 6, 2, 5 \rangle$.
@@ -239,6 +245,14 @@ Resultado: {{GEN:ext1-res}}.
 Resultado: {{GEN:ext2-res}}. El $1$ que subió a la raíz bajó otra vez hasta una hoja, siempre por el lado del hijo mayor.
 
 Tiempo de ejecución: $O(\lg n)$: el elemento baja a lo sumo por una rama.
+
+### Una cola de urgencias
+
+**Ejemplo 8.** Vuelva a la sala de urgencias de la sección 1, ahora con las operaciones mezcladas, en este orden: llegan $5$, $12$ y $8$; se atiende a un paciente; llegan $20$ y $3$; se atiende a otro; llega $15$. ¿A quién se atiende cada vez y quién queda en espera?
+
+{{GEN:anim-urgencias}}
+
+Respuesta: {{GEN:urgencias-res}}. Cada llegada es un `MAX-HEAP-INSERT` y cada atención un `HEAP-EXTRACT-MAX`; ninguna recorre más de una rama.
 
 ## 5. Formalización
 

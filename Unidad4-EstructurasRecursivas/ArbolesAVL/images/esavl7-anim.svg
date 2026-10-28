@@ -122,4 +122,98 @@
 <text x="-79.0" y="330.0" font-size="14" fill="#111111" opacity="0"><tspan font-weight="bold" fill="#d62020">7/8</tspan><tspan x="-39.0" y="330.0">Nivel 0: fb(40) = 3 − 4 = −1.</tspan><animate attributeName="opacity" dur="41.30s" repeatCount="indefinite" calcMode="spline" keyTimes="0.0000;0.7361;0.7579;0.8172;0.8390;1.0000" keySplines="0 0 1 1;0.45 0 0.25 1;0 0 1 1;0.45 0 0.25 1;0 0 1 1" values="0;0;1;1;0;0"/></text>
 <text x="-79.0" y="330.0" font-size="14" fill="#111111" opacity="0"><tspan font-weight="bold" fill="#d62020">8/8</tspan><tspan x="-39.0" y="330.0">Sí es AVL: es ABB y todos los factores están en {−1, 0, 1}.</tspan><animate attributeName="opacity" dur="41.30s" repeatCount="indefinite" calcMode="spline" keyTimes="0.0000;0.8172;0.8390;0.9891;0.9892;1.0000" keySplines="0 0 1 1;0.45 0 0.25 1;0 0 1 1;0 0 1 1;0 0 1 1" values="0;0;1;1;0;0"/></text>
 </g>
+<script><![CDATA[
+var TL = {"S": [0.0, 6.9, 12.8, 15.95, 20.6, 26.9, 31.3, 34.65], "E": [6.0, 11.9, 15.05, 19.7, 26.0, 30.4, 33.75, 40.4]};
+
+(function () {
+  var svg = document.documentElement;
+  if (!svg.pauseAnimations || svg.getAttribute('data-player')) return;
+  svg.setAttribute('data-player', '1');
+  var NS = 'http://www.w3.org/2000/svg';
+  var S = TL.S, E = TL.E, n = S.length, END = E[n - 1];
+  var vb = svg.viewBox.baseVal, x0 = vb.x, y0 = vb.y, w = vb.width, h = vb.height, H = 58;
+  svg.setAttribute('viewBox', x0 + ' ' + y0 + ' ' + w + ' ' + (h + H));
+  svg.removeAttribute('width');
+  svg.removeAttribute('height');
+  svg.style.background = '#ffffff';
+  svg.pauseAnimations();
+  var t = 0, playing = true, rates = [0.5, 1, 2], ri = 1, last = null;
+  var INK = '#111111', RED = '#d62020';
+  function el(tag, at, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in at) e.setAttribute(k, at[k]);
+    parent.appendChild(e);
+    return e;
+  }
+  var bar = el('g', {}, svg), by = y0 + h + 6;
+  el('rect', {x: x0, y: by - 2, width: w, height: H - 6, fill: '#f4f4f4'}, bar);
+  function button(x, draw, fn, tip) {
+    var b = el('g', {transform: 'translate(' + x + ',' + by + ')', style: 'cursor:pointer'}, bar);
+    el('title', {}, b).textContent = tip;
+    el('rect', {x: 0, y: 4, width: 34, height: 28, rx: 6, fill: '#ffffff', stroke: '#9a9a9a'}, b);
+    var ic = el('g', {fill: INK}, b);
+    draw(ic);
+    b.addEventListener('click', function (ev) { ev.stopPropagation(); fn(); });
+    return ic;
+  }
+  function path(g, d) { el('path', {d: d}, g); }
+  var bx = x0 + 8;
+  button(bx, function (g) { path(g, 'M7 11h3v14h-3z M19 11v14l-8-7z M28 11v14l-8-7z'); }, restart, 'Reiniciar (Inicio)');
+  button(bx + 40, function (g) { path(g, 'M11 11h3v14h-3z M25 11v14l-10-7z'); }, prev, 'Cuadro anterior (←)');
+  var pp = button(bx + 80, function () {}, toggle, 'Reproducir / pausar (espacio)');
+  button(bx + 120, function (g) { path(g, 'M9 11v14l10-7z M20 11h3v14h-3z'); }, next, 'Cuadro siguiente (→)');
+  var sp = el('g', {transform: 'translate(' + (bx + 160) + ',' + by + ')', style: 'cursor:pointer'}, bar);
+  el('title', {}, sp).textContent = 'Velocidad';
+  el('rect', {x: 0, y: 4, width: 42, height: 28, rx: 6, fill: '#ffffff', stroke: '#9a9a9a'}, sp);
+  var spt = el('text', {x: 21, y: 23, 'font-size': 13, 'text-anchor': 'middle', fill: INK}, sp);
+  sp.addEventListener('click', function (ev) { ev.stopPropagation(); ri = (ri + 1) % 3; draw(); });
+  var px = bx + 212, pw = x0 + w - 8 - px - 56;
+  var prog = el('g', {style: 'cursor:pointer'}, bar);
+  el('rect', {x: px, y: by + 14, width: pw, height: 8, rx: 4, fill: '#dddddd'}, prog);
+  for (var i = 1; i < n; i++)
+    el('rect', {x: px + pw * S[i] / END - 0.5, y: by + 12, width: 1, height: 12, fill: '#9a9a9a'}, prog);
+  var fill = el('rect', {x: px, y: by + 14, width: 0, height: 8, rx: 4, fill: RED}, prog);
+  var cnt = el('text', {x: x0 + w - 10, y: by + 23, 'font-size': 13, 'text-anchor': 'end', fill: INK,
+                        'font-weight': 'bold'}, bar);
+  el('text', {x: x0 + w / 2, y: by + 46, 'font-size': 10.5, 'text-anchor': 'middle', fill: '#555555'}, bar)
+    .textContent = 'Espacio: reproducir o pausar · ← →: cuadro a cuadro · clic en la barra: saltar';
+  prog.addEventListener('click', function (ev) {
+    var p = svg.createSVGPoint(); p.x = ev.clientX; p.y = ev.clientY;
+    var q = p.matrixTransform(svg.getScreenCTM().inverse());
+    t = Math.max(0, Math.min(END, (q.x - px) / pw * END)); playing = false; draw();
+  });
+  function frame() { var k = 0; for (var i = 0; i < n; i++) if (S[i] <= t + 1e-6) k = i; return k; }
+  function go(k) { t = S[Math.max(0, Math.min(n - 1, k))]; playing = false; draw(); }
+  function restart() { t = 0; playing = true; draw(); }
+  function prev() { var k = frame(); go(t > S[k] + 0.3 ? k : k - 1); }
+  function next() { go(frame() + 1); }
+  function toggle() { if (!playing && t >= END) t = 0; playing = !playing; draw(); }
+  function draw() {
+    svg.setCurrentTime(t);
+    fill.setAttribute('width', pw * t / END);
+    cnt.textContent = (frame() + 1) + '/' + n;
+    spt.textContent = rates[ri] + '×';
+    while (pp.firstChild) pp.removeChild(pp.firstChild);
+    if (playing) { path(pp, 'M11 11h4v14h-4z M19 11h4v14h-4z'); }
+    else { path(pp, 'M12 10v16l13-8z'); }
+  }
+  function tick(now) {
+    if (last !== null && playing) {
+      t += (now - last) / 1000 * rates[ri];
+      if (t >= END) { t = END; playing = false; }
+      draw();
+    }
+    last = now;
+    requestAnimationFrame(tick);
+  }
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === ' ') { toggle(); ev.preventDefault(); }
+    else if (ev.key === 'ArrowRight') next();
+    else if (ev.key === 'ArrowLeft') prev();
+    else if (ev.key === 'Home') restart();
+  });
+  draw();
+  requestAnimationFrame(tick);
+})();
+]]></script>
 </svg>

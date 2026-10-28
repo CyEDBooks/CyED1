@@ -35,6 +35,8 @@ Indique si cada arreglo es un max-heap. Si $heap\text{-}size[A]$ no se indica, e
 - d) $A = \langle 8, 4, 2, 1, 7, 9 \rangle$: no: $A[2] = 4 < A[5] = 7$, $A[3] = 2 < A[6] = 9$.
 
 ![Animación: ejercicio 1 a)](images/ex1-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ex1-anim.svg)
 :::
 
 ### Ejercicio 2
@@ -75,6 +77,8 @@ Aplique `MAX-HEAP-INSERT(A, 12)` con $A = \langle 8, 5, 7, 4, 3, 1, 2 \rangle$. 
 $A = \langle 12, 8, 7, 5, 3, 1, 2, 4 \rangle$; $3$ intercambios.
 
 ![Animación: ejercicio 3](images/ex3-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ex3-anim.svg)
 :::
 
 ### Ejercicio 4
@@ -92,6 +96,8 @@ Aplique `HEAP-INCREASE-KEY(A, 8, 11)` con $A = \langle 10, 8, 9, 4, 7, 1, 6, 2, 
 $A = \langle 11, 10, 9, 8, 7, 1, 6, 4, 3 \rangle$
 
 ![Animación: ejercicio 4](images/ex4-anim.svg)
+
+[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)](images/ex4-anim.svg)
 :::
 
 ### Ejercicio 5
@@ -152,4 +158,4 @@ Escriba `MIN-HEAP-INSERT(A, key)` para un **min-heap** y úselo para insertar $7
 
 ---
 
-*Ejercicios adaptados del material del profesor Oscar Bedoya y de Cormen et al., capítulo 6.*
+*Ejercicios adaptados del material del profesor Oscar Bedoya y de Cormen et al., capítulo 6 (el 1 a) es el ejercicio 6.1-6; el 2.3, el 6.1-7; el 7, los 6.1-4 y 6.1-5; el 8, una parte del 6.5-3).*

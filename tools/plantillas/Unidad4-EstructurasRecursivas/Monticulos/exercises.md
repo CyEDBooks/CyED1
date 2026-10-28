@@ -149,4 +149,4 @@ Escriba `MIN-HEAP-INSERT(A, key)` para un **min-heap** y úselo para insertar $7
 
 ---
 
-*Ejercicios adaptados del material del profesor Oscar Bedoya y de Cormen et al., capítulo 6.*
+*Ejercicios adaptados del material del profesor Oscar Bedoya y de Cormen et al., capítulo 6 (el 1 a) es el ejercicio 6.1-6; el 2.3, el 6.1-7; el 7, los 6.1-4 y 6.1-5; el 8, una parte del 6.5-3).*

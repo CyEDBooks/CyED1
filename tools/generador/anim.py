@@ -8,6 +8,8 @@ solo. El mismo cuadro se dibuja quieto con still(), para las pestañas «Paso 1,
 Los nodos, aristas y casillas se identifican por un id que se conserva entre cuadros: si un id
 cambia de lugar, se desliza; si falta en un cuadro, se desvanece.
 """
+import json
+
 from figlib import SVG, PAL, NODE_STYLES, FONT, SCALE, text_width, esc, _shorten
 
 R = 15            # radio de los nodos, como en tviz.draw
@@ -282,7 +284,7 @@ def render(frames, static=(), min_w=420, title=""):
                    f'stroke="{st[0][1]}" stroke-width="{st[0][3]}">'
                    f'{tl.anim("fill", [s[0] for s in st])}{tl.anim("stroke", [s[1] for s in st])}'
                    f'{tl.anim("stroke-width", [s[3] for s in st])}</rect>')
-        bold = any(c["style"] in BOLD or c["style"] in ("box", "txt-new") for c in seq)
+        bold = all(c["style"] in BOLD or c["style"] in ("box", "txt-new") for c in seq)
         fw = ' font-weight="bold"' if bold else ""
         out.append(f'<text x="{w / 2:.1f}" y="{h / 2 + c0["size"] * 0.36:.1f}" font-size="{c0["size"]}" '
                    f'text-anchor="middle" fill="{st[0][2]}"{fw}>{esc(c0["text"])}'
@@ -376,8 +378,108 @@ def render(frames, static=(), min_w=420, title=""):
         out.append(f'<text x="{minx:.1f}" y="{cap_y:.1f}" font-size="14" fill="{PAL["ink"]}" '
                    f'opacity="{vis[0]}">{"".join(parts)}{tl.anim("opacity", vis)}</text>')
     out.append("</g>")
+    tl_js = json.dumps({"S": [round(t, 3) for t in tl.S], "E": [round(t, 3) for t in tl.E]})
+    out.append(f"<script><![CDATA[\nvar TL = {tl_js};\n{PLAYER_JS}]]></script>")
     out.append("</svg>\n")
     return "\n".join(out)
+
+
+# Reproductor. Dentro de un <img> (como en el libro) los scripts no corren: la animación se
+# repite sola y no se ve ningún control. Abierto el SVG por sí solo, el script detiene el reloj
+# de SMIL, lo maneja él y agrega una barra con reiniciar, cuadro anterior, reproducir/pausar,
+# cuadro siguiente, velocidad y una barra de progreso en la que se puede hacer clic.
+PLAYER_JS = r"""
+(function () {
+  var svg = document.documentElement;
+  if (!svg.pauseAnimations || svg.getAttribute('data-player')) return;
+  svg.setAttribute('data-player', '1');
+  var NS = 'http://www.w3.org/2000/svg';
+  var S = TL.S, E = TL.E, n = S.length, END = E[n - 1];
+  var vb = svg.viewBox.baseVal, x0 = vb.x, y0 = vb.y, w = vb.width, h = vb.height, H = 58;
+  svg.setAttribute('viewBox', x0 + ' ' + y0 + ' ' + w + ' ' + (h + H));
+  svg.removeAttribute('width');
+  svg.removeAttribute('height');
+  svg.style.background = '#ffffff';
+  svg.pauseAnimations();
+  var t = 0, playing = true, rates = [0.5, 1, 2], ri = 1, last = null;
+  var INK = '#111111', RED = '#d62020';
+  function el(tag, at, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in at) e.setAttribute(k, at[k]);
+    parent.appendChild(e);
+    return e;
+  }
+  var bar = el('g', {}, svg), by = y0 + h + 6;
+  el('rect', {x: x0, y: by - 2, width: w, height: H - 6, fill: '#f4f4f4'}, bar);
+  function button(x, draw, fn, tip) {
+    var b = el('g', {transform: 'translate(' + x + ',' + by + ')', style: 'cursor:pointer'}, bar);
+    el('title', {}, b).textContent = tip;
+    el('rect', {x: 0, y: 4, width: 34, height: 28, rx: 6, fill: '#ffffff', stroke: '#9a9a9a'}, b);
+    var ic = el('g', {fill: INK}, b);
+    draw(ic);
+    b.addEventListener('click', function (ev) { ev.stopPropagation(); fn(); });
+    return ic;
+  }
+  function path(g, d) { el('path', {d: d}, g); }
+  var bx = x0 + 8;
+  button(bx, function (g) { path(g, 'M7 11h3v14h-3z M19 11v14l-8-7z M28 11v14l-8-7z'); }, restart, 'Reiniciar (Inicio)');
+  button(bx + 40, function (g) { path(g, 'M11 11h3v14h-3z M25 11v14l-10-7z'); }, prev, 'Cuadro anterior (←)');
+  var pp = button(bx + 80, function () {}, toggle, 'Reproducir / pausar (espacio)');
+  button(bx + 120, function (g) { path(g, 'M9 11v14l10-7z M20 11h3v14h-3z'); }, next, 'Cuadro siguiente (→)');
+  var sp = el('g', {transform: 'translate(' + (bx + 160) + ',' + by + ')', style: 'cursor:pointer'}, bar);
+  el('title', {}, sp).textContent = 'Velocidad';
+  el('rect', {x: 0, y: 4, width: 42, height: 28, rx: 6, fill: '#ffffff', stroke: '#9a9a9a'}, sp);
+  var spt = el('text', {x: 21, y: 23, 'font-size': 13, 'text-anchor': 'middle', fill: INK}, sp);
+  sp.addEventListener('click', function (ev) { ev.stopPropagation(); ri = (ri + 1) % 3; draw(); });
+  var px = bx + 212, pw = x0 + w - 8 - px - 56;
+  var prog = el('g', {style: 'cursor:pointer'}, bar);
+  el('rect', {x: px, y: by + 14, width: pw, height: 8, rx: 4, fill: '#dddddd'}, prog);
+  for (var i = 1; i < n; i++)
+    el('rect', {x: px + pw * S[i] / END - 0.5, y: by + 12, width: 1, height: 12, fill: '#9a9a9a'}, prog);
+  var fill = el('rect', {x: px, y: by + 14, width: 0, height: 8, rx: 4, fill: RED}, prog);
+  var cnt = el('text', {x: x0 + w - 10, y: by + 23, 'font-size': 13, 'text-anchor': 'end', fill: INK,
+                        'font-weight': 'bold'}, bar);
+  el('text', {x: x0 + w / 2, y: by + 46, 'font-size': 10.5, 'text-anchor': 'middle', fill: '#555555'}, bar)
+    .textContent = 'Espacio: reproducir o pausar · ← →: cuadro a cuadro · clic en la barra: saltar';
+  prog.addEventListener('click', function (ev) {
+    var p = svg.createSVGPoint(); p.x = ev.clientX; p.y = ev.clientY;
+    var q = p.matrixTransform(svg.getScreenCTM().inverse());
+    t = Math.max(0, Math.min(END, (q.x - px) / pw * END)); playing = false; draw();
+  });
+  function frame() { var k = 0; for (var i = 0; i < n; i++) if (S[i] <= t + 1e-6) k = i; return k; }
+  function go(k) { t = S[Math.max(0, Math.min(n - 1, k))]; playing = false; draw(); }
+  function restart() { t = 0; playing = true; draw(); }
+  function prev() { var k = frame(); go(t > S[k] + 0.3 ? k : k - 1); }
+  function next() { go(frame() + 1); }
+  function toggle() { if (!playing && t >= END) t = 0; playing = !playing; draw(); }
+  function draw() {
+    svg.setCurrentTime(t);
+    fill.setAttribute('width', pw * t / END);
+    cnt.textContent = (frame() + 1) + '/' + n;
+    spt.textContent = rates[ri] + '×';
+    while (pp.firstChild) pp.removeChild(pp.firstChild);
+    if (playing) { path(pp, 'M11 11h4v14h-4z M19 11h4v14h-4z'); }
+    else { path(pp, 'M12 10v16l13-8z'); }
+  }
+  function tick(now) {
+    if (last !== null && playing) {
+      t += (now - last) / 1000 * rates[ri];
+      if (t >= END) { t = END; playing = false; }
+      draw();
+    }
+    last = now;
+    requestAnimationFrame(tick);
+  }
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === ' ') { toggle(); ev.preventDefault(); }
+    else if (ev.key === 'ArrowRight') next();
+    else if (ev.key === 'ArrowLeft') prev();
+    else if (ev.key === 'Home') restart();
+  });
+  draw();
+  requestAnimationFrame(tick);
+})();
+"""
 
 
 class AnimSVG:
@@ -394,8 +496,10 @@ class AnimSVG:
 
 
 def anim_block(page, name, frames, alt, static=(), min_w=420):
-    """Figura animada lista para el markdown."""
-    return f"![{alt}]({page.img(name, AnimSVG(frames, static, alt, min_w))})"
+    """Figura animada lista para el markdown, con el enlace que la abre con controles."""
+    path = page.img(name, AnimSVG(frames, static, alt, min_w))
+    return (f"![{alt}]({path})\n\n"
+            f"[▶ Abrir la animación con controles (reproducir, pausar, cuadro a cuadro)]({path})")
 
 
 # Árboles binarios (tviz.N) como cuadros

@@ -4,7 +4,8 @@ from tviz import (from_tuple, draw, nodes, fb, height, avl_insert_trace, avl_del
                   avl_insert, double_rotation_middle, copy_tree, find, rot_left, bst_build, N,
                   halo, ring, zoom, layout, parent_map, search_path)
 from anim import anim_block
-from pages.u4_avl_anim import ops_anim, rotation_anim, check_frames, fib_tree, avl_frames
+from pages.u4_avl_anim import (ops_anim, rotation_anim, check_frames, fib_tree, avl_frames, cadena_anim,
+                                fb_anim, c_falla_anim)
 
 
 def fbtxt(f):
@@ -434,7 +435,7 @@ def es_avl(p):
         q = f"![Árbol del ejemplo {i}]({p.img(f'esavl{i}', draw(t))})"
         anim = anim_block(p, f"esavl{i}-anim", frames, f"Animación: ¿es AVL? (ejemplo {i})")
         verd = "**Sí es AVL.**" if bst and bal else "**No es AVL.**"
-        out.append(f"**Ejemplo {i}** ({nivel}). ¿Es AVL?\n\n{q}\n\n:::{{admonition}} Respuesta\n"
+        out.append(f"**Ejemplo {i}.** ¿Es AVL?\n\n{q}\n\n:::{{admonition}} Respuesta\n"
                    f":class: dropdown\n{anim}\n\n{verd} {nota}\n:::")
     return "\n\n".join(out)
 
@@ -532,6 +533,7 @@ def build():
 
     deg = bst_build([1, 2, 3, 4, 5, 6, 7])
     p.put("fig-cadena", f"![Cadena]({p.img('cadena', draw(deg, dx=34))})")
+    p.put("anim-cadena", cadena_anim(p))
     full = bst_build([4, 2, 6, 1, 3, 5, 7])
     p.put("fig-lleno", f"![ABB de altura 3]({p.img('lleno', draw(full))})")
 
@@ -559,6 +561,7 @@ def build():
                    f"{fbtxt(hr - hl_)}$.")
         tabs.append(f"![Factor de balanceo, paso {i + 1}]({p.img(f'fb-{i:02d}', svg)})\n\n{txt}")
     p.put("fb-steps", steps("Altura (h) y factor de balanceo (fb) de cada nodo", tabs))
+    p.put("anim-fb", fb_anim(p, vv))
 
     # ¿Es AVL?
     cands = [
@@ -625,6 +628,7 @@ def build():
     p.put("caso-A", schem_row(p, "caso-A", A, ["LEFT-ROTATE(p)"], "Caso A"))
     p.put("caso-B", schem_row(p, "caso-B", B, ["LEFT-ROTATE(p)"], "Caso B"))
     p.put("caso-C", schem_row(p, "caso-C", C, ["RIGHT-ROTATE(q)", "LEFT-ROTATE(p)"], "Caso C"))
+    p.put("anim-C-falla", c_falla_anim(p))
     p.put("caso-C-falla", schem_row(p, "caso-C-falla", Cfail, ["LEFT-ROTATE(p)"], "Caso C: una sola rotación no basta"))
     p.put("caso-D", schem_row(p, "caso-D", D, ["RIGHT-ROTATE(p)"], "Caso D"))
     p.put("caso-E", schem_row(p, "caso-E", E, ["RIGHT-ROTATE(p)"], "Caso E"))

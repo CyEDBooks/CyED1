@@ -482,7 +482,7 @@ def build():
         nota = NOTAS[k - 1]
         anim = anim_block(p, f"es{k}-anim", frames, f"Animación: ¿es un montículo? (ejemplo {k})",
                           gk.static())
-        out.append(f"### Ejemplo {k} ({nivel.lower()})\n\n{enun}\n\n{q}\n\n¿Cumple la propiedad de "
+        out.append(f"### Ejemplo {k}\n\n{enun}\n\n{q}\n\n¿Cumple la propiedad de "
                    f"forma? ¿Y la de orden? ¿Es un max-heap?\n\n:::{{admonition}} Respuesta\n:class: "
                    f"dropdown\n{anim}\n\n" + "\n".join(resp) + f"\n\n{nota}\n:::")
     p.put("ejemplos-es", "\n\n".join(out))
@@ -537,6 +537,50 @@ def build():
                                   f"otra vez un max-heap, con un elemento menos.", dict(aside=aside)))
         p.put(name, anim_and_tabs(p, name, frames, gg, "HEAP-EXTRACT-MAX(A)", "HEAP-EXTRACT-MAX(A)"))
         p.put(name + "-res", f"$A[1..{h.size}] = {lang(h.values())}$")
+
+    # Hundir con el hijo equivocado (error productivo) y luego con el correcto
+    vals0 = [1, 14, 10, 8, 7, 9, 3, 2, 4]
+    h = Heap(vals0)
+    gg = G(9, 9)
+    r, l_, r_ = h.A[1], h.A[2], h.A[3]
+    frames = [h.fr(gg, "Después de las líneas 3 a 5 de HEAP-EXTRACT-MAX (ejemplo 7): 1 está en la raíz y sus "
+                   "hijos son 14 y 10. Ambos son mayores que 1.", ns={r: "new", l_: "hl", r_: "hl"},
+                   cs={r: "new"}, rings={r})]
+    h.A[1], h.A[3] = h.A[3], h.A[1]
+    frames.append(h.fr(gg, "Intento equivocado: intercambiar 1 con 10, el hijo derecho.",
+                       ns={r_: "hl", r: "new"}, cs={r_: "hl", r: "new"}))
+    frames.append(h.fr(gg, "Ahora 10 es la raíz y su hijo izquierdo es 14: 10 < 14 ✗. El orden falla otra vez "
+                       "en la raíz.", ns={r_: "bad", l_: "bad", r: "new"}, cs={r_: "bad", l_: "bad"},
+                       es={l_: "bad"}))
+    h.A[1], h.A[3] = h.A[3], h.A[1]
+    frames.append(h.fr(gg, "Se deshace el intento: 1 vuelve a la raíz.", ns={r: "new", l_: "hl", r_: "hl"},
+                       cs={r: "new"}, rings={r}))
+    h.A[1], h.A[2] = h.A[2], h.A[1]
+    frames.append(h.fr(gg, "Correcto: intercambiar 1 con 14, el MAYOR de los hijos. 14 ≥ 10 y 14 ≥ 1: en la raíz "
+                       "el orden se cumple, y 1 sigue bajando por la izquierda.",
+                       ns={l_: "goal", r_: "goal", r: "new"}, cs={l_: "goal", r: "new"},
+                       es={r_: "good", r: "good"}))
+    p.put("anim-hijo", anim_block(p, "hijo-anim", frames, "Animación: hundir con el hijo equivocado y con "
+                                  "el correcto", gg.static()))
+
+    # Cola de urgencias: inserciones y extracciones mezcladas
+    ops = [("i", 5), ("i", 12), ("i", 8), ("x", None), ("i", 20), ("i", 3), ("x", None), ("i", 15)]
+    h = Heap([], L=4)
+    gg = G(4, 4)
+    frames = [h.fr(gg, "Sala de urgencias vacía. Llegan pacientes (INSERT) y se atiende al de mayor prioridad "
+                   "(EXTRACT-MAX), en el orden en que ocurren.")]
+    atendidos = []
+    for o, k in ops:
+        if o == "i":
+            op_insert(h, gg, k, frames)
+        else:
+            atendidos.append(op_extract(h, gg, frames))
+    frames.append(final_frame(h, gg, f"Se atendió a {' y luego a '.join(map(str, atendidos))}. En espera: "
+                              f"A = {angle(h.values())}, con {h.v(1)} como el próximo."))
+    p.put("anim-urgencias", anim_block(p, "urgencias-anim", frames, "Animación: cola de urgencias",
+                                       gg.static()))
+    p.put("urgencias-res", f"se atiende a ${atendidos[0]}$ y luego a ${atendidos[1]}$, y quedan en espera "
+          f"$A = {lang(h.values())}$")
     p.assemble("index.md")
 
     # Ejercicios

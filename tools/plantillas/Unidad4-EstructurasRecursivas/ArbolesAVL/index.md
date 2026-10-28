@@ -13,6 +13,8 @@ Inserte $1, 2, 3, 4, 5, 6, 7$, en ese orden, en un árbol binario de búsqueda:
 
 {{GEN:fig-cadena}}
 
+{{GEN:anim-cadena}}
+
 Es una cadena: buscar $7$ cuesta $7$ comparaciones, como en una lista. Con las mismas llaves, este otro ABB tiene altura $3$:
 
 {{GEN:fig-lleno}}
@@ -52,6 +54,8 @@ Así como cada nodo de un árbol rojinegro tiene un color, cada nodo de un AVL t
 
 {{GEN:fb-steps}}
 
+{{GEN:anim-fb}}
+
 ### Balanceado en altura
 
 Un árbol binario está **balanceado en altura** si para **cada** nodo $v$:
@@ -85,7 +89,7 @@ En b) todos los nodos **menos la raíz** están bien. Hay que revisar **cada** n
 
 ### Más ejemplos: ¿es AVL?
 
-Siete árboles más, de fáciles a difíciles. El método es siempre el mismo:
+Siete árboles más, ordenados de menor a mayor dificultad. El método es siempre el mismo:
 
 1. **¿Es ABB?** El inorden debe salir ordenado.
 2. **¿Está balanceado en altura?** Se calcula $fb$ de abajo hacia arriba, nivel por nivel, y se revisa que **todos** estén en $\{-1, 0, 1\}$.
@@ -191,6 +195,8 @@ Este caso **no puede aparecer al insertar** (una inserción no deja a $q$ con su
 Ahora el peso de $q$ está en su subárbol **izquierdo**, el del medio. Se podría intentar otra vez rotar $p$ a la izquierda:
 
 {{GEN:caso-C-falla}}
+
+{{GEN:anim-C-falla}}
 
 Lamentablemente no funciona: el subárbol del medio pasa a ser hijo derecho de $p$ y el desbalance aparece del otro lado. La solución es en dos pasos: primero `RIGHT-ROTATE(q)`, que deja el peso «en línea» (como en el caso A), y luego `LEFT-ROTATE(p)`. Sea $r$ la raíz del subárbol izquierdo de $q$:
 

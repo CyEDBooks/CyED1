@@ -282,3 +282,73 @@ def fib_tree(h, keys_iter):
     root.left = left
     root.right = fib_tree(h - 2, keys_iter)
     return root
+
+
+# Sección 1: las llaves 1..7 en un ABB forman una cadena
+def cadena_anim(p):
+    from tviz import bst_insert
+    root, frames = None, []
+    for k in range(1, 8):
+        root, path = bst_insert(root, k)
+        ns = {x: "hl" for x in path}
+        ns[k] = "new"
+        if not path:
+            cap = "Insertar 1: es la raíz."
+        else:
+            cap = (f"Insertar {k}: es mayor que {', '.join(map(str, path))}; siempre a la derecha. Queda como "
+                   f"hijo derecho de {path[-1]}.")
+        frames.append(tree_frame(copy_tree(root), cap, node_style=ns,
+                                 edge_style={(a, b): "path" for a, b in zip(path, path[1:] + [k])}, rings=(k,)))
+    frames.append(tree_frame(root, "Una cadena de altura 7: buscar 7 cuesta 7 comparaciones, como en una lista. "
+                             "El ABB no se protege del orden en que llegan las llaves.",
+                             node_style={k: "bad" for k in range(1, 8)}))
+    return anim_block(p, "cadena-anim", frames, "Animación: insertar 1 a 7 en un ABB")
+
+
+# Sección 2: altura y factor de balanceo de abajo hacia arriba (postorden)
+def fb_anim(p, t):
+    def post(n):
+        return [] if n is None else post(n.left) + post(n.right) + [n]
+    labels, frames = {}, [tree_frame(t, "Las alturas se calculan de abajo hacia arriba: primero los hijos, "
+                                        "luego el padre (en postorden).", dx=58)]
+    done = []
+    for n in post(t):
+        hl_, hr = height(n.left), height(n.right)
+        labels[n.key] = f"h={height(n)}, fb={fbtxt(hr - hl_)}"
+        done.append(n.key)
+        ns = {k: "tree" for k in done}
+        ns[n.key] = "hl"
+        if n.left is None and n.right is None:
+            cap = f"{n.key} es hoja: h = 1 y fb = 0 − 0 = 0."
+        else:
+            cap = (f"{n.key}: derecho de altura {hr}, izquierdo de altura {hl_}. h = 1 + max({hl_}, {hr}) = "
+                   f"{height(n)} y fb = {hr} − {hl_} = {fbtxt(hr - hl_)}.")
+        frames.append(tree_frame(t, cap, node_style=ns, labels=dict(labels),
+                                 label_style={n.key: "new"}, dx=58, rings=(n.key,)))
+    frames.append(tree_frame(t, "Todos los factores están en {−1, 0, 1}: el árbol es AVL.",
+                             node_style={n.key: "goal" for n in nodes(t)}, labels=dict(labels), dx=58))
+    return anim_block(p, "fb-anim", frames, "Animación: altura y factor de balanceo de cada nodo")
+
+
+# Sección 4, caso C: una sola rotación no basta
+def c_falla_anim(p):
+    from tviz import rot_left
+    t = bst_build([20, 10, 30, 25, 40, 22])     # 22 recién insertado, antes de rebalancear
+    subs, q, r = subtrees(t, 20, "C")
+    col = colors(subs)
+    ns = dict(col)
+    ns.update({20: "bad", 30: "hl", 25: "hl"})
+    frames = [tf(t, "Después de insertar 22: fb(20) = +2 y fb(30) = −1, signo contrario. Es el caso C. "
+                    "¿Y si se rota solo p, como en el caso A?", ns=ns, rings=(20,))]
+    wrong = rot_left(copy_tree(t))
+    frames.append(tf(wrong, "LEFT-ROTATE(20) solo: el subárbol del medio (25 con 22) pasa a ser hijo derecho de "
+                            "20, y ahora fb(30) = −2. El desbalance cambió de lado: no funciona.",
+                     ns={**col, 30: "bad", 20: "hl"}, rings=(30,)))
+    frames.append(tf(t, "Se vuelve al árbol original. La solución tiene dos pasos.", ns=ns, rings=(20,)))
+    mid = double_rotation_middle(t, 20, "C")
+    frames.append(tf(mid, "Primero RIGHT-ROTATE(30): r = 25 sube y 20, 25, 30 quedan en línea, como en el caso A.",
+                     ns=ns, rings=(25,)))
+    after, _ = avl_insert_trace(bst_build([20, 10, 30, 25, 40]), 22)
+    frames.append(tf(after, "Luego LEFT-ROTATE(20): 25 queda en la raíz y todos los factores vuelven a estar "
+                            "entre −1 y 1.", ns={**col, 25: "new"}, rings=(25,)))
+    return anim_block(p, "cfalla-anim", frames, "Animación: el caso C con una y con dos rotaciones")
