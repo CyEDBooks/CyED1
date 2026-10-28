@@ -141,6 +141,92 @@ Indique cuáles de estos ABB son AVL:
 En b) todos los nodos **menos la raíz** están bien. Hay que revisar **cada** nodo, no solo las hojas o los hijos de la raíz.
 :::
 
+### Más ejemplos: ¿es AVL?
+
+Siete árboles más, de fáciles a difíciles. El método es siempre el mismo:
+
+1. **¿Es ABB?** El inorden debe salir ordenado.
+2. **¿Está balanceado en altura?** Se calcula $fb$ de abajo hacia arriba, nivel por nivel, y se revisa que **todos** estén en $\{-1, 0, 1\}$.
+
+Intente responder antes de abrir la respuesta: la animación hace las dos revisiones.
+
+**Ejemplo 1** (fácil). ¿Es AVL?
+
+![Árbol del ejemplo 1](images/esavl1.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+![Animación: ¿es AVL? (ejemplo 1)](images/esavl1-anim.svg)
+
+**Sí es AVL.** Cada nodo tiene $|fb| \le 1$; $30$ tiene un solo hijo y eso está permitido.
+:::
+
+**Ejemplo 2** (fácil). ¿Es AVL?
+
+![Árbol del ejemplo 2](images/esavl2.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+![Animación: ¿es AVL? (ejemplo 2)](images/esavl2-anim.svg)
+
+**No es AVL.** Una cadena de tres nodos: la raíz tiene $fb(30) = 0 - 2 = -2$.
+:::
+
+**Ejemplo 3** (medio). ¿Es AVL?
+
+![Árbol del ejemplo 3](images/esavl3.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+![Animación: ¿es AVL? (ejemplo 3)](images/esavl3-anim.svg)
+
+**No es AVL.** La raíz está bien ($fb(50) = 3 - 2 = +1$), pero $70$ no: su lado derecho mide $2$ y el izquierdo $0$. No basta mirar la raíz.
+:::
+
+**Ejemplo 4** (medio). ¿Es AVL?
+
+![Árbol del ejemplo 4](images/esavl4.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+![Animación: ¿es AVL? (ejemplo 4)](images/esavl4-anim.svg)
+
+**Sí es AVL.** Se ve cargado a la izquierda, pero ningún nodo pasa de $1$: $fb(50) = 2 - 3 = -1$. Sí es AVL.
+:::
+
+**Ejemplo 5** (medio). ¿Es AVL?
+
+![Árbol del ejemplo 5](images/esavl5.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+![Animación: ¿es AVL? (ejemplo 5)](images/esavl5-anim.svg)
+
+**No es AVL.** Todos los nodos están bien **menos la raíz**: $fb(40) = 1 - 3 = -2$. Hay que revisar cada nodo.
+:::
+
+**Ejemplo 6** (difícil). ¿Es AVL?
+
+![Árbol del ejemplo 6](images/esavl6.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+![Animación: ¿es AVL? (ejemplo 6)](images/esavl6-anim.svg)
+
+**No es AVL.** Los factores están perfectos, pero $60$ está en el subárbol **izquierdo** de $50$: no es ABB, y un AVL ante todo es un ABB.
+:::
+
+**Ejemplo 7** (difícil). ¿Es AVL?
+
+![Árbol del ejemplo 7](images/esavl7.svg)
+
+:::{admonition} Respuesta
+:class: dropdown
+![Animación: ¿es AVL? (ejemplo 7)](images/esavl7-anim.svg)
+
+**Sí es AVL.** Es el AVL con **menos nodos** posibles para su altura ($5$ niveles con $12$ nodos): en cada nodo, el lado izquierdo es exactamente $1$ más alto que el derecho. Parece desbalanceado, pero todos los factores son $0$ o $-1$.
+:::
+
 ### ¿Qué cambia respecto a un ABB?
 
 Buscar, mínimo, máximo, sucesor y predecesor son **iguales** que en un ABB: no modifican el árbol. Las operaciones que difieren son la **inserción** y la **eliminación**, porque pueden dañar el balanceo:
@@ -190,6 +276,8 @@ Al rotar $x$ a la izquierda, se **baja** $x$ y se **sube** $y$.
 
 ![Rotaciones](images/rot.svg)
 
+![Animación: LEFT-ROTATE(x) y RIGHT-ROTATE(y)](images/rot-anim.svg)
+
 ```text
 LEFT-ROTATE(x)                  RIGHT-ROTATE(y)
 1  y ← right[x]                 1  x ← left[y]
@@ -217,6 +305,8 @@ Cuando una inserción o una eliminación deja factores de balanceo con valor abs
 > un subárbol cuya raíz $p$ tiene $fb(p) = 2$ o $fb(p) = -2$, pero tal que **todos los nodos debajo de $p$ están balanceados**.
 
 En los dibujos de esta sección, el número dentro de cada nodo es su factor de balanceo y cada triángulo es un subárbol, con su altura al lado.
+
+Después del ejemplo mínimo de cada caso hay **animaciones** con árboles más grandes, por inserción y por eliminación. En ellas, los subárboles que intervienen en la rotación van en color: **A** en azul, **B** (o **D**) en naranja, **C** en verde y **E** en morado. Fíjese en cuál cambia de padre.
 
 Tome $fb(p) = 2$. Si el subárbol izquierdo de $p$ tiene altura $h$, el derecho tiene altura $h + 2$; ese subárbol derecho tiene al menos dos nodos, y su raíz se llama $q$. Como todo lo que está debajo de $p$ está balanceado, $fb(q) \in \{-1, 0, 1\}$. Hay un caso por cada valor.
 
@@ -258,6 +348,14 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 7)`.
 ::::
 :::::
 
+**Insertar $50$** (`AVL-INSERT(T, 50)`):
+
+![Animación del caso A: insertar 50](images/casoA-i-anim.svg)
+
+**Eliminar $5$** (`AVL-DELETE(T, 5)`):
+
+![Animación del caso A: eliminar 5](images/casoA-d-anim.svg)
+
 ### Caso B: $fb(p) = 2$ y $fb(q) = 0$
 
 Otra vez el lado derecho de $p$ es mucho más alto: se ejecuta `LEFT-ROTATE(p)` y se restablece el balance. Esta vez $q$ queda con $fb = -1$ y $p$ con $fb = 1$.
@@ -295,6 +393,10 @@ Este caso **no puede aparecer al insertar** (una inserción no deja a $q$ con su
 :::
 ::::
 :::::
+
+**Eliminar $5$** (`AVL-DELETE(T, 5)`):
+
+![Animación del caso B: eliminar 5](images/casoB-d-anim.svg)
 
 ### Caso C: $fb(p) = 2$ y $fb(q) = -1$
 
@@ -344,6 +446,14 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 5)`.
 ::::
 :::::
 
+**Insertar $55$** (`AVL-INSERT(T, 55)`):
+
+![Animación del caso C: insertar 55](images/casoC-i-anim.svg)
+
+**Eliminar $5$** (`AVL-DELETE(T, 5)`):
+
+![Animación del caso C: eliminar 5](images/casoC-d-anim.svg)
+
 ### Casos D, E y F: $fb(p) = -2$
 
 Cuando $fb(p) = -2$ se divide otra vez según $fb(q) \in \{-1, 0, 1\}$, ahora con $q$ la raíz del subárbol **izquierdo** de $p$. Los tres casos son completamente simétricos a los anteriores: se cambia izquierda por derecha.
@@ -384,6 +494,14 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 1)`.
 ::::
 :::::
 
+**Insertar $50$** (`AVL-INSERT(T, 50)`):
+
+![Animación del caso D: insertar 50](images/casoD-i-anim.svg)
+
+**Eliminar $95$** (`AVL-DELETE(T, 95)`):
+
+![Animación del caso D: eliminar 95](images/casoD-d-anim.svg)
+
 **Caso E: $fb(p) = -2$ y $fb(q) = 0$.** Se ejecuta `RIGHT-ROTATE(p)`. Como el caso B, solo aparece al eliminar.
 
 ![Caso E](images/caso-E.svg)
@@ -419,6 +537,10 @@ Ejemplo: dado $T$, siga `AVL-DELETE(T, 8)`.
 :::
 ::::
 :::::
+
+**Eliminar $95$** (`AVL-DELETE(T, 95)`):
+
+![Animación del caso E: eliminar 95](images/casoE-d-anim.svg)
 
 **Caso F: $fb(p) = -2$ y $fb(q) = 1$.** Primero `LEFT-ROTATE(q)` y luego `RIGHT-ROTATE(p)`.
 
@@ -462,6 +584,14 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 4)`.
 ::::
 :::::
 
+**Insertar $45$** (`AVL-INSERT(T, 45)`):
+
+![Animación del caso F: insertar 45](images/casoF-i-anim.svg)
+
+**Eliminar $95$** (`AVL-DELETE(T, 95)`):
+
+![Animación del caso F: eliminar 95](images/casoF-d-anim.svg)
+
 ### Resumen
 
 | Caso | $fb(p)$ | $fb(q)$ | Rotaciones | ¿Cuándo aparece? |
@@ -498,6 +628,8 @@ AVL-REBALANCE(T, x)
 ### Ejemplo 1
 
 Las llaves de la sección 1, ahora en un AVL:
+
+![Animación: insertar 1, 2, 3, 4, 5, 6, 7](images/ej1-anim.svg)
 
 :::::{admonition} Insertar 1, 2, 3, 4, 5, 6, 7
 :class: dropdown
@@ -603,6 +735,8 @@ Dado el árbol $T$:
 
 ![AVL inicial](images/ej2-base.svg)
 
+![Animación: AVL-INSERT(T, 25)](images/ej2-anim.svg)
+
 :::::{admonition} AVL-INSERT(T, 25)
 :class: dropdown
 ::::{tab-set}
@@ -655,6 +789,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 
 ![AVL inicial](images/ej3-base.svg)
 
+![Animación: AVL-DELETE(T, 1)](images/ej3-anim.svg)
+
 :::::{admonition} AVL-DELETE(T, 1)
 :class: dropdown
 ::::{tab-set}
@@ -696,6 +832,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 ## 7. Más ejemplos
 
 **Ejemplo 4.** En un árbol AVL vacío, inserte, en este orden, $10$, $20$, $30$.
+
+![Animación del ejemplo 4](images/ejx1-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -749,6 +887,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 
 ![Árbol T del ejemplo 5](images/ejx2-00.svg)
 
+![Animación del ejemplo 5](images/ejx2-anim.svg)
+
 :::::{admonition} Paso a paso
 :class: dropdown
 ::::{tab-set}
@@ -788,6 +928,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 **Ejemplo 6.** En el árbol AVL $T$, inserte $35$. Junto a cada nodo está su factor de balanceo.
 
 ![Árbol T del ejemplo 6](images/ejx3-00.svg)
+
+![Animación del ejemplo 6](images/ejx3-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -832,6 +974,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 :::::
 
 **Ejemplo 7.** En un árbol AVL vacío, inserte, en este orden, $40$, $90$, $25$, $60$, $75$, $50$, $95$, $55$.
+
+![Animación del ejemplo 7](images/ejx4-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown
@@ -962,6 +1106,8 @@ El costo también es proporcional a la altura del árbol: $O(\log n)$.
 **Ejemplo 8.** En el árbol AVL $T$, elimine $75$. Junto a cada nodo está su factor de balanceo.
 
 ![Árbol T del ejemplo 8](images/ejx5-00.svg)
+
+![Animación del ejemplo 8](images/ejx5-anim.svg)
 
 :::::{admonition} Paso a paso
 :class: dropdown

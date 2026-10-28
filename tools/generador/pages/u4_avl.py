@@ -3,6 +3,8 @@ from figlib import text_width
 from tviz import (from_tuple, draw, nodes, fb, height, avl_insert_trace, avl_delete_trace,
                   avl_insert, double_rotation_middle, copy_tree, find, rot_left, bst_build, N,
                   halo, ring, zoom, layout, parent_map, search_path)
+from anim import anim_block
+from pages.u4_avl_anim import ops_anim, rotation_anim, check_frames, fib_tree, avl_frames
 
 
 def fbtxt(f):
@@ -357,7 +359,84 @@ def ejemplo_avl(p, i, ex):
     add(adraw(root, node_style={n.key: "goal" for n in nodes(root)}, over=over, label_gap=LG, label_side="away"),
         "**¿Es AVL?** Sí: todos los factores de balanceo están en $\\{-1, 0, 1\\}$. Y sigue siendo "
         "ABB: el inorden sale ordenado.")
-    return f"{head}\n\n" + steps("Paso a paso", tabs)
+    anim = ops_anim(p, f"{pref}-anim", ex["start"], ex["ops"], f"Animación del ejemplo {n}")
+    return f"{head}\n\n{anim}\n\n" + steps("Paso a paso", tabs)
+
+
+# Animaciones de los casos A–F con árboles concretos: inserción y eliminación
+def _m(ks):
+    return [100 - k for k in ks]
+
+
+_CASOS = {
+    ("A", "i"): ([20, 10, 30, 25, 40], ("i", 50)),
+    ("A", "d"): ([20, 10, 30, 5, 25, 40, 45], ("d", 5)),
+    ("B", "d"): ([20, 10, 30, 5, 25, 40, 22, 45], ("d", 5)),
+    ("C", "i"): ([40, 20, 80, 10, 30, 60, 90, 50, 70, 95], ("i", 55)),
+    ("C", "d"): ([20, 10, 30, 5, 25, 40, 22, 27], ("d", 5)),
+}
+for (_c, _o), (_ks, (_op, _k)) in list(_CASOS.items()):
+    _CASOS[({"A": "D", "B": "E", "C": "F"}[_c], _o)] = (_m(_ks), (_op, 100 - _k))
+
+
+def casos_anim(p, c):
+    out = []
+    for op in ("i", "d"):
+        if (c, op) not in _CASOS:
+            continue
+        ks, (o, k) = _CASOS[(c, op)]
+        t0 = bst_build(ks)
+        assert all(abs(fb(n)) <= 1 for n in nodes(t0))
+        _, sn = (avl_insert_trace if o == "i" else avl_delete_trace)(t0, k)
+        rots = [s["case"] for s in sn if s["kind"] == "rotated"]
+        assert rots == [c], (c, op, rots)
+        verbo = "Insertar" if o == "i" else "Eliminar"
+        out.append(f"**{verbo} ${k}$** (`AVL-{'INSERT' if o == 'i' else 'DELETE'}(T, {k})`):\n\n"
+                   + ops_anim(p, f"caso{c}-{op}-anim", t0, [(o, k)],
+                              f"Animación del caso {c}: {verbo.lower()} {k}"))
+    return "\n\n".join(out)
+
+
+# ¿Es AVL? Siete ejemplos: dos fáciles, tres medios y dos difíciles
+def _l(k):
+    return (k, None, None)
+
+
+ES_AVL = [
+    ("fácil", (20, _l(10), (30, None, _l(40)))),
+    ("fácil", (30, (20, _l(10), None), None)),
+    ("medio", (50, (30, _l(20), _l(40)), (70, None, (80, None, _l(90))))),
+    ("medio", (50, (30, (20, _l(10), None), _l(40)), (70, _l(60), None))),
+    ("medio", (40, (20, (10, _l(5), None), (30, _l(25), None)), _l(50))),
+    ("difícil", (50, (30, _l(20), _l(60)), (70, _l(65), _l(80)))),
+    ("difícil", None),     # AVL mínimo de altura 5 (árbol de Fibonacci)
+]
+ES_AVL_NOTAS = [
+    "Cada nodo tiene $|fb| \\le 1$; $30$ tiene un solo hijo y eso está permitido.",
+    "Una cadena de tres nodos: la raíz tiene $fb(30) = 0 - 2 = -2$.",
+    "La raíz está bien ($fb(50) = 3 - 2 = +1$), pero $70$ no: su lado derecho mide $2$ y el izquierdo $0$. "
+    "No basta mirar la raíz.",
+    "Se ve cargado a la izquierda, pero ningún nodo pasa de $1$: $fb(50) = 2 - 3 = -1$. Sí es AVL.",
+    "Todos los nodos están bien **menos la raíz**: $fb(40) = 1 - 3 = -2$. Hay que revisar cada nodo.",
+    "Los factores están perfectos, pero $60$ está en el subárbol **izquierdo** de $50$: no es ABB, y un "
+    "AVL ante todo es un ABB.",
+    "Es el AVL con **menos nodos** posibles para su altura ($5$ niveles con $12$ nodos): en cada nodo, el "
+    "lado izquierdo es exactamente $1$ más alto que el derecho. Parece desbalanceado, pero todos los "
+    "factores son $0$ o $-1$.",
+]
+
+
+def es_avl(p):
+    out = []
+    for i, ((nivel, tup), nota) in enumerate(zip(ES_AVL, ES_AVL_NOTAS), 1):
+        t = from_tuple(tup) if tup is not None else fib_tree(5, iter(range(5, 61, 5)))
+        frames, bst, bal, labels, ls, badk = check_frames(t)
+        q = f"![Árbol del ejemplo {i}]({p.img(f'esavl{i}', draw(t))})"
+        anim = anim_block(p, f"esavl{i}-anim", frames, f"Animación: ¿es AVL? (ejemplo {i})")
+        verd = "**Sí es AVL.**" if bst and bal else "**No es AVL.**"
+        out.append(f"**Ejemplo {i}** ({nivel}). ¿Es AVL?\n\n{q}\n\n:::{{admonition}} Respuesta\n"
+                   f":class: dropdown\n{anim}\n\n{verd} {nota}\n:::")
+    return "\n\n".join(out)
 
 
 # Diagramas esquemáticos de los casos (nodos con su fb y subárboles como triángulos)
@@ -495,6 +574,7 @@ def build():
     caps = ["a)", "b)", "c)", "d)"]
     p.put("fig-es", f"![Cuatro ABB]({row('es', trees, caps, lambda t: draw(t, dx=34))})")
     p.put("fig-es-sol", f"![Cuatro ABB con su fb]({row('es-sol', trees, caps, lambda t: adraw(t, dx=40))})")
+    p.put("es-avl", es_avl(p))
 
     # Daño al balanceo: al insertar y al eliminar
     t_ins = bst_build([4, 6, 7])
@@ -523,6 +603,7 @@ def build():
     svg.text((ax0 + ax1) / 2, 82, "RIGHT-ROTATE(y)", 13, PAL["new"])
     schem(svg, after, ax1 + 20)
     p.put("fig-rot", f"![Rotaciones]({p.img('rot', svg)})")
+    p.put("rot-anim", rotation_anim(p))
 
     # Casos A–F
     h, h1 = "h", "h + 1"
@@ -564,10 +645,14 @@ def build():
         st, _ = avl_tabs(p, f"ej{c}", ops, start=t0)
         op, k = ops[0]
         p.put(f"ej-{c}", steps(f"AVL-{'INSERT' if op == 'i' else 'DELETE'}(T, {k})", tabs + st))
+    for c in "ABCDEF":
+        p.put(f"anim-{c}", casos_anim(p, c))
 
     # Ejemplo 1: 1..7
     st, _ = avl_tabs(p, "ej1", [("i", k) for k in range(1, 8)])
-    p.put("ej1", steps("Insertar 1, 2, 3, 4, 5, 6, 7", st))
+    p.put("ej1", ops_anim(p, "ej1-anim", None, [("i", k) for k in range(1, 8)],
+                          "Animación: insertar 1, 2, 3, 4, 5, 6, 7") + "\n\n"
+          + steps("Insertar 1, 2, 3, 4, 5, 6, 7", st))
 
     # Ejemplo 2: insertar 25 (caso F)
     base = None
@@ -575,7 +660,8 @@ def build():
         base = avl_insert(base, k)
     p.put("fig-ej2-base", f"![AVL inicial]({p.img('ej2-base', adraw(base))})")
     st, _ = avl_tabs(p, "ej2", [("i", 25)], start=base)
-    p.put("ej2", steps("AVL-INSERT(T, 25)", st))
+    p.put("ej2", ops_anim(p, "ej2-anim", base, [("i", 25)], "Animación: AVL-INSERT(T, 25)") + "\n\n"
+          + steps("AVL-INSERT(T, 25)", st))
 
     # Ejemplo 3: eliminación con dos rebalanceos
     base3 = bst_build([5, 2, 1, 3, 4, 8, 7, 6, 11, 9, 10, 12])
@@ -583,7 +669,8 @@ def build():
     st, after3 = avl_tabs(p, "ej3", [("d", 1)], start=base3)
     st[-1] += ("\n\n> El primer rebalanceo bajó la altura del subárbol de $2$ de $3$ a $2$, y eso "
                "desbalanceó a la raíz: por eso hizo falta un **segundo** rebalanceo.")
-    p.put("ej3", steps("AVL-DELETE(T, 1)", st))
+    p.put("ej3", ops_anim(p, "ej3-anim", base3, [("d", 1)], "Animación: AVL-DELETE(T, 1)") + "\n\n"
+          + steps("AVL-DELETE(T, 1)", st))
 
     for i, ex in enumerate(EJEMPLOS, 1):
         p.put(f"ejx{i}", ejemplo_avl(p, i, ex))

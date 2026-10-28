@@ -83,6 +83,17 @@ Indique cuáles de estos ABB son AVL:
 En b) todos los nodos **menos la raíz** están bien. Hay que revisar **cada** nodo, no solo las hojas o los hijos de la raíz.
 :::
 
+### Más ejemplos: ¿es AVL?
+
+Siete árboles más, de fáciles a difíciles. El método es siempre el mismo:
+
+1. **¿Es ABB?** El inorden debe salir ordenado.
+2. **¿Está balanceado en altura?** Se calcula $fb$ de abajo hacia arriba, nivel por nivel, y se revisa que **todos** estén en $\{-1, 0, 1\}$.
+
+Intente responder antes de abrir la respuesta: la animación hace las dos revisiones.
+
+{{GEN:es-avl}}
+
 ### ¿Qué cambia respecto a un ABB?
 
 Buscar, mínimo, máximo, sucesor y predecesor son **iguales** que en un ABB: no modifican el árbol. Las operaciones que difieren son la **inserción** y la **eliminación**, porque pueden dañar el balanceo:
@@ -117,6 +128,8 @@ Al rotar $x$ a la izquierda, se **baja** $x$ y se **sube** $y$.
 
 {{GEN:fig-rot}}
 
+{{GEN:rot-anim}}
+
 ```text
 LEFT-ROTATE(x)                  RIGHT-ROTATE(y)
 1  y ← right[x]                 1  x ← left[y]
@@ -145,6 +158,8 @@ Cuando una inserción o una eliminación deja factores de balanceo con valor abs
 
 En los dibujos de esta sección, el número dentro de cada nodo es su factor de balanceo y cada triángulo es un subárbol, con su altura al lado.
 
+Después del ejemplo mínimo de cada caso hay **animaciones** con árboles más grandes, por inserción y por eliminación. En ellas, los subárboles que intervienen en la rotación van en color: **A** en azul, **B** (o **D**) en naranja, **C** en verde y **E** en morado. Fíjese en cuál cambia de padre.
+
 Tome $fb(p) = 2$. Si el subárbol izquierdo de $p$ tiene altura $h$, el derecho tiene altura $h + 2$; ese subárbol derecho tiene al menos dos nodos, y su raíz se llama $q$. Como todo lo que está debajo de $p$ está balanceado, $fb(q) \in \{-1, 0, 1\}$. Hay un caso por cada valor.
 
 ### Caso A: $fb(p) = 2$ y $fb(q) = 1$
@@ -157,6 +172,8 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 7)`.
 
 {{GEN:ej-A}}
 
+{{GEN:anim-A}}
+
 ### Caso B: $fb(p) = 2$ y $fb(q) = 0$
 
 Otra vez el lado derecho de $p$ es mucho más alto: se ejecuta `LEFT-ROTATE(p)` y se restablece el balance. Esta vez $q$ queda con $fb = -1$ y $p$ con $fb = 1$.
@@ -166,6 +183,8 @@ Otra vez el lado derecho de $p$ es mucho más alto: se ejecuta `LEFT-ROTATE(p)` 
 Este caso **no puede aparecer al insertar** (una inserción no deja a $q$ con sus dos subárboles altos a la vez); aparece al eliminar. Ejemplo: dado $T$, siga `AVL-DELETE(T, 4)`.
 
 {{GEN:ej-B}}
+
+{{GEN:anim-B}}
 
 ### Caso C: $fb(p) = 2$ y $fb(q) = -1$
 
@@ -181,6 +200,8 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 5)`.
 
 {{GEN:ej-C}}
 
+{{GEN:anim-C}}
+
 ### Casos D, E y F: $fb(p) = -2$
 
 Cuando $fb(p) = -2$ se divide otra vez según $fb(q) \in \{-1, 0, 1\}$, ahora con $q$ la raíz del subárbol **izquierdo** de $p$. Los tres casos son completamente simétricos a los anteriores: se cambia izquierda por derecha.
@@ -193,6 +214,8 @@ Ejemplo: dado $T$, siga `AVL-INSERT(T, 1)`.
 
 {{GEN:ej-D}}
 
+{{GEN:anim-D}}
+
 **Caso E: $fb(p) = -2$ y $fb(q) = 0$.** Se ejecuta `RIGHT-ROTATE(p)`. Como el caso B, solo aparece al eliminar.
 
 {{GEN:caso-E}}
@@ -201,6 +224,8 @@ Ejemplo: dado $T$, siga `AVL-DELETE(T, 8)`.
 
 {{GEN:ej-E}}
 
+{{GEN:anim-E}}
+
 **Caso F: $fb(p) = -2$ y $fb(q) = 1$.** Primero `LEFT-ROTATE(q)` y luego `RIGHT-ROTATE(p)`.
 
 {{GEN:caso-F}}
@@ -208,6 +233,8 @@ Ejemplo: dado $T$, siga `AVL-DELETE(T, 8)`.
 Ejemplo: dado $T$, siga `AVL-INSERT(T, 4)`.
 
 {{GEN:ej-F}}
+
+{{GEN:anim-F}}
 
 ### Resumen
 

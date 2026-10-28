@@ -19,6 +19,7 @@ PAGES = {
     "u4_recorridos": "Unidad4-EstructurasRecursivas/RecorridosArboles",
     "u4_abb": "Unidad4-EstructurasRecursivas/ArbolesBinariosBusqueda",
     "u4_avl": "Unidad4-EstructurasRecursivas/ArbolesAVL",
+    "u4_monticulos": "Unidad4-EstructurasRecursivas/Monticulos",
     "u5_conceptos": "Unidad5-Grafos/ConceptosBasicos",
     "u5_repr": "Unidad5-Grafos/RepresentacionConectividad",
     "u5_euler": "Unidad5-Grafos/ConectividadEulerHamilton",

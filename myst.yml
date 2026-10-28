@@ -115,6 +115,10 @@ project:
           title: "Árboles AVL: Estudio"
         - file: Unidad4-EstructurasRecursivas/ArbolesAVL/exercises.md
           title: "Árboles AVL: Ejercicios"
+        - file: Unidad4-EstructurasRecursivas/Monticulos/index.md
+          title: "Montículos: Estudio"
+        - file: Unidad4-EstructurasRecursivas/Monticulos/exercises.md
+          title: "Montículos: Ejercicios"
     - title: "Unidad 5: Grafos"
       children:
         - file: Unidad5-Grafos/ConceptosBasicos/index.md

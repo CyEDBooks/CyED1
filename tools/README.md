@@ -30,6 +30,7 @@ El script borra la carpeta `images/` de cada página antes de dibujarla, para no
 | `generador/pages/` | Un script por tema (`u4_avl.py`, `u5_dijkstra.py`, ...). Cada uno llena las marcas de sus plantillas. |
 | `generador/algos.py`, `tviz.py` | Los algoritmos con su traza: BFS, DFS, Dijkstra, Prim, Kruskal, Floyd-Warshall, Warshall, búsqueda en espacio de estados, minimax, ABB y AVL. |
 | `generador/figlib.py`, `gviz.py`, `sviz.py` | El dibujo de grafos, árboles y tableros, y el paso de cada traza a pestañas. |
+| `generador/anim.py` | Las animaciones: una lista de cuadros (dónde está cada nodo, su estilo, su padre) se vuelve un SVG con SMIL que desliza los nodos de un cuadro al siguiente y se repite solo. Funciona dentro de un `<img>`, sin JavaScript. Los mismos cuadros, quietos, dan las pestañas «Paso 1, Paso 2, ...». |
 | `generador/graphs.py` | Los grafos de ejemplo, tomados de las diapositivas del curso y de CLRS. |
 | `generador/mdlib.py`, `common.py` | El bloque de pestañas «Paso 1, Paso 2, ...», las tablas y el armado de cada página. |
 
